@@ -7,8 +7,7 @@
     "question": "Qual è la corretta gerarchia dal concetto più specifico al più ampio?",
     "options": ["Sistema -> Metodologia -> Metodo", "Metodo -> Sistema -> Metodologia", "Metodo -> Metodologia -> Sistema"],
     "answer": "Metodo -> Metodologia -> Sistema",
-    "explanation": "Il Metodo è una 'ricetta' specifica. La Metodologia è il 'libro di cucina' con i suoi principi. Il Sistema è l'intera 'scuola di cucina' che integra tutto.",
-    "reflective_question": "Come si differenziano i diversi livelli di organizzazione didattica?"
+    "explanation": "Il Metodo è una 'ricetta' specifica. La Metodologia è il 'libro di cucina' con i suoi principi. Il Sistema è l'intera 'scuola di cucina' che integra tutto."
   },
   {
     "id": 2,
@@ -17,8 +16,7 @@
     "type": "true_false",
     "question": "Un metodo vocale, secondo il documento, è generalmente flessibile e non sequenziale.",
     "answer": false,
-    "explanation": "Falso. Il documento specifica che i metodi sono 'generalmente rigidi e sequenziali', come una serie fissa di esercizi.",
-    "reflective_question": "Quale caratteristica distingue un metodo da una metodologia?"
+    "explanation": "Falso. Il documento specifica che i metodi sono 'generalmente rigidi e sequenziali', come una serie fissa di esercizi."
   },
   {
     "id": 3,
@@ -28,8 +26,7 @@
     "question": "Spiega con parole tue perché il VES è definito un 'Sistema' e non semplicemente una 'Metodologia'.",
     "answer": "Il VES è un Sistema perché integra diverse Metodologie (che a loro volta contengono Metodi) in un insieme sinergico. Non si limita a fornire principi teorici, ma include elementi interconnessi come persone, strumenti, procedure e aspetti relazionali.",
     "keywords": ["integra", "metodologie", "persone", "strumenti", "relazioni", "sinergico"],
-    "explanation": "Il VES va oltre una singola metodologia integrando molteplici approcci, persone, strumenti e relazioni in un sistema coerente.",
-    "reflective_question": "Quali elementi compongono un sistema educativo completo?"
+    "explanation": "Il VES va oltre una singola metodologia integrando molteplici approcci, persone, strumenti e relazioni in un sistema coerente."
   },
   {
     "id": 4,
@@ -39,8 +36,7 @@
     "question": "Cosa significa 'Slow Teaching' nel VES?",
     "answer": "Lo 'Slow Teaching' è il principio didattico del VES che prevede di lavorare su un obiettivo per volta, consolidandolo completamente prima di passare al successivo. Questo approccio permette al cervello di automatizzare ogni competenza prima di aggiungerne altre.",
     "keywords": ["slow teaching", "obiettivo", "consolidare", "automatizzare", "successivo"],
-    "explanation": "È un approccio didattico che privilegia la qualità e il consolidamento rispetto alla velocità di progressione.",
-    "reflective_question": "Perché è importante consolidare un obiettivo prima di passare al successivo?"
+    "explanation": "È un approccio didattico che privilegia la qualità e il consolidamento rispetto alla velocità di progressione."
   },
   {
     "id": 5,
@@ -50,8 +46,7 @@
     "question": "Nel VES, l'approccio 'Funzionale' si caratterizza per:",
     "options": ["Lavorare solo sui sintomi", "Concentrarsi sulla ricerca delle cause", "Integrare causa, sintomo e funzione in modo olistico", "Ignorare la biomeccanica"],
     "answer": "Integrare causa, sintomo e funzione in modo olistico",
-    "explanation": "L'approccio Funzionale del VES considera tutti gli aspetti in modo integrato, non isolando cause o sintomi.",
-    "reflective_question": "Cosa significa avere una visione olistica di un problema vocale?"
+    "explanation": "L'approccio Funzionale del VES considera tutti gli aspetti in modo integrato, non isolando cause o sintomi."
   },
   {
     "id": 6,
@@ -60,8 +55,7 @@
     "type": "true_false",
     "question": "La 'relazione' nel VES è considerata solo un aspetto accessorio del processo didattico.",
     "answer": false,
-    "explanation": "Falso. La relazione è il fulcro del processo didattico VES e determina l'efficacia dell'intero percorso.",
-    "reflective_question": "Quale ruolo ha la relazione nell'apprendimento motorio?"
+    "explanation": "Falso. La relazione è il fulcro del processo didattico VES e determina l'efficacia dell'intero percorso."
   },
   {
     "id": 7,
@@ -71,8 +65,7 @@
     "question": "Qual è il principio fondamentale della filosofia VES riguardo al cambiamento vocale?",
     "options": ["Il cambiamento deve avvenire solo a livello muscolare.", "Il cambiamento duraturo deve avvenire a livello neurale.", "Basta l'aspetto cognitivo per cambiare.", "Il massaggio è la tecnica più efficace."],
     "answer": "Il cambiamento duraturo deve avvenire a livello neurale.",
-    "explanation": "Questo è il cuore della filosofia VES. Qualsiasi modifica stabile richiede una riprogrammazione dei comandi motori nel cervello.",
-    "reflective_question": "Perché il cambiamento neurale è fondamentale per una trasformazione duratura?"
+    "explanation": "Questo è il cuore della filosofia VES. Qualsiasi modifica stabile richiede una riprogrammazione dei comandi motori nel cervello."
   },
   {
     "id": 8,
@@ -80,8 +73,7 @@
     "type": "true_false",
     "question": "L'approccio 'Sintomatico' si concentra sulla ricerca della causa (eziologia) di un problema vocale.",
     "answer": false,
-    "explanation": "Falso. L'approccio Sintomatico agisce sul sintomo. È l'approccio Eziologico che cerca la causa.",
-    "reflective_question": "Quale differenza c'è tra lavorare sul sintomo e sulla causa?"
+    "explanation": "Falso. L'approccio Sintomatico agisce sul sintomo. È l'approccio Eziologico che cerca la causa."
   },
   {
     "id": 9,
@@ -89,8 +81,7 @@
     "type": "open_ended",
     "question": "Il principio didattico del VES che prevede di consolidare un obiettivo alla volta si chiama...",
     "answer": "slow teaching",
-    "explanation": "Lo 'Slow Teaching' consiste nel lavorare su un singolo obiettivo finché non viene automatizzato dal cervello prima di passare al successivo.",
-    "reflective_question": "Come si applica concretamente il slow teaching nella didattica vocale?"
+    "explanation": "Lo 'Slow Teaching' consiste nel lavorare su un singolo obiettivo finché non viene automatizzato dal cervello prima di passare al successivo."
   },
   {
     "id": 10,
@@ -98,71 +89,64 @@
     "type": "open_ended",
     "question": "Descrivi l'importanza dell'attenzione divisa nell'insegnamento VES.",
     "answer": "L'attenzione divisa significa essere contemporaneamente attenti a se stessi (propriocezione interna) e all'allievo (osservazione esterna). Questo permette all'insegnante di modulare con maggiore efficacia il processo didattico, creando un feedback continuo tra le proprie sensazioni e quelle dell'allievo.",
-    "explanation": "È la capacità di mantenere simultaneamente l'attenzione su più livelli per ottimizzare l'intervento didattico.",
-    "reflective_question": "In che modo l'attenzione divisa migliora la qualità dell'insegnamento?"
+    "explanation": "È la capacità di mantenere simultaneamente l'attenzione su più livelli per ottimizzare l'intervento didattico."
   },
   {
     "id": 11,
-    "macro_area": "Anatomia Laringea",
+    "macro_area": "Anatomia",
     "module": "Cartilagini e Ossa",
     "type": "true_false",
     "question": "La cartilagine cricoidea ha forma di anello con la parte più larga posteriormente.",
     "answer": true,
-    "explanation": "Corretto. La cricoidea è descritta come un anello con sigillo, con la parte più voluminosa (lamina) posta posteriormente.",
-    "reflective_question": "Come si orienta anatomicamente la cartilagine cricoidea?"
+    "explanation": "Corretto. La cricoidea è descritta come un anello con sigillo, con la parte più voluminosa (lamina) posta posteriormente."
   },
   {
     "id": 12,
-    "macro_area": "Anatomia Laringea",
+    "macro_area": "Anatomia",
     "module": "Muscoli e Innervazione",
     "type": "multiple_choice",
     "question": "Quale muscolo intrinseco della laringe è innervato dal nervo laringeo superiore?",
     "options": ["Tiroaritenoideo", "Cricoaritenoideo posteriore", "Cricotiroideo", "Interaritenoideo"],
     "answer": "Cricotiroideo",
-    "explanation": "Solo il cricotiroideo è innervato dal nervo laringeo superiore; tutti gli altri muscoli intrinseci sono innervati dal nervo ricorrente.",
-    "reflective_question": "Perché il cricotiroideo ha un'innervazione diversa dagli altri muscoli laringei?"
+    "explanation": "Solo il cricotiroideo è innervato dal nervo laringeo superiore; tutti gli altri muscoli intrinseci sono innervati dal nervo ricorrente."
   },
   {
     "id": 13,
-    "macro_area": "Anatomia Laringea",
+    "macro_area": "Anatomia",
     "module": "Muscoli e Innervazione",
     "type": "true_false",
     "question": "I muscoli cricoaritenoidei posteriori sono gli unici abduttori delle corde vocali.",
     "answer": true,
-    "explanation": "Corretto. Sono l'unico paio di muscoli che aprono attivamente le corde vocali, ruotando le aritenoidi verso l'esterno.",
-    "reflective_question": "Cosa succederebbe se questi muscoli non funzionassero correttamente?"
+    "explanation": "Corretto. Sono l'unico paio di muscoli che aprono attivamente le corde vocali, ruotando le aritenoidi verso l'esterno."
   },
   {
     "id": 14,
-    "macro_area": "Anatomia Laringea",
+    "macro_area": "Anatomia",
     "module": "Tessuti Connettivi",
     "type": "open_ended",
     "question": "Spiega la differenza funzionale tra legamenti e tendini.",
     "answer": "I legamenti collegano ossa a ossa e forniscono stabilità articolare, mentre i tendini collegano muscoli alle ossa e trasmettono la forza muscolare per produrre movimento. I legamenti sono principalmente strutture di sostegno, i tendini sono strutture di trasmissione della forza.",
     "keywords": ["legamenti", "tendini", "ossa", "muscoli", "stabilità", "forza"],
-    "explanation": "Due tipi di tessuto connettivo con funzioni biomeccaniche diverse ma complementari.",
-    "reflective_question": "Come collaborano legamenti e tendini nel movimento laringeo?"
+    "explanation": "Due tipi di tessuto connettivo con funzioni biomeccaniche diverse ma complementari."
   },
   {
     "id": 15,
-    "macro_area": "Anatomia Laringea",
+    "macro_area": "Anatomia",
     "module": "Istologia e Strati",
     "type": "multiple_choice",
     "question": "L'epitelio che riveste le corde vocali è:",
     "options": ["Epitelio cilindrico ciliato", "Epitelio squamoso stratificato", "Epitelio cubico semplice", "Epitelio pseudostratificato"],
     "answer": "Epitelio squamoso stratificato",
-    "explanation": "Questo tipo di epitelio è resistente all'attrito e alle sollecitazioni meccaniche della vibrazione.",
-    "reflective_question": "Perché è importante che le corde vocali abbiano un rivestimento resistente?"
+    "explanation": "Questo tipo di epitelio è resistente all'attrito e alle sollecitazioni meccaniche della vibrazione."
   },
   {
     "id": 16,
-    "macro_area": "Biomeccanica del Gesto Vocale",
+    "macro_area": "Biomeccanica",
     "module": "Azione Muscolare",
     "type": "true_false",
     "question": "Il muscolo tiroaritenoideo (TA) allunga le corde vocali.",
     "answer": false,
-    "explanation": "Falso. Il TA accorcia e ispessisce le corde vocali, mentre il cricotiroideo le allunga.",
-    "reflective_question": "Quale muscolo è responsabile dell'allungamento delle corde vocali?"
+    "explanation": "Falso. Il TA accorcia e ispessisce le corde vocali, mentre il cricotiroideo le allunga."
   },
   {
     "id": 17,
@@ -172,8 +156,7 @@
     "question": "Descrivi le tre modalità di contrazione muscolare.",
     "answer": "Concentrica: il muscolo si accorcia generando movimento; Eccentrica: il muscolo si allunga sotto controllo, frenando un movimento; Isometrica: il muscolo genera tensione senza variare la lunghezza, mantenendo una posizione.",
     "keywords": ["concentrica", "eccentrica", "isometrica", "accorcia", "allunga", "tensione"],
-    "explanation": "Tre modalità fondamentali di lavoro muscolare con funzioni biomeccaniche diverse.",
-    "reflective_question": "Quale modalità di contrazione usi quando tieni ferma una posizione?"
+    "explanation": "Tre modalità fondamentali di lavoro muscolare con funzioni biomeccaniche diverse."
   },
   {
     "id": 18,
@@ -183,8 +166,7 @@
     "question": "Le 'macule flavae' nelle corde vocali sono importanti perché:",
     "options": ["Producono muco", "Contengono fibroblasti per la riparazione", "Generano vibrazione", "Controllano la tensione"],
     "answer": "Contengono fibroblasti per la riparazione",
-    "explanation": "Le macule flavae sono zone ricche di fibroblasti che producono sostanze per il mantenimento e la riparazione del tessuto cordale.",
-    "reflective_question": "Come si mantiene in salute il tessuto delle corde vocali?"
+    "explanation": "Le macule flavae sono zone ricche di fibroblasti che producono sostanze per il mantenimento e la riparazione del tessuto cordale."
   },
   {
     "id": 19,
@@ -192,8 +174,7 @@
     "type": "true_false",
     "question": "Tutti i muscoli intrinseci della laringe possiedono fusi neuromuscolari.",
     "answer": false,
-    "explanation": "Falso. Alcuni muscoli, come il tiroaritenoideo, hanno pochi o nessun fuso neuromuscolare, limitando la propriocezione.",
-    "reflective_question": "Come influisce la mancanza di propriocezione sul controllo muscolare?"
+    "explanation": "Falso. Alcuni muscoli, come il tiroaritenoideo, hanno pochi o nessun fuso neuromuscolare, limitando la propriocezione."
   },
   {
     "id": 20,
@@ -201,37 +182,33 @@
     "type": "open_ended",
     "question": "Qual è la funzione del ventricolo di Morgagni?",
     "answer": "Il ventricolo di Morgagni produce liquido lubrificante per mantenere idratate le corde vocali e agisce come primo spazio di risonanza laringea. Le sue ghiandole secretorie sono essenziali per la protezione e l'efficienza vibratoria delle corde vocali.",
-    "explanation": "È uno spazio fondamentale per lubrificazione e risonanza vocale.",
-    "reflective_question": "Cosa succederebbe alle corde vocali senza adeguata lubrificazione?"
+    "explanation": "È uno spazio fondamentale per lubrificazione e risonanza vocale."
   },
   {
     "id": 21,
-    "macro_area": "Biomeccanica del Gesto Vocale",
+    "macro_area": "Biomeccanica",
     "module": "Muscolatura Estrinseca",
     "type": "multiple_choice",
     "question": "I muscoli sopraioidei agiscono:",
     "options": ["Abbassando la laringe", "Elevando la laringe", "Chiudendo la glottide", "Aprendo la glottide"],
     "answer": "Elevando la laringe",
-    "explanation": "I muscoli sopraioidei, attraverso l'osso ioide, sollevano la laringe durante deglutizione e altre funzioni.",
-    "reflective_question": "In quali situazioni si eleva la laringe?"
+    "explanation": "I muscoli sopraioidei, attraverso l'osso ioide, sollevano la laringe durante deglutizione e altre funzioni."
   },
   {
     "id": 22,
-    "macro_area": "Biomeccanica del Gesto Vocale",
+    "macro_area": "Biomeccanica",
     "type": "true_false",
     "question": "L'articolazione cricotiroidea permette movimenti che modificano la tensione delle corde vocali.",
     "answer": true,
-    "explanation": "Corretto. I movimenti tra cricoide e tiroide cambiano la distanza e la tensione delle corde vocali, influenzando l'altezza tonale.",
-    "reflective_question": "Come si produce il cambiamento di registro vocale a livello articolare?"
+    "explanation": "Corretto. I movimenti tra cricoide e tiroide cambiano la distanza e la tensione delle corde vocali, influenzando l'altezza tonale."
   },
   {
     "id": 23,
-    "macro_area": "Biomeccanica del Gesto Vocale",
+    "macro_area": "Biomeccanica",
     "type": "open_ended",
     "question": "Spiega perché la postura del collo influenza la voce.",
     "answer": "La postura del collo, specialmente l'elevazione del mento, modifica la curvatura cervicale e la mobilità della laringe. Un mento elevato aumenta la tensione muscolare cervicale e limita la libertà di movimento laringeo, compromettendo la qualità vocale.",
-    "explanation": "La postura cervicale influenza direttamente la biomeccanica laringea.",
-    "reflective_question": "Prova a parlare con il mento molto alto e poi in posizione neutra: noti differenze?"
+    "explanation": "La postura cervicale influenza direttamente la biomeccanica laringea."
   },
   {
     "id": 24,
@@ -240,73 +217,65 @@
     "question": "Le fibre motorie multiple nel muscolo tiroaritenoideo servono per:",
     "options": ["Aumentare la forza", "Permettere controllo fine", "Accelerare la contrazione", "Ridurre la fatica"],
     "answer": "Permettere controllo fine",
-    "explanation": "Le numerose unità motorie permettono un controllo molto preciso e sfumato della tensione muscolare.",
-    "reflective_question": "Perché i muscoli della voce necessitano di controllo fine?"
+    "explanation": "Le numerose unità motorie permettono un controllo molto preciso e sfumato della tensione muscolare."
   },
   {
     "id": 25,
-    "macro_area": "Anatomia Laringea",
+    "macro_area": "Anatomia",
     "type": "true_false",
     "question": "I muscoli sottoioidei sono innervati dal nervo ipoglosso.",
     "answer": true,
-    "explanation": "Corretto. Tutti i muscoli sottoioidei ricevono innervazione dal XII nervo cranico (ipoglosso).",
-    "reflective_question": "Quale funzione hanno i muscoli sottoioidei nella fonazione?"
+    "explanation": "Corretto. Tutti i muscoli sottoioidei ricevono innervazione dal XII nervo cranico (ipoglosso)."
   },
   {
     "id": 26,
-    "macro_area": "Biomeccanica del Gesto Vocale",
+    "macro_area": "Biomeccanica",
     "type": "open_ended",
     "question": "Cosa si intende per 'tensione passiva' nei tessuti vocali?",
     "answer": "La tensione passiva è la resistenza intrinseca dei tessuti al movimento, determinata dalle proprietà elastiche e dalla idratazione. Include la rigidità naturale di legamenti, membrane e tessuti che si oppone al movimento indipendentemente dall'attivazione muscolare.",
-    "explanation": "È la componente non muscolare della resistenza al movimento dei tessuti.",
-    "reflective_question": "Come può variare la tensione passiva dei tessuti?"
+    "explanation": "È la componente non muscolare della resistenza al movimento dei tessuti."
   },
   {
     "id": 27,
-    "macro_area": "Anatomia Laringea",
+    "macro_area": "Anatomia",
     "type": "multiple_choice",
     "question": "Il muscolo digastrico è caratterizzato da:",
     "options": ["Un solo ventre muscolare", "Due ventri uniti da un tendine", "Tre ventri muscolari", "Innervazione unica"],
     "answer": "Due ventri uniti da un tendine",
-    "explanation": "Il digastrico ha due ventri (anteriore e posteriore) collegati da un tendine intermedio che passa attraverso l'osso ioide.",
-    "reflective_question": "Come funziona biomeccanicamente un muscolo con due ventri?"
+    "explanation": "Il digastrico ha due ventri (anteriore e posteriore) collegati da un tendine intermedio che passa attraverso l'osso ioide."
   },
   {
     "id": 28,
-    "macro_area": "Anatomia Laringea",
+    "macro_area": "Anatomia",
     "type": "true_false",
     "question": "La classificazione anatomica delle corde vocali può variare da 2 a 7 strati.",
     "answer": true,
-    "explanation": "Corretto. La stratificazione varia a seconda del livello di dettaglio dell'analisi istologica e funzionale.",
-    "reflective_question": "Perché esistono diverse classificazioni per la stessa struttura?"
+    "explanation": "Corretto. La stratificazione varia a seconda del livello di dettaglio dell'analisi istologica e funzionale."
   },
   {
     "id": 29,
-    "macro_area": "Anatomia Laringea",
+    "macro_area": "Anatomia",
     "type": "open_ended",
     "question": "Descrivi l'anello di Waldeyer.",
     "answer": "L'anello di Waldeyer è un sistema linfatico circolare che protegge l'ingresso delle vie respiratorie e digestive. È formato da tonsille palatine, faringee (adenoidi), linguali e tessuto linfatico associato, costituendo la prima barriera immunologica contro agenti patogeni.",
-    "explanation": "È un sistema di difesa immunologica delle prime vie aeree.",
-    "reflective_question": "Perché è importante avere protezione immunologica all'ingresso delle vie respiratorie?"
+    "explanation": "È un sistema di difesa immunologica delle prime vie aeree."
   },
   {
     "id": 30,
-    "macro_area": "Anatomia Laringea",
+    "macro_area": "Anatomia",
     "type": "multiple_choice",
     "question": "Le corna superiori della cartilagine tiroidea si articolano con:",
     "options": ["La cricoide", "L'aritenoide", "L'osso ioide", "La trachea"],
     "answer": "L'osso ioide",
-    "explanation": "Le corna superiori della tiroide si collegano tramite legamenti all'osso ioide, sospendendo la laringe.",
-    "reflective_question": "Come è sospesa la laringe nel collo?"
+    "explanation": "Le corna superiori della tiroide si collegano tramite legamenti all'osso ioide, sospendendo la laringe."
   },
   {
     "id": 31,
-    "macro_area": "Biomeccanica del Gesto Vocale",
+    "macro_area": "Biomeccanica",
     "type": "true_false",
     "question": "I movimenti delle strutture vocali sono sempre sinergici e mai isolati.",
     "answer": true,
-    "explanation": "Corretto. Nella fonazione non esistono movimenti isolati; tutto lavora in sinergia biomeccanica.",
-    "reflective_question": "Puoi muovere una sola parte della laringe senza influenzare le altre?"
+    "explanation": "Corretto. Nella fonazione non esistono movimenti isolati; tutto lavora in sinergia biomeccanica."
   },
   {
     "id": 32,
@@ -314,8 +283,7 @@
     "type": "open_ended",
     "question": "Qual è la sequenza delle macro aree operative del VES?",
     "answer": "1. Relazione, 2. Valutazione, 3. Preparare il territorio, 4. Risoluzione muscolare, 5. Abilitare, 6. Linguaggio, 7. Espressivo. Questa sequenza copre l'intero percorso dall'instaurazione del rapporto didattico fino all'espressione artistica.",
-    "explanation": "È la progressione logica del processo didattico VES.",
-    "reflective_question": "Perché è importante seguire questa sequenza nel processo didattico?"
+    "explanation": "È la progressione logica del processo didattico VES."
   },
   {
     "id": 33,
@@ -324,8 +292,7 @@
     "question": "Una contrazione isometrica si verifica quando:",
     "options": ["Il muscolo si accorcia", "Il muscolo si allunga", "Il muscolo mantiene la lunghezza ma aumenta la tensione", "Il muscolo si rilassa"],
     "answer": "Il muscolo mantiene la lunghezza ma aumenta la tensione",
-    "explanation": "Nella contrazione isometrica non c'è movimento articolare visibile ma aumenta la tensione muscolare.",
-    "reflective_question": "Quando usi le contrazioni isometriche nella vita quotidiana?"
+    "explanation": "Nella contrazione isometrica non c'è movimento articolare visibile ma aumenta la tensione muscolare."
   },
   {
     "id": 34,
@@ -333,8 +300,7 @@
     "type": "true_false",
     "question": "L'attivazione muscolare nella laringe è limitata alla sola fase di fonazione.",
     "answer": false,
-    "explanation": "Falso. I muscoli laringei sono attivi anche in respirazione, deglutizione, protezione delle vie aeree e mantenimento posturale.",
-    "reflective_question": "In quali altre funzioni oltre la voce è coinvolta la laringe?"
+    "explanation": "Falso. I muscoli laringei sono attivi anche in respirazione, deglutizione, protezione delle vie aeree e mantenimento posturale."
   },
   {
     "id": 35,
@@ -342,18 +308,16 @@
     "type": "open_ended",
     "question": "Spiega il ruolo del muscolo cricotiroideo.",
     "answer": "Il cricotiroideo allunga e tende le corde vocali inclinando la cartilagine tiroidea verso la cricoide. Questo aumenta la tensione longitudinale e facilita l'emissione di frequenze acute, svolgendo un ruolo cruciale nel controllo dell'altezza tonale.",
-    "explanation": "È il principale muscolo per l'allungamento e la tensione delle corde vocali.",
-    "reflective_question": "Come si raggiungono le note acute dal punto di vista muscolare?"
+    "explanation": "È il principale muscolo per l'allungamento e la tensione delle corde vocali."
   },
   {
     "id": 36,
-    "macro_area": "Anatomia Laringea",
+    "macro_area": "Anatomia",
     "type": "multiple_choice",
     "question": "Il nervo laringeo inferiore (ricorrente) innerva:",
     "options": ["Solo il cricotiroideo", "Tutti i muscoli intrinseci tranne il cricotiroideo", "Solo i muscoli estrinseci", "Nessun muscolo laringeo"],
     "answer": "Tutti i muscoli intrinseci tranne il cricotiroideo",
-    "explanation": "Il nervo ricorrente innerva tutti i muscoli intrinseci eccetto il cricotiroideo che è innervato dal laringeo superiore.",
-    "reflective_question": "Cosa succederebbe in caso di paralisi del nervo ricorrente?"
+    "explanation": "Il nervo ricorrente innerva tutti i muscoli intrinseci eccetto il cricotiroideo che è innervato dal laringeo superiore."
   },
   {
     "id": 37,
@@ -361,17 +325,15 @@
     "type": "true_false",
     "question": "Le fibre elastiche dello strato superficiale della lamina propria favoriscono la vibrazione.",
     "answer": true,
-    "explanation": "Corretto. Le fibre elastiche permettono ampia escursione vibratoria e flessibilità del margine libero delle corde vocali.",
-    "reflective_question": "Come si modifica la voce se diminuisce l'elasticità delle corde vocali?"
+    "explanation": "Corretto. Le fibre elastiche permettono ampia escursione vibratoria e flessibilità del margine libero delle corde vocali."
   },
   {
     "id": 38,
     "macro_area": "Fisiologia Vocale",
     "type": "open_ended",
     "question": "Cos'è la teoria aerodinamico-mioelastica di Van den Berg?",
-    "answer": "È la teoria che spiega la vibrazione delle corde vocali attraverso l'interazione tra pressione aerodinamica sottoglottica, elasticità tissutale e contrazione muscolare. Descrive come il flusso d'aria, l'elasticità dei tessuti e l'attivazione muscolare collaborino per produrre e modulare la vibrazione vocale.",
-    "explanation": "È il modello teorico fondamentale per comprendere la fonazione.",
-    "reflective_question": "Quali fattori controllano la vibrazione delle corde vocali secondo questa teoria?"
+    "answer": "È la teoria che spiega la vibrazione delle corde vocali attraverso l'interazione tra pressione aerodinamica sottoglottica, elasticità tissutale e contrazione muscolare.",
+    "explanation": "È il modello teorico fondamentale per comprendere la fonazione."
   },
   {
     "id": 39,
@@ -380,8 +342,7 @@
     "question": "Il muscolo interaritenoideo ha la funzione di:",
     "options": ["Aprire le corde vocali", "Chiudere e stabilizzare l'adduzione", "Allungare le corde vocali", "Elevare la laringe"],
     "answer": "Chiudere e stabilizzare l'adduzione",
-    "explanation": "L'interaritenoideo avvicina le cartilagini aritenoidi contribuendo alla chiusura glottica.",
-    "reflective_question": "Quale muscolo mantiene chiuse le corde vocali durante la fonazione?"
+    "explanation": "L'interaritenoideo avvicina le cartilagini aritenoidi contribuendo alla chiusura glottica."
   },
   {
     "id": 40,
@@ -389,17 +350,15 @@
     "type": "true_false",
     "question": "Una funzione fisiologica può cambiare stabilmente senza modifiche neurali.",
     "answer": false,
-    "explanation": "Falso. Secondo la filosofia VES, ogni cambiamento funzionale duraturo richiede modifiche nei pattern neurali di controllo motorio.",
-    "reflective_question": "Perché il cervello è centrale in ogni cambiamento funzionale?"
+    "explanation": "Falso. Secondo la filosofia VES, ogni cambiamento funzionale duraturo richiede modifiche nei pattern neurali di controllo motorio."
   },
   {
     "id": 41,
     "macro_area": "Filosofia e Didattica VES",
     "type": "open_ended",
     "question": "Definisci il concetto di 'preparare il territorio' nel VES.",
-    "answer": "Preparare il territorio significa creare le condizioni ottimali nei tessuti e nelle strutture prima di iniziare il lavoro specifico. Include rilassamento delle tensioni eccessive, miglioramento della mobilità articolare, ottimizzazione della circolazione e preparazione neuromuscolare per ricevere nuovi input.",
-    "explanation": "È la fase preparatoria che ottimizza i tessuti per il lavoro successivo.",
-    "reflective_question": "Perché è importante preparare i tessuti prima di lavorare sulla funzione?"
+    "answer": "Preparare il territorio significa creare le condizioni ottimali nei tessuti e nelle strutture prima di iniziare il lavoro specifico.",
+    "explanation": "È la fase preparatoria che ottimizza i tessuti per il lavoro successivo."
   },
   {
     "id": 42,
@@ -408,8 +367,7 @@
     "question": "La disidratazione dei tessuti vocali causa:",
     "options": ["Maggiore flessibilità", "Aumento della tensione passiva", "Migliore vibrazione", "Nessun effetto"],
     "answer": "Aumento della tensione passiva",
-    "explanation": "La disidratazione irrigidisce i tessuti aumentando la resistenza passiva al movimento e compromettendo la vibrazione.",
-    "reflective_question": "Come influisce l'idratazione sulla qualità vocale?"
+    "explanation": "La disidratazione irrigidisce i tessuti aumentando la resistenza passiva al movimento e compromettendo la vibrazione."
   },
   {
     "id": 43,
@@ -417,17 +375,15 @@
     "type": "true_false",
     "question": "Il VES considera la voce solo durante la performance artistica.",
     "answer": false,
-    "explanation": "Falso. Il VES considera la voce in tutti i suoi aspetti funzionali: comunicazione, espressione, salute e arte.",
-    "reflective_question": "In quali ambiti della vita quotidiana usiamo la voce?"
+    "explanation": "Falso. Il VES considera la voce in tutti i suoi aspetti funzionali: comunicazione, espressione, salute e arte."
   },
   {
     "id": 44,
     "macro_area": "Filosofia e Didattica VES",
     "type": "open_ended",
     "question": "Spiega cosa si intende per 'approccio globale' nel VES.",
-    "answer": "L'approccio globale considera la persona nella sua totalità: aspetti fisici, emotivi, relazionali e funzionali sono tutti interconnessi. Non si lavora solo sulla voce isolatamente, ma si considera come essa sia influenzata e influenzi l'intera persona e il suo modo di essere nel mondo.",
-    "explanation": "È una visione olistica che vede la voce nel contesto della persona intera.",
-    "reflective_question": "Come la voce riflette lo stato generale della persona?"
+    "answer": "L'approccio globale considera la persona nella sua totalità: aspetti fisici, emotivi, relazionali e funzionali sono tutti interconnessi.",
+    "explanation": "È una visione olistica che vede la voce nel contesto della persona intera."
   },
   {
     "id": 45,
@@ -436,8 +392,7 @@
     "question": "Nel VES, la 'qualità relazionale' è importante perché:",
     "options": ["Rende piacevole la lezione", "È necessaria per il cambiamento neurale", "Fa risparmiare tempo", "Evita conflitti"],
     "answer": "È necessaria per il cambiamento neurale",
-    "explanation": "La qualità relazionale crea le condizioni neurobiologiche ottimali per l'apprendimento e il cambiamento motorio.",
-    "reflective_question": "Come la relazione influenza l'apprendimento motorio?"
+    "explanation": "La qualità relazionale crea le condizioni neurobiologiche ottimali per l'apprendimento e il cambiamento motorio."
   },
   {
     "id": 46,
@@ -445,17 +400,15 @@
     "type": "true_false",
     "question": "Gli esercizi propriocettivi da soli sono sufficienti per cambiare la funzione vocale.",
     "answer": false,
-    "explanation": "Falso. La propriocezione da sola non modifica i pattern neurali; serve integrazione con stimoli neurali per ottenere cambiamenti funzionali.",
-    "reflective_question": "Cosa serve oltre alla propriocezione per cambiare la funzione?"
+    "explanation": "Falso. La propriocezione da sola non modifica i pattern neurali; serve integrazione con stimoli neurali per ottenere cambiamenti funzionali."
   },
   {
     "id": 47,
     "macro_area": "Fisiologia Vocale",
     "type": "open_ended",
     "question": "Descrivi l'importanza della respirazione nel sistema pneumo-fono-articolatorio.",
-    "answer": "La respirazione fornisce l'energia pneumatica necessaria per la fonazione. Non è solo 'sostegno' ma una gestione fine della pressione sottoglottica in relazione alla resistenza glottica. La coordinazione pneumo-laringea è fondamentale per efficienza, controllo dinamico e qualità vocale.",
-    "explanation": "È il sistema energetico che alimenta la produzione vocale.",
-    "reflective_question": "Come si coordina la respirazione con la fonazione?"
+    "answer": "La respirazione fornisce l'energia pneumatica necessaria per la fonazione.",
+    "explanation": "È il sistema energetico che alimenta la produzione vocale."
   },
   {
     "id": 48,
@@ -464,8 +417,7 @@
     "question": "La 'microrespirazione' o 'ritorno d'aria' è:",
     "options": ["Un errore tecnico", "Una respirazione completa", "Piccole inspirazioni durante la performance", "Un esercizio specifico"],
     "answer": "Piccole inspirazioni durante la performance",
-    "explanation": "Sono piccole e rapide inspirazioni che fanno parte integrante del fraseggio e della gestione respiratoria durante l'esecuzione.",
-    "reflective_question": "Come si integra la microrespirazione nel fraseggio musicale?"
+    "explanation": "Sono piccole e rapide inspirazioni che fanno parte integrante del fraseggio e della gestione respiratoria durante l'esecuzione."
   },
   {
     "id": 49,
@@ -473,17 +425,15 @@
     "type": "true_false",
     "question": "Il 'suono in posizione' si riferisce a una specifica nota musicale.",
     "answer": false,
-    "explanation": "Falso. Il suono in posizione è una sensazione propriocettiva di vibrazione nella parte anteriore del viso, non una nota specifica.",
-    "reflective_question": "Cosa significa percepire il suono 'avanti' o 'in maschera'?"
+    "explanation": "Falso. Il suono in posizione è una sensazione propriocettiva di vibrazione nella parte anteriore del viso, non una nota specifica."
   },
   {
     "id": 50,
-    "macro_area": "Biomeccanica del Gesto Vocale",
+    "macro_area": "Biomeccanica",
     "type": "open_ended",
     "question": "Cosa si intende per 'elasticità tissutale' delle corde vocali?",
-    "answer": "L'elasticità tissutale è la capacità dei tessuti cordali di deformarsi sotto tensione e ritornare alla forma originale. Dipende dalle fibre elastiche, dall'idratazione, dall'età e dalla salute del tessuto. È fondamentale per vibrazione efficiente, qualità timbrica e flessibilità vocale.",
-    "explanation": "È una proprietà biomeccanica essenziale per la funzione vibratoria.",
-    "reflective_question": "Come cambia l'elasticità delle corde vocali con l'età?"
+    "answer": "L'elasticità tissutale è la capacità dei tessuti cordali di deformarsi sotto tensione e ritornare alla forma originale.",
+    "explanation": "È una proprietà biomeccanica essenziale per la funzione vibratoria."
   },
   {
     "id": 51,
@@ -492,36 +442,32 @@
     "question": "Il feedback nel processo didattico VES è:",
     "options": ["Solo verbale", "Solo visivo", "Solo tattile", "Multimodale e continuo"],
     "answer": "Multimodale e continuo",
-    "explanation": "Il feedback nel VES integra canali visivi, uditivi, tattili e propriocettivi in un flusso continuo di informazioni.",
-    "reflective_question": "Perché è importante un feedback multimodale?"
+    "explanation": "Il feedback nel VES integra canali visivi, uditivi, tattili e propriocettivi in un flusso continuo di informazioni."
   },
   {
     "id": 52,
-    "macro_area": "Anatomia Laringea",
+    "macro_area": "Anatomia",
     "type": "true_false",
     "question": "La laringe ha funzioni solo respiratorie e fonatorie.",
     "answer": false,
-    "explanation": "Falso. La laringe ha anche funzioni di protezione delle vie aeree, deglutizione, mantenimento posturale e partecipazione all'omeostasi.",
-    "reflective_question": "Quali altre funzioni vitali coinvolgono la laringe?"
+    "explanation": "Falso. La laringe ha anche funzioni di protezione delle vie aeree, deglutizione, mantenimento posturale e partecipazione all'omeostasi."
   },
   {
     "id": 53,
-    "macro_area": "Biomeccanica del Gesto Vocale",
+    "macro_area": "Biomeccanica",
     "type": "open_ended",
     "question": "Spiega il concetto di 'sinergia biomeccanica' nella fonazione.",
-    "answer": "La sinergia biomeccanica indica che tutti i componenti dell'apparato vocale lavorano in coordinazione integrata. Respirazione, laringe, risonatori e articolatori si coordinano in pattern sinergici dove ogni elemento influenza e viene influenzato dagli altri, non esistendo movimenti isolati.",
-    "explanation": "È il principio di coordinazione integrata di tutti i sistemi vocali.",
-    "reflective_question": "Puoi isolare completamente un movimento vocale dagli altri?"
+    "answer": "La sinergia biomeccanica indica che tutti i componenti dell'apparato vocale lavorano in coordinazione integrata.",
+    "explanation": "È il principio di coordinazione integrata di tutti i sistemi vocali."
   },
   {
     "id": 54,
-    "macro_area": "Anatomia Laringea",
+    "macro_area": "Anatomia",
     "type": "multiple_choice",
     "question": "L'innervazione sensitiva della laringe è principalmente affidata al:",
     "options": ["Nervo vago", "Nervo ipoglosso", "Nervo trigemino", "Nervo laringeo superiore"],
     "answer": "Nervo laringeo superiore",
-    "explanation": "Il nervo laringeo superiore fornisce la principale innervazione sensitiva della laringe sopraglottica.",
-    "reflective_question": "Perché è importante la sensibilità laringea?"
+    "explanation": "Il nervo laringeo superiore fornisce la principale innervazione sensitiva della laringe sopraglottica."
   },
   {
     "id": 55,
@@ -529,17 +475,15 @@
     "type": "true_false",
     "question": "Il VES utilizza esclusivamente tecniche moderne senza riferimenti tradizionali.",
     "answer": false,
-    "explanation": "Falso. Il VES integra sapientemente tradizione e innovazione, mantenendo elementi validi della tradizione e integrandoli con conoscenze moderne.",
-    "reflective_question": "Come si può integrare tradizione e innovazione nella didattica?"
+    "explanation": "Falso. Il VES integra sapientemente tradizione e innovazione, mantenendo elementi validi della tradizione e integrandoli con conoscenze moderne."
   },
   {
     "id": 56,
     "macro_area": "Fisiologia Vocale",
     "type": "open_ended",
     "question": "Descrivi il ruolo dei risonatori nella produzione vocale.",
-    "answer": "I risonatori (faringe, cavità orale, cavità nasali) amplificano, filtrano e modellano il suono prodotto dalle corde vocali. Determinano il timbro, la proiezione e le caratteristiche acustiche finali della voce. La loro configurazione variabile permette la diversificazione timbrica e l'articolazione.",
-    "explanation": "Trasformano il suono laringeo grezzo nel suono vocale finale riconoscibile.",
-    "reflective_question": "Come i risonatori personalizzano la tua voce?"
+    "answer": "I risonatori (faringe, cavità orale, cavità nasali) amplificano, filtrano e modellano il suono prodotto dalle corde vocali.",
+    "explanation": "Trasformano il suono laringeo grezzo nel suono vocale finale riconoscibile."
   },
   {
     "id": 57,
@@ -548,8 +492,7 @@
     "question": "La 'pressione sottoglottica' è:",
     "options": ["La pressione sopra le corde vocali", "La pressione sotto le corde vocali", "La pressione nei polmoni", "La pressione atmosferica"],
     "answer": "La pressione sotto le corde vocali",
-    "explanation": "È la pressione dell'aria nello spazio sotto le corde vocali, fondamentale per mantenere la vibrazione.",
-    "reflective_question": "Come si regola la pressione sottoglottica durante il canto?"
+    "explanation": "È la pressione dell'aria nello spazio sotto le corde vocali, fondamentale per mantenere la vibrazione."
   },
   {
     "id": 58,
@@ -557,17 +500,15 @@
     "type": "true_false",
     "question": "Tutti gli esercizi VES hanno lo stesso obiettivo.",
     "answer": false,
-    "explanation": "Falso. Ogni esercizio VES ha obiettivi specifici calibrati sulla persona e sulla fase del percorso didattico.",
-    "reflective_question": "Perché è importante personalizzare gli esercizi?"
+    "explanation": "Falso. Ogni esercizio VES ha obiettivi specifici calibrati sulla persona e sulla fase del percorso didattico."
   },
   {
     "id": 59,
     "macro_area": "Filosofia e Didattica VES",
     "type": "open_ended",
     "question": "Cosa significa 'personalizzazione didattica' nel VES?",
-    "answer": "La personalizzazione didattica significa adattare metodi, tempi, modalità e obiettivi alle caratteristiche individuali dell'allievo. Include valutazione delle specificità anatomiche, funzionali, cognitive ed emotive per creare un percorso unico e ottimale per quella persona.",
-    "explanation": "È l'adattamento dell'intervento didattico alle caratteristiche individuali.",
-    "reflective_question": "Perché ogni persona ha bisogno di un approccio didattico diverso?"
+    "answer": "La personalizzazione didattica significa adattare metodi, tempi, modalità e obiettivi alle caratteristiche individuali dell'allievo.",
+    "explanation": "È l'adattamento dell'intervento didattico alle caratteristiche individuali."
   },
   {
     "id": 60,
@@ -576,8 +517,7 @@
     "question": "La 'fase espressiva' nel VES rappresenta:",
     "options": ["L'inizio del percorso", "La risoluzione dei problemi", "L'integrazione artistica finale", "Solo la performance"],
     "answer": "L'integrazione artistica finale",
-    "explanation": "È la fase culminante dove le competenze acquisite si integrano nell'espressione artistica e comunicativa.",
-    "reflective_question": "Come si passa dalla tecnica all'espressione artistica?"
+    "explanation": "È la fase culminante dove le competenze acquisite si integrano nell'espressione artistica e comunicativa."
   },
   {
     "id": 61,
@@ -585,17 +525,15 @@
     "type": "true_false",
     "question": "Il VES considera importante solo il risultato finale.",
     "answer": false,
-    "explanation": "Falso. Il VES valorizza tutto il processo di apprendimento, non solo il risultato finale, considerando ogni fase significativa.",
-    "reflective_question": "Perché è importante valorizzare il processo oltre al risultato?"
+    "explanation": "Falso. Il VES valorizza tutto il processo di apprendimento, non solo il risultato finale."
   },
   {
     "id": 62,
     "macro_area": "Filosofia e Didattica VES",
     "type": "open_ended",
     "question": "Spiega l'importanza della 'consapevolezza corporea' nel VES.",
-    "answer": "La consapevolezza corporea permette di percepire e controllare con precisione i processi fisiologici coinvolti nella fonazione. Include propriocezione, controllo motorio fine, riconoscimento delle tensioni e capacità di autoregolazione. È fondamentale per l'autonomia dell'allievo e la stabilità delle acquisizioni.",
-    "explanation": "È la base per il controllo volontario e l'autonomia vocale.",
-    "reflective_question": "Come sviluppi la consapevolezza del tuo corpo durante la voce?"
+    "answer": "La consapevolezza corporea permette di percepire e controllare con precisione i processi fisiologici coinvolti nella fonazione.",
+    "explanation": "È la base per il controllo volontario e l'autonomia vocale."
   },
   {
     "id": 63,
@@ -604,8 +542,7 @@
     "question": "L'approccio 'neuroeducativo' del VES significa:",
     "options": ["Studiare solo neurologia", "Ignorare il cervello", "Basare la didattica sui principi neurobiologici", "Usare tecnologie"],
     "answer": "Basare la didattica sui principi neurobiologici",
-    "explanation": "Significa applicare le conoscenze sul funzionamento cerebrale e nervoso per ottimizzare l'apprendimento e il cambiamento.",
-    "reflective_question": "Come il cervello apprende nuove competenze motorie?"
+    "explanation": "Significa applicare le conoscenze sul funzionamento cerebrale e nervoso per ottimizzare l'apprendimento."
   },
   {
     "id": 64,
@@ -613,17 +550,15 @@
     "type": "true_false",
     "question": "La voce è influenzata solo da fattori fisici.",
     "answer": false,
-    "explanation": "Falso. La voce è influenzata da fattori fisici, emotivi, psicologici, relazionali e ambientali in modo integrato.",
-    "reflective_question": "In che modo le emozioni influenzano la tua voce?"
+    "explanation": "Falso. La voce è influenzata da fattori fisici, emotivi, psicologici, relazionali e ambientali in modo integrato."
   },
   {
     "id": 65,
     "macro_area": "Filosofia e Didattica VES",
     "type": "open_ended",
     "question": "Descrivi il concetto di 'autoregolazione' nel VES.",
-    "answer": "L'autoregolazione è la capacità dell'allievo di monitorare, valutare e correggere autonomamente la propria produzione vocale. Include sviluppo dell'ascolto interno, feedback propriocettivo, capacità autocritica costruttiva e indipendenza dalle correzioni esterne.",
-    "explanation": "È l'obiettivo di rendere l'allievo autonomo nel controllo della propria voce.",
-    "reflective_question": "Come sviluppi la capacità di correggerti da solo?"
+    "answer": "L'autoregolazione è la capacità dell'allievo di monitorare, valutare e correggere autonomamente la propria produzione vocale.",
+    "explanation": "È l'obiettivo di rendere l'allievo autonomo nel controllo della propria voce."
   },
   {
     "id": 66,
@@ -632,8 +567,7 @@
     "question": "Il 'territorio tissutale' nel VES si riferisce a:",
     "options": ["Una zona geografica", "Lo stato dei tessuti e strutture", "Un tipo di esercizio", "Una metodologia"],
     "answer": "Lo stato dei tessuti e strutture",
-    "explanation": "È la condizione fisica dei tessuti: elasticità, idratazione, tensioni, mobilità e prontezza a rispondere agli stimoli.",
-    "reflective_question": "Come valuti lo stato dei tuoi tessuti vocali?"
+    "explanation": "È la condizione fisica dei tessuti: elasticità, idratazione, tensioni, mobilità."
   },
   {
     "id": 67,
@@ -641,17 +575,15 @@
     "type": "true_false",
     "question": "Nel VES la teoria e la pratica sono separate.",
     "answer": false,
-    "explanation": "Falso. Teoria e pratica sono integrate: la comprensione teorica sostiene la pratica e l'esperienza pratica arricchisce la teoria.",
-    "reflective_question": "Come si integrano conoscenza teorica ed esperienza pratica?"
+    "explanation": "Falso. Teoria e pratica sono integrate."
   },
   {
     "id": 68,
     "macro_area": "Filosofia e Didattica VES",
     "type": "open_ended",
     "question": "Cosa si intende per 'ecologia vocale' nel VES?",
-    "answer": "L'ecologia vocale considera la voce nel suo ambiente naturale di vita, includendo abitudini quotidiane, contesto lavorativo, stile di vita, alimentazione, stress e tutti i fattori ambientali che influenzano la salute e l'efficienza vocale.",
-    "explanation": "È la visione della voce nel contesto ambientale e di vita della persona.",
-    "reflective_question": "Come il tuo ambiente di vita influenza la tua voce?"
+    "answer": "L'ecologia vocale considera la voce nel suo ambiente naturale di vita, includendo abitudini quotidiane, contesto lavorativo, stile di vita, etc.",
+    "explanation": "È la visione della voce nel contesto ambientale e di vita della persona."
   },
   {
     "id": 69,
@@ -660,8 +592,7 @@
     "question": "La 'memoria motoria' nel VES è importante perché:",
     "options": ["Ricorda le canzoni", "Automatizza i pattern corretti", "Memorizza le note", "Ricorda gli errori"],
     "answer": "Automatizza i pattern corretti",
-    "explanation": "La memoria motoria consolida i pattern neuromuscolari corretti rendendoli automatici e stabili.",
-    "reflective_question": "Come si automatizza un movimento corretto?"
+    "explanation": "La memoria motoria consolida i pattern neuromuscolari corretti rendendoli automatici e stabili."
   },
   {
     "id": 70,
@@ -669,17 +600,15 @@
     "type": "true_false",
     "question": "Il VES utilizza solo esercizi tradizionali di tecnica vocale.",
     "answer": false,
-    "explanation": "Falso. Il VES integra esercizi tradizionali con innovazioni basate su conoscenze moderne di neuroscienze, biomeccanica e fisiologia.",
-    "reflective_question": "Come si evolve la didattica vocale con le nuove conoscenze?"
+    "explanation": "Falso. Il VES integra esercizi tradizionali con innovazioni basate su conoscenze moderne."
   },
   {
     "id": 71,
     "macro_area": "Filosofia e Didattica VES",
     "type": "open_ended",
     "question": "Spiega il ruolo dell'osservazione nel VES.",
-    "answer": "L'osservazione nel VES è un'arte che integra aspetti visivi, uditivi e intuitivi. L'insegnante osserva postura, respirazione, tensioni, qualità del suono, espressione e dinamiche emotive per comprendere lo stato dell'allievo e calibrare l'intervento.",
-    "explanation": "È uno strumento diagnostico e didattico fondamentale per l'insegnante.",
-    "reflective_question": "Cosa puoi osservare in una persona mentre canta?"
+    "answer": "L'osservazione nel VES è un'arte che integra aspetti visivi, uditivi e intuitivi per calibrare l'intervento.",
+    "explanation": "È uno strumento diagnostico e didattico fondamentale per l'insegnante."
   },
   {
     "id": 72,
@@ -688,8 +617,7 @@
     "question": "L'integrazione mente-corpo nel VES significa:",
     "options": ["Separare pensiero e azione", "Coordinare aspetti cognitivi ed emotivi con quelli fisici", "Usare solo la mente", "Ignorare le emozioni"],
     "answer": "Coordinare aspetti cognitivi ed emotivi con quelli fisici",
-    "explanation": "È il riconoscimento che mente e corpo sono un sistema unico integrato nella produzione vocale.",
-    "reflective_question": "Come si integrano pensieri, emozioni e corpo nella voce?"
+    "explanation": "È il riconoscimento che mente e corpo sono un sistema unico integrato."
   },
   {
     "id": 73,
@@ -697,17 +625,15 @@
     "type": "true_false",
     "question": "La creatività nel VES è considerata solo nella fase finale.",
     "answer": false,
-    "explanation": "Falso. La creatività permea tutto il processo VES, dalla relazione didattica all'applicazione degli esercizi fino all'espressione finale.",
-    "reflective_question": "In quali momenti del percorso didattico è importante la creatività?"
+    "explanation": "Falso. La creatività permea tutto il processo VES."
   },
   {
     "id": 74,
     "macro_area": "Filosofia e Didattica VES",
     "type": "open_ended",
     "question": "Descrivi l'importanza della 'fiducia' nel processo VES.",
-    "answer": "La fiducia nel VES è multipla: fiducia nell'insegnante, nel processo, in se stessi e nelle proprie capacità. Crea le condizioni neurobiologiche ottimali per l'apprendimento, riduce le tensioni da ansia e permette l'apertura al cambiamento e alla sperimentazione.",
-    "explanation": "È un fattore neurobiologico che facilita l'apprendimento e il cambiamento.",
-    "reflective_question": "Come la fiducia influenza la tua capacità di imparare?"
+    "answer": "La fiducia crea le condizioni neurobiologiche ottimali per l'apprendimento, riducendo le tensioni e permettendo il cambiamento.",
+    "explanation": "È un fattore neurobiologico che facilita l'apprendimento."
   },
   {
     "id": 75,
@@ -716,8 +642,7 @@
     "question": "Il VES si caratterizza principalmente per essere:",
     "options": ["Un metodo rigido", "Una raccolta di esercizi", "Un sistema integrato e personalizzabile", "Una teoria astratta"],
     "answer": "Un sistema integrato e personalizzabile",
-    "explanation": "È un sistema complesso, flessibile e adattabile alle esigenze individuali.",
-    "reflective_question": "Cosa distingue un sistema integrato da un semplice metodo?"
+    "explanation": "È un sistema complesso, flessibile e adattabile alle esigenze individuali."
   },
   {
     "id": 76,
@@ -739,7 +664,7 @@
   {
     "id": 78,
     "macro_area": "Proprietà CVV",
-    "type": "short_answer",
+    "type": "open_ended",
     "question": "Come si chiama il parametro che definisce la morbidezza della corda vocale, reciproco della rigidità?",
     "answer": "compliance",
     "explanation": "La compliance è la misura della deformabilità di un tessuto. Alta compliance significa bassa rigidità (la corda si muove facilmente), bassa compliance significa alta rigidità (la corda si muove con più difficoltà)."
@@ -788,7 +713,7 @@
   {
     "id": 84,
     "macro_area": "Ciclo Vibratorio",
-    "type": "short_answer",
+    "type": "open_ended",
     "question": "Quale principio fisico spiega come un flusso d'aria veloce crei una pressione negativa che aiuta le corde a chiudersi?",
     "answer": "principio di bernoulli",
     "explanation": "Il Principio di Bernoulli è una delle forze chiave che contribuiscono alla chiusura della glottide, ma non è l'unica."
@@ -837,7 +762,7 @@
   {
     "id": 90,
     "macro_area": "Controllo f0 e SPL",
-    "type": "short_answer",
+    "type": "open_ended",
     "question": "Il grafico che mostra la variazione della f0 nel tempo si chiama...",
     "answer": "contour",
     "explanation": "Il 'frequency fundamental contour' (ffc) mostra l'andamento melodico e prosodico di una frase."
@@ -886,7 +811,7 @@
   {
     "id": 96,
     "macro_area": "Funzioni Laringe/Vocal Tract",
-    "type": "short_answer",
+    "type": "open_ended",
     "question": "La manovra 'valsalva' (tappare il naso e soffiare) è utile per verificare la capacità di...",
     "answer": "chiusura delle corde vocali",
     "explanation": "La manovra di Valsalva crea una pressurizzazione senza vibrazione, testando la capacità di chiusura completa della glottide."
@@ -935,7 +860,7 @@
   {
     "id": 102,
     "macro_area": "Applicazioni Didattiche",
-    "type": "short_answer",
+    "type": "open_ended",
     "question": "Quale strumento visualizza la distribuzione dell'energia acustica sulle varie frequenze in tempo reale?",
     "answer": "spettrogramma",
     "explanation": "Lo spettrogramma è fondamentale per l'analisi del timbro, mostrando se l'energia è concentrata sugli armonici gravi (suono scuro) o acuti (suono chiaro)."
@@ -984,7 +909,7 @@
   {
     "id": 108,
     "macro_area": "Palato e Faringe",
-    "type": "short_answer",
+    "type": "open_ended",
     "question": "Come si chiama la linea tendinea posteriore dove si inseriscono i muscoli costrittori?",
     "answer": "rafe",
     "explanation": "Il rafe faringeo è il punto di ancoraggio posteriore per i muscoli costrittori della faringe."
@@ -1016,7 +941,7 @@
   {
     "id": 112,
     "macro_area": "Mandibola e Lingua",
-    "type": "short_answer",
+    "type": "open_ended",
     "question": "Come si chiama il disco articolare nell'articolazione temporo-mandibolare (ATM)?",
     "answer": "menisco",
     "explanation": "Il menisco distribuisce le forze e garantisce un movimento fluido."
@@ -1065,7 +990,7 @@
   {
     "id": 118,
     "macro_area": "Anatomia",
-    "type": "short_answer",
+    "type": "open_ended",
     "question": "Quale struttura anatomica, se troppo tesa, può causare difficoltà nella discesa della laringe?",
     "answer": "cono elastico",
     "explanation": "L'elevazione della laringe può provocare una trazione verso il basso del cono elastico, indurendolo e rendendo più difficile l'abbassamento della laringe."
@@ -1097,7 +1022,7 @@
   {
     "id": 122,
     "macro_area": "Biomeccanica",
-    "type": "short_answer",
+    "type": "open_ended",
     "question": "Oltre al principio di Bernoulli e al ritorno elastico, quale altro fattore è oggi considerato cruciale per il mantenimento della vibrazione cordale?",
     "answer": "il vocal tract",
     "explanation": "La visione moderna considera le variazioni di pressione e l'impedenza acustica generate nel tratto vocale superiore come un fattore attivo nel sostenere la vibrazione, non solo come un semplice risuonatore."
@@ -1129,7 +1054,7 @@
   {
     "id": 126,
     "macro_area": "Risonanza",
-    "type": "short_answer",
+    "type": "open_ended",
     "question": "Quale strumento è utile per monitorare l'intensità vocale durante lezioni online?",
     "answer": "volume checking",
     "explanation": "Il 'volume checking' (o un semplice fonometro) permette di avere un feedback visivo e oggettivo sull'intensità, bypassando le limitazioni dell'audio compresso online."
@@ -1154,7 +1079,7 @@
   {
     "id": 129,
     "macro_area": "Funzioni Laringe",
-    "type": "short_answer",
+    "type": "open_ended",
     "question": "Quale epitelio si trova nelle vie respiratorie superiori, colonizzate da batteri?",
     "answer": "epitelio squamoso stratificato",
     "explanation": "L'epitelio squamoso stratificato è più robusto e adatto a resistere all'attacco di agenti esterni, tipico delle vie aeree superiori."
@@ -1186,7 +1111,7 @@
   {
     "id": 133,
     "macro_area": "Anatomia",
-    "type": "short_answer",
+    "type": "open_ended",
     "question": "La scatola cranica è una struttura...",
     "answer": "Fissa",
     "explanation": "La scatola cranica, a differenza della laringe, è una struttura ossea fissa che non può modificarsi, contenendo la faringe."
