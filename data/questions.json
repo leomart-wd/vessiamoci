@@ -75,6 +75,33 @@
     "reflective_question": "Perché il cambiamento neurale è fondamentale per una trasformazione duratura?"
   },
   {
+    "id": 8,
+    "macro_area": "Filosofia e Didattica VES",
+    "type": "true_false",
+    "question": "L'approccio 'Sintomatico' si concentra sulla ricerca della causa (eziologia) di un problema vocale.",
+    "answer": false,
+    "explanation": "Falso. L'approccio Sintomatico agisce sul sintomo. È l'approccio Eziologico che cerca la causa.",
+    "reflective_question": "Quale differenza c'è tra lavorare sul sintomo e sulla causa?"
+  },
+  {
+    "id": 9,
+    "macro_area": "Filosofia e Didattica VES",
+    "type": "open_ended",
+    "question": "Il principio didattico del VES che prevede di consolidare un obiettivo alla volta si chiama...",
+    "answer": "slow teaching",
+    "explanation": "Lo 'Slow Teaching' consiste nel lavorare su un singolo obiettivo finché non viene automatizzato dal cervello prima di passare al successivo.",
+    "reflective_question": "Come si applica concretamente il slow teaching nella didattica vocale?"
+  },
+  {
+    "id": 10,
+    "macro_area": "Filosofia e Didattica VES",
+    "type": "open_ended",
+    "question": "Descrivi l'importanza dell'attenzione divisa nell'insegnamento VES.",
+    "answer": "L'attenzione divisa significa essere contemporaneamente attenti a se stessi (propriocezione interna) e all'allievo (osservazione esterna). Questo permette all'insegnante di modulare con maggiore efficacia il processo didattico, creando un feedback continuo tra le proprie sensazioni e quelle dell'allievo.",
+    "explanation": "È la capacità di mantenere simultaneamente l'attenzione su più livelli per ottimizzare l'intervento didattico.",
+    "reflective_question": "In che modo l'attenzione divisa migliora la qualità dell'insegnamento?"
+  },
+  {
     "id": 11,
     "macro_area": "Anatomia Laringea",
     "module": "Cartilagini e Ossa",
@@ -109,7 +136,7 @@
     "id": 14,
     "macro_area": "Anatomia Laringea",
     "module": "Tessuti Connettivi",
-    "type": "open_answer",
+    "type": "open_ended",
     "question": "Spiega la differenza funzionale tra legamenti e tendini.",
     "answer": "I legamenti collegano ossa a ossa e forniscono stabilità articolare, mentre i tendini collegano muscoli alle ossa e trasmettono la forza muscolare per produrre movimento. I legamenti sono principalmente strutture di sostegno, i tendini sono strutture di trasmissione della forza.",
     "keywords": ["legamenti", "tendini", "ossa", "muscoli", "stabilità", "forza"],
@@ -141,7 +168,7 @@
     "id": 17,
     "macro_area": "Fisiologia Vocale",
     "module": "Contrazione Muscolare",
-    "type": "open_answer",
+    "type": "open_ended",
     "question": "Descrivi le tre modalità di contrazione muscolare.",
     "answer": "Concentrica: il muscolo si accorcia generando movimento; Eccentrica: il muscolo si allunga sotto controllo, frenando un movimento; Isometrica: il muscolo genera tensione senza variare la lunghezza, mantenendo una posizione.",
     "keywords": ["concentrica", "eccentrica", "isometrica", "accorcia", "allunga", "tensione"],
@@ -160,6 +187,24 @@
     "reflective_question": "Come si mantiene in salute il tessuto delle corde vocali?"
   },
   {
+    "id": 19,
+    "macro_area": "Fisiologia Vocale",
+    "type": "true_false",
+    "question": "Tutti i muscoli intrinseci della laringe possiedono fusi neuromuscolari.",
+    "answer": false,
+    "explanation": "Falso. Alcuni muscoli, come il tiroaritenoideo, hanno pochi o nessun fuso neuromuscolare, limitando la propriocezione.",
+    "reflective_question": "Come influisce la mancanza di propriocezione sul controllo muscolare?"
+  },
+  {
+    "id": 20,
+    "macro_area": "Fisiologia Vocale",
+    "type": "open_ended",
+    "question": "Qual è la funzione del ventricolo di Morgagni?",
+    "answer": "Il ventricolo di Morgagni produce liquido lubrificante per mantenere idratate le corde vocali e agisce come primo spazio di risonanza laringea. Le sue ghiandole secretorie sono essenziali per la protezione e l'efficienza vibratoria delle corde vocali.",
+    "explanation": "È uno spazio fondamentale per lubrificazione e risonanza vocale.",
+    "reflective_question": "Cosa succederebbe alle corde vocali senza adeguata lubrificazione?"
+  },
+  {
     "id": 21,
     "macro_area": "Biomeccanica del Gesto Vocale",
     "module": "Muscolatura Estrinseca",
@@ -171,9 +216,110 @@
     "reflective_question": "In quali situazioni si eleva la laringe?"
   },
   {
+    "id": 22,
+    "macro_area": "Biomeccanica del Gesto Vocale",
+    "type": "true_false",
+    "question": "L'articolazione cricotiroidea permette movimenti che modificano la tensione delle corde vocali.",
+    "answer": true,
+    "explanation": "Corretto. I movimenti tra cricoide e tiroide cambiano la distanza e la tensione delle corde vocali, influenzando l'altezza tonale.",
+    "reflective_question": "Come si produce il cambiamento di registro vocale a livello articolare?"
+  },
+  {
+    "id": 23,
+    "macro_area": "Biomeccanica del Gesto Vocale",
+    "type": "open_ended",
+    "question": "Spiega perché la postura del collo influenza la voce.",
+    "answer": "La postura del collo, specialmente l'elevazione del mento, modifica la curvatura cervicale e la mobilità della laringe. Un mento elevato aumenta la tensione muscolare cervicale e limita la libertà di movimento laringeo, compromettendo la qualità vocale.",
+    "explanation": "La postura cervicale influenza direttamente la biomeccanica laringea.",
+    "reflective_question": "Prova a parlare con il mento molto alto e poi in posizione neutra: noti differenze?"
+  },
+  {
+    "id": 24,
+    "macro_area": "Fisiologia Vocale",
+    "type": "multiple_choice",
+    "question": "Le fibre motorie multiple nel muscolo tiroaritenoideo servono per:",
+    "options": ["Aumentare la forza", "Permettere controllo fine", "Accelerare la contrazione", "Ridurre la fatica"],
+    "answer": "Permettere controllo fine",
+    "explanation": "Le numerose unità motorie permettono un controllo molto preciso e sfumato della tensione muscolare.",
+    "reflective_question": "Perché i muscoli della voce necessitano di controllo fine?"
+  },
+  {
+    "id": 25,
+    "macro_area": "Anatomia Laringea",
+    "type": "true_false",
+    "question": "I muscoli sottoioidei sono innervati dal nervo ipoglosso.",
+    "answer": true,
+    "explanation": "Corretto. Tutti i muscoli sottoioidei ricevono innervazione dal XII nervo cranico (ipoglosso).",
+    "reflective_question": "Quale funzione hanno i muscoli sottoioidei nella fonazione?"
+  },
+  {
+    "id": 26,
+    "macro_area": "Biomeccanica del Gesto Vocale",
+    "type": "open_ended",
+    "question": "Cosa si intende per 'tensione passiva' nei tessuti vocali?",
+    "answer": "La tensione passiva è la resistenza intrinseca dei tessuti al movimento, determinata dalle proprietà elastiche e dalla idratazione. Include la rigidità naturale di legamenti, membrane e tessuti che si oppone al movimento indipendentemente dall'attivazione muscolare.",
+    "explanation": "È la componente non muscolare della resistenza al movimento dei tessuti.",
+    "reflective_question": "Come può variare la tensione passiva dei tessuti?"
+  },
+  {
+    "id": 27,
+    "macro_area": "Anatomia Laringea",
+    "type": "multiple_choice",
+    "question": "Il muscolo digastrico è caratterizzato da:",
+    "options": ["Un solo ventre muscolare", "Due ventri uniti da un tendine", "Tre ventri muscolari", "Innervazione unica"],
+    "answer": "Due ventri uniti da un tendine",
+    "explanation": "Il digastrico ha due ventri (anteriore e posteriore) collegati da un tendine intermedio che passa attraverso l'osso ioide.",
+    "reflective_question": "Come funziona biomeccanicamente un muscolo con due ventri?"
+  },
+  {
+    "id": 28,
+    "macro_area": "Anatomia Laringea",
+    "type": "true_false",
+    "question": "La classificazione anatomica delle corde vocali può variare da 2 a 7 strati.",
+    "answer": true,
+    "explanation": "Corretto. La stratificazione varia a seconda del livello di dettaglio dell'analisi istologica e funzionale.",
+    "reflective_question": "Perché esistono diverse classificazioni per la stessa struttura?"
+  },
+  {
+    "id": 29,
+    "macro_area": "Anatomia Laringea",
+    "type": "open_ended",
+    "question": "Descrivi l'anello di Waldeyer.",
+    "answer": "L'anello di Waldeyer è un sistema linfatico circolare che protegge l'ingresso delle vie respiratorie e digestive. È formato da tonsille palatine, faringee (adenoidi), linguali e tessuto linfatico associato, costituendo la prima barriera immunologica contro agenti patogeni.",
+    "explanation": "È un sistema di difesa immunologica delle prime vie aeree.",
+    "reflective_question": "Perché è importante avere protezione immunologica all'ingresso delle vie respiratorie?"
+  },
+  {
+    "id": 30,
+    "macro_area": "Anatomia Laringea",
+    "type": "multiple_choice",
+    "question": "Le corna superiori della cartilagine tiroidea si articolano con:",
+    "options": ["La cricoide", "L'aritenoide", "L'osso ioide", "La trachea"],
+    "answer": "L'osso ioide",
+    "explanation": "Le corna superiori della tiroide si collegano tramite legamenti all'osso ioide, sospendendo la laringe.",
+    "reflective_question": "Come è sospesa la laringe nel collo?"
+  },
+  {
+    "id": 31,
+    "macro_area": "Biomeccanica del Gesto Vocale",
+    "type": "true_false",
+    "question": "I movimenti delle strutture vocali sono sempre sinergici e mai isolati.",
+    "answer": true,
+    "explanation": "Corretto. Nella fonazione non esistono movimenti isolati; tutto lavora in sinergia biomeccanica.",
+    "reflective_question": "Puoi muovere una sola parte della laringe senza influenzare le altre?"
+  },
+  {
+    "id": 32,
+    "macro_area": "Filosofia e Didattica VES",
+    "type": "open_ended",
+    "question": "Qual è la sequenza delle macro aree operative del VES?",
+    "answer": "1. Relazione, 2. Valutazione, 3. Preparare il territorio, 4. Risoluzione muscolare, 5. Abilitare, 6. Linguaggio, 7. Espressivo. Questa sequenza copre l'intero percorso dall'instaurazione del rapporto didattico fino all'espressione artistica.",
+    "explanation": "È la progressione logica del processo didattico VES.",
+    "reflective_question": "Perché è importante seguire questa sequenza nel processo didattico?"
+  },
+  {
     "id": 33,
     "macro_area": "Fisiologia Vocale",
-    "module": "Contrazione Muscolare",
     "type": "multiple_choice",
     "question": "Una contrazione isometrica si verifica quando:",
     "options": ["Il muscolo si accorcia", "Il muscolo si allunga", "Il muscolo mantiene la lunghezza ma aumenta la tensione", "Il muscolo si rilassa"],
@@ -182,20 +328,64 @@
     "reflective_question": "Quando usi le contrazioni isometriche nella vita quotidiana?"
   },
   {
+    "id": 34,
+    "macro_area": "Fisiologia Vocale",
+    "type": "true_false",
+    "question": "L'attivazione muscolare nella laringe è limitata alla sola fase di fonazione.",
+    "answer": false,
+    "explanation": "Falso. I muscoli laringei sono attivi anche in respirazione, deglutizione, protezione delle vie aeree e mantenimento posturale.",
+    "reflective_question": "In quali altre funzioni oltre la voce è coinvolta la laringe?"
+  },
+  {
+    "id": 35,
+    "macro_area": "Fisiologia Vocale",
+    "type": "open_ended",
+    "question": "Spiega il ruolo del muscolo cricotiroideo.",
+    "answer": "Il cricotiroideo allunga e tende le corde vocali inclinando la cartilagine tiroidea verso la cricoide. Questo aumenta la tensione longitudinale e facilita l'emissione di frequenze acute, svolgendo un ruolo cruciale nel controllo dell'altezza tonale.",
+    "explanation": "È il principale muscolo per l'allungamento e la tensione delle corde vocali.",
+    "reflective_question": "Come si raggiungono le note acute dal punto di vista muscolare?"
+  },
+  {
+    "id": 36,
+    "macro_area": "Anatomia Laringea",
+    "type": "multiple_choice",
+    "question": "Il nervo laringeo inferiore (ricorrente) innerva:",
+    "options": ["Solo il cricotiroideo", "Tutti i muscoli intrinseci tranne il cricotiroideo", "Solo i muscoli estrinseci", "Nessun muscolo laringeo"],
+    "answer": "Tutti i muscoli intrinseci tranne il cricotiroideo",
+    "explanation": "Il nervo ricorrente innerva tutti i muscoli intrinseci eccetto il cricotiroideo che è innervato dal laringeo superiore.",
+    "reflective_question": "Cosa succederebbe in caso di paralisi del nervo ricorrente?"
+  },
+  {
+    "id": 37,
+    "macro_area": "Fisiologia Vocale",
+    "type": "true_false",
+    "question": "Le fibre elastiche dello strato superficiale della lamina propria favoriscono la vibrazione.",
+    "answer": true,
+    "explanation": "Corretto. Le fibre elastiche permettono ampia escursione vibratoria e flessibilità del margine libero delle corde vocali.",
+    "reflective_question": "Come si modifica la voce se diminuisce l'elasticità delle corde vocali?"
+  },
+  {
     "id": 38,
     "macro_area": "Fisiologia Vocale",
-    "module": "Teorie della Fonazione",
-    "type": "open_answer",
+    "type": "open_ended",
     "question": "Cos'è la teoria aerodinamico-mioelastica di Van den Berg?",
     "answer": "È la teoria che spiega la vibrazione delle corde vocali attraverso l'interazione tra pressione aerodinamica sottoglottica, elasticità tissutale e contrazione muscolare. Descrive come il flusso d'aria, l'elasticità dei tessuti e l'attivazione muscolare collaborino per produrre e modulare la vibrazione vocale.",
-    "keywords": ["aerodinamico", "mioelastica", "pressione", "sottoglottica", "elasticità", "vibrazione"],
     "explanation": "È il modello teorico fondamentale per comprendere la fonazione.",
     "reflective_question": "Quali fattori controllano la vibrazione delle corde vocali secondo questa teoria?"
   },
   {
+    "id": 39,
+    "macro_area": "Fisiologia Vocale",
+    "type": "multiple_choice",
+    "question": "Il muscolo interaritenoideo ha la funzione di:",
+    "options": ["Aprire le corde vocali", "Chiudere e stabilizzare l'adduzione", "Allungare le corde vocali", "Elevare la laringe"],
+    "answer": "Chiudere e stabilizzare l'adduzione",
+    "explanation": "L'interaritenoideo avvicina le cartilagini aritenoidi contribuendo alla chiusura glottica.",
+    "reflective_question": "Quale muscolo mantiene chiuse le corde vocali durante la fonazione?"
+  },
+  {
     "id": 40,
     "macro_area": "Filosofia e Didattica VES",
-    "module": "Relazione e Neuroeducazione",
     "type": "true_false",
     "question": "Una funzione fisiologica può cambiare stabilmente senza modifiche neurali.",
     "answer": false,
@@ -205,18 +395,15 @@
   {
     "id": 41,
     "macro_area": "Filosofia e Didattica VES",
-    "module": "Principi Didattici",
-    "type": "open_answer",
+    "type": "open_ended",
     "question": "Definisci il concetto di 'preparare il territorio' nel VES.",
     "answer": "Preparare il territorio significa creare le condizioni ottimali nei tessuti e nelle strutture prima di iniziare il lavoro specifico. Include rilassamento delle tensioni eccessive, miglioramento della mobilità articolare, ottimizzazione della circolazione e preparazione neuromuscolare per ricevere nuovi input.",
-    "keywords": ["territorio", "condizioni", "tessuti", "rilassamento", "mobilità", "tensioni"],
     "explanation": "È la fase preparatoria che ottimizza i tessuti per il lavoro successivo.",
     "reflective_question": "Perché è importante preparare i tessuti prima di lavorare sulla funzione?"
   },
   {
     "id": 42,
     "macro_area": "Fisiologia Vocale",
-    "module": "Biologia Tissutale",
     "type": "multiple_choice",
     "question": "La disidratazione dei tessuti vocali causa:",
     "options": ["Maggiore flessibilità", "Aumento della tensione passiva", "Migliore vibrazione", "Nessun effetto"],
@@ -227,7 +414,6 @@
   {
     "id": 43,
     "macro_area": "Filosofia e Didattica VES",
-    "module": "Fondamenti del Sistema",
     "type": "true_false",
     "question": "Il VES considera la voce solo durante la performance artistica.",
     "answer": false,
@@ -237,18 +423,15 @@
   {
     "id": 44,
     "macro_area": "Filosofia e Didattica VES",
-    "module": "Fondamenti del Sistema",
-    "type": "open_answer",
+    "type": "open_ended",
     "question": "Spiega cosa si intende per 'approccio globale' nel VES.",
     "answer": "L'approccio globale considera la persona nella sua totalità: aspetti fisici, emotivi, relazionali e funzionali sono tutti interconnessi. Non si lavora solo sulla voce isolatamente, ma si considera come essa sia influenzata e influenzi l'intera persona e il suo modo di essere nel mondo.",
-    "keywords": ["globale", "totalità", "persona", "interconnessi", "fisici", "emotivi"],
     "explanation": "È una visione olistica che vede la voce nel contesto della persona intera.",
     "reflective_question": "Come la voce riflette lo stato generale della persona?"
   },
   {
     "id": 45,
     "macro_area": "Filosofia e Didattica VES",
-    "module": "Relazione e Neuroeducazione",
     "type": "multiple_choice",
     "question": "Nel VES, la 'qualità relazionale' è importante perché:",
     "options": ["Rende piacevole la lezione", "È necessaria per il cambiamento neurale", "Fa risparmiare tempo", "Evita conflitti"],
@@ -259,7 +442,6 @@
   {
     "id": 46,
     "macro_area": "Filosofia e Didattica VES",
-    "module": "Relazione e Neuroeducazione",
     "type": "true_false",
     "question": "Gli esercizi propriocettivi da soli sono sufficienti per cambiare la funzione vocale.",
     "answer": false,
@@ -269,18 +451,15 @@
   {
     "id": 47,
     "macro_area": "Fisiologia Vocale",
-    "module": "Sistema Pneumo-Fono-Articolatorio",
-    "type": "open_answer",
+    "type": "open_ended",
     "question": "Descrivi l'importanza della respirazione nel sistema pneumo-fono-articolatorio.",
     "answer": "La respirazione fornisce l'energia pneumatica necessaria per la fonazione. Non è solo 'sostegno' ma una gestione fine della pressione sottoglottica in relazione alla resistenza glottica. La coordinazione pneumo-laringea è fondamentale per efficienza, controllo dinamico e qualità vocale.",
-    "keywords": ["respirazione", "energia", "pneumatica", "pressione", "sottoglottica", "coordinazione"],
     "explanation": "È il sistema energetico che alimenta la produzione vocale.",
     "reflective_question": "Come si coordina la respirazione con la fonazione?"
   },
   {
     "id": 48,
     "macro_area": "Fisiologia Vocale",
-    "module": "Sistema Pneumo-Fono-Articolatorio",
     "type": "multiple_choice",
     "question": "La 'microrespirazione' o 'ritorno d'aria' è:",
     "options": ["Un errore tecnico", "Una respirazione completa", "Piccole inspirazioni durante la performance", "Un esercizio specifico"],
@@ -291,7 +470,6 @@
   {
     "id": 49,
     "macro_area": "Fisiologia Vocale",
-    "module": "Propriocezione e Feedback",
     "type": "true_false",
     "question": "Il 'suono in posizione' si riferisce a una specifica nota musicale.",
     "answer": false,
@@ -301,18 +479,15 @@
   {
     "id": 50,
     "macro_area": "Biomeccanica del Gesto Vocale",
-    "module": "Proprietà dei Tessuti",
-    "type": "open_answer",
+    "type": "open_ended",
     "question": "Cosa si intende per 'elasticità tissutale' delle corde vocali?",
     "answer": "L'elasticità tissutale è la capacità dei tessuti cordali di deformarsi sotto tensione e ritornare alla forma originale. Dipende dalle fibre elastiche, dall'idratazione, dall'età e dalla salute del tessuto. È fondamentale per vibrazione efficiente, qualità timbrica e flessibilità vocale.",
-    "keywords": ["elasticità", "tessuti", "deformarsi", "ritornare", "fibre", "idratazione"],
     "explanation": "È una proprietà biomeccanica essenziale per la funzione vibratoria.",
     "reflective_question": "Come cambia l'elasticità delle corde vocali con l'età?"
   },
   {
     "id": 51,
     "macro_area": "Filosofia e Didattica VES",
-    "module": "Principi Didattici",
     "type": "multiple_choice",
     "question": "Il feedback nel processo didattico VES è:",
     "options": ["Solo verbale", "Solo visivo", "Solo tattile", "Multimodale e continuo"],
@@ -323,7 +498,6 @@
   {
     "id": 52,
     "macro_area": "Anatomia Laringea",
-    "module": "Funzioni Generali",
     "type": "true_false",
     "question": "La laringe ha funzioni solo respiratorie e fonatorie.",
     "answer": false,
@@ -333,18 +507,15 @@
   {
     "id": 53,
     "macro_area": "Biomeccanica del Gesto Vocale",
-    "module": "Principi di Movimento",
-    "type": "open_answer",
+    "type": "open_ended",
     "question": "Spiega il concetto di 'sinergia biomeccanica' nella fonazione.",
     "answer": "La sinergia biomeccanica indica che tutti i componenti dell'apparato vocale lavorano in coordinazione integrata. Respirazione, laringe, risonatori e articolatori si coordinano in pattern sinergici dove ogni elemento influenza e viene influenzato dagli altri, non esistendo movimenti isolati.",
-    "keywords": ["sinergia", "biomeccanica", "coordinazione", "integrata", "respirazione", "laringe"],
     "explanation": "È il principio di coordinazione integrata di tutti i sistemi vocali.",
     "reflective_question": "Puoi isolare completamente un movimento vocale dagli altri?"
   },
   {
     "id": 54,
     "macro_area": "Anatomia Laringea",
-    "module": "Muscoli e Innervazione",
     "type": "multiple_choice",
     "question": "L'innervazione sensitiva della laringe è principalmente affidata al:",
     "options": ["Nervo vago", "Nervo ipoglosso", "Nervo trigemino", "Nervo laringeo superiore"],
@@ -355,7 +526,6 @@
   {
     "id": 55,
     "macro_area": "Filosofia e Didattica VES",
-    "module": "Fondamenti del Sistema",
     "type": "true_false",
     "question": "Il VES utilizza esclusivamente tecniche moderne senza riferimenti tradizionali.",
     "answer": false,
@@ -365,18 +535,15 @@
   {
     "id": 56,
     "macro_area": "Fisiologia Vocale",
-    "module": "Sistema Pneumo-Fono-Articolatorio",
-    "type": "open_answer",
+    "type": "open_ended",
     "question": "Descrivi il ruolo dei risonatori nella produzione vocale.",
     "answer": "I risonatori (faringe, cavità orale, cavità nasali) amplificano, filtrano e modellano il suono prodotto dalle corde vocali. Determinano il timbro, la proiezione e le caratteristiche acustiche finali della voce. La loro configurazione variabile permette la diversificazione timbrica e l'articolazione.",
-    "keywords": ["risonatori", "amplificano", "filtrano", "modellano", "timbro", "proiezione"],
     "explanation": "Trasformano il suono laringeo grezzo nel suono vocale finale riconoscibile.",
     "reflective_question": "Come i risonatori personalizzano la tua voce?"
   },
   {
     "id": 57,
     "macro_area": "Fisiologia Vocale",
-    "module": "Teorie della Fonazione",
     "type": "multiple_choice",
     "question": "La 'pressione sottoglottica' è:",
     "options": ["La pressione sopra le corde vocali", "La pressione sotto le corde vocali", "La pressione nei polmoni", "La pressione atmosferica"],
@@ -387,7 +554,6 @@
   {
     "id": 58,
     "macro_area": "Filosofia e Didattica VES",
-    "module": "Principi Didattici",
     "type": "true_false",
     "question": "Tutti gli esercizi VES hanno lo stesso obiettivo.",
     "answer": false,
@@ -397,18 +563,15 @@
   {
     "id": 59,
     "macro_area": "Filosofia e Didattica VES",
-    "module": "Principi Didattici",
-    "type": "open_answer",
+    "type": "open_ended",
     "question": "Cosa significa 'personalizzazione didattica' nel VES?",
     "answer": "La personalizzazione didattica significa adattare metodi, tempi, modalità e obiettivi alle caratteristiche individuali dell'allievo. Include valutazione delle specificità anatomiche, funzionali, cognitive ed emotive per creare un percorso unico e ottimale per quella persona.",
-    "keywords": ["personalizzazione", "adattare", "metodi", "obiettivi", "individuali", "allievo"],
     "explanation": "È l'adattamento dell'intervento didattico alle caratteristiche individuali.",
     "reflective_question": "Perché ogni persona ha bisogno di un approccio didattico diverso?"
   },
   {
     "id": 60,
     "macro_area": "Filosofia e Didattica VES",
-    "module": "Percorso Didattico",
     "type": "multiple_choice",
     "question": "La 'fase espressiva' nel VES rappresenta:",
     "options": ["L'inizio del percorso", "La risoluzione dei problemi", "L'integrazione artistica finale", "Solo la performance"],
@@ -419,7 +582,6 @@
   {
     "id": 61,
     "macro_area": "Filosofia e Didattica VES",
-    "module": "Fondamenti del Sistema",
     "type": "true_false",
     "question": "Il VES considera importante solo il risultato finale.",
     "answer": false,
@@ -429,18 +591,15 @@
   {
     "id": 62,
     "macro_area": "Filosofia e Didattica VES",
-    "module": "Relazione e Neuroeducazione",
-    "type": "open_answer",
+    "type": "open_ended",
     "question": "Spiega l'importanza della 'consapevolezza corporea' nel VES.",
     "answer": "La consapevolezza corporea permette di percepire e controllare con precisione i processi fisiologici coinvolti nella fonazione. Include propriocezione, controllo motorio fine, riconoscimento delle tensioni e capacità di autoregolazione. È fondamentale per l'autonomia dell'allievo e la stabilità delle acquisizioni.",
-    "keywords": ["consapevolezza", "corporea", "percepire", "controllare", "propriocezione", "autoregolazione"],
     "explanation": "È la base per il controllo volontario e l'autonomia vocale.",
     "reflective_question": "Come sviluppi la consapevolezza del tuo corpo durante la voce?"
   },
   {
     "id": 63,
     "macro_area": "Filosofia e Didattica VES",
-    "module": "Relazione e Neuroeducazione",
     "type": "multiple_choice",
     "question": "L'approccio 'neuroeducativo' del VES significa:",
     "options": ["Studiare solo neurologia", "Ignorare il cervello", "Basare la didattica sui principi neurobiologici", "Usare tecnologie"],
@@ -451,7 +610,6 @@
   {
     "id": 64,
     "macro_area": "Filosofia e Didattica VES",
-    "module": "Fondamenti del Sistema",
     "type": "true_false",
     "question": "La voce è influenzata solo da fattori fisici.",
     "answer": false,
@@ -461,18 +619,15 @@
   {
     "id": 65,
     "macro_area": "Filosofia e Didattica VES",
-    "module": "Principi Didattici",
-    "type": "open_answer",
+    "type": "open_ended",
     "question": "Descrivi il concetto di 'autoregolazione' nel VES.",
     "answer": "L'autoregolazione è la capacità dell'allievo di monitorare, valutare e correggere autonomamente la propria produzione vocale. Include sviluppo dell'ascolto interno, feedback propriocettivo, capacità autocritica costruttiva e indipendenza dalle correzioni esterne.",
-    "keywords": ["autoregolazione", "monitorare", "valutare", "correggere", "autonomamente", "indipendenza"],
     "explanation": "È l'obiettivo di rendere l'allievo autonomo nel controllo della propria voce.",
     "reflective_question": "Come sviluppi la capacità di correggerti da solo?"
   },
   {
     "id": 66,
     "macro_area": "Fisiologia Vocale",
-    "module": "Biologia Tissutale",
     "type": "multiple_choice",
     "question": "Il 'territorio tissutale' nel VES si riferisce a:",
     "options": ["Una zona geografica", "Lo stato dei tessuti e strutture", "Un tipo di esercizio", "Una metodologia"],
@@ -483,7 +638,6 @@
   {
     "id": 67,
     "macro_area": "Filosofia e Didattica VES",
-    "module": "Fondamenti del Sistema",
     "type": "true_false",
     "question": "Nel VES la teoria e la pratica sono separate.",
     "answer": false,
@@ -493,18 +647,15 @@
   {
     "id": 68,
     "macro_area": "Filosofia e Didattica VES",
-    "module": "Fondamenti del Sistema",
-    "type": "open_answer",
+    "type": "open_ended",
     "question": "Cosa si intende per 'ecologia vocale' nel VES?",
     "answer": "L'ecologia vocale considera la voce nel suo ambiente naturale di vita, includendo abitudini quotidiane, contesto lavorativo, stile di vita, alimentazione, stress e tutti i fattori ambientali che influenzano la salute e l'efficienza vocale.",
-    "keywords": ["ecologia", "ambiente", "abitudini", "stile di vita", "stress", "fattori"],
     "explanation": "È la visione della voce nel contesto ambientale e di vita della persona.",
     "reflective_question": "Come il tuo ambiente di vita influenza la tua voce?"
   },
   {
     "id": 69,
     "macro_area": "Filosofia e Didattica VES",
-    "module": "Relazione e Neuroeducazione",
     "type": "multiple_choice",
     "question": "La 'memoria motoria' nel VES è importante perché:",
     "options": ["Ricorda le canzoni", "Automatizza i pattern corretti", "Memorizza le note", "Ricorda gli errori"],
@@ -515,7 +666,6 @@
   {
     "id": 70,
     "macro_area": "Filosofia e Didattica VES",
-    "module": "Fondamenti del Sistema",
     "type": "true_false",
     "question": "Il VES utilizza solo esercizi tradizionali di tecnica vocale.",
     "answer": false,
@@ -525,18 +675,15 @@
   {
     "id": 71,
     "macro_area": "Filosofia e Didattica VES",
-    "module": "Principi Didattici",
-    "type": "open_answer",
+    "type": "open_ended",
     "question": "Spiega il ruolo dell'osservazione nel VES.",
     "answer": "L'osservazione nel VES è un'arte che integra aspetti visivi, uditivi e intuitivi. L'insegnante osserva postura, respirazione, tensioni, qualità del suono, espressione e dinamiche emotive per comprendere lo stato dell'allievo e calibrare l'intervento.",
-    "keywords": ["osservazione", "visivi", "uditivi", "intuitivi", "postura", "tensioni"],
     "explanation": "È uno strumento diagnostico e didattico fondamentale per l'insegnante.",
     "reflective_question": "Cosa puoi osservare in una persona mentre canta?"
   },
   {
     "id": 72,
     "macro_area": "Filosofia e Didattica VES",
-    "module": "Fondamenti del Sistema",
     "type": "multiple_choice",
     "question": "L'integrazione mente-corpo nel VES significa:",
     "options": ["Separare pensiero e azione", "Coordinare aspetti cognitivi ed emotivi con quelli fisici", "Usare solo la mente", "Ignorare le emozioni"],
@@ -547,7 +694,6 @@
   {
     "id": 73,
     "macro_area": "Filosofia e Didattica VES",
-    "module": "Fondamenti del Sistema",
     "type": "true_false",
     "question": "La creatività nel VES è considerata solo nella fase finale.",
     "answer": false,
@@ -557,88 +703,509 @@
   {
     "id": 74,
     "macro_area": "Filosofia e Didattica VES",
-    "module": "Relazione e Neuroeducazione",
-    "type": "open_answer",
+    "type": "open_ended",
     "question": "Descrivi l'importanza della 'fiducia' nel processo VES.",
     "answer": "La fiducia nel VES è multipla: fiducia nell'insegnante, nel processo, in se stessi e nelle proprie capacità. Crea le condizioni neurobiologiche ottimali per l'apprendimento, riduce le tensioni da ansia e permette l'apertura al cambiamento e alla sperimentazione.",
-    "keywords": ["fiducia", "insegnante", "processo", "neurobiologiche", "apprendimento", "cambiamento"],
     "explanation": "È un fattore neurobiologico che facilita l'apprendimento e il cambiamento.",
     "reflective_question": "Come la fiducia influenza la tua capacità di imparare?"
   },
   {
     "id": 75,
     "macro_area": "Filosofia e Didattica VES",
-    "module": "Fondamenti del Sistema",
     "type": "multiple_choice",
     "question": "Il VES si caratterizza principalmente per essere:",
     "options": ["Un metodo rigido", "Una raccolta di esercizi", "Un sistema integrato e personalizzabile", "Una teoria astratta"],
     "answer": "Un sistema integrato e personalizzabile",
-    "explanation": "Il VES è un sistema che integra molteplici approcci in modo personalizzato per ogni individuo, non un metodo rigido o una semplice raccolta di tecniche.",
+    "explanation": "È un sistema complesso, flessibile e adattabile alle esigenze individuali.",
     "reflective_question": "Cosa distingue un sistema integrato da un semplice metodo?"
   },
-
-
-
-  { "id": 76, "macro_area": "Proprietà CVV", "type": "multiple_choice", "question": "Cosa si intende per 'scollamento body-cover' in falsetto?", "options": ["Il muscolo (body) vibra insieme alla mucosa (cover).", "Solo il bordo libero della mucosa (cover) vibra, staccato dal muscolo (body).", "La corda vocale intera si stacca dalla cartilagine.", "Le corde vocali non si toccano."], "answer": "Solo il bordo libero della mucosa (cover) vibra, staccato dal muscolo (body).", "explanation": "Nel falsetto, la tensione longitudinale è così alta che il muscolo tiroaritenoideo (body) è quasi inattivo e solo il bordo sottile della mucosa (cover) è libero di vibrare. Questo crea la sensazione di 'scollamento'." },
-    { "id": 77, "macro_area": "Proprietà CVV", "type": "true_false", "question": "Una forza di collisione distribuita su una superficie minore della corda vocale (come in una nota acuta in accorciamento) risulta meno impattante.", "answer": false, "explanation": "Falso. Una forza distribuita su una superficie minore diventa MOLTO più impattante e potenzialmente dannosa. Questo spiega perché il belting richiede una tecnica precisa." },
-    { "id": 78, "macro_area": "Proprietà CVV", "type": "short_answer", "question": "Come si chiama il parametro che definisce la morbidezza della corda vocale, reciproco della rigidità?", "answer": "compliance", "explanation": "La compliance è la misura della deformabilità di un tessuto. Alta compliance significa bassa rigidità (la corda si muove facilmente), bassa compliance significa alta rigidità (la corda si muove con più difficoltà)." },
-    { "id": 79, "macro_area": "Proprietà CVV", "type": "open_ended", "question": "Perché la 'massa efficace' della corda vocale è diversa dalla 'massa complessiva'?", "answer": "La massa complessiva è il peso totale della corda vocale e non cambia. La massa efficace è la porzione di massa che partecipa attivamente alla vibrazione in un dato momento. Questa può cambiare: è maggiore nelle note gravi (tutta la corda vibra) e minore nelle note acute (vibra solo una porzione più sottile del bordo)." },
-    { "id": 80, "macro_area": "Proprietà CVV", "type": "true_false", "question": "Quando accorcio la corda vocale, la tensione diventa prevalentemente superficiale.", "answer": false, "explanation": "Falso. Quando si accorcia la corda, la tensione diventa solo INTERNA, perché la forza si distribuisce su meno superficie. La mucosa superficiale rimane più 'libera'." },
-    { "id": 81, "macro_area": "Proprietà CVV", "type": "multiple_choice", "question": "I punti a massimo stato di collisione nel ciclo glottico includono:", "options": ["Le note acute sussurrate", "Le note acute forti fatte in accorciamento (belting)", "Le note gravi sussurrate"], "answer": "Le note acute forti fatte in accorciamento (belting)", "explanation": "Il belting, le note gravi e forti, e un'alta pressione sottoglottica sono tutti scenari di massima collisione e stress per le corde vocali." },
-    { "id": 82, "macro_area": "Ciclo Vibratorio", "type": "multiple_choice", "question": "Il ciclo vibratorio delle corde vocali è un movimento:", "options": ["Attivo, controllato da impulsi nervosi per ogni vibrazione.", "Passivo, determinato dall'interazione tra aria e tessuti.", "Completamente casuale"], "answer": "Passivo, determinato dall'interazione tra aria e tessuti.", "explanation": "Il ciclo vibratorio è un fenomeno aerodinamico e mioelastico. Il controllo neurale imposta lo 'stato' della corda, ma non comanda ogni singola vibrazione." },
-    { "id": 83, "macro_area": "Ciclo Vibratorio", "type": "true_false", "question": "Un aumento della pressione sottoglottica provoca sempre e solo un aumento dell'intensità (volume).", "answer": false, "explanation": "Falso. Sebbene l'aumento di pressione sia correlato all'intensità, può anche influenzare la frequenza fondamentale (f0), specialmente nel registro acuto." },
-    { "id": 84, "macro_area": "Ciclo Vibratorio", "type": "short_answer", "question": "Quale principio fisico spiega come un flusso d'aria veloce crei una pressione negativa che aiuta le corde a chiudersi?", "answer": "principio di bernoulli", "explanation": "Il Principio di Bernoulli è una delle forze chiave che contribuiscono alla chiusura della glottide, ma non è l'unica." },
-    { "id": 85, "macro_area": "Ciclo Vibratorio", "type": "open_ended", "question": "Descrivi la differenza tra una fase 'convergente' e 'divergente' nel ciclo glottico.", "answer": "La fase convergente si ha quando il bordo inferiore delle corde è più stretto di quello superiore (forma a V), tipica della chiusura. La fase divergente si ha quando il bordo inferiore è più largo (forma a A), tipica dell'apertura." },
-    { "id": 86, "macro_area": "Ciclo Vibratorio", "type": "true_false", "question": "Il movimento di apertura della corda vocale inizia dal suo margine superiore.", "answer": false, "explanation": "Falso. A causa della pressione sottoglottica, l'apertura inizia dal margine INFERIORE e si propaga verso quello superiore, in un movimento a 'bascula'." },
-    { "id": 87, "macro_area": "Ciclo Vibratorio", "type": "multiple_choice", "question": "La vibrazione delle corde vocali è sostenuta unicamente dal principio di Bernoulli.", "options": ["Vero", "Falso, dipende anche dal ritorno elastico", "Falso, dipende anche dalle pressioni nel vocal tract"], "answer": "Falso, dipende anche dalle pressioni nel vocal tract", "explanation": "Il documento sottolinea che la visione moderna sposta l'attenzione dall'apparato respiratorio al vocal tract. Le variazioni di pressione SOPRA le corde vocali sono un contributo fondamentale al mantenimento della vibrazione." },
-    { "id": 88, "macro_area": "Controllo f0 e SPL", "type": "multiple_choice", "question": "Una stessa frequenza (es. 160 Hz) può essere prodotta:", "options": ["Solo con alta attivazione del CT e bassa del TA.", "Solo con bassa attivazione del CT e alta del TA.", "Con diverse combinazioni di attivazione di CT e TA."], "answer": "Con diverse combinazioni di attivazione di CT e TA.", "explanation": "Il grafico CT/TA mostra che una linea di isofrequenza può essere intersecata in più punti, indicando strategie muscolari diverse per la stessa nota." },
-    { "id": 89, "macro_area": "Controllo f0 e SPL", "type": "true_false", "question": "L'elevazione della laringe nel collo tende ad abbassare la frequenza fondamentale (f0).", "answer": false, "explanation": "Falso. L'elevazione della laringe aumenta la rigidità complessiva delle strutture, contribuendo ad AUMENTARE la f0." },
-    { "id": 90, "macro_area": "Controllo f0 e SPL", "type": "short_answer", "question": "Il grafico che mostra la variazione della f0 nel tempo si chiama...", "answer": "contour", "explanation": "Il 'frequency fundamental contour' (ffc) mostra l'andamento melodico e prosodico di una frase." },
-    { "id": 91, "macro_area": "Controllo f0 e SPL", "type": "open_ended", "question": "Quali sono i tre sistemi che controllano il livello di pressione sonora (intensità)?", "answer": "I tre sistemi sono: il mantice (pressione sottoglottica), la laringe (resistenza glottica), e il vocal tract (risonanza e impedenza)." },
-    { "id": 92, "macro_area": "Controllo f0 e SPL", "type": "true_false", "question": "Un aumento della resistenza glottica è sempre associato a un aumento della pressione sottoglottica.", "answer": true, "explanation": "Vero. I due parametri vanno insieme: se aumento la resistenza (chiudo di più le corde), devo aumentare la pressione per farle vibrare, e viceversa." },
-    { "id": 93, "macro_area": "Controllo f0 e SPL", "type": "multiple_choice", "question": "Per ottenere voci intense, la strategia più efficiente è:", "options": ["Aumentare solo la pressione tracheale", "Trovare strategie risonanziali per ridurre lo sforzo pressorio", "Contrarre solo i muscoli del collo"], "answer": "Trovare strategie risonanziali per ridurre lo sforzo pressorio", "explanation": "L'efficienza vocale si ottiene ottimizzando le risonanze del vocal tract, che amplificano il suono senza richiedere un eccessivo aumento di pressione alla fonte." },
-    { "id": 94, "macro_area": "Funzioni Laringe/Vocal Tract", "type": "multiple_choice", "question": "Qual è la funzione gerarchicamente prevalente della laringe?", "options": ["Fonatoria", "Protettiva", "Respiratoria"], "answer": "Respiratoria", "explanation": "La funzione respiratoria è vitale, quindi prevalente. Seguono quella protettiva e solo infine quella fonatoria." },
-    { "id": 95, "macro_area": "Funzioni Laringe/Vocal Tract", "type": "true_false", "question": "Durante la respirazione a riposo, le corde vocali si abducono in inspirazione e si adducono in espirazione.", "answer": true, "explanation": "Vero. Si aprono leggermente per far entrare aria e si chiudono leggermente per controllare il flusso in uscita, aumentando la resistenza." },
-    { "id": 96, "macro_area": "Funzioni Laringe/Vocal Tract", "type": "short_answer", "question": "La manovra 'valsalva' (tappare il naso e soffiare) è utile per verificare la capacità di...", "answer": "chiusura delle corde vocali", "explanation": "La manovra di Valsalva crea una pressurizzazione senza vibrazione, testando la capacità di chiusura completa della glottide." },
-    { "id": 97, "macro_area": "Funzioni Laringe/Vocal Tract", "type": "open_ended", "question": "Perché il movimento della laringe e quello della lingua devono essere 'dissociati' con l'allenamento?", "answer": "Sono funzionalmente collegati (es. nella deglutizione). Nel canto, è necessario dissociarli per ottenere un controllo indipendente della laringe e del vocal tract, evitando tensioni parassite." },
-    { "id": 98, "macro_area": "Funzioni Laringe/Vocal Tract", "type": "true_false", "question": "Un flusso d'aria 'turbolento' è ideale per produrre un suono musicale pulito.", "answer": false, "explanation": "Falso. Un flusso turbolento è caotico e produce rumore (es. soffio). Per un suono pulito è necessario un flusso d'aria 'laminare', cioè organizzato." },
-    { "id": 99, "macro_area": "Funzioni Laringe/Vocal Tract", "type": "multiple_choice", "question": "Un 'gap posteriore' nella chiusura glottica può essere causato da un'attivazione insufficiente di quale muscolo?", "options": ["Cricotiroideo", "Interaritenoideo", "Tiroaritenoideo"], "answer": "Interaritenoideo", "explanation": "Il muscolo Interaritenoideo è cruciale per serrare la porzione posteriore (cartilaginea) della glottide. Una sua debolezza può causare un gap posteriore." },
-    { "id": 100, "macro_area": "Applicazioni Didattiche", "type": "multiple_choice", "question": "Se un allievo produce una nota acuta con 'fuga d'aria', sta probabilmente:", "options": ["Aumentando troppo la resistenza glottica", "Riorganizzando correttamente la vibrazione sul margine", "Riducendo completamente la resistenza senza riorganizzare la vibrazione"], "answer": "Riducendo completamente la resistenza senza riorganizzare la vibrazione", "explanation": "Invece di passare a una vibrazione più leggera sul margine, l'allievo 'molla' la chiusura, creando un flusso d'aria turbolento." },
-    { "id": 101, "macro_area": "Applicazioni Didattiche", "type": "true_false", "question": "Per percepire la chiusura glottica, ci si può basare sulla percezione sensoriale delle corde vocali stesse.", "answer": false, "explanation": "Falso. Le corde vocali non sono innervate sensorialmente in modo fine. La percezione della chiusura deriva dalla mucosa delle aritenoidi e dal feedback acustico e propriocettivo delle strutture circostanti." },
-    { "id": 102, "macro_area": "Applicazioni Didattiche", "type": "short_answer", "question": "Quale strumento visualizza la distribuzione dell'energia acustica sulle varie frequenze in tempo reale?", "answer": "spettrogramma", "explanation": "Lo spettrogramma è fondamentale per l'analisi del timbro, mostrando se l'energia è concentrata sugli armonici gravi (suono scuro) o acuti (suono chiaro)." },
-    { "id": 103, "macro_area": "Applicazioni Didattiche", "type": "open_ended", "question": "Descrivi un meccanismo complesso menzionato per produrre una nota in accorciamento con tensione superficiale (es. voce mista).", "answer": "Si contrae il tiroaritenoideo (TA) per accorciare la corda, ma contemporaneamente si attiva il cricotiroideo (CT) per tendere la mucosa superficiale. È una co-contrazione di muscoli antagonisti che crea una vibrazione molto diversa e complessa." },
-    { "id": 104, "macro_area": "Applicazioni Didattiche", "type": "multiple_choice", "question": "Quando la fase di chiusura delle corde è uguale alla fase di apertura, si ha una situazione di:", "options": ["Alta resistenza e basso flusso", "Bassa resistenza e alto flusso", "Equilibrio tra resistenza e flusso"], "answer": "Equilibrio tra resistenza e flusso", "explanation": "Se il tempo di apertura e chiusura si equivalgono, si ha un flusso d'aria moderato. Aumentando il tempo di chiusura si aumenta la resistenza (e si riduce il flusso); aumentandolo quello di apertura si fa il contrario." },
-    { "id": 105, "macro_area": "Applicazioni Didattiche", "type": "true_false", "question": "Il lavoro sulla respirazione (sostegno/appoggio) può essere completamente dissociato da quello che avviene a livello laringeo.", "answer": false, "explanation": "Falso. Il documento enfatizza che sono sistemi che devono agire insieme. Non è 'sostegno' o 'appoggio', ma una 'combo' tra ciò che avviene a livello laringeo (resistenza) e a livello posturale/respiratorio (pressione)." },
-    { "id": 106, "macro_area": "Palato e Faringe", "type": "multiple_choice", "question": "Quale muscolo è il principale responsabile del sollevamento del palato molle?", "options": ["Tensore del palato", "Costrittore superiore", "Elevatore del palato", "Palatoglosso"], "answer": "Elevatore del palato", "explanation": "L'Elevatore del palato solleva il velo palatino per chiudere il passaggio nasale e produrre suoni orali." },
-    { "id": 107, "macro_area": "Palato e Faringe", "type": "true_false", "question": "Un suono 'nasale' si verifica quando il palato molle è completamente sollevato.", "answer": false, "explanation": "Falso. Un suono nasale si ha quando il palato è abbassato, permettendo al suono di risuonare nelle cavità nasali." },
-    { "id": 108, "macro_area": "Palato e Faringe", "type": "short_answer", "question": "Come si chiama la linea tendinea posteriore dove si inseriscono i muscoli costrittori?", "answer": "rafe", "explanation": "Il rafe faringeo è il punto di ancoraggio posteriore per i muscoli costrittori della faringe." },
-    { "id": 109, "macro_area": "Palato e Faringe", "type": "open_ended", "question": "Perché un raffreddore con congestione nasale altera la voce?", "answer": "Perché la congestione blocca le cavità nasali, alterando l'impedenza del vocal tract e le risonanze, rendendo il suono ovattato." },
-    { "id": 110, "macro_area": "Palato e Faringe", "type": "true_false", "question": "La deglutizione resetta la configurazione del vocal tract.", "answer": true, "explanation": "Vero. La deglutizione è un meccanismo complesso che riporta le strutture a una posizione di partenza." },
-    { "id": 111, "macro_area": "Palato e Faringe", "type": "multiple_choice", "question": "Un suono 'nasalizzato' si ha quando il palato molle è:", "options": ["Completamente abbassato", "Completamente sollevato", "In posizione semi-aperta"], "answer": "In posizione semi-aperta", "explanation": "Un palato semi-aperto produce una nasalizzazione, tipica di molte vocali." },
-    { "id": 112, "macro_area": "Mandibola e Lingua", "type": "short_answer", "question": "Come si chiama il disco articolare nell'articolazione temporo-mandibolare (ATM)?", "answer": "menisco", "explanation": "Il menisco distribuisce le forze e garantisce un movimento fluido." },
-    { "id": 113, "macro_area": "Mandibola e Lingua", "type": "true_false", "question": "Un disordine linguale non ha effetti sulla posizione della laringe.", "answer": false, "explanation": "Falso. La lingua è connessa a mandibola, osso ioide e palato, e un suo disordine condiziona tutte le altre strutture." },
-    { "id": 114, "macro_area": "Mandibola e Lingua", "type": "multiple_choice", "question": "Quale parte della lingua è il punto d'appoggio principale delle vocali?", "options": ["Punta", "Lama", "Dorso"], "answer": "Dorso", "explanation": "Il dorso della lingua è il principale responsabile della definizione del timbro delle vocali." },
-    { "id": 115, "macro_area": "Mandibola e Lingua", "type": "open_ended", "question": "Perché la 'fissazione' della laringe è importante nel mix vocale?", "answer": "Perché permette di stabilizzare la laringe, impedendole di salire eccessivamente con la frequenza, grazie a una co-contrazione di muscoli antagonisti." },
-    { "id": 116, "macro_area": "Anatomia", "type": "multiple_choice", "question": "La frequenza fondamentale (f0) è direttamente proporzionale a:", "options": ["Spessore della corda", "Lunghezza della corda", "Massa vibrante"], "answer": "Lunghezza della corda", "explanation": "Come in una corda di chitarra, a parità di altre condizioni, una corda più lunga e tesa produce una frequenza più alta." },
-    { "id": 117, "macro_area": "Anatomia", "type": "true_false", "question": "I muscoli intrinseci della laringe sono dotati di molti fusi neuromuscolari, rendendoli molto sensibili.", "answer": false, "explanation": "Falso. Il documento specifica che i muscoli intrinseci sono POCO sensibili e hanno POCHI fusi neuromuscolari. La propriocezione deriva dalle strutture circostanti." },
-    { "id": 118, "macro_area": "Anatomia", "type": "short_answer", "question": "Quale struttura anatomica, se troppo tesa, può causare difficoltà nella discesa della laringe?", "answer": "cono elastico", "explanation": "L'elevazione della laringe può provocare una trazione verso il basso del cono elastico, indurendolo e rendendo più difficile l'abbassamento della laringe." },
-    { "id": 119, "macro_area": "Didattica", "type": "multiple_choice", "question": "Se un cantante sale con 'fuga d'aria', una strategia didattica è:", "options": ["Aumentare la pressione senza cambiare altro", "Riorganizzare la vibrazione più sul margine", "Ignorare il problema"], "answer": "Riorganizzare la vibrazione più sul margine", "explanation": "La soluzione non è spingere di più, ma insegnare alla corda a vibrare in modo più leggero ed efficiente sul bordo, mantenendo una chiusura adeguata." },
-    { "id": 120, "macro_area": "Didattica", "type": "true_false", "question": "Per produrre consonanti come 's' o 'f', è necessaria una chiusura completa delle corde vocali.", "answer": false, "explanation": "Falso. Per le fricative sorde come 's' e 'f', le corde vocali devono rimanere aperte per permettere un flusso d'aria continuo e turbolento." },
-    { "id": 121, "macro_area": "Didattica", "type": "open_ended", "question": "Perché la 'periodicità' del ciclo glottico è fondamentale per la differenza tra 'suono' e 'rumore'?", "answer": "Un ciclo glottico periodico, cioè che si ripete in modo regolare e costante, produce un suono musicale con una frequenza chiara. Un ciclo aperiodico (irregolare) produce rumore, come raucedine o soffio, perché manca una frequenza fondamentale stabile." },
-    { "id": 122, "macro_area": "Biomeccanica", "type": "short_answer", "question": "Oltre al principio di Bernoulli e al ritorno elastico, quale altro fattore è oggi considerato cruciale per il mantenimento della vibrazione cordale?", "answer": "il vocal tract", "explanation": "La visione moderna considera le variazioni di pressione e l'impedenza acustica generate nel tratto vocale superiore come un fattore attivo nel sostenere la vibrazione, non solo come un semplice risuonatore." },
-    { "id": 123, "macro_area": "Biomeccanica", "type": "multiple_choice", "question": "Un'alta resistenza glottica è tipica di una fonazione:", "options": ["Soffiata", "Pressata o forte", "Sussurrata"], "answer": "Pressata o forte", "explanation": "Alta resistenza significa che le corde sono ben addotte e resistono al passaggio dell'aria, una condizione tipica delle fonazioni forti e pressate." },
-    { "id": 124, "macro_area": "Biomeccanica", "type": "true_false", "question": "L'area glottica e l'adduzione/abduzione sono la stessa cosa.", "answer": false, "explanation": "Falso. L'adduzione/abduzione è il movimento delle cartilagini. L'area glottica è lo spazio che si apre e chiude durante il ciclo vibratorio, che è un movimento passivo." },
-    { "id": 125, "macro_area": "Risonanza", "type": "open_ended", "question": "Perché allargare gli spazi nel vocal tract (es. faringe) tende a produrre un suono percepito come più 'scuro'?", "answer": "Perché allargando gli spazi risonanziali, l'energia degli armonici si concentra nella parte bassa dello spettro, vicino alla frequenza fondamentale. Questo rafforzamento degli armonici gravi è percepito acusticamente come un suono più scuro, rotondo e corposo." },
-    { "id": 126, "macro_area": "Risonanza", "type": "short_answer", "question": "Quale strumento è utile per monitorare l'intensità vocale durante lezioni online?", "answer": "volume checking", "explanation": "Il 'volume checking' (o un semplice fonometro) permette di avere un feedback visivo e oggettivo sull'intensità, bypassando le limitazioni dell'audio compresso online." },
-    { "id": 127, "macro_area": "Risonanza", "type": "true_false", "question": "Nei cantanti professionisti microfonati, il livello di pressione sonora (intensità) è molto variabile.", "answer": false, "explanation": "Falso. Il documento afferma che, sorprendentemente, nei professionisti che usano il microfono l'intensità tende a rimanere quasi stabile. Quello che cambia moltissimo è il timbro, grazie a strategie risonanziali." },
-    { "id": 128, "macro_area": "Risonanza", "type": "multiple_choice", "question": "Un suono molto penetrante ('ringing') è associato a un restringimento di quale parte del vocal tract?", "options": ["La bocca", "La laringe", "La faringe (sfintere epiglottico)"], "answer": "La faringe (sfintere epiglottico)", "explanation": "Il 'ringing' o 'twang' è prodotto da un restringimento dello sfintere ari-epiglottico, che crea una risonanza specifica nella zona alta dello spettro (2-4 kHz), rendendo la voce più penetrante e udibile." },
-    { "id": 129, "macro_area": "Funzioni Laringe", "type": "short_answer", "question": "Quale epitelio si trova nelle vie respiratorie superiori, colonizzate da batteri?", "answer": "epitelio squamoso stratificato", "explanation": "L'epitelio squamoso stratificato è più robusto e adatto a resistere all'attacco di agenti esterni, tipico delle vie aeree superiori." },
-    { "id": 130, "macro_area": "Funzioni Laringe", "type": "true_false", "question": "La funzione protettiva della laringe è completamente dissociata da quella fonatoria.", "answer": false, "explanation": "Falso. Non sono completamente dissociate. Ad esempio, la tosse (protettiva) condivide molti meccanismi con la fonazione forzata, come una forte chiusura glottica." },
-    { "id": 131, "macro_area": "Funzioni Laringe", "type": "multiple_choice", "question": "Durante la normale inspirazione, le corde vocali:", "options": ["Si adducono leggermente", "Si abducono leggermente", "Rimangono immobili"], "answer": "Si abducono leggermente", "explanation": "Si abducono (aprono) per ridurre la resistenza e permettere un maggiore ingresso di aria." },
-    { "id": 132, "macro_area": "Funzioni Laringe", "type": "open_ended", "question": "Spiega la differenza tra una fonazione ad alto flusso/bassa resistenza e una a basso flusso/alta resistenza.", "answer": "Alto flusso/bassa resistenza: le corde stanno aperte per più tempo, passa molta aria, tipico di un suono soffiato. Basso flusso/alta resistenza: le corde stanno chiuse per più tempo, passa poca aria, tipico di un suono pressato o teso." },
-    { "id": 133, "macro_area": "Anatomia", "type": "short_answer", "question": "La scatola cranica è una struttura...", "answer": "Fissa", "explanation": "La scatola cranica, a differenza della laringe, è una struttura ossea fissa che non può modificarsi, contenendo la faringe." },
-    { "id": 134, "macro_area": "Anatomia", "type": "true_false", "question": "La laringe si trova normalmente tra le vertebre cervicali C3-C5.", "answer": true, "explanation": "Vero, questa è la sua posizione approssimativa nell'adulto. È più alta nei bambini e tende a scendere con l'invecchiamento." },
-    { "id": 135, "macro_area": "Anatomia", "type": "multiple_choice", "question": "Quale muscolo NON è coinvolto nel movimento verso l'alto della scatola laringea?", "options": ["Tiroioideo", "Digastrico", "Sternotiroideo"], "answer": "Sternotiroideo", "explanation": "Lo Sternotiroideo è un muscolo sottoioideo, la sua funzione è quella di abbassare la laringe, non di alzarla." }
+  {
+    "id": 76,
+    "macro_area": "Proprietà CVV",
+    "type": "multiple_choice",
+    "question": "Cosa si intende per 'scollamento body-cover' in falsetto?",
+    "options": ["Il muscolo (body) vibra insieme alla mucosa (cover).", "Solo il bordo libero della mucosa (cover) vibra, staccato dal muscolo (body).", "La corda vocale intera si stacca dalla cartilagine.", "Le corde vocali non si toccano."],
+    "answer": "Solo il bordo libero della mucosa (cover) vibra, staccato dal muscolo (body).",
+    "explanation": "Nel falsetto, la tensione longitudinale è così alta che il muscolo tiroaritenoideo (body) è quasi inattivo e solo il bordo sottile della mucosa (cover) è libero di vibrare. Questo crea la sensazione di 'scollamento'."
+  },
+  {
+    "id": 77,
+    "macro_area": "Proprietà CVV",
+    "type": "true_false",
+    "question": "Una forza di collisione distribuita su una superficie minore della corda vocale (come in una nota acuta in accorciamento) risulta meno impattante.",
+    "answer": false,
+    "explanation": "Falso. Una forza distribuita su una superficie minore diventa MOLTO più impattante e potenzialmente dannosa. Questo spiega perché il belting richiede una tecnica precisa."
+  },
+  {
+    "id": 78,
+    "macro_area": "Proprietà CVV",
+    "type": "short_answer",
+    "question": "Come si chiama il parametro che definisce la morbidezza della corda vocale, reciproco della rigidità?",
+    "answer": "compliance",
+    "explanation": "La compliance è la misura della deformabilità di un tessuto. Alta compliance significa bassa rigidità (la corda si muove facilmente), bassa compliance significa alta rigidità (la corda si muove con più difficoltà)."
+  },
+  {
+    "id": 79,
+    "macro_area": "Proprietà CVV",
+    "type": "open_ended",
+    "question": "Perché la 'massa efficace' della corda vocale è diversa dalla 'massa complessiva'?",
+    "answer": "La massa complessiva è il peso totale della corda vocale e non cambia. La massa efficace è la porzione di massa che partecipa attivamente alla vibrazione in un dato momento. Questa può cambiare: è maggiore nelle note gravi (tutta la corda vibra) e minore nelle note acute (vibra solo una porzione più sottile del bordo)."
+  },
+  {
+    "id": 80,
+    "macro_area": "Proprietà CVV",
+    "type": "true_false",
+    "question": "Quando accorcio la corda vocale, la tensione diventa prevalentemente superficiale.",
+    "answer": false,
+    "explanation": "Falso. Quando si accorcia la corda, la tensione diventa solo INTERNA, perché la forza si distribuisce su meno superficie. La mucosa superficiale rimane più 'libera'."
+  },
+  {
+    "id": 81,
+    "macro_area": "Proprietà CVV",
+    "type": "multiple_choice",
+    "question": "I punti a massimo stato di collisione nel ciclo glottico includono:",
+    "options": ["Le note acute sussurrate", "Le note acute forti fatte in accorciamento (belting)", "Le note gravi sussurrate"],
+    "answer": "Le note acute forti fatte in accorciamento (belting)",
+    "explanation": "Il belting, le note gravi e forti, e un'alta pressione sottoglottica sono tutti scenari di massima collisione e stress per le corde vocali."
+  },
+  {
+    "id": 82,
+    "macro_area": "Ciclo Vibratorio",
+    "type": "multiple_choice",
+    "question": "Il ciclo vibratorio delle corde vocali è un movimento:",
+    "options": ["Attivo, controllato da impulsi nervosi per ogni vibrazione.", "Passivo, determinato dall'interazione tra aria e tessuti.", "Completamente casuale"],
+    "answer": "Passivo, determinato dall'interazione tra aria e tessuti.",
+    "explanation": "Il ciclo vibratorio è un fenomeno aerodinamico e mioelastico. Il controllo neurale imposta lo 'stato' della corda, ma non comanda ogni singola vibrazione."
+  },
+  {
+    "id": 83,
+    "macro_area": "Ciclo Vibratorio",
+    "type": "true_false",
+    "question": "Un aumento della pressione sottoglottica provoca sempre e solo un aumento dell'intensità (volume).",
+    "answer": false,
+    "explanation": "Falso. Sebbene l'aumento di pressione sia correlato all'intensità, può anche influenzare la frequenza fondamentale (f0), specialmente nel registro acuto."
+  },
+  {
+    "id": 84,
+    "macro_area": "Ciclo Vibratorio",
+    "type": "short_answer",
+    "question": "Quale principio fisico spiega come un flusso d'aria veloce crei una pressione negativa che aiuta le corde a chiudersi?",
+    "answer": "principio di bernoulli",
+    "explanation": "Il Principio di Bernoulli è una delle forze chiave che contribuiscono alla chiusura della glottide, ma non è l'unica."
+  },
+  {
+    "id": 85,
+    "macro_area": "Ciclo Vibratorio",
+    "type": "open_ended",
+    "question": "Descrivi la differenza tra una fase 'convergente' e 'divergente' nel ciclo glottico.",
+    "answer": "La fase convergente si ha quando il bordo inferiore delle corde è più stretto di quello superiore (forma a V), tipica della chiusura. La fase divergente si ha quando il bordo inferiore è più largo (forma a A), tipica dell'apertura."
+  },
+  {
+    "id": 86,
+    "macro_area": "Ciclo Vibratorio",
+    "type": "true_false",
+    "question": "Il movimento di apertura della corda vocale inizia dal suo margine superiore.",
+    "answer": false,
+    "explanation": "Falso. A causa della pressione sottoglottica, l'apertura inizia dal margine INFERIORE e si propaga verso quello superiore, in un movimento a 'bascula'."
+  },
+  {
+    "id": 87,
+    "macro_area": "Ciclo Vibratorio",
+    "type": "multiple_choice",
+    "question": "La vibrazione delle corde vocali è sostenuta unicamente dal principio di Bernoulli.",
+    "options": ["Vero", "Falso, dipende anche dal ritorno elastico", "Falso, dipende anche dalle pressioni nel vocal tract"],
+    "answer": "Falso, dipende anche dalle pressioni nel vocal tract",
+    "explanation": "Il documento sottolinea che la visione moderna sposta l'attenzione dall'apparato respiratorio al vocal tract. Le variazioni di pressione SOPRA le corde vocali sono un contributo fondamentale al mantenimento della vibrazione."
+  },
+  {
+    "id": 88,
+    "macro_area": "Controllo f0 e SPL",
+    "type": "multiple_choice",
+    "question": "Una stessa frequenza (es. 160 Hz) può essere prodotta:",
+    "options": ["Solo con alta attivazione del CT e bassa del TA.", "Solo con bassa attivazione del CT e alta del TA.", "Con diverse combinazioni di attivazione di CT e TA."],
+    "answer": "Con diverse combinazioni di attivazione di CT e TA.",
+    "explanation": "Il grafico CT/TA mostra che una linea di isofrequenza può essere intersecata in più punti, indicando strategie muscolari diverse per la stessa nota."
+  },
+  {
+    "id": 89,
+    "macro_area": "Controllo f0 e SPL",
+    "type": "true_false",
+    "question": "L'elevazione della laringe nel collo tende ad abbassare la frequenza fondamentale (f0).",
+    "answer": false,
+    "explanation": "Falso. L'elevazione della laringe aumenta la rigidità complessiva delle strutture, contribuendo ad AUMENTARE la f0."
+  },
+  {
+    "id": 90,
+    "macro_area": "Controllo f0 e SPL",
+    "type": "short_answer",
+    "question": "Il grafico che mostra la variazione della f0 nel tempo si chiama...",
+    "answer": "contour",
+    "explanation": "Il 'frequency fundamental contour' (ffc) mostra l'andamento melodico e prosodico di una frase."
+  },
+  {
+    "id": 91,
+    "macro_area": "Controllo f0 e SPL",
+    "type": "open_ended",
+    "question": "Quali sono i tre sistemi che controllano il livello di pressione sonora (intensità)?",
+    "answer": "I tre sistemi sono: il mantice (pressione sottoglottica), la laringe (resistenza glottica), e il vocal tract (risonanza e impedenza)."
+  },
+  {
+    "id": 92,
+    "macro_area": "Controllo f0 e SPL",
+    "type": "true_false",
+    "question": "Un aumento della resistenza glottica è sempre associato a un aumento della pressione sottoglottica.",
+    "answer": true,
+    "explanation": "Vero. I due parametri vanno insieme: se aumento la resistenza (chiudo di più le corde), devo aumentare la pressione per farle vibrare, e viceversa."
+  },
+  {
+    "id": 93,
+    "macro_area": "Controllo f0 e SPL",
+    "type": "multiple_choice",
+    "question": "Per ottenere voci intense, la strategia più efficiente è:",
+    "options": ["Aumentare solo la pressione tracheale", "Trovare strategie risonanziali per ridurre lo sforzo pressorio", "Contrarre solo i muscoli del collo"],
+    "answer": "Trovare strategie risonanziali per ridurre lo sforzo pressorio",
+    "explanation": "L'efficienza vocale si ottiene ottimizzando le risonanze del vocal tract, che amplificano il suono senza richiedere un eccessivo aumento di pressione alla fonte."
+  },
+  {
+    "id": 94,
+    "macro_area": "Funzioni Laringe/Vocal Tract",
+    "type": "multiple_choice",
+    "question": "Qual è la funzione gerarchicamente prevalente della laringe?",
+    "options": ["Fonatoria", "Protettiva", "Respiratoria"],
+    "answer": "Respiratoria",
+    "explanation": "La funzione respiratoria è vitale, quindi prevalente. Seguono quella protettiva e solo infine quella fonatoria."
+  },
+  {
+    "id": 95,
+    "macro_area": "Funzioni Laringe/Vocal Tract",
+    "type": "true_false",
+    "question": "Durante la respirazione a riposo, le corde vocali si abducono in inspirazione e si adducono in espirazione.",
+    "answer": true,
+    "explanation": "Vero. Si aprono leggermente per far entrare aria e si chiudono leggermente per controllare il flusso in uscita, aumentando la resistenza."
+  },
+  {
+    "id": 96,
+    "macro_area": "Funzioni Laringe/Vocal Tract",
+    "type": "short_answer",
+    "question": "La manovra 'valsalva' (tappare il naso e soffiare) è utile per verificare la capacità di...",
+    "answer": "chiusura delle corde vocali",
+    "explanation": "La manovra di Valsalva crea una pressurizzazione senza vibrazione, testando la capacità di chiusura completa della glottide."
+  },
+  {
+    "id": 97,
+    "macro_area": "Funzioni Laringe/Vocal Tract",
+    "type": "open_ended",
+    "question": "Perché il movimento della laringe e quello della lingua devono essere 'dissociati' con l'allenamento?",
+    "answer": "Sono funzionalmente collegati (es. nella deglutizione). Nel canto, è necessario dissociarli per ottenere un controllo indipendente della laringe e del vocal tract, evitando tensioni parassite."
+  },
+  {
+    "id": 98,
+    "macro_area": "Funzioni Laringe/Vocal Tract",
+    "type": "true_false",
+    "question": "Un flusso d'aria 'turbolento' è ideale per produrre un suono musicale pulito.",
+    "answer": false,
+    "explanation": "Falso. Un flusso turbolento è caotico e produce rumore (es. soffio). Per un suono pulito è necessario un flusso d'aria 'laminare', cioè organizzato."
+  },
+  {
+    "id": 99,
+    "macro_area": "Funzioni Laringe/Vocal Tract",
+    "type": "multiple_choice",
+    "question": "Un 'gap posteriore' nella chiusura glottica può essere causato da un'attivazione insufficiente di quale muscolo?",
+    "options": ["Cricotiroideo", "Interaritenoideo", "Tiroaritenoideo"],
+    "answer": "Interaritenoideo",
+    "explanation": "Il muscolo Interaritenoideo è cruciale per serrare la porzione posteriore (cartilaginea) della glottide. Una sua debolezza può causare un gap posteriore."
+  },
+  {
+    "id": 100,
+    "macro_area": "Applicazioni Didattiche",
+    "type": "multiple_choice",
+    "question": "Se un allievo produce una nota acuta con 'fuga d'aria', sta probabilmente:",
+    "options": ["Aumentando troppo la resistenza glottica", "Riorganizzando correttamente la vibrazione sul margine", "Riducendo completamente la resistenza senza riorganizzare la vibrazione"],
+    "answer": "Riducendo completamente la resistenza senza riorganizzare la vibrazione",
+    "explanation": "Invece di passare a una vibrazione più leggera sul margine, l'allievo 'molla' la chiusura, creando un flusso d'aria turbolento."
+  },
+  {
+    "id": 101,
+    "macro_area": "Applicazioni Didattiche",
+    "type": "true_false",
+    "question": "Per percepire la chiusura glottica, ci si può basare sulla percezione sensoriale delle corde vocali stesse.",
+    "answer": false,
+    "explanation": "Falso. Le corde vocali non sono innervate sensorialmente in modo fine. La percezione della chiusura deriva dalla mucosa delle aritenoidi e dal feedback acustico e propriocettivo delle strutture circostanti."
+  },
+  {
+    "id": 102,
+    "macro_area": "Applicazioni Didattiche",
+    "type": "short_answer",
+    "question": "Quale strumento visualizza la distribuzione dell'energia acustica sulle varie frequenze in tempo reale?",
+    "answer": "spettrogramma",
+    "explanation": "Lo spettrogramma è fondamentale per l'analisi del timbro, mostrando se l'energia è concentrata sugli armonici gravi (suono scuro) o acuti (suono chiaro)."
+  },
+  {
+    "id": 103,
+    "macro_area": "Applicazioni Didattiche",
+    "type": "open_ended",
+    "question": "Descrivi un meccanismo complesso menzionato per produrre una nota in accorciamento con tensione superficiale (es. voce mista).",
+    "answer": "Si contrae il tiroaritenoideo (TA) per accorciare la corda, ma contemporaneamente si attiva il cricotiroideo (CT) per tendere la mucosa superficiale. È una co-contrazione di muscoli antagonisti che crea una vibrazione molto diversa e complessa."
+  },
+  {
+    "id": 104,
+    "macro_area": "Applicazioni Didattiche",
+    "type": "multiple_choice",
+    "question": "Quando la fase di chiusura delle corde è uguale alla fase di apertura, si ha una situazione di:",
+    "options": ["Alta resistenza e basso flusso", "Bassa resistenza e alto flusso", "Equilibrio tra resistenza e flusso"],
+    "answer": "Equilibrio tra resistenza e flusso",
+    "explanation": "Se il tempo di apertura e chiusura si equivalgono, si ha un flusso d'aria moderato. Aumentando il tempo di chiusura si aumenta la resistenza (e si riduce il flusso); aumentandolo quello di apertura si fa il contrario."
+  },
+  {
+    "id": 105,
+    "macro_area": "Applicazioni Didattiche",
+    "type": "true_false",
+    "question": "Il lavoro sulla respirazione (sostegno/appoggio) può essere completamente dissociato da quello che avviene a livello laringeo.",
+    "answer": false,
+    "explanation": "Falso. Il documento enfatizza che sono sistemi che devono agire insieme. Non è 'sostegno' o 'appoggio', ma una 'combo' tra ciò che avviene a livello laringeo (resistenza) e a livello posturale/respiratorio (pressione)."
+  },
+  {
+    "id": 106,
+    "macro_area": "Palato e Faringe",
+    "type": "multiple_choice",
+    "question": "Quale muscolo è il principale responsabile del sollevamento del palato molle?",
+    "options": ["Tensore del palato", "Costrittore superiore", "Elevatore del palato", "Palatoglosso"],
+    "answer": "Elevatore del palato",
+    "explanation": "L'Elevatore del palato solleva il velo palatino per chiudere il passaggio nasale e produrre suoni orali."
+  },
+  {
+    "id": 107,
+    "macro_area": "Palato e Faringe",
+    "type": "true_false",
+    "question": "Un suono 'nasale' si verifica quando il palato molle è completamente sollevato.",
+    "answer": false,
+    "explanation": "Falso. Un suono nasale si ha quando il palato è abbassato, permettendo al suono di risuonare nelle cavità nasali."
+  },
+  {
+    "id": 108,
+    "macro_area": "Palato e Faringe",
+    "type": "short_answer",
+    "question": "Come si chiama la linea tendinea posteriore dove si inseriscono i muscoli costrittori?",
+    "answer": "rafe",
+    "explanation": "Il rafe faringeo è il punto di ancoraggio posteriore per i muscoli costrittori della faringe."
+  },
+  {
+    "id": 109,
+    "macro_area": "Palato e Faringe",
+    "type": "open_ended",
+    "question": "Perché un raffreddore con congestione nasale altera la voce?",
+    "answer": "Perché la congestione blocca le cavità nasali, alterando l'impedenza del vocal tract e le risonanze, rendendo il suono ovattato."
+  },
+  {
+    "id": 110,
+    "macro_area": "Palato e Faringe",
+    "type": "true_false",
+    "question": "La deglutizione resetta la configurazione del vocal tract.",
+    "answer": true,
+    "explanation": "Vero. La deglutizione è un meccanismo complesso che riporta le strutture a una posizione di partenza."
+  },
+  {
+    "id": 111,
+    "macro_area": "Palato e Faringe",
+    "type": "multiple_choice",
+    "question": "Un suono 'nasalizzato' si ha quando il palato molle è:",
+    "options": ["Completamente abbassato", "Completamente sollevato", "In posizione semi-aperta"],
+    "answer": "In posizione semi-aperta",
+    "explanation": "Un palato semi-aperto produce una nasalizzazione, tipica di molte vocali."
+  },
+  {
+    "id": 112,
+    "macro_area": "Mandibola e Lingua",
+    "type": "short_answer",
+    "question": "Come si chiama il disco articolare nell'articolazione temporo-mandibolare (ATM)?",
+    "answer": "menisco",
+    "explanation": "Il menisco distribuisce le forze e garantisce un movimento fluido."
+  },
+  {
+    "id": 113,
+    "macro_area": "Mandibola e Lingua",
+    "type": "true_false",
+    "question": "Un disordine linguale non ha effetti sulla posizione della laringe.",
+    "answer": false,
+    "explanation": "Falso. La lingua è connessa a mandibola, osso ioide e palato, e un suo disordine condiziona tutte le altre strutture."
+  },
+  {
+    "id": 114,
+    "macro_area": "Mandibola e Lingua",
+    "type": "multiple_choice",
+    "question": "Quale parte della lingua è il punto d'appoggio principale delle vocali?",
+    "options": ["Punta", "Lama", "Dorso"],
+    "answer": "Dorso",
+    "explanation": "Il dorso della lingua è il principale responsabile della definizione del timbro delle vocali."
+  },
+  {
+    "id": 115,
+    "macro_area": "Mandibola e Lingua",
+    "type": "open_ended",
+    "question": "Perché la 'fissazione' della laringe è importante nel mix vocale?",
+    "answer": "Perché permette di stabilizzare la laringe, impedendole di salire eccessivamente con la frequenza, grazie a una co-contrazione di muscoli antagonisti."
+  },
+  {
+    "id": 116,
+    "macro_area": "Anatomia",
+    "type": "multiple_choice",
+    "question": "La frequenza fondamentale (f0) è direttamente proporzionale a:",
+    "options": ["Spessore della corda", "Lunghezza della corda", "Massa vibrante"],
+    "answer": "Lunghezza della corda",
+    "explanation": "Come in una corda di chitarra, a parità di altre condizioni, una corda più lunga e tesa produce una frequenza più alta."
+  },
+  {
+    "id": 117,
+    "macro_area": "Anatomia",
+    "type": "true_false",
+    "question": "I muscoli intrinseci della laringe sono dotati di molti fusi neuromuscolari, rendendoli molto sensibili.",
+    "answer": false,
+    "explanation": "Falso. Il documento specifica che i muscoli intrinseci sono POCO sensibili e hanno POCHI fusi neuromuscolari. La propriocezione deriva dalle strutture circostanti."
+  },
+  {
+    "id": 118,
+    "macro_area": "Anatomia",
+    "type": "short_answer",
+    "question": "Quale struttura anatomica, se troppo tesa, può causare difficoltà nella discesa della laringe?",
+    "answer": "cono elastico",
+    "explanation": "L'elevazione della laringe può provocare una trazione verso il basso del cono elastico, indurendolo e rendendo più difficile l'abbassamento della laringe."
+  },
+  {
+    "id": 119,
+    "macro_area": "Didattica",
+    "type": "multiple_choice",
+    "question": "Se un cantante sale con 'fuga d'aria', una strategia didattica è:",
+    "options": ["Aumentare la pressione senza cambiare altro", "Riorganizzare la vibrazione più sul margine", "Ignorare il problema"],
+    "answer": "Riorganizzare la vibrazione più sul margine",
+    "explanation": "La soluzione non è spingere di più, ma insegnare alla corda a vibrare in modo più leggero ed efficiente sul bordo, mantenendo una chiusura adeguata."
+  },
+  {
+    "id": 120,
+    "macro_area": "Didattica",
+    "type": "true_false",
+    "question": "Per produrre consonanti come 's' o 'f', è necessaria una chiusura completa delle corde vocali.",
+    "answer": false,
+    "explanation": "Falso. Per le fricative sorde come 's' e 'f', le corde vocali devono rimanere aperte per permettere un flusso d'aria continuo e turbolento."
+  },
+  {
+    "id": 121,
+    "macro_area": "Didattica",
+    "type": "open_ended",
+    "question": "Perché la 'periodicità' del ciclo glottico è fondamentale per la differenza tra 'suono' e 'rumore'?",
+    "answer": "Un ciclo glottico periodico, cioè che si ripete in modo regolare e costante, produce un suono musicale con una frequenza chiara. Un ciclo aperiodico (irregolare) produce rumore, come raucedine o soffio, perché manca una frequenza fondamentale stabile."
+  },
+  {
+    "id": 122,
+    "macro_area": "Biomeccanica",
+    "type": "short_answer",
+    "question": "Oltre al principio di Bernoulli e al ritorno elastico, quale altro fattore è oggi considerato cruciale per il mantenimento della vibrazione cordale?",
+    "answer": "il vocal tract",
+    "explanation": "La visione moderna considera le variazioni di pressione e l'impedenza acustica generate nel tratto vocale superiore come un fattore attivo nel sostenere la vibrazione, non solo come un semplice risuonatore."
+  },
+  {
+    "id": 123,
+    "macro_area": "Biomeccanica",
+    "type": "multiple_choice",
+    "question": "Un'alta resistenza glottica è tipica di una fonazione:",
+    "options": ["Soffiata", "Pressata o forte", "Sussurrata"],
+    "answer": "Pressata o forte",
+    "explanation": "Alta resistenza significa che le corde sono ben addotte e resistono al passaggio dell'aria, una condizione tipica delle fonazioni forti e pressate."
+  },
+  {
+    "id": 124,
+    "macro_area": "Biomeccanica",
+    "type": "true_false",
+    "question": "L'area glottica e l'adduzione/abduzione sono la stessa cosa.",
+    "answer": false,
+    "explanation": "Falso. L'adduzione/abduzione è il movimento delle cartilagini. L'area glottica è lo spazio che si apre e chiude durante il ciclo vibratorio, che è un movimento passivo."
+  },
+  {
+    "id": 125,
+    "macro_area": "Risonanza",
+    "type": "open_ended",
+    "question": "Perché allargare gli spazi nel vocal tract (es. faringe) tende a produrre un suono percepito come più 'scuro'?",
+    "answer": "Perché allargando gli spazi risonanziali, l'energia degli armonici si concentra nella parte bassa dello spettro, vicino alla frequenza fondamentale. Questo rafforzamento degli armonici gravi è percepito acusticamente come un suono più scuro, rotondo e corposo."
+  },
+  {
+    "id": 126,
+    "macro_area": "Risonanza",
+    "type": "short_answer",
+    "question": "Quale strumento è utile per monitorare l'intensità vocale durante lezioni online?",
+    "answer": "volume checking",
+    "explanation": "Il 'volume checking' (o un semplice fonometro) permette di avere un feedback visivo e oggettivo sull'intensità, bypassando le limitazioni dell'audio compresso online."
+  },
+  {
+    "id": 127,
+    "macro_area": "Risonanza",
+    "type": "true_false",
+    "question": "Nei cantanti professionisti microfonati, il livello di pressione sonora (intensità) è molto variabile.",
+    "answer": false,
+    "explanation": "Falso. Il documento afferma che, sorprendentemente, nei professionisti che usano il microfono l'intensità tende a rimanere quasi stabile. Quello che cambia moltissimo è il timbro, grazie a strategie risonanziali."
+  },
+  {
+    "id": 128,
+    "macro_area": "Risonanza",
+    "type": "multiple_choice",
+    "question": "Un suono molto penetrante ('ringing') è associato a un restringimento di quale parte del vocal tract?",
+    "options": ["La bocca", "La laringe", "La faringe (sfintere epiglottico)"],
+    "answer": "La faringe (sfintere epiglottico)",
+    "explanation": "Il 'ringing' o 'twang' è prodotto da un restringimento dello sfintere ari-epiglottico, che crea una risonanza specifica nella zona alta dello spettro (2-4 kHz), rendendo la voce più penetrante e udibile."
+  },
+  {
+    "id": 129,
+    "macro_area": "Funzioni Laringe",
+    "type": "short_answer",
+    "question": "Quale epitelio si trova nelle vie respiratorie superiori, colonizzate da batteri?",
+    "answer": "epitelio squamoso stratificato",
+    "explanation": "L'epitelio squamoso stratificato è più robusto e adatto a resistere all'attacco di agenti esterni, tipico delle vie aeree superiori."
+  },
+  {
+    "id": 130,
+    "macro_area": "Funzioni Laringe",
+    "type": "true_false",
+    "question": "La funzione protettiva della laringe è completamente dissociata da quella fonatoria.",
+    "answer": false,
+    "explanation": "Falso. Non sono completamente dissociate. Ad esempio, la tosse (protettiva) condivide molti meccanismi con la fonazione forzata, come una forte chiusura glottica."
+  },
+  {
+    "id": 131,
+    "macro_area": "Funzioni Laringe",
+    "type": "multiple_choice",
+    "question": "Durante la normale inspirazione, le corde vocali:",
+    "options": ["Si adducono leggermente", "Si abducono leggermente", "Rimangono immobili"],
+    "answer": "Si abducono leggermente",
+    "explanation": "Si abducono (aprono) per ridurre la resistenza e permettere un maggiore ingresso di aria."
+  },
+  {
+    "id": 132,
+    "macro_area": "Funzioni Laringe",
+    "type": "open_ended",
+    "question": "Spiega la differenza tra una fonazione ad alto flusso/bassa resistenza e una a basso flusso/alta resistenza.",
+    "answer": "Alto flusso/bassa resistenza: le corde stanno aperte per più tempo, passa molta aria, tipico di un suono soffiato. Basso flusso/alta resistenza: le corde stanno chiuse per più tempo, passa poca aria, tipico di un suono pressato o teso."
+  },
+  {
+    "id": 133,
+    "macro_area": "Anatomia",
+    "type": "short_answer",
+    "question": "La scatola cranica è una struttura...",
+    "answer": "Fissa",
+    "explanation": "La scatola cranica, a differenza della laringe, è una struttura ossea fissa che non può modificarsi, contenendo la faringe."
+  },
+  {
+    "id": 134,
+    "macro_area": "Anatomia",
+    "type": "true_false",
+    "question": "La laringe si trova normalmente tra le vertebre cervicali C3-C5.",
+    "answer": true,
+    "explanation": "Vero, questa è la sua posizione approssimativa nell'adulto. È più alta nei bambini e tende a scendere con l'invecchiamento."
+  },
+  {
+    "id": 135,
+    "macro_area": "Anatomia",
+    "type": "multiple_choice",
+    "question": "Quale muscolo NON è coinvolto nel movimento verso l'alto della scatola laringea?",
+    "options": ["Tiroioideo", "Digastrico", "Sternotiroideo"],
+    "answer": "Sternotiroideo",
+    "explanation": "Lo Sternotiroideo è un muscolo sottoioideo, la sua funzione è quella di abbassare la laringe, non di alzarla."
+  }
 ]
-
-  
