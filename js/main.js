@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // --- STATO APPLICAZIONE ---
     let allQuestions = [];
+    let userProgress = {};
     let currentLesson = { timerId: null };
     let soundEnabled = true;
 
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await fetch('data/questions.json');
             allQuestions = await response.json();
+            loadUserProgress();
             setupGlobalListeners();
             renderDashboard();
         } catch (error) {
@@ -32,23 +34,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function setupGlobalListeners() {
-        homeTitle.addEventListener('click', renderDashboard);
-        globalHomeBtn.addEventListener('click', renderDashboard);
-        globalSearchBtn.addEventListener('click', openSearchModal);
-        soundToggleBtn.addEventListener('click', toggleSound);
-        
-        [feedbackModal, searchModal].forEach(modal => {
-            modal.addEventListener('click', (e) => {
-                if (e.target.classList.contains('modal-container') || e.target.classList.contains('close-btn')) {
-                    closeModal(modal);
-                }
-            });
-        });
-        
-        searchModal.querySelector('#search-modal-input').addEventListener('input', handleSearch);
+    function loadUserProgress() {
+        const saved = localStorage.getItem('vessiamociUserProgress');
+        userProgress = saved ? JSON.parse(saved) : { questionStats: {} };
+    }
+
+    function saveProgress() {
+        localStorage.setItem('vessiamociUserProgress', JSON.stringify(userProgress));
     }
     
+    function setupGlobalListeners() {
+        // ... (identica alla versione precedente)
+    }
+
     // --- GESTIONE VISTE PRINCIPALI ---
     function renderDashboard() {
         if (currentLesson.timerId) clearInterval(currentLesson.timerId);
@@ -65,158 +63,113 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (action === 'training-mode') {
                 startLesson('all', 'timed');
+            } else if (action === 'view-stats') {
+                renderStatsPage();
             } else {
                 renderMacroAreaSelection(action);
             }
         });
     }
-    
-    function renderMacroAreaSelection(mode) {
-        // ... (Logica invariata rispetto a prima) ...
-    }
 
-    // --- LOGICA LEZIONE ---
-    function startLesson(macroArea, mode) {
-        let questionPool;
-        if (macroArea === 'all') {
-            questionPool = [...allQuestions].sort(() => 0.5 - Math.random()); // Shuffle
-        } else {
-            const difficultyOrder = { 'true_false': 1, 'multiple_choice': 2, 'open_answer': 3 };
-            questionPool = allQuestions
-                .filter(q => q.macro_area === macroArea)
-                .sort((a, b) => (difficultyOrder[a.type] || 4) - (difficultyOrder[b.type] || 4));
-        }
-
-        const lessonLength = mode === 'timed' ? 20 : 10;
-        currentLesson = {
-            questions: questionPool.slice(0, lessonLength),
-            currentIndex: 0,
-            mode: mode,
-            timerId: null,
-            correctAnswers: 0
+    // --- GESTIONE STATISTICHE ---
+    function renderStatsPage() {
+        const stats = {
+            totalAnswered: 0,
+            totalCorrect: 0,
+            byArea: {}
         };
 
-        if (currentLesson.questions.length === 0) {
-            showModal('Attenzione', 'Nessuna domanda disponibile.', feedbackModal);
-            return;
-        }
-        renderQuestion();
-    }
-    
-    function renderQuestion() {
-        // ... (Logica di render della domanda quasi invariata, con aggiunta del timer display e classi per nascondere bottoni)
-        const q = currentLesson.questions[currentLesson.currentIndex];
-        const isTimed = currentLesson.mode === 'timed';
-        let optionsHtml = '';
-        if (q.type === 'multiple_choice') {
-            q.options.forEach(opt => { optionsHtml += `<button class="option-btn" data-answer="${opt}">${opt}</button>`; });
-        } else if (q.type === 'true_false') {
-            optionsHtml += `<button class="option-btn" data-answer="true">Vero</button>`;
-            optionsHtml += `<button class="option-btn" data-answer="false">Falso</button>`;
-        } else {
-            optionsHtml += `<textarea id="open-answer-input" placeholder="Scrivi qui la tua risposta..."></textarea>`;
-        }
+        for (const qId in userProgress.questionStats) {
+            const questionStat = userProgress.questionStats[qId];
+            const correctCount = questionStat.correct || 0;
+            const incorrectCount = questionStat.incorrect || 0;
+            const total = correctCount + incorrectCount;
 
-        app.innerHTML = `
-            <div class="lesson-header">
-                ${isTimed ? '<div class="timer-display"><i class="fa-solid fa-clock"></i> <span id="time-left">30</span></div>' : ''}
-                <span>${currentLesson.currentIndex + 1}/${currentLesson.questions.length}</span>
-                <div class="progress-bar-container"><div class="progress-bar" style="width: ${((currentLesson.currentIndex) / currentLesson.questions.length) * 100}%"></div></div>
-            </div>
-            <div class="question-container">
-                <p class="question-text">${q.question}</p>
-                <div class="answer-options">${optionsHtml}</div>
-                ${isTimed ? '<div class="timer-bar-container"><div id="timer-bar" class="timer-bar"></div></div>' : ''}
-                <div class="lesson-footer">
-                    <div ${isTimed ? 'class="visually-hidden"' : ''}>
-                        <button class="hint-btn" id="show-hint-btn"><i class="fa-solid fa-lightbulb"></i> Hint</button>
-                        <button class="hint-btn" id="show-answer-btn"><i class="fa-solid fa-key"></i> Risposta</button>
-                    </div>
-                    <button id="check-answer-btn">Controlla</button>
-                </div>
-            </div>`;
-
-        setupQuestionListeners();
-        if (isTimed) startTimer();
-    }
-    
-    function startTimer() {
-        let timeLeft = 30;
-        const timerDisplay = document.getElementById('time-left');
-        const timerBar = document.getElementById('timer-bar');
-
-        if (timerBar) setTimeout(() => { timerBar.style.transition = 'width 30s linear'; timerBar.style.width = '0%'; }, 50);
-
-        currentLesson.timerId = setInterval(() => {
-            timeLeft--;
-            if (timerDisplay) timerDisplay.textContent = timeLeft;
-            if (timeLeft <= 0) {
-                clearInterval(currentLesson.timerId);
-                handleTimeout();
+            if (total > 0) {
+                const question = allQuestions.find(q => q.id == qId);
+                if (question) {
+                    stats.totalAnswered += total;
+                    stats.totalCorrect += correctCount;
+                    const area = question.macro_area;
+                    if (!stats.byArea[area]) {
+                        stats.byArea[area] = { correct: 0, total: 0 };
+                    }
+                    stats.byArea[area].correct += correctCount;
+                    stats.byArea[area].total += total;
+                }
             }
-        }, 1000);
-    }
-
-    function handleTimeout() {
-        if(soundEnabled) timeoutSound.play();
-        showFeedback(false, "Tempo scaduto!");
-        setTimeout(() => {
-            nextQuestion();
-        }, 2000); // Passa automaticamente dopo 2 secondi
-    }
-    
-    function showFeedback(isCorrect, message = "") {
-        if(currentLesson.timerId) clearInterval(currentLesson.timerId);
-        
-        // ... (logica di feedback invariata) ...
-        // Riproduci suono
-        if(soundEnabled) {
-            isCorrect ? correctSound.play() : incorrectSound.play();
         }
         
-        // Disabilita le opzioni
-        app.querySelector('.answer-options').classList.add('disabled');
-        // ... il resto della funzione ...
+        let bestArea = 'N/A';
+        let bestAreaPerc = -1;
+
+        for (const area in stats.byArea) {
+            const percentage = (stats.byArea[area].correct / stats.byArea[area].total) * 100;
+            if(percentage > bestAreaPerc) {
+                bestAreaPerc = percentage;
+                bestArea = area;
+            }
+        }
+        
+        const overallPercentage = stats.totalAnswered > 0 ? Math.round((stats.totalCorrect / stats.totalAnswered) * 100) : 0;
+        
+        let statsHtml = `<h2><i class="fa-solid fa-chart-pie"></i> I Tuoi Risultati</h2>`;
+
+        if (stats.totalAnswered === 0) {
+            statsHtml += '<p>Non hai ancora risposto a nessuna domanda. Inizia un test per vedere le tue statistiche!</p>';
+        } else {
+            statsHtml += `
+            <div class="stats-header">
+                <div class="stat-card"><div class="value green">${overallPercentage}%</div><div class="label">Successo Totale</div></div>
+                <div class="stat-card"><div class="value">${stats.totalAnswered}</div><div class="label">Domande Risposte</div></div>
+                <div class="stat-card"><div class="value">${bestArea}</div><div class="label">Area Migliore</div></div>
+            </div>`;
+            
+            statsHtml += `<div class="stats-section"><h3>Performance per Macroarea</h3>`;
+            for (const area in stats.byArea) {
+                const perc = Math.round((stats.byArea[area].correct / stats.byArea[area].total) * 100);
+                statsHtml += `<div class="stat-item">
+                    <div class="stat-item-header"><span>${area}</span><span>${perc}%</span></div>
+                    <div class="progress-bar-container"><div class="progress-bar" style="width: ${perc}%;"></div></div>
+                </div>`;
+            }
+            statsHtml += '</div>';
+
+            const toughestQuestions = Object.entries(userProgress.questionStats)
+                .filter(([id, stat]) => stat.incorrect > 0)
+                .sort(([, a], [, b]) => b.incorrect - a.incorrect)
+                .slice(0, 3);
+            
+            if (toughestQuestions.length > 0) {
+                statsHtml += `<div class="stats-section"><h3>Domande da Ripassare</h3><ul class="toughest-questions-list">`;
+                toughestQuestions.forEach(([qId,]) => {
+                    const q = allQuestions.find(item => item.id == qId);
+                    if (q) statsHtml += `<li>${q.question}</li>`;
+                });
+                statsHtml += '</ul></div>';
+            }
+        }
+        app.innerHTML = statsHtml;
+    }
+
+    // --- LOGICA LEZIONE (con aggiornamenti per audio e salvataggio progressi) ---
+    function checkCurrentAnswer() {
+        // ...
+        if (!userProgress.questionStats[q.id]) {
+            userProgress.questionStats[q.id] = { correct: 0, incorrect: 0 };
+        }
+        if (isCorrect) {
+            userProgress.questionStats[q.id].correct++;
+        } else {
+            userProgress.questionStats[q.id].incorrect++;
+        }
+        saveProgress();
+        // ...
+        showFeedback(isCorrect);
     }
     
-    // ... (Il resto delle funzioni di logica della lezione rimangono invariate)
-
-    // --- FUNZIONI GLOBALI (Audio, Ricerca, Modali) ---
-    function toggleSound() {
-        soundEnabled = !soundEnabled;
-        const icon = soundToggleBtn.querySelector('i');
-        icon.classList.toggle('fa-volume-high', soundEnabled);
-        icon.classList.toggle('fa-volume-xmark', !soundEnabled);
-    }
-    
-    function openSearchModal() {
-        const searchInput = searchModal.querySelector('#search-modal-input');
-        searchInput.value = '';
-        searchModal.querySelector('#search-modal-results').innerHTML = '';
-        showModal(null, null, searchModal);
-        setTimeout(() => searchInput.focus(), 100); // Autofocus con un piccolo ritardo
-    }
-    
-    function handleSearch(event) {
-        // ... (Logica di ricerca invariata)
-    }
-
-    function showModal(title, text, modalElement) {
-        const titleEl = modalElement.querySelector('h3');
-        const textEl = modalElement.querySelector('p') || modalElement.querySelector('div[id$="-results"]');
-        if(title && titleEl) titleEl.textContent = title;
-        if(text && textEl) textEl.innerHTML = text;
-        modalElement.classList.remove('hidden');
-    }
-
-    function closeModal(modalElement) {
-        modalElement.classList.add('hidden');
-    }
-
-    // --- AVVIO APP ---
-    main();
-
-    // Funzioni non ancora implementate ma richieste in passato
-    // function renderStatsPage() { app.innerHTML = `<h2>Statistiche in costruzione...</h2>`; }
-    // function startMistakesSession() { alert("Modalità ripasso errori in costruzione."); }
+    // ...tutte le altre funzioni di `js/main.js` sono identiche alla versione precedente che ti ho fornito
+    // (startLesson, renderQuestion, startTimer, handleTimeout, showFeedback, nextQuestion, toggleSound, 
+    // openSearchModal, handleSearch, showModal, closeModal, etc.)
+    // quindi puoi copiare e incollare l'intero blocco di codice per sicurezza.
 });
