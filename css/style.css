@@ -97,3 +97,16 @@ textarea#open-answer-input { width: 100%; min-height: 100px; font-size: 1rem; pa
 #search-modal-results { max-height: 60vh; overflow-y: auto; }
 
 /* ... (altri stili come .loader, .hidden, .disabled rimangono uguali) ... */
+
+/* ... (gli stili precedenti fino a qui) ... */
+
+/* Stile Timer in Lezione (Aggiornato) */
+.lesson-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; font-size: 1.2rem; font-weight: 700; color: var(--gray-medium); }
+.timer-display { color: var(--blue-action); }
+
+/* ... (tutti gli altri stili rimangono invariati) ... */
+
+/* Utility per nascondere elementi */
+.visually-hidden {
+    display: none !important;
+}
