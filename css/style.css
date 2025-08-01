@@ -209,3 +209,75 @@ textarea#open-answer-input{width:100%;min-height:100px;font-size:1rem;padding:1r
     margin-bottom: 0.5rem;
     list-style-type: none;
 }
+
+
+
+/* ... (gli stili precedenti sono invariati) ... */
+
+/* Stile Pulsante "Tutte" */
+.btn-all-categories {
+    background-color: var(--blue-action);
+    color: var(--white) !important;
+}
+.btn-all-categories:hover {
+    border-color: var(--blue-action);
+    background-color: #0d8cce; /* Un blu leggermente più scuro */
+}
+
+/* Stili Pagina Statistiche v2 */
+.stats-container { display: flex; flex-direction: column; gap: 2rem; }
+.stats-header {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+.stat-card {
+    background-color: var(--white);
+    padding: 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    border: 2px solid var(--gray-light);
+}
+.stat-card .value { font-size: 2.2rem; font-weight: 800; color: var(--blue-action); }
+.stat-card .value.green { color: var(--green-correct); }
+.stat-card .value .unit { font-size: 1.2rem; color: var(--gray-medium); }
+.stat-card .label { font-weight: 700; color: var(--gray-dark); margin-top: 0.25rem; }
+
+.stats-section { background: var(--white); border-radius: 1rem; padding: 1.5rem; }
+.stats-section h3 { text-align: center; font-size: 1.5rem; margin-top: 0; margin-bottom: 1.5rem; color: var(--gray-dark); }
+.stat-item { margin-bottom: 1rem; }
+.stat-item-header { display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 0.5rem; }
+
+.toughest-questions-list li {
+    background-color: #fff8f8;
+    border: 1px solid #ffe0e0;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    list-style-type: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.toughest-questions-list li:hover { background-color: #ffeded; }
+
+/* Calendario Streak */
+.streak-calendar { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.5rem; text-align: center; }
+.streak-calendar .day-name { font-weight: 700; color: var(--gray-medium); }
+.streak-calendar .day { width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background-color: var(--gray-light); }
+.streak-calendar .day.active { background-color: var(--green-correct); color: var(--white); font-weight: 700; }
+
+/* Badge Achievements */
+.achievements-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 1rem; }
+.achievement-badge { text-align: center; }
+.achievement-badge i { font-size: 3rem; color: var(--gray-light); transition: color 0.3s; }
+.achievement-badge.unlocked i { color: #ffd700; /* Oro */ }
+.achievement-badge p { font-size: 0.8rem; font-weight: 700; color: var(--gray-medium); margin-top: 0.5rem; }
+.achievement-badge.unlocked p { color: var(--gray-dark); }
+
+/* Report di Fine Test */
+.test-report-item { margin-bottom: 1.5rem; padding: 1rem; border-radius: 0.5rem; }
+.test-report-item.correct { background-color: #f0fff0; border-left: 5px solid var(--green-correct); }
+.test-report-item.incorrect { background-color: #fff8f8; border-left: 5px solid var(--red-incorrect); }
+.report-q-text { font-weight: 700; }
+.report-user-answer { font-style: italic; }
+.report-explanation { margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--gray-light); font-size: 0.9rem; }
