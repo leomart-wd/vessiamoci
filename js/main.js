@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
             renderDashboard();
         } catch (error) {
             app.innerHTML = `<p>Errore critico: impossibile caricare le domande. Controlla il file 'data/questions.json'.</p>`;
+            console.error("Fetch Error:", error);
         }
     }
 
@@ -108,6 +109,10 @@ document.addEventListener('DOMContentLoaded', () => {
         let questionPool;
         if (macroArea === 'all') {
             questionPool = [...allQuestions].sort(() => 0.5 - Math.random());
+        } else if (macroArea === 'mistakes') {
+            const mistakenQuestionsIds = Object.keys(userProgress.questionStats)
+                .filter(qId => userProgress.questionStats[qId].incorrect > 0);
+            questionPool = allQuestions.filter(q => mistakenQuestionsIds.includes(q.id.toString()));
         } else {
             const difficultyOrder = { 'true_false': 1, 'multiple_choice': 2, 'open_answer': 3 };
             questionPool = allQuestions
@@ -129,10 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function startMistakesSession() {
-        const mistakenQuestionsIds = Object.keys(userProgress.questionStats)
-            .filter(qId => userProgress.questionStats[qId].incorrect > 0);
-        
-        const questionPool = allQuestions.filter(q => mistakenQuestionsIds.includes(q.id.toString()));
         startLesson('mistakes', 'standard');
     }
 
@@ -177,8 +178,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('check-answer-btn').addEventListener('click', checkCurrentAnswer);
         const hintBtn = document.getElementById('show-hint-btn');
         const answerBtn = document.getElementById('show-answer-btn');
-        if (hintBtn) hintBtn.addEventListener('click', () => showModal('Suggerimento', q.reflective_question, feedbackModal));
-        if (answerBtn) answerBtn.addEventListener('click', () => showModal('Risposta Corretta', q.answer, feedbackModal));
+        if (hintBtn) hintBtn.addEventListener('click', () => showModal('Suggerimento', q.reflective_question || "Nessun hint per questa domanda.", feedbackModal));
+        if (answerBtn) answerBtn.addEventListener('click', () => showModal('Risposta Corretta', Array.isArray(q.answer) ? q.answer.join(', ') : q.answer, feedbackModal));
         
         if (q.type !== 'open_answer') {
             app.querySelectorAll('.option-btn').forEach(btn => btn.addEventListener('click', (e) => {
@@ -205,7 +206,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function handleTimeout() {
-        if(soundEnabled) timeoutSound.play();
+        if (soundEnabled) timeoutSound.play();
+        const q = currentLesson.questions[currentLesson.currentIndex];
+        if (!userProgress.questionStats[q.id]) userProgress.questionStats[q.id] = { correct: 0, incorrect: 0 };
+        userProgress.questionStats[q.id].incorrect++;
+        saveProgress();
         showFeedback(false, "Tempo scaduto!");
         setTimeout(nextQuestion, 2000);
     }
@@ -220,8 +225,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (q.type === 'open_answer') {
             userAnswer = document.getElementById('open-answer-input').value;
             const userWords = (userAnswer.toLowerCase().match(/\b(\w+)\b/g) || []).filter(w => w.length > 2);
-            const matches = q.keywords.filter(k => userWords.includes(k.toLowerCase())).length;
-            isCorrect = (matches / q.keywords.length) >= 0.6;
+            const keywords = q.keywords || [];
+            if(keywords.length > 0) {
+                 const matches = keywords.filter(k => userWords.includes(k.toLowerCase())).length;
+                 isCorrect = (matches / keywords.length) >= 0.6;
+            } else { // Se non ci sono keywords, considerala corretta se l'utente scrive qualcosa
+                 isCorrect = userAnswer.trim() !== '';
+            }
         } else {
             const selectedBtn = app.querySelector('.option-btn[style*="--blue-action"]');
             userAnswer = selectedBtn ? selectedBtn.dataset.answer : null;
@@ -290,7 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const overallPerc = stats.totalAnswered > 0 ? Math.round((stats.totalCorrect / stats.totalAnswered) * 100) : 0;
         let statsHtml = `<h2><i class="fa-solid fa-chart-pie"></i> I Tuoi Risultati</h2>`;
         if (stats.totalAnswered === 0) {
-            statsHtml += '<p>Non hai ancora risposto a nessuna domanda. Inizia un test per vedere le tue statistiche!</p>';
+            statsHtml += '<div class="question-container" style="text-align:center;"><p>Non hai ancora risposto a nessuna domanda. Inizia un test per vedere le tue statistiche!</p></div>';
         } else {
             statsHtml += `<div class="stats-header">
                 <div class="stat-card"><div class="value green">${overallPerc}%</div><div class="label">Successo Totale</div></div>
@@ -341,15 +351,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function handleSearch(event) {
         const query = event.target.value.toLowerCase();
-        searchResults.innerHTML = query.length < 3 ? '' : allQuestions.filter(q => q.question.toLowerCase().includes(query) || q.answer.toLowerCase().includes(query)).slice(0, 10).map(q => `
+        const resultsEl = searchModal.querySelector('#search-modal-results');
+        resultsEl.innerHTML = query.length < 3 ? '' : allQuestions.filter(q => q.question.toLowerCase().includes(query) || q.answer.toString().toLowerCase().includes(query)).slice(0, 10).map(q => `
             <div class="search-result-item">
-                <p class="question">${q.question}</p><p class="answer"><strong>Risposta:</strong> ${q.answer}</p><p class="explanation"><strong>Spiegazione:</strong> ${q.explanation}</p>
+                <p class="question">${q.question}</p><p class="answer"><strong>Risposta:</strong> ${Array.isArray(q.answer) ? q.answer.join(', ') : q.answer}</p><p class="explanation"><strong>Spiegazione:</strong> ${q.explanation}</p>
             </div>`).join('');
     }
 
     function showModal(title, text, modalElement) {
-        if(title) modalElement.querySelector('h3').textContent = title;
-        if(text) modalElement.querySelector('p, div[id$="-results"]').innerHTML = text;
+        const titleEl = modalElement.querySelector('h3');
+        const textEl = modalElement.querySelector('p, div[id$="-results"]');
+        if (title && titleEl) titleEl.textContent = title;
+        if (text && textEl) textEl.innerHTML = text;
         modalElement.classList.remove('hidden');
     }
 
