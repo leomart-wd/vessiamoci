@@ -4,30 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VESsiamoci - Studia Scienze Motorie</title>
-    <!-- Font e Icone -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <!-- Ho reso il titolo cliccabile per tornare alla dashboard -->
-        <h1 id="home-btn">VESsiamoci <i class="fa-solid fa-brain"></i></h1>
+        <h1 id="home-title">VESsiamoci <i class="fa-solid fa-brain"></i></h1>
+        <div class="global-actions">
+            <button id="global-search-btn" title="Cerca"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button id="global-home-btn" title="Dashboard"><i class="fa-solid fa-house"></i></button>
+        </div>
     </header>
 
     <main id="app">
         <div class="loader"></div>
     </main>
     
-    <!-- Struttura per il Modale (popup) -->
-    <div id="modal-container" class="hidden">
+    <!-- Modale per Feedback, Hint, Risposte -->
+    <div id="feedback-modal-container" class="modal-container hidden">
         <div class="modal-content">
-            <span id="close-modal-btn" class="close-btn">×</span>
+            <span class="close-btn">×</span>
             <h3 id="modal-title"></h3>
             <p id="modal-text"></p>
+        </div>
+    </div>
+    
+    <!-- Modale per la Ricerca Live -->
+    <div id="search-modal-container" class="modal-container hidden">
+        <div class="modal-content large">
+            <span class="close-btn">×</span>
+            <h3><i class="fa-solid fa-magnifying-glass"></i> Cerca un Argomento</h3>
+            <input type="text" id="search-modal-input" placeholder="Scrivi una parola chiave...">
+            <div id="search-modal-results"></div>
         </div>
     </div>
 
