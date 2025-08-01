@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anatomy-Lingo - Studia Scienze Motorie</title>
+    <title>VESsiamoci - Studia Scienze Motorie</title>
     <!-- Font e Icone -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,14 +14,23 @@
 </head>
 <body>
     <header>
-        <h1 onclick="location.reload()">Anatomy-Lingo <i class="fa-solid fa-brain"></i></h1>
+        <!-- Ho reso il titolo cliccabile per tornare alla dashboard -->
+        <h1 id="home-btn">VESsiamoci <i class="fa-solid fa-brain"></i></h1>
     </header>
 
     <main id="app">
-        <!-- L'applicazione verrà renderizzata dinamicamente qui -->
         <div class="loader"></div>
     </main>
     
+    <!-- Struttura per il Modale (popup) -->
+    <div id="modal-container" class="hidden">
+        <div class="modal-content">
+            <span id="close-modal-btn" class="close-btn">×</span>
+            <h3 id="modal-title"></h3>
+            <p id="modal-text"></p>
+        </div>
+    </div>
+
     <script src="js/main.js"></script>
 </body>
-</html>
+</html>```
