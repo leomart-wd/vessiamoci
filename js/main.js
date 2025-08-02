@@ -104,12 +104,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const target = e.target.closest('button, h1');
             if (!target) return;
 
-            const actionId = target.id;
-            if (actionId === 'home-title') renderDashboard();
-            if (actionId === 'training-hub-btn') renderTrainingHub();
-            if (actionId === 'stats-btn') renderStatsPage();
-            if (actionId === 'global-search-btn') openSearchModal();
-            if (actionId === 'sound-toggle-btn') toggleSound();
+            const action = target.dataset.action || target.id;
+            
+            if (action === 'go-to-dashboard' || action === 'home-title') renderDashboard();
+            if (action === 'go-to-train' || action === 'training-hub-btn') renderTrainingHub();
+            if (action === 'go-to-stats' || action === 'stats-btn') renderStatsPage();
+            if (action === 'global-search-btn') openSearchModal();
+            if (action === 'sound-toggle-btn') toggleSound();
         });
 
         // Event Delegation for dynamically created content in the app container
@@ -122,8 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (action === 'go-to-train') renderTrainingHub();
             if (action === 'start-skill-lesson') startLesson({ skill, mode: 'standard' });
             if (action === 'start-daily-review') startDailyReview();
-            if (action === 'start-mistakes-review') startLesson({ skill: 'all', mode: 'mistakes' });
-            if (action === 'start-timed-mode') startLesson({ skill: 'all', mode: 'timed' });
+            if (action === 'start-mistakes-review') renderMacroAreaSelection('mistakes');
+            if (action === 'start-timed-mode') renderMacroAreaSelection('timed');
             if (action === 'back-to-dashboard') renderDashboard();
             if (action === 'view-question-detail') showQuestionDetailModal(allQuestions.find(q => q.id == questionId));
             if (action === 'check-answer') checkCurrentAnswer();
@@ -183,18 +184,23 @@ document.addEventListener('DOMContentLoaded', () => {
             return stats && new Date(stats.nextReview) <= new Date(today) && (stats.strength || 0) < MASTERY_LEVEL;
         }).length;
         
+        const mistakenQuestionsCount = Object.keys(userProgress.questionStats).filter(qId => (userProgress.questionStats[qId]?.incorrect || 0) > 0).length;
+
         const skills = [...new Set(allQuestions.map(q => q.macro_area))];
         const skillIcons = { "Filosofia e Didattica VES": "fa-brain", "Anatomia": "fa-bone", "Fisiologia": "fa-heart-pulse", "Biomeccanica": "fa-person-running", "Applicazioni Didattiche": "fa-bullseye" };
         
-        let html = `<div class="skill-tree-container">`;
-        if (questionsDue > 0) {
-             html += `<button class="daily-review-btn" data-action="start-daily-review">
+        let html = `<div class="skill-tree-container">
+            <button class="daily-review-btn ${questionsDue === 0 ? 'disabled' : ''}" data-action="start-daily-review">
                 <i class="fa-solid fa-star"></i> 
-                Ripasso Quotidiano (${questionsDue} carte)
-            </button>`;
-        }
-        
-        html += `<div class="skill-row">`;
+                ${questionsDue > 0 ? `Ripasso Quotidiano (${questionsDue} carte)` : 'Nessun ripasso per oggi. Ottimo!'}
+            </button>
+            <button class="daily-review-btn ${mistakenQuestionsCount === 0 ? 'disabled' : ''}" data-action="start-mistakes-review" style="background-color: var(--red-incorrect); box-shadow: 0 4px 0 #a21b2b;">
+                 <i class="fa-solid fa-circle-exclamation"></i>
+                ${mistakenQuestionsCount > 0 ? `Ripassa ${mistakenQuestionsCount} Errori` : 'Nessun Errore da Ripassare'}
+            </button>
+            <h2 class="page-title" style="margin-top: 2rem;">Percorso di Apprendimento</h2>
+            <div class="skill-row">`;
+
         skills.forEach(skill => {
             const level = userProgress.skillLevels[skill] || 0;
             const totalInSkill = allQuestions.filter(q => q.macro_area === skill).length;
@@ -211,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <i class="fa-solid ${skillIcons[skill] || 'fa-question'} skill-icon"></i>
                         <div class="skill-level">${level}</div>
                     </div>
-                    <h4>${skill.replace('Filosofia e Didattica VES', 'Filosofia VES')}</h4>
+                    <h4>${skill.replace(' e Didattica VES', '')}</h4>
                 </div>`;
         });
         html += `</div></div>`;
@@ -219,23 +225,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderTrainingHub() {
-        const mistakenQuestionsCount = Object.keys(userProgress.questionStats).filter(qId => (userProgress.questionStats[qId]?.incorrect || 0) > 0).length;
+        renderMacroAreaSelection('timed');
+    }
+    
+    function renderMacroAreaSelection(mode) {
+        let title, source;
+        if (mode === 'mistakes') {
+            title = "Ripassa i Tuoi Errori";
+            const mistakenIds = Object.keys(userProgress.questionStats).filter(qId => userProgress.questionStats[qId]?.incorrect > 0);
+            source = allQuestions.filter(q => mistakenIds.includes(q.id.toString()));
+        } else { // 'timed' or 'standard'
+            title = "Scegli una Categoria";
+            source = allQuestions;
+        }
+
+        const availableAreas = [...new Set(source.map(q => q.macro_area))];
+        let html = `<h2 class="page-title">${title}</h2><div class="skill-row">`;
         
-        app.innerHTML = `
-            <div class="skill-row">
-                <div class="training-hub-card">
-                    <h3>Ripassa i Tuoi Errori</h3>
-                    <p>Concentrati sulle domande che hai sbagliato in passato per trasformare le debolezze in punti di forza.</p>
-                    <button class="btn btn-review ${mistakenQuestionsCount === 0 ? 'disabled' : ''}" data-action="start-mistakes-review">
-                        ${mistakenQuestionsCount > 0 ? `Ripassa ${mistakenQuestionsCount} Errori` : 'Nessun Errore da Ripassare'}
-                    </button>
-                </div>
-                <div class="training-hub-card">
-                    <h3>Modalità a Tempo</h3>
-                    <p>Metti alla prova la tua velocità e precisione su tutte le materie in una sfida contro il tempo.</p>
-                    <button class="btn btn-timed" data-action="start-timed-mode">Inizia Allenamento</button>
-                </div>
-            </div>`;
+        if (availableAreas.length > 0) {
+            html += `<div class="category-card all-categories" data-skill="all">Tutte le Categorie</div>`;
+            availableAreas.forEach(area => {
+                html += `<div class="category-card" data-skill="${area}">${area}</div>`;
+            });
+        } else {
+             html += `<div class="question-container" style="text-align:center;"><p>Nessun errore da ripassare. Ottimo lavoro!</p></div>`;
+        }
+        
+        html += `</div>`;
+        app.innerHTML = html;
+
+        app.querySelectorAll('.category-card').forEach(card => {
+            card.addEventListener('click', () => startLesson({ skill: card.dataset.skill, mode }));
+        });
     }
     
     function renderStatsPage() {
@@ -348,7 +369,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     return q.macro_area === skill && strength < MASTERY_LEVEL && strength <= level;
                 }).sort(() => 0.5 - Math.random());
             } else if (mode === 'timed') {
-                questionPool = [...allQuestions].sort(() => 0.5 - Math.random());
+                const source = skill === 'all' ? allQuestions : allQuestions.filter(q => q.macro_area === skill);
+                questionPool = [...source].sort(() => 0.5 - Math.random());
             } else if (mode === 'mistakes') {
                  const mistakenIds = Object.keys(userProgress.questionStats).filter(qId => userProgress.questionStats[qId]?.incorrect > 0);
                  const baseSource = allQuestions.filter(q => mistakenIds.includes(q.id.toString()));
@@ -376,7 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const stats = userProgress.questionStats[q.id];
                 return stats && new Date(stats.nextReview) <= new Date(today) && (stats.strength || 0) < MASTERY_LEVEL;
             })
-            .sort((a, b) => new Date(userProgress.questionStats[a.id]?.nextReview) - new Date(userProgress.questionStats[b.id]?.nextReview)); // Ripassa prima le più vecchie
+            .sort((a, b) => new Date(userProgress.questionStats[a.id]?.nextReview) - new Date(userProgress.questionStats[b.id]?.nextReview));
         
         startLesson({ skill: 'Ripasso', mode: 'daily_review', questions: questionsDue });
     }
@@ -402,7 +424,7 @@ document.addEventListener('DOMContentLoaded', () => {
             today.setDate(today.getDate() + intervalDays);
             stats.nextReview = today.toISOString().split('T')[0];
         } else {
-            stats.nextReview = '3000-01-01'; // Data lontana per le carte padroneggiate
+            stats.nextReview = '3000-01-01'; // Far future date for mastered cards
         }
         stats.lastReviewed = todayStr;
         userProgress.questionStats[questionId] = stats;
@@ -501,15 +523,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         updateQuestionStrength(q.id, isCorrect);
         
-        if (!userProgress.questionStats[q.id]) userProgress.questionStats[q.id] = {};
         userProgress.questionStats[q.id].totalTime = (userProgress.questionStats[q.id].totalTime || 0) + timeToAnswer;
-        if (isCorrect) {
-            userProgress.questionStats[q.id].correct = (userProgress.questionStats[q.id].correct || 0) + 1;
+        isCorrect ? userProgress.questionStats[q.id].correct++ : userProgress.questionStats[q.id].incorrect++;
+        
+        if(isCorrect) {
             currentLesson.correctAnswers++;
             const pcEarned = currentLesson.mode === 'daily_review' ? PC_REWARDS.REVIEW_CORRECT : (currentLesson.mode === 'timed' ? PC_REWARDS.TIMED_CORRECT : PC_REWARDS.FIRST_TIME_CORRECT);
             userProgress.xp = (userProgress.xp || 0) + pcEarned;
-        } else {
-            userProgress.questionStats[q.id].incorrect = (userProgress.questionStats[q.id].incorrect || 0) + 1;
         }
         
         currentLesson.report.push({ question: q, userAnswer, isCorrect, timeToAnswer });
@@ -528,17 +548,21 @@ document.addEventListener('DOMContentLoaded', () => {
                  const correctBtn = app.querySelector(`[data-answer="${q.answer}"]`);
                  if(correctBtn) correctBtn.classList.add('correct');
             }
-            // Show a brief, auto-closing modal for timed feedback
-            showModal(message || (isCorrect ? 'Corretto!' : 'Sbagliato!'), q.explanation, feedbackModal, true);
-            setTimeout(() => closeModal(feedbackModal), 2500); // Auto-close and advance
+        }
+        
+        const explanation = q.explanation;
+        showModal(message || (isCorrect ? 'Corretto!' : 'Sbagliato!'), explanation, feedbackModal, true); // True flag per auto-next on close
+
+        if (currentLesson.mode === 'timed') {
+            setTimeout(() => closeModal(feedbackModal), 2500); // Auto-close for timed mode
         } else {
-             // For standard modes, wait for user to click "Avanti"
-             const checkBtn = document.getElementById('check-answer-btn');
-             checkBtn.id = 'next-question-btn';
-             checkBtn.textContent = 'Avanti';
-             checkBtn.dataset.action = "next-question";
-             checkBtn.style.backgroundColor = isCorrect ? 'var(--green-correct)' : 'var(--red-incorrect)';
-             showModal(message || (isCorrect ? 'Corretto!' : 'Sbagliato!'), q.explanation, feedbackModal, true);
+            const checkBtn = app.querySelector('[data-action="check-answer"]');
+            if (checkBtn) {
+                 checkBtn.id = 'next-question-btn';
+                 checkBtn.textContent = 'Avanti';
+                 checkBtn.dataset.action = "next-question";
+                 checkBtn.style.backgroundColor = isCorrect ? 'var(--green-correct)' : 'var(--red-incorrect)';
+            }
         }
     }
 
@@ -547,11 +571,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentLesson.currentIndex < currentLesson.questions.length) {
             renderQuestion();
         } else {
-            // Lesson finished, finalize and check achievements
-            const today = new Date();
-            const todayStr = new Date(today.getFullYear(), today.getMonth(), today.getDate()).toISOString().split('T')[0];
-            const lastDate = userProgress.studyStreak?.lastDate;
-
+            const todayStr = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()).toISOString().split('T')[0];
+            const lastDate = userProgress.studyStreak.lastDate;
             if (!lastDate || lastDate !== todayStr) {
                  const yesterday = new Date(new Date(todayStr).setDate(new Date(todayStr).getDate() - 1)).toISOString().split('T')[0];
                  userProgress.studyStreak.current = (lastDate === yesterday) ? (userProgress.studyStreak.current || 0) + 1 : 1;
@@ -599,7 +620,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const avgTime = currentLesson.mode === 'timed' ? (currentLesson.report.reduce((acc, item) => acc + item.timeToAnswer, 0) / currentLesson.report.length) : -1;
         
         const conditions = {
-            'FIRST_LESSON': () => Object.keys(userProgress.questionStats).length > 5,
+            'FIRST_LESSON': () => Object.keys(userProgress.questionStats).length > 5 && (currentLesson.mode === 'standard' || currentLesson.mode === 'daily_review'),
             'XP_1000': () => userProgress.xp >= 1000,
             'FIRST_MASTERY': () => masteredCount > 0,
             'MASTER_50': () => masteredCount >= 50,
@@ -616,7 +637,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 showToast(`Certificazione Ottenuta: ${ACHIEVEMENTS[id].title}`);
             }
         });
-
+        
         skills.forEach(skill => {
             const skillId = `MASTER_${skill.toUpperCase().replace(/\s*&\s*| e /g, '_').replace(/\s/g, '_')}`;
             if (ACHIEVEMENTS[skillId] && !userProgress.achievements.includes(skillId) && (userProgress.skillLevels[skill] || 0) === 5) {
@@ -675,7 +696,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showModal(null, null, searchModal);
         setTimeout(() => searchInput.focus(), 50);
     }
-    
+
     function openImageModal(src) {
         imageModal.querySelector('#image-modal-content').src = src;
         showModal(null, null, imageModal);
@@ -711,5 +732,5 @@ document.addEventListener('DOMContentLoaded', () => {
     main();
 });
 
-// PART 4 OF 4 END```
+// PART 4 OF 4 END // 
 
