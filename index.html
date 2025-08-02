@@ -18,11 +18,11 @@
         <div class="header-stats">
             <span id="pc-counter" title="Punti Conoscenza"><i class="fa-solid fa-star"></i> 0</span>
         </div>
-        <h1 id="home-title">VESsiamoci <i class="fa-solid fa-brain"></i></h1>
+        <h1 id="home-title">VESsiamoci</h1>
         <div class="global-actions">
             <button id="sound-toggle-btn" title="Audio On/Off"><i class="fa-solid fa-volume-high"></i></button>
             <button id="global-search-btn" title="Cerca"><i class="fa-solid fa-magnifying-glass"></i></button>
-            <button id="dashboard-btn" title="Dashboard"><i class="fa-solid fa-grip"></i></button>
+            <button id="stats-btn" title="Visualizza Risultati"><i class="fa-solid fa-chart-pie"></i></button>
         </div>
     </header>
 
@@ -34,35 +34,15 @@
     <div id="toast-notification" class="hidden"></div>
     
     <!-- ========= MODALS ========= -->
-    
-    <!-- Modal for Feedback, Hints, Answers -->
     <div id="feedback-modal-container" class="modal-container hidden">
-        <div class="modal-content">
-            <span class="close-btn">×</span>
-            <h3 id="modal-title"></h3>
-            <p id="modal-text"></p>
-        </div>
+        <div class="modal-content"><span class="close-btn">×</span><h3 id="modal-title"></h3><p id="modal-text"></p></div>
     </div>
-    
-    <!-- Modal for Live Search -->
     <div id="search-modal-container" class="modal-container hidden">
-        <div class="modal-content large">
-            <span class="close-btn">×</span>
-            <h3><i class="fa-solid fa-magnifying-glass"></i> Cerca un Argomento</h3>
-            <input type="text" id="search-modal-input" placeholder="Scrivi una parola chiave...">
-            <div id="search-modal-results"></div>
-        </div>
+        <div class="modal-content large"><span class="close-btn">×</span><h3><i class="fa-solid fa-magnifying-glass"></i> Cerca un Argomento</h3><input type="text" id="search-modal-input" placeholder="Scrivi una parola chiave..."><div id="search-modal-results"></div></div>
     </div>
-    
-    <!-- Modal for Clickable Questions in Stats -->
     <div id="question-detail-modal" class="modal-container hidden">
-        <div class="modal-content large">
-             <span class="close-btn">×</span>
-             <div id="question-detail-content"></div>
-        </div>
+        <div class="modal-content large"><span class="close-btn">×</span><div id="question-detail-content"></div></div>
     </div>
-
-    <!-- Modal for Image Atlas View -->
     <div id="image-modal-container" class="modal-container hidden">
         <span class="close-btn">×</span>
         <img id="image-modal-content" src="" alt="Immagine di approfondimento" />
