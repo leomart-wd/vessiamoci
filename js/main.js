@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let userProgress = {};
     let currentLesson = { timerId: null, isModalOpen: false };
     let soundEnabled = true;
-    let myChart = null;
+    let myChart = null; // Reference to the Chart.js instance
 
     // --- 2. AUDIO ENGINE ---
     const sounds = {
@@ -89,8 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
             studyStreak: { current: 0, lastDate: null },
             achievements: []
         };
-        // This merge ensures that if we add new properties to the progress object later,
-        // the app won't crash for users with old save data.
         userProgress = savedProgress ? { ...defaultProgress, ...JSON.parse(savedProgress) } : defaultProgress;
         
         const savedSound = localStorage.getItem('vessiamociSoundEnabled');
@@ -160,10 +158,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderSkillTree() {
+        const today = new Date().toISOString().split('T')[0];
+        const questionsDue = allQuestions.filter(q => {
+            const stats = userProgress.questionStats[q.id];
+            return stats && new Date(stats.nextReview) <= new Date(today) && (stats.strength || 0) < MASTERY_LEVEL;
+        }).length;
+        
         const skills = [...new Set(allQuestions.map(q => q.macro_area))];
         const skillIcons = { "Filosofia e Didattica VES": "fa-brain", "Anatomia": "fa-bone", "Fisiologia": "fa-heart-pulse", "Biomeccanica": "fa-person-running", "Applicazioni Didattiche": "fa-bullseye" };
         
         let html = `<div class="skill-tree-container">`;
+        html += `<button class="daily-review-btn ${questionsDue === 0 ? 'disabled' : ''}" id="daily-review-btn">
+            <i class="fa-solid fa-star"></i> 
+            ${questionsDue > 0 ? `Ripasso Quotidiano (${questionsDue} carte)` : 'Nessun ripasso per oggi. Ottimo!'}
+        </button>`;
+        
         html += `<div class="skill-row">`;
         skills.forEach(skill => {
             const level = userProgress.skillLevels[skill] || 0;
@@ -188,22 +197,20 @@ document.addEventListener('DOMContentLoaded', () => {
         app.innerHTML = html;
 
         document.querySelectorAll('.skill-node').forEach(node => node.addEventListener('click', () => startLesson({ skill: node.dataset.skill, mode: 'standard' })));
+        const reviewBtn = document.getElementById('daily-review-btn');
+        if (reviewBtn && !reviewBtn.classList.contains('disabled')) reviewBtn.addEventListener('click', startDailyReview);
     }
 
     function renderTrainingHub() {
-        const today = new Date().toISOString().split('T')[0];
-        const questionsDue = allQuestions.filter(q => {
-            const stats = userProgress.questionStats[q.id];
-            return stats && new Date(stats.nextReview) <= new Date(today) && (stats.strength || 0) < MASTERY_LEVEL;
-        }).length;
+        const mistakenQuestionsCount = Object.keys(userProgress.questionStats).filter(qId => (userProgress.questionStats[qId]?.incorrect || 0) > 0).length;
         
         app.innerHTML = `
             <div class="skill-row">
                 <div class="training-hub-card">
-                    <h3>Ripasso Quotidiano</h3>
-                    <p>Rinforza la memoria a lungo termine con domande personalizzate che stai per dimenticare.</p>
-                    <button class="btn btn-review ${questionsDue === 0 ? 'disabled' : ''}" id="daily-review-btn">
-                        ${questionsDue > 0 ? `Inizia Ripasso (${questionsDue} carte)` : 'Nessun Ripasso Oggi'}
+                    <h3>Ripassa i Tuoi Errori</h3>
+                    <p>Concentrati sulle domande che hai sbagliato in passato per trasformare le debolezze in punti di forza.</p>
+                    <button class="btn btn-review ${mistakenQuestionsCount === 0 ? 'disabled' : ''}" id="mistakes-review-btn">
+                        ${mistakenQuestionsCount > 0 ? `Ripassa ${mistakenQuestionsCount} Errori` : 'Nessun Errore da Ripassare'}
                     </button>
                 </div>
                 <div class="training-hub-card">
@@ -213,13 +220,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>`;
         
-        const reviewBtn = document.getElementById('daily-review-btn');
-        if (reviewBtn && !reviewBtn.classList.contains('disabled')) reviewBtn.addEventListener('click', startDailyReview);
+        const reviewBtn = document.getElementById('mistakes-review-btn');
+        if (reviewBtn && !reviewBtn.classList.contains('disabled')) reviewBtn.addEventListener('click', () => startLesson({ skill: 'all', mode: 'mistakes'}));
         document.getElementById('timed-mode-btn').addEventListener('click', () => startLesson({ skill: 'all', mode: 'timed'}));
     }
     
     function renderStatsPage() {
-        if (myChart) { myChart.destroy(); myChart = null; }
+        if (myChart) myChart.destroy();
 
         const stats = { totalCorrect: 0, totalAnswered: 0, totalTime: 0, byArea: {} };
         let totalTimedAnswered = 0;
@@ -297,6 +304,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    function renderMasteryChart() {
+        const history = userProgress.masteryHistory || {};
+        const dates = Object.keys(history).sort();
+        let cumulativeMastery = 0;
+        const data = dates.map(date => {
+            cumulativeMastery += history[date];
+            return { x: date, y: cumulativeMastery };
+        });
+
+        const ctx = document.getElementById('masteryChart').getContext('2d');
+        if (myChart) myChart.destroy();
+        myChart = new Chart(ctx, {
+            type: 'line',
+            data: { datasets: [{ label: 'Domande Padroneggiate', data: data, borderColor: 'var(--blue-primary)', tension: 0.1, fill: true, backgroundColor: 'rgba(28, 176, 246, 0.1)' }] },
+            options: { scales: { x: { type: 'time', time: { unit: 'day', tooltipFormat: 'dd MMM yyyy' } }, y: { beginAtZero: true, ticks: { precision: 0 } } } }
+        });
+    }
+
+// PART 2 OF 3 END
+
+// PART 3 OF 3 START
+
     // --- 6. CORE LESSON LOGIC & SPACED REPETITION ---
     function startLesson({ skill, mode, questions = null }) {
         let questionPool = questions;
@@ -309,6 +338,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 }).sort(() => 0.5 - Math.random());
             } else if (mode === 'timed') {
                 questionPool = [...allQuestions].sort(() => 0.5 - Math.random());
+            } else if (mode === 'mistakes') {
+                 const mistakenIds = Object.keys(userProgress.questionStats).filter(qId => userProgress.questionStats[qId]?.incorrect > 0);
+                 const baseSource = allQuestions.filter(q => mistakenIds.includes(q.id.toString()));
+                 questionPool = (skill === 'all') ? baseSource : baseSource.filter(q => q.macro_area === skill);
             }
         }
         
@@ -319,8 +352,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         
         if (currentLesson.questions.length === 0) {
-            showModal('Attenzione', `Hai già padroneggiato tutte le domande disponibili per il livello attuale di ${skill}. Complimenti!`, feedbackModal, true); 
-            return;
+            showModal('Attenzione', 'Nessuna domanda disponibile per questa selezione.', feedbackModal, true); return;
         }
         renderQuestion();
     }
@@ -338,9 +370,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateQuestionStrength(questionId, isCorrect) {
-        const stats = userProgress.questionStats[questionId] || { strength: 0 };
+        const stats = userProgress.questionStats[questionId] || { strength: 0, correct: 0, incorrect: 0 };
         const today = new Date();
         const todayStr = new Date(today.getFullYear(), today.getMonth(), today.getDate()).toISOString().split('T')[0];
+
         const oldStrength = stats.strength || 0;
         
         if (isCorrect) {
@@ -357,18 +390,12 @@ document.addEventListener('DOMContentLoaded', () => {
             today.setDate(today.getDate() + intervalDays);
             stats.nextReview = today.toISOString().split('T')[0];
         } else {
-            stats.nextReview = '3000-01-01'; // Far future date for mastered cards
+            stats.nextReview = '3000-01-01';
         }
         stats.lastReviewed = todayStr;
-        if(!stats.correct) stats.correct = 0;
-        if(!stats.incorrect) stats.incorrect = 0;
         userProgress.questionStats[questionId] = stats;
     }
-
-// PART 2 OF 3 END
-
-// PART 3 OF 3 START
-
+    
     // --- 7. QUESTION RENDERING & INTERACTION ---
     function renderQuestion() {
         currentLesson.startTime = Date.now();
@@ -487,7 +514,7 @@ document.addEventListener('DOMContentLoaded', () => {
         userProgress.questionStats[q.id].totalTime = (userProgress.questionStats[q.id].totalTime || 0) + timeToAnswer;
         isCorrect ? userProgress.questionStats[q.id].correct++ : userProgress.questionStats[q.id].incorrect++;
         
-        if (isCorrect) {
+        if(isCorrect) {
             currentLesson.correctAnswers++;
             const pcEarned = currentLesson.mode === 'daily_review' ? PC_REWARDS.REVIEW_CORRECT : (currentLesson.mode === 'timed' ? PC_REWARDS.TIMED_CORRECT : PC_REWARDS.FIRST_TIME_CORRECT);
             userProgress.xp = (userProgress.xp || 0) + pcEarned;
@@ -500,18 +527,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showFeedback(isCorrect, message = null) {
-        document.body.addEventListener('click', () => { if (soundEnabled) isCorrect ? sounds.correct.play() : sounds.incorrect.play() }, { once: true });
+        if (soundEnabled) { isCorrect ? sounds.correct.play() : sounds.incorrect.play(); }
         
         const q = currentLesson.questions[currentLesson.currentIndex];
+        const explanation = q.explanation;
         
         if (currentLesson.mode === 'timed') {
-            if (!isCorrect) {
+            if(!isCorrect) {
                  const correctBtn = app.querySelector(`[data-answer="${q.answer}"]`);
                  if(correctBtn) correctBtn.classList.add('correct');
             }
         }
         
-        const explanation = q.explanation;
         showModal(message || (isCorrect ? 'Corretto!' : 'Sbagliato!'), explanation, feedbackModal, true);
     }
 
@@ -543,7 +570,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderReport() {
         const accuracy = currentLesson.questions.length > 0 ? (currentLesson.correctAnswers / currentLesson.questions.length) : 0;
         let scientistAdvice = '';
-        if (accuracy < 0.5) scientistAdvice = `<i class="fa-solid fa-lightbulb-exclamation"></i> Hai riscontrato delle difficoltà. Una sessione di Ripasso Quotidiano potrebbe solidificare le basi.`;
+        if (accuracy < 0.5) scientistAdvice = `<i class="fa-solid fa-lightbulb-exclamation"></i> Hai riscontrato delle difficoltà. Una sessione di Ripasso potrebbe solidificare le basi.`;
         else if (currentLesson.levelUp) scientistAdvice = `<i class="fa-solid fa-party-horn"></i> Performance eccellente! Sei pronto per affrontare un nuovo livello o una nuova abilità.`;
         else scientistAdvice = `<i class="fa-solid fa-person-digging"></i> Buon lavoro! La costanza è la chiave per padroneggiare ogni concetto.`;
 
@@ -563,11 +590,58 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('back-to-dash').addEventListener('click', renderDashboard);
     }
     
-    function checkAchievements() { /* ... Functionality ... */ }
+    function checkAchievements() {
+        const masteredCount = Object.values(userProgress.questionStats).filter(s => s.strength >= MASTERY_LEVEL).length;
+        const skills = [...new Set(allQuestions.map(q => q.macro_area))];
+
+        const conditions = {
+            'FIRST_LESSON': () => Object.keys(userProgress.questionStats).length > 0,
+            'XP_1000': () => userProgress.xp >= 1000,
+            'FIRST_MASTERY': () => masteredCount > 0,
+            'MASTER_50': () => masteredCount >= 50,
+            'PERFECT_LESSON': () => currentLesson.mode === 'standard' && currentLesson.correctAnswers === currentLesson.questions.length,
+            'STREAK_7': () => userProgress.studyStreak.current >= 7,
+            'MASTER_ALL': () => skills.every(s => (userProgress.skillLevels[s] || 0) === 5),
+            'PERFECT_REVIEW': () => currentLesson.mode === 'daily_review' && currentLesson.correctAnswers === currentLesson.questions.length
+        };
+        
+        Object.entries(conditions).forEach(([id, condition]) => {
+            if (!userProgress.achievements.includes(id) && condition()) {
+                userProgress.achievements.push(id);
+                showToast(`Certificazione Ottenuta: ${ACHIEVEMENTS[id].title}`);
+            }
+        });
+        saveProgress();
+    }
     
-    function showToast(message) { /* ... Functionality ... */ }
+    function showToast(message) {
+        toast.textContent = message;
+        toast.classList.remove('hidden');
+        toast.classList.add('show');
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => toast.classList.add('hidden'), 500);
+        }, 3500);
+    }
     
-    function showQuestionDetailModal(q) { /* ... Functionality ... */ }
+    function showQuestionDetailModal(q) {
+        const contentEl = questionDetailModal.querySelector('#question-detail-content');
+        let optionsHtml = '';
+        if (q.type === 'multiple_choice' && q.options) {
+             optionsHtml = `<div class="answer-options">${q.options.map(opt => `<button class="option-btn ${q.answer.toString().toLowerCase() === opt.toString().toLowerCase() ? 'correct' : 'disabled'}">${opt}</button>`).join('')}</div>`;
+        } else if (q.type === 'true_false') {
+             optionsHtml = `<div class="answer-options">
+                <button class="option-btn ${q.answer.toString() === 'true' ? 'correct' : 'disabled'}">Vero</button>
+                <button class="option-btn ${q.answer.toString() === 'false' ? 'correct' : 'disabled'}">Falso</button>
+             </div>`;
+        }
+        contentEl.innerHTML = `<div class="question-container">
+            <p class="question-text">${q.question}</p>
+            ${optionsHtml}
+            <div class="report-explanation" style="margin-top:1rem"><strong>Spiegazione:</strong> ${q.explanation}</div>
+        </div>`;
+        showModal(null, null, questionDetailModal);
+    }
 
     function toggleSound() {
         soundEnabled = !soundEnabled;
@@ -579,14 +653,28 @@ document.addEventListener('DOMContentLoaded', () => {
         soundToggleBtn.querySelector('i').className = `fa-solid ${soundEnabled ? 'fa-volume-high' : 'fa-volume-xmark'}`;
     }
 
-    function openSearchModal() { /* ... Functionality ... */ }
-    
+    function openSearchModal() {
+        checkAchievements('USE_SEARCH');
+        const searchInput = searchModal.querySelector('#search-modal-input');
+        searchInput.value = '';
+        searchModal.querySelector('#search-modal-results').innerHTML = '';
+        showModal(null, null, searchModal);
+        setTimeout(() => searchInput.focus(), 50);
+    }
+
     function openImageModal(src) {
         imageModal.querySelector('#image-modal-content').src = src;
         showModal(null, null, imageModal);
     }
 
-    function handleSearch(event) { /* ... Functionality ... */ }
+    function handleSearch(event) {
+        const query = event.target.value.toLowerCase();
+        const resultsEl = searchModal.querySelector('#search-modal-results');
+        resultsEl.innerHTML = query.length < 3 ? '' : allQuestions.filter(q => q.question.toLowerCase().includes(query) || q.answer.toString().toLowerCase().includes(query)).slice(0, 10).map(q => `
+            <div class="search-result-item">
+                <p class="question">${q.question}</p><p class="answer"><strong>Risposta:</strong> ${Array.isArray(q.answer) ? q.answer.join(', ') : q.answer}</p><p class="explanation"><strong>Spiegazione:</strong> ${q.explanation}</p>
+            </div>`).join('');
+    }
 
     function showModal(title, text, modalElement, isLessonFeedback = false) {
         if(isLessonFeedback) currentLesson.isModalOpen = true;
