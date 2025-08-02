@@ -9,6 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <!-- Chart.js for the performance graph -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 </head>
 <body>
     <header>
@@ -16,7 +19,7 @@
         <div class="global-actions">
             <button id="sound-toggle-btn" title="Audio On/Off"><i class="fa-solid fa-volume-high"></i></button>
             <button id="global-search-btn" title="Cerca"><i class="fa-solid fa-magnifying-glass"></i></button>
-            <button id="global-home-btn" title="Dashboard"><i class="fa-solid fa-house"></i></button>
+            <button id="stats-btn" title="Visualizza Risultati"><i class="fa-solid fa-chart-pie"></i></button>
         </div>
     </header>
 
@@ -24,36 +27,17 @@
         <div class="loader"></div>
     </main>
     
-    <!-- Modale per Feedback, Hint, Risposte -->
+    <!-- Modals -->
     <div id="feedback-modal-container" class="modal-container hidden">
-        <div class="modal-content">
-            <span class="close-btn">×</span>
-            <h3 id="modal-title"></h3>
-            <p id="modal-text"></p>
-        </div>
+        <div class="modal-content"><span class="close-btn">×</span><h3 id="modal-title"></h3><p id="modal-text"></p></div>
     </div>
-    
-    <!-- Modale per la Ricerca Live -->
     <div id="search-modal-container" class="modal-container hidden">
-        <div class="modal-content large">
-            <span class="close-btn">×</span>
-            <h3><i class="fa-solid fa-magnifying-glass"></i> Cerca un Argomento</h3>
-            <input type="text" id="search-modal-input" placeholder="Scrivi una parola chiave...">
-            <div id="search-modal-results"></div>
-        </div>
+        <div class="modal-content large"><span class="close-btn">×</span><h3><i class="fa-solid fa-magnifying-glass"></i> Cerca un Argomento</h3><input type="text" id="search-modal-input" placeholder="Scrivi una parola chiave..."><div id="search-modal-results"></div></div>
     </div>
-
-
-<!-- Modale per le Domande Cliccabili dai Risultati -->
     <div id="question-detail-modal" class="modal-container hidden">
-        <div class="modal-content large">
-             <span class="close-btn">×</span>
-             <div id="question-detail-content"></div>
-        </div>
+        <div class="modal-content large"><span class="close-btn">×</span><div id="question-detail-content"></div></div>
     </div>
-
     
-
     <script src="js/main.js"></script>
 </body>
 </html>
