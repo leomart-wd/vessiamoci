@@ -23,13 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let soundEnabled = true;
     let myChart = null; // Reference to the Chart.js instance
 
-    // --- 2. AUDIO ENGINE (with preloading and error handling) ---
+    // --- 2. AUDIO ENGINE (with valid URLs and preloading) ---
     const sounds = {
-        correct: new Audio('https://cdn.pixabay.com/audio/2022/03/15/audio_2c84121855.mp3'),
-        incorrect: new Audio('https://cdn.pixabay.com/audio/2022/03/10/audio_c3ff08ed0f.mp3')
+        correct: new Audio('https://actions.google.com/sounds/v1/positive/success.ogg'),
+        incorrect: new Audio('https://actions.google.com/sounds/v1/negative/failure.ogg')
     };
     Object.values(sounds).forEach(sound => {
-        sound.volume = 0.7;
+        sound.volume = 0.5;
         sound.load(); // Preload audio files for faster playback
     });
 
@@ -112,11 +112,29 @@ document.addEventListener('DOMContentLoaded', () => {
             if (actionId === 'sound-toggle-btn') toggleSound();
         });
 
-        // Event Delegation for main app container
+        // Event Delegation for dynamically created content in the app container
         app.addEventListener('click', (e) => {
             const target = e.target.closest('[data-action]');
             if (!target) return;
-            handleAppAction(target.dataset.action, target.dataset.skill);
+            const { action, skill, questionId } = target.dataset;
+
+            if (action === 'go-to-learn') renderSkillTree();
+            if (action === 'go-to-train') renderTrainingHub();
+            if (action === 'start-skill-lesson') startLesson({ skill, mode: 'standard' });
+            if (action === 'start-daily-review') startDailyReview();
+            if (action === 'start-mistakes-review') startLesson({ skill: 'all', mode: 'mistakes' });
+            if (action === 'start-timed-mode') startLesson({ skill: 'all', mode: 'timed' });
+            if (action === 'back-to-dashboard') renderDashboard();
+            if (action === 'view-question-detail') showQuestionDetailModal(allQuestions.find(q => q.id == questionId));
+            if (action === 'check-answer') checkCurrentAnswer();
+            if (action === 'next-question') closeModal(feedbackModal);
+            if (action === 'show-hint') showModal('Suggerimento', currentLesson.questions[currentLesson.currentIndex].reflection_prompt || currentLesson.questions[currentLesson.currentIndex].explanation, feedbackModal);
+            if (action === 'show-answer') showModal('Risposta Corretta', Array.isArray(currentLesson.questions[currentLesson.currentIndex].answer) ? currentLesson.questions[currentLesson.currentIndex].answer.join(', ') : currentLesson.questions[currentLesson.currentIndex].answer, feedbackModal);
+            if (action === 'open-image') openImageModal(e.target.src);
+            if (action === 'choose-option') {
+                 app.querySelectorAll('.option-btn').forEach(b => b.style.borderColor = '');
+                 target.style.borderColor = 'var(--blue-primary)';
+            }
         });
 
         // Modal Listeners
@@ -128,16 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
         searchModal.querySelector('#search-modal-input').addEventListener('input', handleSearch);
-    }
-
-    function handleAppAction(action, skill) {
-        if (action === 'go-to-learn') renderSkillTree();
-        if (action === 'go-to-train') renderTrainingHub();
-        if (action === 'start-skill-lesson') startLesson({ skill, mode: 'standard' });
-        if (action === 'start-daily-review') startDailyReview();
-        if (action === 'start-mistakes-review') startLesson({ skill: 'all', mode: 'mistakes' });
-        if (action === 'start-timed-mode') startLesson({ skill: 'all', mode: 'timed' });
-        if (action === 'back-to-dashboard') renderDashboard();
     }
 
     function updatePCVisuals() {
@@ -296,7 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
             statsHtml += `<div class="stats-section"><h3>Domande da Ripassare</h3><ul class="toughest-questions-list">`;
             toughest.forEach(([qId,]) => {
                 const q = allQuestions.find(item => item.id == qId);
-                if (q) statsHtml += `<li data-question-id="${q.id}">${q.question}</li>`;
+                if (q) statsHtml += `<li data-action="view-question-detail" data-question-id="${q.id}">${q.question}</li>`;
             });
             statsHtml += '</ul></div>';
         }
@@ -304,9 +312,6 @@ document.addEventListener('DOMContentLoaded', () => {
         app.innerHTML = statsHtml;
         
         renderMasteryChart();
-        app.querySelectorAll('.toughest-questions-list li').forEach(li => {
-            li.addEventListener('click', (e) => showQuestionDetailModal(allQuestions.find(q => q.id == e.currentTarget.dataset.questionId)));
-        });
     }
 
     function renderMasteryChart() {
@@ -358,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         
         if (currentLesson.questions.length === 0) {
-            showModal('Attenzione', `Nessuna domanda disponibile per questa selezione. Potresti aver già padroneggiato tutto!`, feedbackModal, true); 
+            showModal('Attenzione', `Nessuna domanda disponibile per questa selezione. Potresti aver già padroneggiato tutto!`, feedbackModal); 
             return;
         }
         renderQuestion();
@@ -371,7 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const stats = userProgress.questionStats[q.id];
                 return stats && new Date(stats.nextReview) <= new Date(today) && (stats.strength || 0) < MASTERY_LEVEL;
             })
-            .sort((a, b) => new Date(userProgress.questionStats[a.id]?.nextReview) - new Date(userProgress.questionStats[b.id]?.nextReview));
+            .sort((a, b) => new Date(userProgress.questionStats[a.id]?.nextReview) - new Date(userProgress.questionStats[b.id]?.nextReview)); // Ripassa prima le più vecchie
         
         startLesson({ skill: 'Ripasso', mode: 'daily_review', questions: questionsDue });
     }
@@ -380,6 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const stats = userProgress.questionStats[questionId] || { strength: 0, correct: 0, incorrect: 0 };
         const today = new Date();
         const todayStr = new Date(today.getFullYear(), today.getMonth(), today.getDate()).toISOString().split('T')[0];
+
         const oldStrength = stats.strength || 0;
         
         if (isCorrect) {
@@ -396,7 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
             today.setDate(today.getDate() + intervalDays);
             stats.nextReview = today.toISOString().split('T')[0];
         } else {
-            stats.nextReview = '3000-01-01'; // Far future date for mastered cards
+            stats.nextReview = '3000-01-01'; // Data lontana per le carte padroneggiate
         }
         stats.lastReviewed = todayStr;
         userProgress.questionStats[questionId] = stats;
@@ -409,13 +415,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const isTimed = currentLesson.mode === 'timed';
         let optionsHtml = '';
         const questionType = q.type;
-        const imageHtml = q.image ? `<div class.question-image-container"><img src="${q.image}" alt="Immagine per la domanda" class="question-image"></div>` : '';
+        const imageHtml = q.image ? `<div class="question-image-container"><img src="${q.image}" alt="Immagine per la domanda" class="question-image" data-action="open-image"></div>` : '';
 
         if (questionType === 'multiple_choice' && q.options) {
-            q.options.forEach(opt => { optionsHtml += `<button class="option-btn" data-answer="${opt}">${opt}</button>`; });
+            q.options.forEach(opt => { optionsHtml += `<button class="option-btn" data-action="choose-option" data-answer="${opt}">${opt}</button>`; });
         } else if (questionType === 'true_false') {
-            optionsHtml += `<button class="option-btn" data-answer="true">Vero</button>`;
-            optionsHtml += `<button class="option-btn" data-answer="false">Falso</button>`;
+            optionsHtml += `<button class="option-btn" data-action="choose-option" data-answer="true">Vero</button>`;
+            optionsHtml += `<button class="option-btn" data-action="choose-option" data-answer="false">Falso</button>`;
         } else { // open_ended
             optionsHtml += `<textarea id="open-answer-input" placeholder="Scrivi qui la tua risposta..."></textarea>`;
         }
@@ -436,42 +442,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         <button class="hint-btn" data-action="show-hint"><i class="fa-solid fa-lightbulb"></i> Hint</button>
                         <button class="hint-btn" data-action="show-answer"><i class="fa-solid fa-key"></i> Risposta</button>
                     </div>
-                    <button id="check-answer-btn">Controlla</button>
+                    <button id="check-answer-btn" data-action="check-answer">Controlla</button>
                 </div>
             </div>`;
+        
+        if (isTimed) startTimer();
     }
     
-    function setupQuestionListeners() {
-        const q = currentLesson.questions[currentLesson.currentIndex];
-        const checkBtn = document.getElementById('check-answer-btn');
-
-        // Event delegation for the current question view
-        const container = app.querySelector('.question-container');
-        if (!container) return;
-        
-        container.addEventListener('click', (e) => {
-            const button = e.target.closest('button');
-            if (!button) return;
-
-            if (button.classList.contains('option-btn')) {
-                if (currentLesson.mode === 'timed' && q.type !== 'open_ended') {
-                    checkCurrentAnswer(button);
-                } else {
-                    app.querySelectorAll('.option-btn').forEach(b => b.style.borderColor = '');
-                    button.style.borderColor = 'var(--blue-primary)';
-                }
-            } else if (button.dataset.action === 'show-hint') {
-                showModal('Suggerimento', q.reflection_prompt || q.explanation, feedbackModal);
-            } else if (button.dataset.action === 'show-answer') {
-                 showModal('Risposta Corretta', Array.isArray(q.answer) ? q.answer.join(', ') : q.answer, feedbackModal);
-            } else if (button.id === 'check-answer-btn') {
-                checkCurrentAnswer();
-            } else if (button.classList.contains('question-image')) {
-                openImageModal(button.src);
-            }
-        });
-    }
-
     function startTimer() {
         let timeLeft = 30;
         const timerDisplay = document.getElementById('time-left');
@@ -488,8 +465,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     }
 
-// PART 2 OF 3 END //
-
+// PART 3 OF 4 END
 
 // PART 4 OF 4 START
 
@@ -525,13 +501,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         updateQuestionStrength(q.id, isCorrect);
         
+        if (!userProgress.questionStats[q.id]) userProgress.questionStats[q.id] = {};
         userProgress.questionStats[q.id].totalTime = (userProgress.questionStats[q.id].totalTime || 0) + timeToAnswer;
-        isCorrect ? userProgress.questionStats[q.id].correct++ : userProgress.questionStats[q.id].incorrect++;
-        
-        if(isCorrect) {
+        if (isCorrect) {
+            userProgress.questionStats[q.id].correct = (userProgress.questionStats[q.id].correct || 0) + 1;
             currentLesson.correctAnswers++;
             const pcEarned = currentLesson.mode === 'daily_review' ? PC_REWARDS.REVIEW_CORRECT : (currentLesson.mode === 'timed' ? PC_REWARDS.TIMED_CORRECT : PC_REWARDS.FIRST_TIME_CORRECT);
             userProgress.xp = (userProgress.xp || 0) + pcEarned;
+        } else {
+            userProgress.questionStats[q.id].incorrect = (userProgress.questionStats[q.id].incorrect || 0) + 1;
         }
         
         currentLesson.report.push({ question: q, userAnswer, isCorrect, timeToAnswer });
@@ -550,15 +528,17 @@ document.addEventListener('DOMContentLoaded', () => {
                  const correctBtn = app.querySelector(`[data-answer="${q.answer}"]`);
                  if(correctBtn) correctBtn.classList.add('correct');
             }
-            showModal(message || (isCorrect ? 'Corretto!' : 'Sbagliato!'), q.explanation, feedbackModal, true); // Auto-advancing modal
-            setTimeout(() => closeModal(feedbackModal), 3000); // Close automatically
+            // Show a brief, auto-closing modal for timed feedback
+            showModal(message || (isCorrect ? 'Corretto!' : 'Sbagliato!'), q.explanation, feedbackModal, true);
+            setTimeout(() => closeModal(feedbackModal), 2500); // Auto-close and advance
         } else {
+             // For standard modes, wait for user to click "Avanti"
              const checkBtn = document.getElementById('check-answer-btn');
              checkBtn.id = 'next-question-btn';
              checkBtn.textContent = 'Avanti';
              checkBtn.dataset.action = "next-question";
              checkBtn.style.backgroundColor = isCorrect ? 'var(--green-correct)' : 'var(--red-incorrect)';
-             showModal(message || (isCorrect ? 'Corretto!' : 'Sbagliato!'), q.explanation, feedbackModal, true); // Auto-advancing modal
+             showModal(message || (isCorrect ? 'Corretto!' : 'Sbagliato!'), q.explanation, feedbackModal, true);
         }
     }
 
@@ -567,10 +547,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentLesson.currentIndex < currentLesson.questions.length) {
             renderQuestion();
         } else {
-            const todayStr = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()).toISOString().split('T')[0];
-            if (!userProgress.studyStreak.lastDate || userProgress.studyStreak.lastDate !== todayStr) {
+            // Lesson finished, finalize and check achievements
+            const today = new Date();
+            const todayStr = new Date(today.getFullYear(), today.getMonth(), today.getDate()).toISOString().split('T')[0];
+            const lastDate = userProgress.studyStreak?.lastDate;
+
+            if (!lastDate || lastDate !== todayStr) {
                  const yesterday = new Date(new Date(todayStr).setDate(new Date(todayStr).getDate() - 1)).toISOString().split('T')[0];
-                 userProgress.studyStreak.current = (userProgress.studyStreak.lastDate === yesterday) ? (userProgress.studyStreak.current || 0) + 1 : 1;
+                 userProgress.studyStreak.current = (lastDate === yesterday) ? (userProgress.studyStreak.current || 0) + 1 : 1;
                  userProgress.studyStreak.lastDate = todayStr;
             }
             
@@ -591,7 +575,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const accuracy = currentLesson.questions.length > 0 ? (currentLesson.correctAnswers / currentLesson.questions.length) : 0;
         let scientistAdvice = '';
         if (accuracy < 0.5) scientistAdvice = `<i class="fa-solid fa-lightbulb-exclamation"></i> Hai riscontrato delle difficoltà. Una sessione di Ripasso potrebbe solidificare le basi.`;
-        else if (currentLesson.levelUp) scientistAdvice = `<i class="fa-solid fa-party-horn"></i> Performance eccellente! Sei pronto per affrontare un nuovo livello o una nuova abilità.`;
+        else if (currentLesson.levelUp) scientistAdvice = `<i class="fa-solid fa-party-horn"></i> Performance eccellente! Hai aumentato il tuo livello in ${currentLesson.skill}!`;
         else scientistAdvice = `<i class="fa-solid fa-person-digging"></i> Buon lavoro! La costanza è la chiave per padroneggiare ogni concetto.`;
 
         let reportHtml = `<h2><i class="fa-solid fa-scroll"></i> Debriefing di Sessione</h2>
@@ -613,16 +597,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const masteredCount = Object.values(userProgress.questionStats).filter(s => s.strength >= MASTERY_LEVEL).length;
         const skills = [...new Set(allQuestions.map(q => q.macro_area))];
         const avgTime = currentLesson.mode === 'timed' ? (currentLesson.report.reduce((acc, item) => acc + item.timeToAnswer, 0) / currentLesson.report.length) : -1;
-
+        
         const conditions = {
-            'FIRST_LESSON': () => Object.keys(userProgress.questionStats).length > 0 && currentLesson.questions.length > 0,
+            'FIRST_LESSON': () => Object.keys(userProgress.questionStats).length > 5,
             'XP_1000': () => userProgress.xp >= 1000,
             'FIRST_MASTERY': () => masteredCount > 0,
             'MASTER_50': () => masteredCount >= 50,
-            'PERFECT_LESSON': () => (currentLesson.mode === 'standard' || currentLesson.mode === 'daily_review') && currentLesson.correctAnswers === currentLesson.questions.length,
+            'PERFECT_LESSON': () => (currentLesson.mode === 'standard' || currentLesson.mode === 'daily_review') && currentLesson.correctAnswers === currentLesson.questions.length && currentLesson.questions.length > 0,
             'STREAK_7': () => userProgress.studyStreak.current >= 7,
             'MASTER_ALL': () => skills.every(s => (userProgress.skillLevels[s] || 0) === 5),
-            'PERFECT_REVIEW': () => currentLesson.mode === 'daily_review' && currentLesson.correctAnswers === currentLesson.questions.length,
+            'PERFECT_REVIEW': () => currentLesson.mode === 'daily_review' && currentLesson.correctAnswers === currentLesson.questions.length && currentLesson.questions.length > 0,
             'SPEED_DEMON': () => currentLesson.mode === 'timed' && avgTime > 0 && avgTime < 8.0
         };
         
@@ -634,7 +618,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         skills.forEach(skill => {
-            const skillId = `MASTER_${skill.toUpperCase().replace(/\s*&\s*/g, '_').replace(/\s/g, '_')}`;
+            const skillId = `MASTER_${skill.toUpperCase().replace(/\s*&\s*| e /g, '_').replace(/\s/g, '_')}`;
             if (ACHIEVEMENTS[skillId] && !userProgress.achievements.includes(skillId) && (userProgress.skillLevels[skill] || 0) === 5) {
                 userProgress.achievements.push(skillId);
                 showToast(`Certificazione Ottenuta: ${ACHIEVEMENTS[skillId].title}`);
@@ -679,7 +663,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function updateSoundIcon() {
-        soundToggleBtn.querySelector('i').className = `fa-solid ${soundEnabled ? 'fa-volume-high' : 'fa-volume-xmark'}`;
+        const soundIcon = document.getElementById('sound-toggle-btn')?.querySelector('i');
+        if (soundIcon) soundIcon.className = `fa-solid ${soundEnabled ? 'fa-volume-high' : 'fa-volume-xmark'}`;
     }
 
     function openSearchModal() {
@@ -690,7 +675,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showModal(null, null, searchModal);
         setTimeout(() => searchInput.focus(), 50);
     }
-
+    
     function openImageModal(src) {
         imageModal.querySelector('#image-modal-content').src = src;
         showModal(null, null, imageModal);
@@ -719,15 +704,12 @@ document.addEventListener('DOMContentLoaded', () => {
         modalElement.classList.add('hidden');
         if (modalElement === feedbackModal && currentLesson.isModalOpen) {
              currentLesson.isModalOpen = false;
-             if (currentLesson.mode === 'timed' && currentLesson.currentIndex >= currentLesson.questions.length) {
-                 renderReport();
-             } else {
-                 nextQuestion();
-             }
+             nextQuestion();
         }
     }
     
     main();
 });
 
-// PART 3 OF 3 END
+// PART 4 OF 4 END```
+
