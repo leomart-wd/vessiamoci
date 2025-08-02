@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VESsiamoci - Studia Scienze Motorie</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -33,15 +33,39 @@
     <!-- Toast Notification for Achievements -->
     <div id="toast-notification" class="hidden"></div>
     
-    <!-- Modals -->
+    <!-- ========= MODALS ========= -->
+    
+    <!-- Modal for Feedback, Hints, Answers -->
     <div id="feedback-modal-container" class="modal-container hidden">
-        <div class="modal-content"><span class="close-btn">×</span><h3 id="modal-title"></h3><p id="modal-text"></p></div>
+        <div class="modal-content">
+            <span class="close-btn">×</span>
+            <h3 id="modal-title"></h3>
+            <p id="modal-text"></p>
+        </div>
     </div>
+    
+    <!-- Modal for Live Search -->
     <div id="search-modal-container" class="modal-container hidden">
-        <div class="modal-content large"><span class="close-btn">×</span><h3><i class="fa-solid fa-magnifying-glass"></i> Cerca un Argomento</h3><input type="text" id="search-modal-input" placeholder="Scrivi una parola chiave..."><div id="search-modal-results"></div></div>
+        <div class="modal-content large">
+            <span class="close-btn">×</span>
+            <h3><i class="fa-solid fa-magnifying-glass"></i> Cerca un Argomento</h3>
+            <input type="text" id="search-modal-input" placeholder="Scrivi una parola chiave...">
+            <div id="search-modal-results"></div>
+        </div>
     </div>
+    
+    <!-- Modal for Clickable Questions in Stats -->
     <div id="question-detail-modal" class="modal-container hidden">
-        <div class="modal-content large"><span class="close-btn">×</span><div id="question-detail-content"></div></div>
+        <div class="modal-content large">
+             <span class="close-btn">×</span>
+             <div id="question-detail-content"></div>
+        </div>
+    </div>
+
+    <!-- Modal for Image Atlas View -->
+    <div id="image-modal-container" class="modal-container hidden">
+        <span class="close-btn">×</span>
+        <img id="image-modal-content" src="" alt="Immagine di approfondimento" />
     </div>
     
     <script src="js/main.js"></script>
