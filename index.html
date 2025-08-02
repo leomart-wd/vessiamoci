@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VESsiamoci - Studia Scienze Motorie</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -15,17 +15,23 @@
 </head>
 <body>
     <header>
+        <div class="header-stats">
+            <span id="pc-counter" title="Punti Conoscenza"><i class="fa-solid fa-star"></i> 0</span>
+        </div>
         <h1 id="home-title">VESsiamoci <i class="fa-solid fa-brain"></i></h1>
         <div class="global-actions">
             <button id="sound-toggle-btn" title="Audio On/Off"><i class="fa-solid fa-volume-high"></i></button>
             <button id="global-search-btn" title="Cerca"><i class="fa-solid fa-magnifying-glass"></i></button>
-            <button id="stats-btn" title="Visualizza Risultati"><i class="fa-solid fa-chart-pie"></i></button>
+            <button id="dashboard-btn" title="Dashboard"><i class="fa-solid fa-grip"></i></button>
         </div>
     </header>
 
     <main id="app">
         <div class="loader"></div>
     </main>
+    
+    <!-- Toast Notification for Achievements -->
+    <div id="toast-notification" class="hidden"></div>
     
     <!-- Modals -->
     <div id="feedback-modal-container" class="modal-container hidden">
