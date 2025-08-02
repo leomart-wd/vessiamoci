@@ -38,13 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
             renderSkillTreeDashboard();
         } catch (error) {
             app.innerHTML = `<p>Errore critico: impossibile caricare le domande. Controlla il file 'data/questions.json' per errori di sintassi.</p>`;
-            console.error("Fetch Error:", error);
         }
     }
 
     function loadUserProgress() {
         const savedProgress = localStorage.getItem('vessiamociUserProgress');
-        // Imposta una struttura di default robusta per evitare errori se mancano chiavi
         const defaultProgress = { 
             questionStats: {}, 
             skillLevels: {}, 
@@ -67,10 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('global-home-btn').addEventListener('click', renderSkillTreeDashboard);
         statsBtn.addEventListener('click', renderStatsPage);
         globalSearchBtn.addEventListener('click', openSearchModal);
-        soundToggleBtn.addEventListener('click', (e) => {
-             e.stopPropagation();
-             toggleSound();
-        });
+        soundToggleBtn.addEventListener('click', toggleSound);
         [feedbackModal, searchModal, questionDetailModal].forEach(modal => {
             modal.addEventListener('click', (e) => {
                 if (e.target.classList.contains('modal-container') || e.target.classList.contains('close-btn')) {
@@ -81,11 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         searchModal.querySelector('#search-modal-input').addEventListener('input', handleSearch);
     }
 
-// PART 1 OF 3 END
-
-    // PART 2 OF 3 START
-
-    // --- VISTE PRINCIPALI (SKILL TREE E STATS) ---
+    // --- VISTE PRINCIPALI ---
     function renderSkillTreeDashboard() {
         if (currentLesson.timerId) clearInterval(currentLesson.timerId);
         if (myChart) myChart.destroy();
@@ -123,17 +114,16 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="skill-level">${level}</div>
                     </div>
                     <h4>${skill}</h4>
-                </div>
-            `;
+                </div>`;
         });
         html += `</div></div>`;
         app.innerHTML = html;
 
-        document.querySelectorAll('.skill-node').forEach(node => node.addEventListener('click', () => startLesson(node.dataset.skill, 'standard')));
+        document.querySelectorAll('.skill-node').forEach(node => node.addEventListener('click', () => startLesson({ skill: node.dataset.skill, mode: 'standard' })));
         const reviewBtn = document.getElementById('daily-review-btn');
         if (reviewBtn && !reviewBtn.classList.contains('disabled')) reviewBtn.addEventListener('click', startDailyReview);
     }
-
+    
     function renderStatsPage() {
         if (myChart) myChart.destroy();
 
@@ -170,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (lastDate && lastDate !== todayStr) {
              const yesterday = new Date(new Date(todayStr).setDate(new Date(todayStr).getDate() - 1)).toISOString().split('T')[0];
              if (lastDate !== yesterday) {
-                 userProgress.studyStreak.current = 0; // Resetta se non era ieri
+                 userProgress.studyStreak.current = 0; 
              }
         }
 
@@ -197,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         statsHtml += `</div>`;
 
-        const toughest = Object.entries(userProgress.questionStats).filter(([,s]) => s.incorrect > 0).sort(([,a],[,b]) => b.incorrect - a.incorrect).slice(0, 5);
+        const toughest = Object.entries(userProgress.questionStats).filter(([,s]) => (s.incorrect || 0) > (s.correct || 0)).sort(([,a],[,b]) => b.incorrect - a.incorrect).slice(0, 5);
         if (toughest.length > 0) {
             statsHtml += `<div class="stats-section"><h3>Domande da Ripassare</h3><ul class="toughest-questions-list">`;
             toughest.forEach(([qId,]) => {
@@ -228,33 +218,43 @@ document.addEventListener('DOMContentLoaded', () => {
         myChart = new Chart(ctx, {
             type: 'line',
             data: { datasets: [{ label: 'Domande Padroneggiate', data: data, borderColor: 'var(--blue-action)', tension: 0.1, fill: true, backgroundColor: 'rgba(28, 176, 246, 0.1)' }] },
-            options: { scales: { x: { type: 'time', time: { unit: 'day', tooltipFormat: 'dd MMM yyyy' } }, y: { beginAtZero: true } } }
+            options: { scales: { x: { type: 'time', time: { unit: 'day', tooltipFormat: 'dd MMM yyyy' } }, y: { beginAtZero: true, ticks: { precision: 0 } } } }
         });
     }
 
+// PART 1 OF 3 END
+
+// PART 2 OF 3 START
+
     // --- LOGICA DI GIOCO E LEZIONI ---
-    function startLesson(macroArea, mode, questions = null) {
+    function startLesson({ skill, mode, questions = null }) {
         let questionPool = questions;
+
         if (!questionPool) {
             if (mode === 'standard') {
-                const level = userProgress.skillLevels[macroArea] || 0;
+                const level = userProgress.skillLevels[skill] || 0;
                 questionPool = allQuestions.filter(q => {
-                    const stats = userProgress.questionStats[q.id];
-                    const strength = stats ? stats.strength : 0;
-                    return q.macro_area === macroArea && strength <= level;
+                    const strength = userProgress.questionStats[q.id]?.strength || 0;
+                    return q.macro_area === skill && strength <= level;
                 }).sort(() => 0.5 - Math.random());
-            } else { // timed
+            } else if (mode === 'timed') {
                 questionPool = [...allQuestions].sort(() => 0.5 - Math.random());
+            } else if (mode === 'mistakes') {
+                const mistakenIds = Object.keys(userProgress.questionStats).filter(qId => userProgress.questionStats[qId]?.incorrect > 0);
+                const baseSource = allQuestions.filter(q => mistakenIds.includes(q.id.toString()));
+                questionPool = (skill === 'all') ? baseSource : baseSource.filter(q => q.macro_area === skill);
             }
         }
         
-        const lessonLength = mode === 'standard' ? 10 : (mode === 'timed' ? 20 : questionPool.length);
+        const lessonLength = mode === 'timed' ? 20 : (mode === 'daily_review' ? (questionPool.length > 20 ? 20 : questionPool.length) : 10);
         currentLesson = {
             questions: questionPool.slice(0, lessonLength), currentIndex: 0, mode: mode,
-            timerId: null, correctAnswers: 0, skill: macroArea
+            timerId: null, correctAnswers: 0, skill: skill, report: []
         };
+        
         if (currentLesson.questions.length === 0) {
-            showModal('Attenzione', `Hai già padroneggiato tutte le domande disponibili per il livello attuale di ${macroArea}. Sblocca il prossimo livello!`, feedbackModal); return;
+            showModal('Attenzione', 'Nessuna domanda disponibile per questa selezione.', feedbackModal, true);
+            return;
         }
         renderQuestion();
     }
@@ -266,9 +266,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const stats = userProgress.questionStats[q.id];
                 return stats && new Date(stats.nextReview) <= new Date(today) && (stats.strength || 0) < MASTERY_LEVEL;
             })
-            .sort((a, b) => new Date(userProgress.questionStats[a.id]?.nextReview) - new Date(userProgress.questionStats[b.id]?.nextReview)); // Ripassa prima le più vecchie
+            .sort((a, b) => new Date(userProgress.questionStats[a.id]?.nextReview) - new Date(userProgress.questionStats[b.id]?.nextReview));
         
-        startLesson('Ripasso', 'daily_review', questionsDue.slice(0, 20)); // Limita a 20 per sessione
+        startLesson({ skill: 'Ripasso', mode: 'daily_review', questions: questionsDue });
     }
 
     function updateQuestionStrength(questionId, isCorrect) {
@@ -281,28 +281,22 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isCorrect) {
             stats.strength = Math.min(oldStrength + 1, STRENGTH_INTERVALS.length);
             if (stats.strength >= MASTERY_LEVEL && oldStrength < MASTERY_LEVEL) {
-                // Nuova domanda padroneggiata oggi!
                 userProgress.masteryHistory[todayStr] = (userProgress.masteryHistory[todayStr] || 0) + 1;
             }
         } else {
             stats.strength = Math.max(oldStrength - 2, 0);
         }
         
-        // Se la forza è < max, schedula nuovo ripasso, altrimenti è padroneggiata
         if (stats.strength < STRENGTH_INTERVALS.length) {
             const intervalDays = STRENGTH_INTERVALS[stats.strength];
             today.setDate(today.getDate() + intervalDays);
             stats.nextReview = today.toISOString().split('T')[0];
         } else {
-            stats.nextReview = '3000-01-01'; // Data lontana per le carte padroneggiate
+            stats.nextReview = '3000-01-01'; // Data lontana per carte padroneggiate
         }
         stats.lastReviewed = todayStr;
         userProgress.questionStats[questionId] = stats;
     }
-
-// PART 2 OF 3 END
-
-    // PART 3 OF 3 START
 
     // --- LOGICA DI RENDER E INTERAZIONE DOMANDE ---
     function renderQuestion() {
@@ -323,7 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         app.innerHTML = `
             <div class="lesson-header">
-                ${isTimed ? '<div class="timer-display"><i class="fa-solid fa-clock"></i> <span id="time-left">30</span></div>' : ''}
+                ${isTimed ? '<div class="timer-display"><i class="fa-solid fa-clock"></i> <span id="time-left">30</span></div>' : `<div>${currentLesson.skill}</div>`}
                 <span>${currentLesson.currentIndex + 1}/${currentLesson.questions.length}</span>
                 <div class="progress-bar-container"><div class="progress-bar" style="width: ${((currentLesson.currentIndex) / currentLesson.questions.length) * 100}%"></div></div>
             </div>
@@ -344,15 +338,22 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isTimed) startTimer();
     }
     
+// PART 2 OF 3 END
+
+// PART 3 OF 3 START
+
     function setupQuestionListeners() {
         const q = currentLesson.questions[currentLesson.currentIndex];
         const questionType = q.type;
+        const checkBtn = document.getElementById('check-answer-btn');
 
         if (currentLesson.mode === 'timed' && (questionType === 'multiple_choice' || questionType === 'true_false')) {
-            app.querySelectorAll('.option-btn').forEach(btn => btn.addEventListener('click', (e) => checkCurrentAnswer(e.currentTarget.dataset.answer)));
-            document.getElementById('check-answer-btn').classList.add('visually-hidden');
+            app.querySelectorAll('.option-btn').forEach(btn => btn.addEventListener('click', (e) => {
+                checkCurrentAnswer(e.currentTarget, e.currentTarget.dataset.answer);
+            }));
+            checkBtn.classList.add('visually-hidden');
         } else {
-            document.getElementById('check-answer-btn').addEventListener('click', () => checkCurrentAnswer());
+            checkBtn.addEventListener('click', () => checkCurrentAnswer());
         }
 
         const hintBtn = document.getElementById('show-hint-btn');
@@ -381,18 +382,20 @@ document.addEventListener('DOMContentLoaded', () => {
             if (timerDisplay) timerDisplay.textContent = timeLeft;
             if (timeLeft <= 0) {
                 clearInterval(currentLesson.timerId);
-                checkCurrentAnswer(null, true); // Timeout
+                checkCurrentAnswer(null, null, true); // Timeout
             }
         }, 1000);
     }
     
-    function checkCurrentAnswer(immediateAnswer = null, isTimeout = false) {
+    function checkCurrentAnswer(clickedButton = null, immediateAnswer = null, isTimeout = false) {
         if (currentLesson.timerId) clearInterval(currentLesson.timerId);
         
         const timeToAnswer = (Date.now() - currentLesson.startTime) / 1000;
         const q = currentLesson.questions[currentLesson.currentIndex];
         let userAnswer;
         let isCorrect = false;
+
+        app.querySelector('.answer-options').classList.add('disabled');
 
         if(isTimeout) {
             userAnswer = "Tempo scaduto";
@@ -408,7 +411,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 userAnswer = selectedBtn ? selectedBtn.dataset.answer : null;
             }
             
-            if (questionType === 'open_ended') {
+            if (userAnswer === null) { isCorrect = false; }
+            else if (questionType === 'open_ended') {
                 const userWords = (userAnswer.toLowerCase().match(/\b(\w+)\b/g) || []).filter(w => w.length > 2);
                 const answerText = q.answer.toString().toLowerCase();
                 const keywords = q.keywords || answerText.split(' ').filter(w => w.length > 3);
@@ -418,11 +422,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                      isCorrect = userAnswer.toLowerCase() === answerText;
                 }
-            } else if (userAnswer) {
+            } else {
                 isCorrect = userAnswer.toString().toLowerCase() === q.answer.toString().toLowerCase();
             }
         }
         
+        if (clickedButton) clickedButton.classList.add(isCorrect ? 'correct' : 'incorrect');
+
         updateQuestionStrength(q.id, isCorrect);
         
         if (!userProgress.questionStats[q.id].totalTime) userProgress.questionStats[q.id].totalTime = 0;
@@ -430,76 +436,91 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (isCorrect) currentLesson.correctAnswers++;
         
+        currentLesson.report.push({ question: q, userAnswer, isCorrect, timeToAnswer });
         saveProgress();
         showFeedback(isCorrect, isTimeout ? "Tempo scaduto!" : null);
     }
 
     function showFeedback(isCorrect, message = null) {
-        document.body.addEventListener('click', () => { if(soundEnabled) { isCorrect ? correctSound.play() : incorrectSound.play() } }, { once: true });
+        if (soundEnabled) { isCorrect ? correctSound.play() : incorrectSound.play(); }
         
-        app.querySelector('.answer-options').classList.add('disabled');
         const q = currentLesson.questions[currentLesson.currentIndex];
         const explanation = q.explanation;
+
+        currentLesson.isModalOpen = true; // Flag per auto-next
         
         if (currentLesson.mode === 'timed') {
             if(!isCorrect) {
                  const correctBtn = app.querySelector(`[data-answer="${q.answer}"]`);
                  if(correctBtn) correctBtn.classList.add('correct');
             }
+            // Usa il modal per un feedback non intrusivo e auto-chiudente
+            showModal(message || (isCorrect ? 'Corretto!' : 'Sbagliato!'), explanation, feedbackModal);
             setTimeout(() => {
-                if(!currentLesson.isModalOpen) nextQuestion();
-            }, 2000);
+                if (currentLesson.isModalOpen) closeModal(feedbackModal);
+            }, 3000);
         } else {
              const checkBtn = document.getElementById('check-answer-btn');
              checkBtn.id = 'next-question-btn';
              checkBtn.textContent = 'Avanti';
              checkBtn.style.backgroundColor = isCorrect ? 'var(--green-correct)' : 'var(--red-incorrect)';
-             checkBtn.addEventListener('click', nextQuestion);
+             checkBtn.addEventListener('click', () => closeModal(feedbackModal)); // Cliccando Avanti si chiude il modal e si va avanti
+             showModal(message || (isCorrect ? 'Corretto!' : 'Sbagliato!'), explanation, feedbackModal);
         }
-        
-        currentLesson.isModalOpen = true;
-        showModal(message || (isCorrect ? 'Corretto!' : 'Sbagliato!'), explanation, feedbackModal);
     }
 
     function nextQuestion() {
-        closeModal(feedbackModal);
-        currentLesson.isModalOpen = false;
         currentLesson.currentIndex++;
-
         if (currentLesson.currentIndex < currentLesson.questions.length) {
             renderQuestion();
         } else {
-            // Fine lezione: aggiorna streak e skill level
+            // Aggiorna lo streak qui, solo se la lezione è finita
             const todayStr = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()).toISOString().split('T')[0];
+            const lastDate = userProgress.studyStreak?.lastDate;
+            if (lastDate !== todayStr) {
+                 const yesterday = new Date(new Date(todayStr).setDate(new Date(todayStr).getDate() - 1)).toISOString().split('T')[0];
+                 if (lastDate === yesterday) userProgress.studyStreak.current = (userProgress.studyStreak.current || 0) + 1;
+                 else userProgress.studyStreak.current = 1;
+            } else if (!lastDate) {
+                 userProgress.studyStreak.current = 1;
+            }
             userProgress.studyStreak.lastDate = todayStr;
-            userProgress.studyStreak.current = (userProgress.studyStreak.current || 0) + 1; // Incrementa a fine lezione
             
-            if (currentLesson.mode === 'standard' && currentLesson.correctAnswers / currentLesson.questions.length >= 0.8) {
-                userProgress.skillLevels[currentLesson.skill] = Math.min((userProgress.skillLevels[currentLesson.skill] || 0) + 1, 5);
+            // Aggiorna skill level se superato
+            if ((currentLesson.mode === 'standard' || currentLesson.mode === 'daily_review') && currentLesson.correctAnswers / currentLesson.questions.length >= 0.8) {
+                if(currentLesson.skill !== 'Ripasso') {
+                     userProgress.skillLevels[currentLesson.skill] = Math.min((userProgress.skillLevels[currentLesson.skill] || 0) + 1, 5);
+                }
             }
             saveProgress();
-            
-            currentLesson.mode === 'timed' ? renderTrainingReport() : renderStandardReport();
+            renderReport();
         }
     }
     
-    function renderStandardReport() {
-        app.innerHTML = `<div class="question-container" style="text-align:center;">
-            <h2>Test Completato!</h2>
-            <h3>Hai risposto correttamente a ${currentLesson.correctAnswers} su ${currentLesson.questions.length} domande.</h3>
-            ${(currentLesson.correctAnswers / currentLesson.questions.length >= 0.8) ? `<p style="color:var(--green-correct);">Complimenti! Hai aumentato il livello di maestria in ${currentLesson.skill}!</p>` : ''}
-            <button id="back-to-dash" class="daily-review-btn">Torna alla Dashboard</button>
-        </div>`;
+    function renderReport() {
+        let reportHtml = `<h2><i class="fa-solid fa-scroll"></i> Report Test</h2>
+                          <h3>Hai risposto correttamente a ${currentLesson.correctAnswers} su ${currentLesson.questions.length} domande.</h3>`;
+
+        if (currentLesson.mode === 'standard' && currentLesson.correctAnswers / currentLesson.questions.length >= 0.8) {
+             reportHtml += `<p style="color:var(--green-correct);">Complimenti! Hai aumentato il livello di maestria in ${currentLesson.skill}!</p>`;
+        }
+                          
+        currentLesson.report.forEach(item => {
+            reportHtml += `
+                <div class="test-report-item ${item.isCorrect ? 'correct' : 'incorrect'}">
+                    <p class="report-q-text">${item.question.question}</p>
+                    <p class="report-user-answer">La tua risposta: <strong>${item.userAnswer || "Nessuna"}</strong> ${currentLesson.mode === 'timed' ? `(${item.timeToAnswer.toFixed(1)}s)` : ''}</p>
+                    <div class="report-explanation"><strong>Spiegazione:</strong> ${item.question.explanation}</div>
+                </div>`;
+        });
+        reportHtml += `<button id="back-to-dash" class="daily-review-btn">Torna alla Dashboard</button>`;
+        app.innerHTML = reportHtml;
         document.getElementById('back-to-dash').addEventListener('click', renderSkillTreeDashboard);
     }
-
-    function renderTrainingReport() {
-        // ... Logica per il report di allenamento (invariata)
-    }
-
+    
     // --- FUNZIONI MODALI E DI SUPPORTO ---
     function showQuestionDetailModal(q) {
-        // ... Logica per mostrare dettagli domanda (invariata)
+        // ... (Logica come prima)
     }
 
     function toggleSound() {
@@ -521,7 +542,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function handleSearch(event) {
-        // ... Logica di ricerca (invariata)
+        const query = event.target.value.toLowerCase();
+        const resultsEl = searchModal.querySelector('#search-modal-results');
+        resultsEl.innerHTML = query.length < 3 ? '' : allQuestions.filter(q => q.question.toLowerCase().includes(query) || q.answer.toString().toLowerCase().includes(query)).slice(0, 10).map(q => `
+            <div class="search-result-item">
+                <p class="question">${q.question}</p><p class="answer"><strong>Risposta:</strong> ${Array.isArray(q.answer) ? q.answer.join(', ') : q.answer}</p><p class="explanation"><strong>Spiegazione:</strong> ${q.explanation}</p>
+            </div>`).join('');
     }
 
     function showModal(title, text, modalElement) {
@@ -545,4 +571,3 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // PART 3 OF 3 END
-                          
