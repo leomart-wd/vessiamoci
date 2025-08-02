@@ -168,10 +168,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const skillIcons = { "Filosofia e Didattica VES": "fa-brain", "Anatomia": "fa-bone", "Fisiologia": "fa-heart-pulse", "Biomeccanica": "fa-person-running", "Applicazioni Didattiche": "fa-bullseye" };
         
         let html = `<div class="skill-tree-container">`;
-        html += `<button class="daily-review-btn ${questionsDue === 0 ? 'disabled' : ''}" id="daily-review-btn">
-            <i class="fa-solid fa-star"></i> 
-            ${questionsDue > 0 ? `Ripasso Quotidiano (${questionsDue} carte)` : 'Nessun ripasso per oggi. Ottimo!'}
-        </button>`;
+        if (questionsDue > 0) {
+             html += `<button class="daily-review-btn" id="daily-review-btn">
+                <i class="fa-solid fa-star"></i> 
+                Ripasso Quotidiano (${questionsDue} carte)
+            </button>`;
+        }
         
         html += `<div class="skill-row">`;
         skills.forEach(skill => {
@@ -198,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.querySelectorAll('.skill-node').forEach(node => node.addEventListener('click', () => startLesson({ skill: node.dataset.skill, mode: 'standard' })));
         const reviewBtn = document.getElementById('daily-review-btn');
-        if (reviewBtn && !reviewBtn.classList.contains('disabled')) reviewBtn.addEventListener('click', startDailyReview);
+        if (reviewBtn) reviewBtn.addEventListener('click', startDailyReview);
     }
 
     function renderTrainingHub() {
@@ -395,7 +397,7 @@ document.addEventListener('DOMContentLoaded', () => {
         stats.lastReviewed = todayStr;
         userProgress.questionStats[questionId] = stats;
     }
-    
+
     // --- 7. QUESTION RENDERING & INTERACTION ---
     function renderQuestion() {
         currentLesson.startTime = Date.now();
@@ -530,7 +532,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (soundEnabled) { isCorrect ? sounds.correct.play() : sounds.incorrect.play(); }
         
         const q = currentLesson.questions[currentLesson.currentIndex];
-        const explanation = q.explanation;
         
         if (currentLesson.mode === 'timed') {
             if(!isCorrect) {
@@ -539,6 +540,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         
+        const explanation = q.explanation;
         showModal(message || (isCorrect ? 'Corretto!' : 'Sbagliato!'), explanation, feedbackModal, true);
     }
 
@@ -593,6 +595,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function checkAchievements() {
         const masteredCount = Object.values(userProgress.questionStats).filter(s => s.strength >= MASTERY_LEVEL).length;
         const skills = [...new Set(allQuestions.map(q => q.macro_area))];
+        const avgTime = (currentLesson.report.reduce((acc, item) => acc + item.timeToAnswer, 0) / currentLesson.report.length);
 
         const conditions = {
             'FIRST_LESSON': () => Object.keys(userProgress.questionStats).length > 0,
@@ -602,13 +605,20 @@ document.addEventListener('DOMContentLoaded', () => {
             'PERFECT_LESSON': () => currentLesson.mode === 'standard' && currentLesson.correctAnswers === currentLesson.questions.length,
             'STREAK_7': () => userProgress.studyStreak.current >= 7,
             'MASTER_ALL': () => skills.every(s => (userProgress.skillLevels[s] || 0) === 5),
-            'PERFECT_REVIEW': () => currentLesson.mode === 'daily_review' && currentLesson.correctAnswers === currentLesson.questions.length
+            'PERFECT_REVIEW': () => currentLesson.mode === 'daily_review' && currentLesson.correctAnswers === currentLesson.questions.length,
+            'SPEED_DEMON': () => currentLesson.mode === 'timed' && avgTime < 8.0
         };
         
         Object.entries(conditions).forEach(([id, condition]) => {
             if (!userProgress.achievements.includes(id) && condition()) {
                 userProgress.achievements.push(id);
                 showToast(`Certificazione Ottenuta: ${ACHIEVEMENTS[id].title}`);
+            }
+        });
+        skills.forEach(skill => {
+            if (!userProgress.achievements.includes(`MASTER_${skill.toUpperCase().replace(/\s/g, '_')}`) && (userProgress.skillLevels[skill] || 0) === 5) {
+                userProgress.achievements.push(`MASTER_${skill.toUpperCase().replace(/\s/g, '_')}`);
+                showToast(`Certificazione Ottenuta: ${ACHIEVEMENTS[`MASTER_${skill.toUpperCase().replace(/\s/g, '_')}`]?.title}`);
             }
         });
         saveProgress();
