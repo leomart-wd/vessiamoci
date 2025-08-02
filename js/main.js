@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 1. GLOBAL STATE & DOM REFERENCES ---
     const app = document.getElementById('app');
     const homeTitle = document.getElementById('home-title');
-    const dashboardBtn = document.getElementById('dashboard-btn');
+    const trainingHubBtn = document.getElementById('training-hub-btn');
     const statsBtn = document.getElementById('stats-btn');
     const globalSearchBtn = document.getElementById('global-search-btn');
     const soundToggleBtn = document.getElementById('sound-toggle-btn');
@@ -54,8 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
         MASTER_ANATOMIA: { title: "Certificazione in Anatomia", icon: "fa-bone", description: "Raggiungi il Livello 5 in Anatomia." },
         MASTER_FISIOLOGIA: { title: "Dottorato in Fisiologia", icon: "fa-heart-pulse", description: "Raggiungi il Livello 5 in Fisiologia." },
         MASTER_BIOMECCANICA: { title: "Specializzazione in Biomeccanica", icon: "fa-person-running", description: "Raggiungi il Livello 5 in Biomeccanica." },
-        MASTER_DIDATTICA: { title: "Maestro di Didattica", icon: "fa-bullseye", description: "Raggiungi il Livello 5 in Applicazioni Didattiche." },
-        MASTER_FILOSOFIA: { title: "Filosofo della Voce", icon: "fa-book-open", description: "Raggiungi il Livello 5 in Filosofia e Didattica VES." },
+        MASTER_APPLICAZIONI_DIDATTICHE: { title: "Maestro di Didattica", icon: "fa-bullseye", description: "Raggiungi il Livello 5 in Applicazioni Didattiche." },
+        MASTER_FILOSOFIA_E_DIDATTICA_VES: { title: "Filosofo della Voce", icon: "fa-book-open", description: "Raggiungi il Livello 5 in Filosofia e Didattica VES." },
         MASTER_ALL: { title: "L'Uomo Vitruviano", icon: "fa-universal-access", description: "Raggiungi il Livello 5 in tutte le abilità." },
         PERFECT_LESSON: { title: "Esecuzione Perfetta", icon: "fa-check-double", description: "Completa un test con il 100% di risposte corrette." },
         SPEED_DEMON: { title: "Riflessi Sinaptici", icon: "fa-bolt", description: "Completa una Modalità Allenamento con un tempo medio inferiore a 8s." },
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function setupGlobalListeners() {
         homeTitle.addEventListener('click', renderDashboard);
-        dashboardBtn.addEventListener('click', renderDashboard);
+        trainingHubBtn.addEventListener('click', renderTrainingHub);
         statsBtn.addEventListener('click', renderStatsPage);
         globalSearchBtn.addEventListener('click', openSearchModal);
         soundToggleBtn.addEventListener('click', toggleSound);
@@ -122,9 +122,9 @@ document.addEventListener('DOMContentLoaded', () => {
         pcCounter.innerHTML = `<i class="fa-solid fa-star"></i> ${userProgress.xp || 0}`;
     }
 
-// PART 1 OF 3 END
+// PART 1 OF 3 END //
 
-// PART 2 OF 3 START
+    // PART 2 OF 3 START
 
     // --- 5. VIEWS & DASHBOARDS RENDERING ---
     function renderDashboard() {
@@ -326,7 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // PART 2 OF 3 END
 
-// PART 3 OF 3 START
+    // PART 3 OF 3 START
 
     // --- 6. CORE LESSON LOGIC & SPACED REPETITION ---
     function startLesson({ skill, mode, questions = null }) {
@@ -616,9 +616,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         skills.forEach(skill => {
-            if (!userProgress.achievements.includes(`MASTER_${skill.toUpperCase().replace(/\s/g, '_')}`) && (userProgress.skillLevels[skill] || 0) === 5) {
-                userProgress.achievements.push(`MASTER_${skill.toUpperCase().replace(/\s/g, '_')}`);
-                showToast(`Certificazione Ottenuta: ${ACHIEVEMENTS[`MASTER_${skill.toUpperCase().replace(/\s/g, '_')}`]?.title}`);
+            const skillId = `MASTER_${skill.toUpperCase().replace(/ & /g, '_').replace(/\s/g, '_')}`;
+            if (ACHIEVEMENTS[skillId] && !userProgress.achievements.includes(skillId) && (userProgress.skillLevels[skill] || 0) === 5) {
+                userProgress.achievements.push(skillId);
+                showToast(`Certificazione Ottenuta: ${ACHIEVEMENTS[skillId].title}`);
             }
         });
         saveProgress();
@@ -707,4 +708,5 @@ document.addEventListener('DOMContentLoaded', () => {
     main();
 });
 
-// PART 3 OF 3 END
+// PART 3 OF 3 END // 
+
