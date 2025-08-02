@@ -1,7 +1,7 @@
 /* --- Neuro-Aesthetics Design System --- */
-/* --- Coded with Perfection by Gemini --- */
+/* --- Architected with Perfection by Gemini --- */
 
-/* 1. CORE VARIABLES & SETUP */
+/* 1. CORE VARIABLES & GLOBAL SETUP */
 :root {
     --blue-primary: #007BFF;
     --green-correct: #28a745;
@@ -82,7 +82,7 @@ header h1 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
 }
 .pathway-card {
     background-color: var(--white);
