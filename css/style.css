@@ -156,6 +156,7 @@ header h1 {
 .training-hub-card .btn-review { background-color: var(--green-correct); box-shadow: 0 4px 0 #1e7e34; }
 .training-hub-card .btn-timed { background-color: var(--purple-special); box-shadow: 0 4px 0 #4a2d82; }
 .training-hub-card .btn.disabled { background-color: var(--gray-medium); box-shadow: 0 4px 0 var(--gray-dark); cursor: not-allowed; }
+.daily-review-btn{display:block;width:100%;padding:1.25rem;margin:1rem 0;font-size:1.2rem;font-weight:800;text-align:center;color:var(--white);background-color:var(--green-correct);border:none;border-radius:1rem;cursor:pointer;box-shadow:0 4px 0 #1e7e34;transition:transform .1s,box-shadow .1s}.daily-review-btn:active{transform:translateY(2px);box-shadow:0 2px 0 #1e7e34}.daily-review-btn.disabled{background-color:var(--gray-medium);box-shadow:0 4px 0 var(--gray-dark);cursor:not-allowed}
 
 /* Livelli & Colori */
 .skill-node.level-0 .progress-ring, .skill-node.level-0 .skill-icon, .skill-node.level-0 .skill-level { color: #cccccc; border-color: #cccccc; stroke: #cccccc; }
@@ -187,7 +188,6 @@ header h1 {
 /* 8. REPORT & UTILITY */
 .test-report-item{margin-bottom:1.5rem;padding:1rem;border-radius:.5rem}.test-report-item.correct{background-color:#f0fff0;border-left:5px solid var(--green-correct)}.test-report-item.incorrect{background-color:#fff8f8;border-left:5px solid var(--red-incorrect)}.report-q-text{font-weight:700}.report-user-answer{font-style:italic}.report-explanation{margin-top:.5rem;padding-top:.5rem;border-top:1px solid var(--gray-light);font-size:.9rem}
 .report-summary-card{background:#eef7ff;border-left:5px solid var(--blue-primary);padding:1rem 1.5rem;border-radius:.5rem;margin-bottom:2rem;font-weight:700}.report-summary-card i{margin-right:.5rem}
-.report-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem}.report-card{background:var(--white);padding:1.5rem;border-radius:1rem;text-align:center}.report-card h4{margin-top:0;margin-bottom:.5rem;color:var(--gray-dark)}.report-card .value{font-size:1.8rem;font-weight:800;color:var(--gray-dark)}.report-card .value.fastest{color:var(--green-correct)}.report-card .value.slowest{color:var(--red-incorrect)}.report-card .question-text{font-size:.9rem;color:var(--gray-medium);margin-top:.25rem}
 #toast-notification{position:fixed;bottom:-100px;left:50%;transform:translateX(-50%);background-color:var(--gray-dark);color:var(--white);padding:1rem 2rem;border-radius:1rem;font-weight:700;z-index:2000;transition:bottom .5s ease-in-out;pointer-events:none;box-shadow:var(--shadow-lg)}#toast-notification.show{bottom:30px}
 .loader{border:8px solid var(--gray-light);border-top:8px solid var(--blue-primary);border-radius:50%;width:60px;height:60px;animation:spin 1s linear infinite;margin:4rem auto}@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
 .visually-hidden{display:none!important}
