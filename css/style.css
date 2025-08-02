@@ -31,3 +31,15 @@ main#app{width:100%;max-width:800px;padding:1.5rem;box-sizing:border-box}
 
 .loader{border:8px solid var(--gray-light);border-top:8px solid var(--blue-action);border-radius:50%;width:60px;height:60px;animation:spin 1s linear infinite;margin:4rem auto}@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
 .visually-hidden{display:none!important}
+
+/* ... (All previous styles) ... */
+/* Include the new styles for Bio-Ritmo, Achievements, and the PC Counter */
+.header-stats{font-size:1.5rem;font-weight:800;color:var(--blue-action)}
+#pc-counter i{color:#ffd700}
+/* Achievement Toast Notification */
+#toast-notification{position:fixed;top:20px;left:50%;transform:translateX(-50%);background-color:rgba(0,0,0,.8);color:var(--white);padding:1rem 2rem;border-radius:2rem;font-weight:700;z-index:2000;opacity:0;transition:opacity .5s,top .5s;pointer-events:none}
+#toast-notification.show{top:40px;opacity:1}
+/* Bio-Ritmo Streak Graph */
+.streak-calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:.5rem;text-align:center}.streak-calendar .day-name{font-weight:700;color:var(--gray-medium)}.streak-calendar .day{width:35px;height:35px;border-radius:50%;display:flex;align-items:center;justify-content:center;background-color:var(--gray-light)}.streak-calendar .day.active{background-color:var(--green-correct);color:var(--white);font-weight:700}.streak-calendar .day.today{border:2px solid var(--blue-action)}
+/* Badge/Achievement Styles */
+.achievements-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(80px,1fr));gap:1rem}.achievement-badge{text-align:center}.achievement-badge i{font-size:3rem;color:var(--gray-light);transition:color .3s,transform .3s}.achievement-badge.unlocked i{color:#ffd700;transform:scale(1.1)}.achievement-badge p{font-size:.8rem;font-weight:700;color:var(--gray-medium);margin-top:.5rem}.achievement-badge.unlocked p{color:var(--gray-dark)}
