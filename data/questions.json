@@ -81,7 +81,7 @@
     "macro_area": "Filosofia e Didattica VES",
     "type": "open_ended",
     "question": "Descrivi l'importanza dell'attenzione divisa nell'insegnamento VES.",
-    "answer": "L'attenzione divisa significa essere contemporaneamente attenti a se stessi (propriocezione interna) e all'allievo (osservazione esterna).",
+    "answer": "L'attenzione divisa significa essere contemporaneamente attenti a se stessi (propriocezione interna) e all'allievo (osservazione esterna). Questo permette all'insegnante di modulare con maggiore efficacia il processo didattico.",
     "explanation": "È la capacità di mantenere simultaneamente l'attenzione su più livelli per ottimizzare l'intervento didattico."
   },
   {
@@ -137,7 +137,7 @@
   },
   {
     "id": 17,
-    "macro_area": "Fisiologia Vocale",
+    "macro_area": "Fisiologia",
     "type": "open_ended",
     "question": "Descrivi le tre modalità di contrazione muscolare.",
     "answer": "Concentrica: il muscolo si accorcia generando movimento; Eccentrica: il muscolo si allunga sotto controllo, frenando un movimento; Isometrica: il muscolo genera tensione senza variare la lunghezza.",
@@ -146,7 +146,7 @@
   },
   {
     "id": 18,
-    "macro_area": "Fisiologia Vocale",
+    "macro_area": "Fisiologia",
     "type": "multiple_choice",
     "question": "Le 'macule flavae' nelle corde vocali sono importanti perché:",
     "options": ["Producono muco", "Contengono fibroblasti per la riparazione", "Generano vibrazione", "Controllano la tensione"],
@@ -155,7 +155,7 @@
   },
   {
     "id": 19,
-    "macro_area": "Fisiologia Vocale",
+    "macro_area": "Fisiologia",
     "type": "true_false",
     "question": "Tutti i muscoli intrinseci della laringe possiedono fusi neuromuscolari.",
     "answer": false,
@@ -163,7 +163,7 @@
   },
   {
     "id": 20,
-    "macro_area": "Fisiologia Vocale",
+    "macro_area": "Fisiologia",
     "type": "open_ended",
     "question": "Qual è la funzione del ventricolo di Morgagni?",
     "answer": "Il ventricolo di Morgagni produce liquido lubrificante per mantenere idratate le corde vocali e agisce come primo spazio di risonanza laringea.",
@@ -196,7 +196,7 @@
   },
   {
     "id": 24,
-    "macro_area": "Fisiologia Vocale",
+    "macro_area": "Fisiologia",
     "type": "multiple_choice",
     "question": "Le fibre motorie multiple nel muscolo tiroaritenoideo servono per:",
     "options": ["Aumentare la forza", "Permettere controllo fine", "Accelerare la contrazione", "Ridurre la fatica"],
@@ -271,7 +271,7 @@
   },
   {
     "id": 33,
-    "macro_area": "Fisiologia Vocale",
+    "macro_area": "Fisiologia",
     "type": "multiple_choice",
     "question": "Una contrazione isometrica si verifica quando:",
     "options": ["Il muscolo si accorcia", "Il muscolo si allunga", "Il muscolo mantiene la lunghezza ma aumenta la tensione", "Il muscolo si rilassa"],
@@ -280,7 +280,7 @@
   },
   {
     "id": 34,
-    "macro_area": "Fisiologia Vocale",
+    "macro_area": "Fisiologia",
     "type": "true_false",
     "question": "L'attivazione muscolare nella laringe è limitata alla sola fase di fonazione.",
     "answer": false,
@@ -288,7 +288,7 @@
   },
   {
     "id": 35,
-    "macro_area": "Fisiologia Vocale",
+    "macro_area": "Fisiologia",
     "type": "open_ended",
     "question": "Spiega il ruolo del muscolo cricotiroideo.",
     "answer": "Il cricotiroideo allunga e tende le corde vocali, aumentando la tensione longitudinale per facilitare l'emissione di frequenze acute.",
@@ -305,7 +305,7 @@
   },
   {
     "id": 37,
-    "macro_area": "Fisiologia Vocale",
+    "macro_area": "Fisiologia",
     "type": "true_false",
     "question": "Le fibre elastiche dello strato superficiale della lamina propria favoriscono la vibrazione.",
     "answer": true,
@@ -313,7 +313,7 @@
   },
   {
     "id": 38,
-    "macro_area": "Fisiologia Vocale",
+    "macro_area": "Fisiologia",
     "type": "open_ended",
     "question": "Cos'è la teoria aerodinamico-mioelastica di Van den Berg?",
     "answer": "È la teoria che spiega la vibrazione delle corde vocali attraverso l'interazione tra pressione aerodinamica sottoglottica, elasticità tissutale e contrazione muscolare.",
@@ -321,7 +321,7 @@
   },
   {
     "id": 39,
-    "macro_area": "Fisiologia Vocale",
+    "macro_area": "Anatomia",
     "type": "multiple_choice",
     "question": "Il muscolo interaritenoideo ha la funzione di:",
     "options": ["Aprire le corde vocali", "Chiudere e stabilizzare l'adduzione", "Allungare le corde vocali", "Elevare la laringe"],
@@ -346,7 +346,7 @@
   },
   {
     "id": 42,
-    "macro_area": "Fisiologia Vocale",
+    "macro_area": "Fisiologia",
     "type": "multiple_choice",
     "question": "La disidratazione dei tessuti vocali causa:",
     "options": ["Maggiore flessibilità", "Aumento della tensione passiva", "Migliore vibrazione", "Nessun effetto"],
@@ -388,7 +388,7 @@
   },
   {
     "id": 47,
-    "macro_area": "Fisiologia Vocale",
+    "macro_area": "Fisiologia",
     "type": "open_ended",
     "question": "Descrivi l'importanza della respirazione nel sistema pneumo-fono-articolatorio.",
     "answer": "La respirazione fornisce l'energia pneumatica necessaria per la fonazione, gestendo la pressione sottoglottica in relazione alla resistenza glottica.",
@@ -396,7 +396,7 @@
   },
   {
     "id": 48,
-    "macro_area": "Fisiologia Vocale",
+    "macro_area": "Fisiologia",
     "type": "multiple_choice",
     "question": "La 'microrespirazione' o 'ritorno d'aria' è:",
     "options": ["Un errore tecnico", "Una respirazione completa", "Piccole inspirazioni durante la performance", "Un esercizio specifico"],
@@ -405,7 +405,7 @@
   },
   {
     "id": 49,
-    "macro_area": "Fisiologia Vocale",
+    "macro_area": "Fisiologia",
     "type": "true_false",
     "question": "Il 'suono in posizione' si riferisce a una specifica nota musicale.",
     "answer": false,
@@ -463,7 +463,7 @@
   },
   {
     "id": 56,
-    "macro_area": "Fisiologia Vocale",
+    "macro_area": "Fisiologia",
     "type": "open_ended",
     "question": "Descrivi il ruolo dei risonatori nella produzione vocale.",
     "answer": "I risonatori (faringe, cavità orale, nasali) amplificano, filtrano e modellano il suono prodotto dalle corde vocali, determinando il timbro finale.",
@@ -471,7 +471,7 @@
   },
   {
     "id": 57,
-    "macro_area": "Fisiologia Vocale",
+    "macro_area": "Fisiologia",
     "type": "multiple_choice",
     "question": "La 'pressione sottoglottica' è:",
     "options": ["La pressione sopra le corde vocali", "La pressione sotto le corde vocali", "La pressione nei polmoni", "La pressione atmosferica"],
@@ -546,7 +546,7 @@
   },
   {
     "id": 66,
-    "macro_area": "Fisiologia Vocale",
+    "macro_area": "Fisiologia",
     "type": "multiple_choice",
     "question": "Il 'territorio tissutale' nel VES si riferisce a:",
     "options": ["Una zona geografica", "Lo stato dei tessuti e strutture", "Un tipo di esercizio", "Una metodologia"],
@@ -630,7 +630,7 @@
   },
   {
     "id": 76,
-    "macro_area": "Proprietà CVV",
+    "macro_area": "Fisiologia",
     "type": "multiple_choice",
     "question": "Cosa si intende per 'scollamento body-cover' in falsetto?",
     "options": ["Il muscolo (body) vibra insieme alla mucosa (cover).", "Solo il bordo libero della mucosa (cover) vibra, staccato dal muscolo (body).", "La corda vocale intera si stacca dalla cartilagine.", "Le corde vocali non si toccano."],
@@ -639,7 +639,7 @@
   },
   {
     "id": 77,
-    "macro_area": "Proprietà CVV",
+    "macro_area": "Biomeccanica",
     "type": "true_false",
     "question": "Una forza di collisione distribuita su una superficie minore della corda vocale (come in una nota acuta in accorciamento) risulta meno impattante.",
     "answer": false,
@@ -647,7 +647,7 @@
   },
   {
     "id": 78,
-    "macro_area": "Proprietà CVV",
+    "macro_area": "Fisiologia",
     "type": "open_ended",
     "question": "Come si chiama il parametro che definisce la morbidezza della corda vocale, reciproco della rigidità?",
     "answer": "compliance",
@@ -655,14 +655,14 @@
   },
   {
     "id": 79,
-    "macro_area": "Proprietà CVV",
+    "macro_area": "Fisiologia",
     "type": "open_ended",
     "question": "Perché la 'massa efficace' della corda vocale è diversa dalla 'massa complessiva'?",
     "answer": "La massa efficace è la porzione di massa che partecipa attivamente alla vibrazione. È maggiore nelle note gravi e minore nelle note acute."
   },
   {
     "id": 80,
-    "macro_area": "Proprietà CVV",
+    "macro_area": "Fisiologia",
     "type": "true_false",
     "question": "Quando accorcio la corda vocale, la tensione diventa prevalentemente superficiale.",
     "answer": false,
@@ -670,7 +670,7 @@
   },
   {
     "id": 81,
-    "macro_area": "Proprietà CVV",
+    "macro_area": "Fisiologia",
     "type": "multiple_choice",
     "question": "I punti a massimo stato di collisione nel ciclo glottico includono:",
     "options": ["Le note acute sussurrate", "Le note acute forti fatte in accorciamento (belting)", "Le note gravi sussurrate"],
@@ -679,7 +679,7 @@
   },
   {
     "id": 82,
-    "macro_area": "Ciclo Vibratorio",
+    "macro_area": "Fisiologia",
     "type": "multiple_choice",
     "question": "Il ciclo vibratorio delle corde vocali è un movimento:",
     "options": ["Attivo, controllato da impulsi nervosi per ogni vibrazione.", "Passivo, determinato dall'interazione tra aria e tessuti.", "Completamente casuale"],
@@ -688,7 +688,7 @@
   },
   {
     "id": 83,
-    "macro_area": "Ciclo Vibratorio",
+    "macro_area": "Fisiologia",
     "type": "true_false",
     "question": "Un aumento della pressione sottoglottica provoca sempre e solo un aumento dell'intensità (volume).",
     "answer": false,
@@ -696,7 +696,7 @@
   },
   {
     "id": 84,
-    "macro_area": "Ciclo Vibratorio",
+    "macro_area": "Biomeccanica",
     "type": "open_ended",
     "question": "Quale principio fisico spiega come un flusso d'aria veloce crei una pressione negativa che aiuta le corde a chiudersi?",
     "answer": "principio di bernoulli",
@@ -704,14 +704,14 @@
   },
   {
     "id": 85,
-    "macro_area": "Ciclo Vibratorio",
+    "macro_area": "Fisiologia",
     "type": "open_ended",
     "question": "Descrivi la differenza tra una fase 'convergente' e 'divergente' nel ciclo glottico.",
     "answer": "Convergente: bordo inferiore più stretto del superiore (chiusura). Divergente: bordo inferiore più largo del superiore (apertura)."
   },
   {
     "id": 86,
-    "macro_area": "Ciclo Vibratorio",
+    "macro_area": "Fisiologia",
     "type": "true_false",
     "question": "Il movimento di apertura della corda vocale inizia dal suo margine superiore.",
     "answer": false,
@@ -719,7 +719,7 @@
   },
   {
     "id": 87,
-    "macro_area": "Ciclo Vibratorio",
+    "macro_area": "Fisiologia",
     "type": "multiple_choice",
     "question": "La vibrazione delle corde vocali è sostenuta unicamente dal principio di Bernoulli.",
     "options": ["Vero", "Falso, dipende anche dal ritorno elastico", "Falso, dipende anche dalle pressioni nel vocal tract"],
@@ -728,7 +728,7 @@
   },
   {
     "id": 88,
-    "macro_area": "Controllo f0 e SPL",
+    "macro_area": "Fisiologia",
     "type": "multiple_choice",
     "question": "Una stessa frequenza (es. 160 Hz) può essere prodotta:",
     "options": ["Solo con alta attivazione del CT e bassa del TA.", "Solo con bassa attivazione del CT e alta del TA.", "Con diverse combinazioni di attivazione di CT e TA."],
@@ -737,7 +737,7 @@
   },
   {
     "id": 89,
-    "macro_area": "Controllo f0 e SPL",
+    "macro_area": "Biomeccanica",
     "type": "true_false",
     "question": "L'elevazione della laringe nel collo tende ad abbassare la frequenza fondamentale (f0).",
     "answer": false,
@@ -745,7 +745,7 @@
   },
   {
     "id": 90,
-    "macro_area": "Controllo f0 e SPL",
+    "macro_area": "Fisiologia",
     "type": "open_ended",
     "question": "Il grafico che mostra la variazione della f0 nel tempo si chiama...",
     "answer": "contour",
@@ -753,14 +753,14 @@
   },
   {
     "id": 91,
-    "macro_area": "Controllo f0 e SPL",
+    "macro_area": "Fisiologia",
     "type": "open_ended",
     "question": "Quali sono i tre sistemi che controllano il livello di pressione sonora (intensità)?",
     "answer": "I tre sistemi sono: il mantice (pressione sottoglottica), la laringe (resistenza glottica), e il vocal tract (risonanza)."
   },
   {
     "id": 92,
-    "macro_area": "Controllo f0 e SPL",
+    "macro_area": "Fisiologia",
     "type": "true_false",
     "question": "Un aumento della resistenza glottica è sempre associato a un aumento della pressione sottoglottica.",
     "answer": true,
@@ -768,7 +768,7 @@
   },
   {
     "id": 93,
-    "macro_area": "Controllo f0 e SPL",
+    "macro_area": "Fisiologia",
     "type": "multiple_choice",
     "question": "Per ottenere voci intense, la strategia più efficiente è:",
     "options": ["Aumentare solo la pressione tracheale", "Trovare strategie risonanziali per ridurre lo sforzo pressorio", "Contrarre solo i muscoli del collo"],
@@ -777,7 +777,7 @@
   },
   {
     "id": 94,
-    "macro_area": "Funzioni Laringe/Vocal Tract",
+    "macro_area": "Anatomia",
     "type": "multiple_choice",
     "question": "Qual è la funzione gerarchicamente prevalente della laringe?",
     "options": ["Fonatoria", "Protettiva", "Respiratoria"],
@@ -786,7 +786,7 @@
   },
   {
     "id": 95,
-    "macro_area": "Funzioni Laringe/Vocal Tract",
+    "macro_area": "Anatomia",
     "type": "true_false",
     "question": "Durante la respirazione a riposo, le corde vocali si abducono in inspirazione e si adducono in espirazione.",
     "answer": true,
@@ -794,7 +794,7 @@
   },
   {
     "id": 96,
-    "macro_area": "Funzioni Laringe/Vocal Tract",
+    "macro_area": "Fisiologia",
     "type": "open_ended",
     "question": "La manovra 'valsalva' (tappare il naso e soffiare) è utile per verificare la capacità di...",
     "answer": "chiusura delle corde vocali",
@@ -802,14 +802,14 @@
   },
   {
     "id": 97,
-    "macro_area": "Funzioni Laringe/Vocal Tract",
+    "macro_area": "Biomeccanica",
     "type": "open_ended",
     "question": "Perché il movimento della laringe e quello della lingua devono essere 'dissociati' con l'allenamento?",
     "answer": "Sono funzionalmente collegati. Nel canto, è necessario dissociarli per un controllo indipendente e per evitare tensioni."
   },
   {
     "id": 98,
-    "macro_area": "Funzioni Laringe/Vocal Tract",
+    "macro_area": "Biomeccanica",
     "type": "true_false",
     "question": "Un flusso d'aria 'turbolento' è ideale per produrre un suono musicale pulito.",
     "answer": false,
@@ -817,7 +817,7 @@
   },
   {
     "id": 99,
-    "macro_area": "Funzioni Laringe/Vocal Tract",
+    "macro_area": "Anatomia",
     "type": "multiple_choice",
     "question": "Un 'gap posteriore' nella chiusura glottica può essere causato da un'attivazione insufficiente di quale muscolo?",
     "options": ["Cricotiroideo", "Interaritenoideo", "Tiroaritenoideo"],
@@ -875,7 +875,7 @@
   },
   {
     "id": 106,
-    "macro_area": "Palato e Faringe",
+    "macro_area": "Anatomia",
     "type": "multiple_choice",
     "question": "Quale muscolo è il principale responsabile del sollevamento del palato molle?",
     "options": ["Tensore del palato", "Costrittore superiore", "Elevatore del palato", "Palatoglosso"],
@@ -884,7 +884,7 @@
   },
   {
     "id": 107,
-    "macro_area": "Palato e Faringe",
+    "macro_area": "Anatomia",
     "type": "true_false",
     "question": "Un suono 'nasale' si verifica quando il palato molle è completamente sollevato.",
     "answer": false,
@@ -892,7 +892,7 @@
   },
   {
     "id": 108,
-    "macro_area": "Palato e Faringe",
+    "macro_area": "Anatomia",
     "type": "open_ended",
     "question": "Come si chiama la linea tendinea posteriore dove si inseriscono i muscoli costrittori?",
     "answer": "rafe",
@@ -900,14 +900,14 @@
   },
   {
     "id": 109,
-    "macro_area": "Palato e Faringe",
+    "macro_area": "Anatomia",
     "type": "open_ended",
     "question": "Perché un raffreddore con congestione nasale altera la voce?",
     "answer": "Perché la congestione blocca le cavità nasali, alterando l'impedenza del vocal tract e le risonanze."
   },
   {
     "id": 110,
-    "macro_area": "Palato e Faringe",
+    "macro_area": "Anatomia",
     "type": "true_false",
     "question": "La deglutizione resetta la configurazione del vocal tract.",
     "answer": true,
@@ -915,7 +915,7 @@
   },
   {
     "id": 111,
-    "macro_area": "Palato e Faringe",
+    "macro_area": "Anatomia",
     "type": "multiple_choice",
     "question": "Un suono 'nasalizzato' si ha quando il palato molle è:",
     "options": ["Completamente abbassato", "Completamente sollevato", "In posizione semi-aperta"],
@@ -924,7 +924,7 @@
   },
   {
     "id": 112,
-    "macro_area": "Mandibola e Lingua",
+    "macro_area": "Anatomia",
     "type": "open_ended",
     "question": "Come si chiama il disco articolare nell'articolazione temporo-mandibolare (ATM)?",
     "answer": "menisco",
@@ -932,7 +932,7 @@
   },
   {
     "id": 113,
-    "macro_area": "Mandibola e Lingua",
+    "macro_area": "Anatomia",
     "type": "true_false",
     "question": "Un disordine linguale non ha effetti sulla posizione della laringe.",
     "answer": false,
@@ -940,7 +940,7 @@
   },
   {
     "id": 114,
-    "macro_area": "Mandibola e Lingua",
+    "macro_area": "Anatomia",
     "type": "multiple_choice",
     "question": "Quale parte della lingua è il punto d'appoggio principale delle vocali?",
     "options": ["Punta", "Lama", "Dorso"],
@@ -949,14 +949,14 @@
   },
   {
     "id": 115,
-    "macro_area": "Mandibola e Lingua",
+    "macro_area": "Biomeccanica",
     "type": "open_ended",
     "question": "Perché la 'fissazione' della laringe è importante nel mix vocale?",
     "answer": "Perché permette di stabilizzare la laringe, impedendole di salire eccessivamente con la frequenza."
   },
   {
     "id": 116,
-    "macro_area": "Anatomia",
+    "macro_area": "Biomeccanica",
     "type": "multiple_choice",
     "question": "La frequenza fondamentale (f0) è direttamente proporzionale a:",
     "options": ["Spessore della corda", "Lunghezza della corda", "Massa vibrante"],
@@ -981,7 +981,7 @@
   },
   {
     "id": 119,
-    "macro_area": "Didattica",
+    "macro_area": "Applicazioni Didattiche",
     "type": "multiple_choice",
     "question": "Se un cantante sale con 'fuga d'aria', una strategia didattica è:",
     "options": ["Aumentare la pressione senza cambiare altro", "Riorganizzare la vibrazione più sul margine", "Ignorare il problema"],
@@ -990,7 +990,7 @@
   },
   {
     "id": 120,
-    "macro_area": "Didattica",
+    "macro_area": "Applicazioni Didattiche",
     "type": "true_false",
     "question": "Per produrre consonanti come 's' o 'f', è necessaria una chiusura completa delle corde vocali.",
     "answer": false,
@@ -998,7 +998,7 @@
   },
   {
     "id": 121,
-    "macro_area": "Didattica",
+    "macro_area": "Applicazioni Didattiche",
     "type": "open_ended",
     "question": "Perché la 'periodicità' del ciclo glottico è fondamentale per la differenza tra 'suono' e 'rumore'?",
     "answer": "Un ciclo periodico (regolare) produce un suono musicale. Un ciclo aperiodico (irregolare) produce rumore."
@@ -1030,7 +1030,7 @@
   },
   {
     "id": 125,
-    "macro_area": "Risonanza",
+    "macro_area": "Fisiologia",
     "type": "open_ended",
     "question": "Perché allargare gli spazi nel vocal tract (es. faringe) tende a produrre un suono percepito come più 'scuro'?",
     "answer": "Perché allargando gli spazi risonanziali, l'energia degli armonici si concentra nella parte bassa dello spettro.",
@@ -1038,7 +1038,7 @@
   },
   {
     "id": 126,
-    "macro_area": "Risonanza",
+    "macro_area": "Fisiologia",
     "type": "open_ended",
     "question": "Quale strumento è utile per monitorare l'intensità vocale durante lezioni online?",
     "answer": "volume checking",
@@ -1046,7 +1046,7 @@
   },
   {
     "id": 127,
-    "macro_area": "Risonanza",
+    "macro_area": "Fisiologia",
     "type": "true_false",
     "question": "Nei cantanti professionisti microfonati, il livello di pressione sonora (intensità) è molto variabile.",
     "answer": false,
@@ -1054,7 +1054,7 @@
   },
   {
     "id": 128,
-    "macro_area": "Risonanza",
+    "macro_area": "Fisiologia",
     "type": "multiple_choice",
     "question": "Un suono molto penetrante ('ringing') è associato a un restringimento di quale parte del vocal tract?",
     "options": ["La bocca", "La laringe", "La faringe (sfintere epiglottico)"],
@@ -1063,7 +1063,7 @@
   },
   {
     "id": 129,
-    "macro_area": "Funzioni Laringe",
+    "macro_area": "Anatomia",
     "type": "open_ended",
     "question": "Quale epitelio si trova nelle vie respiratorie superiori, colonizzate da batteri?",
     "answer": "epitelio squamoso stratificato",
@@ -1071,7 +1071,7 @@
   },
   {
     "id": 130,
-    "macro_area": "Funzioni Laringe",
+    "macro_area": "Anatomia",
     "type": "true_false",
     "question": "La funzione protettiva della laringe è completamente dissociata da quella fonatoria.",
     "answer": false,
@@ -1079,7 +1079,7 @@
   },
   {
     "id": 131,
-    "macro_area": "Funzioni Laringe",
+    "macro_area": "Anatomia",
     "type": "multiple_choice",
     "question": "Durante la normale inspirazione, le corde vocali:",
     "options": ["Si adducono leggermente", "Si abducono leggermente", "Rimangono immobili"],
@@ -1088,7 +1088,7 @@
   },
   {
     "id": 132,
-    "macro_area": "Funzioni Laringe",
+    "macro_area": "Anatomia",
     "type": "open_ended",
     "question": "Spiega la differenza tra una fonazione ad alto flusso/bassa resistenza e una a basso flusso/alta resistenza.",
     "answer": "Alto flusso/bassa resistenza: le corde stanno aperte più a lungo (suono soffiato). Basso flusso/alta resistenza: le corde stanno chiuse più a lungo (suono pressato)."
