@@ -1,60 +1,38 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <!-- Metadati essenziali per il browser -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VOCE VIVA - Learning Engine</title>
-
-    <!-- Collegamento al foglio di stile CSS -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- Importazione di un font per un aspetto più pulito -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Header fisso dell'applicazione con il titolo e il punteggio -->
     <header>
         <h1>VOCE VIVA</h1>
         <p id="score">Punteggio: 0 / 0</p>
     </header>
 
-    <!-- Contenitore principale dell'applicazione -->
     <main id="app-container">
-
-        <!-- VISTA #1: IL QUIZ ATTIVO -->
-        <!-- Questo contenitore è visibile quando il quiz è in corso. -->
-        <!-- La classe 'active' lo rende visibile al caricamento della pagina. -->
-        <div class="quiz-container active">
-            <div id="question-container">Caricamento della domanda...</div>
-            <div id="options-container">
-                <!-- Le opzioni verranno generate qui dinamicamente da JavaScript -->
-            </div>
-            <div id="feedback" class="feedback">
-                <!-- Il feedback (corretto/sbagliato) apparirà qui -->
-            </div>
+        
+        <div class="quiz-container">
+            <div id="question-container"></div>
+            <div id="options-container"></div>
+            <div id="feedback" class="feedback"></div>
             <button id="next-btn" style="display: none;">Prossima Domanda</button>
         </div>
 
-        <!-- VISTA #2: LA SCHERMATA DEI RISULTATI -->
-        <!-- Questo contenitore è nascosto all'inizio e appare solo alla fine del quiz. -->
         <div class="result-container">
             <h2 id="final-score-title">Quiz Completato!</h2>
-            <p id="final-score">Il tuo punteggio finale è ...</p>
+            <p id="final-score"></p>
             <button id="restart-btn">Ricomincia il Quiz</button>
         </div>
 
     </main>
 
-    <!--
-      Il file JavaScript viene caricato alla fine del body.
-      Questa è una best practice per garantire che il browser abbia creato
-      tutti gli elementi HTML prima che lo script provi a manipolarli,
-      evitando così errori.
-    -->
     <script src="main.js"></script>
 
 </body>
