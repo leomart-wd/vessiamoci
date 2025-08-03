@@ -1,53 +1,61 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+    <!-- Metadati essenziali per il browser -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VESsiamoci - Studia Scienze Motorie</title>
+    <title>VOCE VIVA - Learning Engine</title>
+
+    <!-- Collegamento al foglio di stile CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Importazione di un font per un aspetto più pulito -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Chart.js for the performance graph -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <!-- Header fisso dell'applicazione con il titolo e il punteggio -->
     <header>
-        <div class="header-stats">
-            <span id="pc-counter" title="Punti Conoscenza"><i class="fa-solid fa-star"></i> 0</span>
-        </div>
-        <h1 data-action="go-to-dashboard">VESsiamoci</h1>
-        <div class="global-actions">
-            <button id="sound-toggle-btn" title="Audio On/Off"><i class="fa-solid fa-volume-high"></i></button>
-            <button data-action="go-to-train" title="Allenati"><i class="fa-solid fa-dumbbell"></i></button>
-            <button data-action="go-to-stats" title="Visualizza Risultati"><i class="fa-solid fa-chart-pie"></i></button>
-        </div>
+        <h1>VOCE VIVA</h1>
+        <p id="score">Punteggio: 0 / 0</p>
     </header>
 
-    <main id="app">
-        <div class="loader"></div>
+    <!-- Contenitore principale dell'applicazione -->
+    <main id="app-container">
+
+        <!-- VISTA #1: IL QUIZ ATTIVO -->
+        <!-- Questo contenitore è visibile quando il quiz è in corso. -->
+        <!-- La classe 'active' lo rende visibile al caricamento della pagina. -->
+        <div class="quiz-container active">
+            <div id="question-container">Caricamento della domanda...</div>
+            <div id="options-container">
+                <!-- Le opzioni verranno generate qui dinamicamente da JavaScript -->
+            </div>
+            <div id="feedback" class="feedback">
+                <!-- Il feedback (corretto/sbagliato) apparirà qui -->
+            </div>
+            <button id="next-btn" style="display: none;">Prossima Domanda</button>
+        </div>
+
+        <!-- VISTA #2: LA SCHERMATA DEI RISULTATI -->
+        <!-- Questo contenitore è nascosto all'inizio e appare solo alla fine del quiz. -->
+        <div class="result-container">
+            <h2 id="final-score-title">Quiz Completato!</h2>
+            <p id="final-score">Il tuo punteggio finale è ...</p>
+            <button id="restart-btn">Ricomincia il Quiz</button>
+        </div>
+
     </main>
-    
-    <!-- Toast Notification for Achievements -->
-    <div id="toast-notification" class="hidden"></div>
-    
-    <!-- ========= MODALS ========= -->
-    <div id="feedback-modal-container" class="modal-container hidden">
-        <div class="modal-content"><span class="close-btn">×</span><h3 id="modal-title"></h3><p id="modal-text"></p></div>
-    </div>
-    <div id="search-modal-container" class="modal-container hidden">
-        <div class="modal-content large"><span class="close-btn">×</span><h3><i class="fa-solid fa-magnifying-glass"></i> Cerca un Argomento</h3><input type="text" id="search-modal-input" placeholder="Scrivi una parola chiave..."><div id="search-modal-results"></div></div>
-    </div>
-    <div id="question-detail-modal" class="modal-container hidden">
-        <div class="modal-content large"><span class="close-btn">×</span><div id="question-detail-content"></div></div>
-    </div>
-    <div id="image-modal-container" class="modal-container hidden">
-        <span class="close-btn">×</span>
-        <img id="image-modal-content" src="" alt="Immagine di approfondimento" />
-    </div>
-    
-    <script src="js/main.js"></script>
+
+    <!--
+      Il file JavaScript viene caricato alla fine del body.
+      Questa è una best practice per garantire che il browser abbia creato
+      tutti gli elementi HTML prima che lo script provi a manipolarli,
+      evitando così errori.
+    -->
+    <script src="main.js"></script>
+
 </body>
 </html>
