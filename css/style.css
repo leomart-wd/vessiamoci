@@ -180,3 +180,33 @@ header h1 {
 .feedback.incorrect-feedback {
     color: #721c24; /* Dark red */
 }
+
+
+/* Add these styles for container transitions */
+.quiz-container, .result-container {
+    opacity: 0;
+    display: none; /* Keep display none to prevent interaction */
+    transition: opacity 0.5s ease-in-out;
+}
+
+.quiz-container.active, .result-container.active {
+    opacity: 1;
+    display: block; /* Make active container visible and interactive */
+}
+
+/* Optional: Style the restart button */
+#restart-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+#restart-btn:hover {
+    background-color: #0056b3;
+}
