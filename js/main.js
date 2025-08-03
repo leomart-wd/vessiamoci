@@ -9,29 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
             currentView: 'quiz',
         },
 
-        database: [
-            {
-                "id": 1,
-                "type": "multiple_choice",
-                "question": "Che tipo di suono si produce quando gli armonici acuti sono predominanti in un suono grave?",
-                "options": [
-                    "Un suono ovattato e spento",
-                    "Un suono squillante o brillante anche nelle note basse",
-                    "Un suono debole e sibilante",
-                    "Un suono rauco o sforzato"
-                ],
-                "answer": "Un suono squillante o brillante anche nelle note basse",
-                "explanation": "Quando gli armonici acuti predominano in un suono grave, il timbro risultante è ricco e brillante. Questo effetto si ottiene perché le alte frequenze amplificano la percezione del suono, rendendolo più proiettato e presente."
-            },
-            {
-                "id": 2,
-                "type": "true_false",
-                "question": "La respirazione diaframmatica è visibile principalmente attraverso il sollevamento delle spalle.",
-                "options": ["Vero", "Falso"],
-                "answer": "Falso",
-                "explanation": "È il contrario. La respirazione diaframmatica corretta è caratterizzata da un'espansione visibile dell'addome, mentre le spalle e il torace rimangono rilassati e stabili."
-            }
-        ],
+        // NUOVO: database ora è vuoto, verrà popolato dal file JSON
+        database: [], 
 
         elements: {
             questionContainer: document.getElementById('question-container'),
@@ -48,7 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
         SoundEngine: {
             audioContext: null,
             init() {
-                this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                try {
+                    this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                } catch (e) {
+                    console.error("Web Audio API is not supported in this browser.", e);
+                }
             },
             _playTone(frequency, type = 'sine', duration = 0.2) {
                 if (!this.audioContext) return;
@@ -102,14 +85,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 const currentQuestion = App.state.questions[App.state.currentQuestionIndex];
                 App.elements.questionContainer.textContent = currentQuestion.question;
 
-                currentQuestion.options.forEach(optionText => {
+                currentQuestion.options.forEach((optionText, index) => {
                     const wrapper = document.createElement('div');
                     wrapper.className = 'option';
                     const input = document.createElement('input');
                     input.type = 'radio';
                     input.name = 'option';
                     input.value = optionText;
-                    input.id = `option-${App.state.currentQuestionIndex}-${optionText.replace(/\s+/g, '')}`;
+                    input.id = `option-${App.state.currentQuestionIndex}-${index}`;
                     const label = document.createElement('label');
                     label.htmlFor = input.id;
                     label.textContent = optionText;
@@ -145,7 +128,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 App.elements.nextButton.style.display = 'block';
             },
 
-
             updateScoreDisplay() {
                 App.elements.scoreContainer.textContent = `Punteggio: ${App.state.score} / ${App.state.totalQuestions}`;
             },
@@ -162,31 +144,38 @@ document.addEventListener('DOMContentLoaded', () => {
                         App.methods.processAnswer(event.target.value);
                     }
                 });
-
                 App.elements.nextButton.addEventListener('click', () => {
                     App.state.currentQuestionIndex++;
                     App.methods.showQuestion();
                 });
-
                 App.elements.restartButton.addEventListener('click', () => {
                     App.methods.startQuiz();
                 });
             }
         },
 
-        init() {
-            // Check if all necessary elements exist before starting
-            const requiredElements = Object.values(this.elements);
-            if (requiredElements.some(el => el === null)) {
-                console.error("CRITICAL ERROR: One or more HTML elements are missing. Check IDs in index.html.");
-                return; // Stop the app from running
+        // NUOVO: init() ora è asincrono per gestire il caricamento dei dati
+        async init() {
+            try {
+                // Il percorso corretto per fetch da js/main.js a data/quiz.json
+                const response = await fetch('data/quiz.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                App.database = await response.json();
+                
+                // Solo se il caricamento ha successo, avvia l'app
+                this.SoundEngine.init();
+                this.methods.bindEvents();
+                this.methods.startQuiz();
+
+            } catch (error) {
+                console.error("CRITICAL ERROR: Could not load quiz data.", error);
+                // Mostra un messaggio di errore all'utente
+                App.elements.questionContainer.textContent = "Errore: Impossibile caricare le domande. Riprova più tardi.";
             }
-            this.SoundEngine.init();
-            this.methods.bindEvents();
-            this.methods.startQuiz();
         }
     };
 
     App.init();
-
 });
