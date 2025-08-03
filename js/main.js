@@ -231,3 +231,234 @@ document.addEventListener('DOMContentLoaded', () => {
         showQuestion();
     });
 
+// ===================================================================================
+// Project: VOCE VIVA - Learning Engine
+// Version: 1.0 (Refactored)
+// Author: Leo & Gemini (Senior Full Stack Web Developer)
+//
+// DESCRIPTION:
+// This script creates a self-contained, robust, and interactive quiz application.
+// It features immediate feedback, a dependency-free sound engine via the Web Audio API,
+// and a state-driven architecture for clean, maintainable, and scalable code.
+// ===================================================================================
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    const App = {
+        // --- 1. STATE ---
+        // A single source of truth for the entire application's state.
+        state: {
+            questions: [],
+            currentQuestionIndex: 0,
+            score: 0,
+            totalQuestions: 0,
+            currentView: 'quiz', // Can be 'quiz' or 'result'
+        },
+
+        // --- 2. DATABASE ---
+        // The collection of "Learning Atoms". Standardized for easy processing.
+        database: [
+            {
+                "id": 1,
+                "type": "multiple_choice",
+                "question": "Che tipo di suono si produce quando gli armonici acuti sono predominanti in un suono grave?",
+                "options": [
+                    "Un suono ovattato e spento",
+                    "Un suono squillante o brillante anche nelle note basse",
+                    "Un suono debole e sibilante",
+                    "Un suono rauco o sforzato"
+                ],
+                "answer": "Un suono squillante o brillante anche nelle note basse",
+                "explanation": "Quando gli armonici acuti predominano in un suono grave, il timbro risultante è ricco e brillante. Questo effetto si ottiene perché le alte frequenze amplificano la percezione del suono, rendendolo più proiettato e presente."
+            },
+            {
+                "id": 2,
+                "type": "true_false",
+                "question": "La respirazione diaframmatica è visibile principalmente attraverso il sollevamento delle spalle.",
+                "options": ["Vero", "Falso"],
+                "answer": "Falso",
+                "explanation": "È il contrario. La respirazione diaframmatica corretta è caratterizzata da un'espansione visibile dell'addome, mentre le spalle e il torace rimangono rilassati e stabili."
+            }
+        ],
+
+        // --- 3. CACHED DOM ELEMENTS ---
+        // Caching elements for high performance and clean access.
+        elements: {
+            questionContainer: document.getElementById('question-container'),
+            optionsContainer: document.getElementById('options-container'),
+            feedbackContainer: document.getElementById('feedback'),
+            nextButton: document.getElementById('next-btn'),
+            scoreContainer: document.getElementById('score'),
+            finalScoreContainer: document.getElementById('final-score'),
+            quizContainer: document.querySelector('.quiz-container'),
+            resultContainer: document.querySelector('.result-container'),
+            restartButton: document.getElementById('restart-btn')
+        },
+
+        // --- 4. SOUND ENGINE (Dependency-Free) ---
+        SoundEngine: {
+            audioContext: new (window.AudioContext || window.webkitAudioContext)(),
+            _playTone: function(frequency, type = 'sine', duration = 0.2) {
+                if (!this.audioContext) return;
+                const oscillator = this.audioContext.createOscillator();
+                const gainNode = this.audioContext.createGain();
+                oscillator.connect(gainNode);
+                gainNode.connect(this.audioContext.destination);
+                oscillator.type = type;
+                oscillator.frequency.setValueAtTime(frequency, this.audioContext.currentTime);
+                gainNode.gain.setValueAtTime(0.5, this.audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.001, this.audioContext.currentTime + duration);
+                oscillator.start();
+                oscillator.stop(this.audioContext.currentTime + duration);
+            },
+            playCorrect: function() {
+                this._playTone(523.25, 'sine', 0.15); // C5
+                setTimeout(() => this._playTone(783.99, 'sine', 0.2), 100); // G5
+            },
+            playWrong: function() {
+                this._playTone(130.81, 'sawtooth', 0.3); // C3
+            }
+        },
+
+        // --- 5. METHODS ---
+        // All the functions that power the application.
+        methods: {
+            /**
+             * Initializes or resets the quiz.
+             */
+            startQuiz() {
+                App.state.questions = [...App.database].sort(() => Math.random() - 0.5);
+                App.state.currentQuestionIndex = 0;
+                App.state.score = 0;
+                App.state.totalQuestions = App.state.questions.length;
+                App.state.currentView = 'quiz';
+                
+                App.methods.renderView();
+                App.methods.showQuestion();
+            },
+
+            /**
+             * Renders the correct view ('quiz' or 'result') with a smooth transition.
+             */
+            renderView() {
+                if (App.state.currentView === 'quiz') {
+                    App.elements.quizContainer.classList.add('active');
+                    App.elements.resultContainer.classList.remove('active');
+                } else {
+                    App.elements.quizContainer.classList.remove('active');
+                    App.elements.resultContainer.classList.add('active');
+                }
+            },
+            
+            /**
+             * Displays the current question and options.
+             */
+            showQuestion() {
+                App.elements.feedbackContainer.textContent = '';
+                App.elements.feedbackContainer.className = 'feedback';
+                App.elements.optionsContainer.innerHTML = '';
+                App.elements.nextButton.style.display = 'none';
+
+                if (App.state.currentQuestionIndex >= App.state.totalQuestions) {
+                    App.methods.showResult();
+                    return;
+                }
+                
+                const currentQuestion = App.state.questions[App.state.currentQuestionIndex];
+                App.elements.questionContainer.textContent = currentQuestion.question;
+
+                currentQuestion.options.forEach(optionText => {
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'option';
+                    const input = document.createElement('input');
+                    input.type = 'radio';
+                    input.name = 'option';
+                    input.value = optionText;
+                    input.id = optionText.replace(/\s+/g, '-').toLowerCase();
+                    const label = document.createElement('label');
+                    label.htmlFor = input.id;
+                    label.textContent = optionText;
+                    wrapper.appendChild(input);
+                    wrapper.appendChild(label);
+                    App.elements.optionsContainer.appendChild(wrapper);
+                });
+
+                App.methods.updateScoreDisplay();
+            },
+            
+            /**
+             * Processes the selected answer, providing immediate feedback.
+             */
+            processAnswer(selectedValue) {
+                const currentQuestion = App.state.questions[App.state.currentQuestionIndex];
+                const isCorrect = selectedValue === currentQuestion.answer;
+                
+                App.elements.optionsContainer.querySelectorAll('input').forEach(input => input.disabled = true);
+                
+                if (isCorrect) {
+                    App.state.score++;
+                    App.SoundEngine.playCorrect();
+                    App.elements.optionsContainer.querySelector(`input[value="${selectedValue}"]`).parentElement.classList.add('correct');
+                    App.elements.feedbackContainer.textContent = `Corretto! ${currentQuestion.explanation}`;
+                    App.elements.feedbackContainer.className = 'feedback correct-feedback';
+                } else {
+                    App.SoundEngine.playWrong();
+                    App.elements.optionsContainer.querySelector(`input[value="${selectedValue}"]`).parentElement.classList.add('incorrect');
+                    App.elements.optionsContainer.querySelector(`input[value="${currentQuestion.answer}"]`).parentElement.classList.add('correct');
+                    App.elements.feedbackContainer.textContent = `Sbagliato. ${currentQuestion.explanation}`;
+                    App.elements.feedbackContainer.className = 'feedback incorrect-feedback';
+                }
+
+                App.methods.updateScoreDisplay();
+                App.elements.nextButton.style.display = 'block';
+            },
+
+            /**
+             * Updates the persistent score display.
+             */
+            updateScoreDisplay() {
+                App.elements.scoreContainer.textContent = `Punteggio: ${App.state.score} / ${App.state.totalQuestions}`;
+            },
+
+            /**
+             * Displays the final result screen.
+             */
+            showResult() {
+                App.state.currentView = 'result';
+                App.methods.renderView();
+                const percentage = App.state.totalQuestions > 0 ? (App.state.score / App.state.totalQuestions) * 100 : 0;
+                App.elements.finalScoreContainer.innerHTML = `Hai completato il quiz!<br>Il tuo punteggio finale è ${App.state.score} su ${App.state.totalQuestions} (${percentage.toFixed(1)}%).`;
+            },
+
+            /**
+             * Attaches all necessary event listeners.
+             */
+            bindEvents() {
+                App.elements.optionsContainer.addEventListener('change', (event) => {
+                    if (event.target.name === 'option') {
+                        App.methods.processAnswer(event.target.value);
+                    }
+                });
+
+                App.elements.nextButton.addEventListener('click', () => {
+                    App.state.currentQuestionIndex++;
+                    App.methods.showQuestion();
+                });
+
+                App.elements.restartButton.addEventListener('click', () => {
+                    App.methods.startQuiz();
+                });
+            }
+        },
+
+        // --- 6. INITIALIZATION ---
+        init() {
+            console.log('VOCE VIVA Engine Initialized.');
+            this.methods.bindEvents();
+            this.methods.startQuiz();
+        }
+    };
+
+    // Kick off the entire application.
+    App.init();
+});
