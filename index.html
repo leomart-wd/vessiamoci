@@ -1,53 +1,48 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VESsiamoci - Studia Scienze Motorie</title>
+    <title>Vessiamoci - A Fun Quiz Experience</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Chart.js for the performance graph -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="header-stats">
-            <span id="pc-counter" title="Punti Conoscenza"><i class="fa-solid fa-star"></i> 0</span>
-        </div>
-        <h1 data-action="go-to-dashboard">VESsiamoci</h1>
-        <div class="global-actions">
-            <button id="sound-toggle-btn" title="Audio On/Off"><i class="fa-solid fa-volume-high"></i></button>
-            <button data-action="go-to-train" title="Allenati"><i class="fa-solid fa-dumbbell"></i></button>
-            <button data-action="go-to-stats" title="Visualizza Risultati"><i class="fa-solid fa-chart-pie"></i></button>
-        </div>
-    </header>
 
-    <main id="app">
-        <div class="loader"></div>
-    </main>
-    
-    <!-- Toast Notification for Achievements -->
-    <div id="toast-notification" class="hidden"></div>
-    
-    <!-- ========= MODALS ========= -->
-    <div id="feedback-modal-container" class="modal-container hidden">
-        <div class="modal-content"><span class="close-btn">×</span><h3 id="modal-title"></h3><p id="modal-text"></p></div>
+    <!-- Main Homepage Container -->
+    <div id="home-container" class="container">
+        <header>
+            <h1>Welcome to Vessiamoci!</h1>
+            <p class="subtitle">Test your knowledge with our fun and engaging quizzes.</p>
+        </header>
+        <main>
+            <button id="start-quiz-btn" class="btn btn-primary">Start Quiz</button>
+        </main>
     </div>
-    <div id="search-modal-container" class="modal-container hidden">
-        <div class="modal-content large"><span class="close-btn">×</span><h3><i class="fa-solid fa-magnifying-glass"></i> Cerca un Argomento</h3><input type="text" id="search-modal-input" placeholder="Scrivi una parola chiave..."><div id="search-modal-results"></div></div>
+
+    <!-- Quiz Container (Initially Hidden) -->
+    <div id="quiz-container" class="container hidden">
+        <div id="question-header">
+            <h2 id="question-text">Question text goes here...</h2>
+        </div>
+        <div id="answer-buttons" class="btn-grid">
+            <!-- Answer buttons will be dynamically generated here -->
+        </div>
+        <div id="feedback-section">
+            <p id="feedback-text"></p>
+        </div>
+        <div class="controls">
+            <button id="next-btn" class="btn btn-secondary hidden">Next</button>
+        </div>
     </div>
-    <div id="question-detail-modal" class="modal-container hidden">
-        <div class="modal-content large"><span class="close-btn">×</span><div id="question-detail-content"></div></div>
-    </div>
-    <div id="image-modal-container" class="modal-container hidden">
-        <span class="close-btn">×</span>
-        <img id="image-modal-content" src="" alt="Immagine di approfondimento" />
-    </div>
-    
-    <script src="js/main.js"></script>
+
+    <!-- Audio Elements for Sound Feedback -->
+    <audio id="correct-sound" src="sounds/correct.mp3" preload="auto"></audio>
+    <audio id="incorrect-sound" src="sounds/incorrect.mp3" preload="auto"></audio>
+
+    <!-- Link to the JavaScript file -->
+    <script src="script.js"></script>
 </body>
 </html>
