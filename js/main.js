@@ -164,14 +164,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         app.innerHTML = `
             <div class="pathway-container">
-                <div class="pathway-card learn-path" data-action="go-to-learn">
+                <div class="cta-buttons pathway-card learn-path" data-action="go-to-learn">
                     <i class="fa-solid fa-lightbulb-on"></i>
-                    <h2>IMPARA</h2>
+                    <h2 class="btn btn-primary" >IMPARA</h2>
                     <p>Costruisci la tua conoscenza, un'abilità alla volta.</p>
                 </div>
-                <div class="pathway-card train-path" data-action="go-to-train">
+                <div class="cta-buttons pathway-card train-path" data-action="go-to-train">
                     <i class="fa-solid fa-dumbbell"></i>
-                    <h2>ALLENATI</h2>
+                    <h2 class="btn btn-primary" >ALLENATI</h2>
                     <p>Metti alla prova la tua memoria e i tuoi riflessi.</p>
                 </div>
             </div>`;
