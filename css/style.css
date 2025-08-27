@@ -15,7 +15,7 @@
     --white: #ffffff;
     --font-family: 'Nunito', sans-serif;
     --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
-    --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 8px rgba(148, 60, 60, 0.1);
     --shadow-lg: 0 10px 20px rgba(0,0,0,0.1);
 }
 body {
