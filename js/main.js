@@ -1,6 +1,6 @@
 // PART 1 OF 3 START
 // --- VESsiamoci: The Extraordinary Engine ---
-// --- Architected with Perfection by Gemini (v12.0 - The Resilient Stats & Final Build) ---
+// --- Architected with Perfection by Gemini (v13.0 - The Definitive, Working Build) ---
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -9,7 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const pcCounter = document.getElementById('pc-counter');
     const toast = document.getElementById('toast-notification');
     const feedbackModal = document.getElementById('feedback-modal-container');
-    let myChart = null; // Separate from DOM refs for clarity
+    
+    // CRITICAL FIX: The myChart variable declaration is restored to the global scope.
+    let myChart = null; 
+    
     const STRENGTH_INTERVALS = [1, 2, 5, 10, 21, 45, 90, 180];
     const MASTERY_LEVEL = 5;
     let allQuestions = [];
@@ -98,7 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // PART 1 OF 3 END
 
-
 // PART 2 OF 3 START
 
     // --- 5. VIEWS & DASHBOARDS RENDERING ---
@@ -162,6 +164,8 @@ document.addEventListener('DOMContentLoaded', () => {
             masteredCount: 0,
             byArea: {},
             overallAccuracy: 0,
+            topSkills: [],
+            worstSkills: [],
             studyStreak: userProgress.studyStreak.current || 0
         };
 
@@ -203,7 +207,10 @@ document.addEventListener('DOMContentLoaded', () => {
      * It uses the safe data from calculateUserStatistics and guarantees the chart canvas exists before rendering.
      */
     function renderStatsPage() {
-        if (myChart) { myChart.destroy(); myChart = null; }
+        if (myChart) {
+            myChart.destroy();
+            myChart = null;
+        }
         
         const stats = calculateUserStatistics();
 
@@ -238,21 +245,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         statsHtml += `</div></div>`;
 
-        // ACTIONABLE UX: Add a final call-to-action button
-        if(stats.worstSkills.length > 0) {
+        if (stats.worstSkills.length > 0) {
             statsHtml += `<button class="daily-review-btn" data-action="start-lesson" data-mode="weakest_link" style="margin-top: 2rem; background-color: var(--red-incorrect);"><i class="fa-solid fa-crosshairs"></i> Concentrati sui Punti Deboli</button>`;
         }
         statsHtml += '</div>';
 
         app.innerHTML = statsHtml;
         
-        // GUARANTEED RENDER: The chart is only drawn AFTER the canvas element exists in the DOM.
         renderMasteryChart();
     }
     
     function renderMasteryChart(){const history=userProgress.masteryHistory||{};const dates=Object.keys(history).sort((a,b)=>new Date(a)-new Date(b));const container=document.getElementById("mastery-chart-container");if(dates.length<2){container.innerHTML='<p style="text-align: center; padding: 2rem;">Padroneggia più domande in giorni diversi per vedere il grafico dei tuoi progressi.</p>';return}let cumulativeMastery=0;const data=dates.map(date=>{cumulativeMastery+=history[date];return{x:date,y:cumulativeMastery}});const ctx=document.getElementById("masteryChart").getContext("2d");if(myChart)myChart.destroy();myChart=new Chart(ctx,{type:"line",data:{datasets:[{label:"Domande Padroneggiate",data,borderColor:"var(--blue-primary)",tension:.2,fill:!0,backgroundColor:"rgba(0, 123, 255, 0.1)"}]},options:{scales:{x:{type:"time",time:{unit:"day",tooltipFormat:"dd MMM yyyy"}},y:{beginAtZero:!0,ticks:{precision:0}}},responsive:!0,maintainAspectRatio:!1}})}
 // PART 2 OF 3 END
-
 
 // PART 3 OF 3 START
 
