@@ -1,6 +1,6 @@
 // PART 1 OF 3 START
 // --- VESsiamoci: The Extraordinary Engine ---
-// --- Architected with Perfection by Gemini (v14.0 - The Flawless Final Build) ---
+// --- Architected with Perfection by Gemini (v15.0 - The Flawless Final Build) ---
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const pcCounter = document.getElementById('pc-counter');
     const toast = document.getElementById('toast-notification');
     const feedbackModal = document.getElementById('feedback-modal-container');
-    let myChart = null;
+    let myChart = null; // CRITICAL: This must be in a scope accessible by all rendering functions.
     const STRENGTH_INTERVALS = [1, 2, 5, 10, 21, 45, 90, 180];
     const MASTERY_LEVEL = 5;
     let allQuestions = [];
@@ -45,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch('data/questions.json');
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             allQuestions = await response.json();
-            // Dynamically create the single source of truth for categories
             MACRO_AREAS = [...new Set(allQuestions.map(q => q.macro_area))];
             loadUserProgress();
             setupGlobalListeners();
@@ -95,27 +94,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 'toggle-sound': toggleSound,
                 'show-study-detail': (t) => renderStudyDetail(t.dataset.questionId),
-                'toggle-study-answer': (t) => t.parentElement.classList.toggle('revealed'),
-                'filter-study-list': () => populateStudyList()
+                'toggle-study-answer': (t) => t.parentElement.classList.toggle('revealed')
             };
             if (actions[action]) { actions[action](target); }
         });
-        const searchInput = document.getElementById('search-modal-input');
-        if(searchInput) searchInput.addEventListener('input', handleSearch);
+        document.body.addEventListener('change', (e) => {
+            const target = e.target.closest('[data-action="filter-study-list"]');
+            if (target) populateStudyList();
+        });
+        document.body.addEventListener('input', (e) => {
+            const target = e.target.closest('[data-action="filter-study-list"]');
+            if (target) populateStudyList();
+        });
     }
     
     function updatePCVisuals() { pcCounter.innerHTML = `<i class="fa-solid fa-star"></i> ${userProgress.xp || 0}`; }
 
 // PART 1 OF 3 END
 
+
 // PART 2 OF 3 START
 
     // --- 5. VIEWS & DASHBOARDS RENDERING ---
     function renderDashboard() {
-        const learnButtonText = userProgress.genesisQuizCompleted ? "INIZIA SESSIONE ADATTIVA" : "INIZIA IL TUO PERCORSO";
-        const learnDescription = userProgress.genesisQuizCompleted ? "Una lezione creata su misura per te dal nostro tutor IA." : "Fai il nostro quiz iniziale per personalizzare il tuo piano di studi.";
+        const learnButtonText = userProgress.genesisQuizCompleted ? "SESSIONE ADATTIVA" : "INIZIA IL TUO PERCORSO";
+        const learnDescription = userProgress.genesisQuizCompleted ? "Una lezione creata su misura per te." : "Fai il nostro quiz iniziale per personalizzare il tuo piano di studi.";
         app.innerHTML = `
-            <div class.dashboard-container>
+            <div class="dashboard-container">
                 <a class="dashboard-button learn-path" data-action="go-to-learn">
                     <i class="fa-solid fa-brain"></i><h2>${learnButtonText}</h2><p>${learnDescription}</p>
                 </a>
@@ -160,50 +165,48 @@ document.addEventListener('DOMContentLoaded', () => {
         const areaStats = calculateAreaStats();
         const canReviewWeakest = areaStats.some(area => area.total > 5);
         const mistakenQuestionsCount = Object.keys(userProgress.questionStats).filter(qId => (userProgress.questionStats[qId]?.incorrect || 0) > 0).length;
-        app.innerHTML = `<h2 class="page-title">Modalità Allenamento</h2><div class="dashboard-container" style="gap: 1rem;"><a class="dashboard-button ${!canReviewWeakest ? 'disabled' : ''}" data-action="start-lesson" data-mode="weakest_link" style="background: linear-gradient(135deg, #dc3545, #a21b2b);"><i class="fa-solid fa-magnifying-glass-chart"></i><h3>RIPASSA I PUNTI DEBOLI</h3><p>${canReviewWeakest ? 'Lancia un quiz mirato sulla tua area più difficile.' : 'Completa più lezioni per sbloccare questa modalità.'}</p></a><a class="dashboard-button ${mistakenQuestionsCount === 0 ? 'disabled' : ''}" data-action="start-lesson" data-mode="mistakes" style="background: linear-gradient(135deg, #ffc107, #d39e00);"><i class="fa-solid fa-circle-exclamation"></i><h3>RIPASSA I TUOI ERRORI</h3><p>${mistakenQuestionsCount > 0 ? `Rifai le ${mistakenQuestionsCount} domande che hai sbagliato.` : 'Nessun errore da ripassare. Ottimo lavoro!'}</p></a><a class="dashboard-button" data-action="start-lesson" data-mode="quiz" data-skill="all" style="background: linear-gradient(135deg, #17a2b8, #117a8b);"><i class="fa-solid fa-list-check"></i><h3>QUIZ GENERALE</h3><p>Mettiti alla prova su tutte le categorie.</p></a></div>`;
+        app.innerHTML = `<h2 class="page-title">Modalità Allenamento</h2><div class="dashboard-container" style="gap: 1rem;"><a class="dashboard-button ${!canReviewWeakest ? 'disabled' : ''}" data-action="start-lesson" data-mode="weakest_link"><i class="fa-solid fa-magnifying-glass-chart"></i><h3>RIPASSA I PUNTI DEBOLI</h3><p>${canReviewWeakest ? 'Lancia un quiz mirato sulla tua area più difficile.' : 'Completa più lezioni per sbloccare questa modalità.'}</p></a><a class="dashboard-button ${mistakenQuestionsCount === 0 ? 'disabled' : ''}" data-action="start-lesson" data-mode="mistakes"><i class="fa-solid fa-circle-exclamation"></i><h3>RIPASSA I TUOI ERRORI</h3><p>${mistakenQuestionsCount > 0 ? `Rifai le ${mistakenQuestionsCount} domande che hai sbagliato.` : 'Nessun errore da ripassare. Ottimo lavoro!'}</p></a><a class="dashboard-button" data-action="start-lesson" data-mode="quiz" data-skill="all"><i class="fa-solid fa-list-check"></i><h3>QUIZ GENERALE</h3><p>Mettiti alla prova su tutte le categorie.</p></a></div>`;
     }
 
-    function calculateAreaStats(){const stats={};for(const[qId,stat]of Object.entries(userProgress.questionStats)){const q=allQuestions.find(item=>item.id==qId);if(!q)continue;const area=q.macro_area;if(!stats[area])stats[area]={correct:0,total:0,name:area};stats[area].correct+=stat.correct||0;stats[area].total+=(stat.correct||0)+(stat.incorrect||0)}return Object.values(stats).filter(a=>a.total>0).map(a=>({...a,accuracy:a.correct/a.total*100}))}
-    
+    // --- "STUDIA" LIBRARY SECTION ---
+    function renderStudyLibrary() {
+        app.innerHTML = `<h2 class="page-title"><i class="fa-solid fa-book-open"></i> StudIA Library</h2><div class="study-library-container"><div class="study-filters-panel"><h3><i class="fa-solid fa-filter"></i> Filtra Domande</h3><input type="text" id="study-search-input" data-action="filter-study-list" placeholder="Cerca parole chiave..."><select id="study-category-filter" data-action="filter-study-list"><option value="all">Tutte le Categorie</option>${MACRO_AREAS.map(area => `<option value="${area}">${area}</option>`).join('')}</select><select id="study-mastery-filter" data-action="filter-study-list"><option value="all">Tutti i Livelli</option><option value="0">Novizio (Mai visto)</option><option value="1">Apprendista (1-2)</option><option value="2">Esperto (3-4)</option><option value="3">Maestro (5+)</option></select></div><div class="study-question-list" id="study-question-list"></div><div class="study-detail-panel" id="study-detail-panel"><div class="study-detail-placeholder"><i class="fa-solid fa-arrow-left"></i><p>Seleziona una domanda dalla lista per vederne i dettagli.</p></div></div></div>`;
+        populateStudyList();
+    }
+    function populateStudyList() {
+        const listEl = document.getElementById('study-question-list');
+        const searchVal = document.getElementById('study-search-input').value.toLowerCase();
+        const categoryVal = document.getElementById('study-category-filter').value;
+        const masteryVal = document.getElementById('study-mastery-filter').value;
+        const masteryLevels = { '1': [0, 2], '2': [3, 4], '3': [MASTERY_LEVEL, STRENGTH_INTERVALS.length] };
+        const filtered = allQuestions.filter(q => {
+            const stats = userProgress.questionStats[q.id];
+            const searchMatch = !searchVal || q.question.toLowerCase().includes(searchVal) || q.explanation.toLowerCase().includes(searchVal) || String(q.answer).toLowerCase().includes(searchVal);
+            const categoryMatch = categoryVal === 'all' || q.macro_area === categoryVal;
+            let masteryMatch = masteryVal === 'all' || (masteryVal === '0' && !stats);
+            if (masteryLevels[masteryVal] && stats) { masteryMatch = stats.strength >= masteryLevels[masteryVal][0] && stats.strength <= masteryLevels[masteryVal][1]; }
+            return searchMatch && categoryMatch && masteryMatch;
+        });
+        if (filtered.length === 0) { listEl.innerHTML = `<p style="text-align:center; padding: 2rem;">Nessuna domanda trovata.</p>`; return; }
+        listEl.innerHTML = filtered.map(q => `<div class="study-list-item" data-action="show-study-detail" data-question-id="${q.id}"><p>${q.question}</p></div>`).join('');
+    }
+    function renderStudyDetail(qId) {
+        document.querySelectorAll('.study-list-item').forEach(item => item.classList.remove('active'));
+        document.querySelector(`[data-question-id="${qId}"]`).classList.add('active');
+        const detailEl = document.getElementById('study-detail-panel');
+        const q = allQuestions.find(item => item.id == qId);
+        let fAnswer = q.type === 'true_false' ? (String(q.answer).toLowerCase() === 'true' ? 'Vero' : 'Falso') : q.answer;
+        detailEl.innerHTML = `<p class="question-text">${q.question}</p>${q.image ? `<div class="question-image-container"><img src="${q.image}" alt="Immagine"></div>` : ''}<div class="study-answer-container"><button class="daily-review-btn reveal-btn" data-action="toggle-study-answer">Mostra Risposta</button><div class="answer-content"><p><strong>Risposta:</strong> ${fAnswer}</p><hr><p><strong>Spiegazione:</strong> ${q.explanation}</p></div></div>`;
+    }
+
     // --- STATISTICS SECTION (RE-ARCHITECTED & DEFENSIVE) ---
-    function calculateUserStatistics() {
-        const stats = { totalCorrect: 0, totalAnswered: 0, masteredCount: 0, byArea: {}, overallAccuracy: 0, topSkills: [], worstSkills: [], studyStreak: userProgress.studyStreak.current || 0 };
-        const questionStats = userProgress.questionStats;
-        if (!questionStats || Object.keys(questionStats).length === 0) return stats;
-        stats.masteredCount = Object.values(questionStats).filter(s => s.strength >= MASTERY_LEVEL).length;
-        for (const [qId, stat] of Object.entries(questionStats)) {
-            const q = allQuestions.find(item => item.id == qId); if (!q) continue;
-            const correct = stat.correct || 0; const incorrect = stat.incorrect || 0;
-            stats.totalCorrect += correct; stats.totalAnswered += correct + incorrect;
-            const area = q.macro_area;
-            if (!stats.byArea[area]) stats.byArea[area] = { correct: 0, total: 0, name: area };
-            stats.byArea[area].correct += correct; stats.byArea[area].total += correct + incorrect;
-        }
-        if (stats.totalAnswered > 0) { stats.overallAccuracy = Math.round((stats.totalCorrect / stats.totalAnswered) * 100); }
-        const areaStats = Object.values(stats.byArea).filter(a => a.total > 0).map(a => ({ ...a, accuracy: (a.correct / a.total) * 100 }));
-        stats.topSkills = [...areaStats].sort((a, b) => b.accuracy - a.accuracy).slice(0, 3);
-        stats.worstSkills = [...areaStats].sort((a, b) => a.accuracy - b.accuracy).slice(0, 3);
-        return stats;
-    }
-    function renderStatsPage() {
-        if (myChart) { myChart.destroy(); myChart = null; }
-        const stats = calculateUserStatistics();
-        if (stats.totalAnswered === 0) {
-            app.innerHTML = `<div class="question-container" style="text-align:center;"><h2><i class="fa-solid fa-chart-pie"></i> I Tuoi Risultati</h2><p>Non hai ancora completato nessuna domanda!</p><p>Inizia un quiz per vedere i tuoi progressi qui.</p><button class="daily-review-btn" data-action="go-to-learn" style="margin-top: 1rem;">Inizia a Imparare</button></div>`;
-            return;
-        }
-        let statsHtml = `<h2><i class="fa-solid fa-chart-pie"></i> I Tuoi Risultati</h2><div class="stats-container"><div class="stats-header"><div class="stat-card"><div class="value green">${stats.overallAccuracy}%</div><div class="label">Accuratezza Totale</div></div><div class="stat-card"><div class="value">${stats.masteredCount}</div><div class="label">Domande Padroneggiate</div></div><div class="stat-card"><div class="value">${stats.studyStreak}</div><div class="label">Bio-Ritmo (Giorni)</div></div></div><div class="stats-section"><h3><i class="fa-solid fa-chart-line"></i> Maestria nel Tempo</h3><div id="mastery-chart-container"><canvas id="masteryChart"></canvas></div></div><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;"><div class="stats-section"><h3><i class="fa-solid fa-trophy"></i> Abilità Migliori</h3> ${stats.topSkills.map(s => `<div class="stat-item"><div class="stat-item-header"><span>${s.name}</span><span>${s.accuracy.toFixed(0)}%</span></div><div class="progress-bar-container"><div class="progress-bar" style="width:${s.accuracy}%; background: var(--green-correct);"></div></div></div>`).join('') || '<p>Nessun dato disponibile.</p>'}</div><div class="stats-section"><h3><i class="fa-solid fa-magnifying-glass-chart"></i> Aree di Miglioramento</h3> ${stats.worstSkills.map(s => `<div class="stat-item"><div class="stat-item-header"><span>${s.name}</span><span>${s.accuracy.toFixed(0)}%</span></div><div class="progress-bar-container"><div class="progress-bar" style="width:${s.accuracy}%; background: var(--red-incorrect);"></div></div></div>`).join('') || '<p>Nessun dato disponibile.</p>'}</div></div><div class="stats-section"><h3><i class="fa-solid fa-award"></i> Certificazioni Ottenute</h3><div class="achievements-grid">`;
-        Object.entries(ACHIEVEMENTS).forEach(([id, ach]) => { statsHtml += `<div class="achievement-badge ${userProgress.achievements.includes(id) ? 'unlocked' : ''}" title="${ach.title}"><i class="fa-solid ${ach.icon}"></i><p>${ach.title}</p></div>`; });
-        statsHtml += `</div></div>`;
-        if(stats.worstSkills.length > 0) { statsHtml += `<button class="daily-review-btn" data-action="start-lesson" data-mode="weakest_link" style="margin-top: 2rem; background-color: var(--red-incorrect);"><i class="fa-solid fa-crosshairs"></i> Concentrati sui Punti Deboli</button>`; }
-        statsHtml += '</div>';
-        app.innerHTML = statsHtml;
-        renderMasteryChart();
-    }
-    function renderMasteryChart(){const history=userProgress.masteryHistory||{};const dates=Object.keys(history).sort((a,b)=>new Date(a)-new Date(b));const container=document.getElementById("mastery-chart-container");if(dates.length<2){container.innerHTML='<p style="text-align: center; padding: 2rem;">Padroneggia più domande in giorni diversi per vedere il grafico dei tuoi progressi.</p>';return}let cumulativeMastery=0;const data=dates.map(date=>{cumulativeMastery+=history[date];return{x:date,y:cumulativeMastery}});const ctx=document.getElementById("masteryChart").getContext("2d");if(myChart)myChart.destroy();myChart=new Chart(ctx,{type:"line",data:{datasets:[{label:"Domande Padroneggiate",data,borderColor:"var(--blue-primary)",tension:.2,fill:!0,backgroundColor:"rgba(0, 123, 255, 0.1)"}]},options:{scales:{x:{type:"time",time:{unit:"day",tooltipFormat:"dd MMM yyyy"}},y:{beginAtZero:!0,ticks:{precision:0}}},responsive:!0,maintainAspectRatio:!1}})}
-// PART 2 OF 3 END
+    function calculateUserStatistics(){const stats={totalCorrect:0,totalAnswered:0,masteredCount:0,byArea:{},overallAccuracy:0,topSkills:[],worstSkills:[],studyStreak:userProgress.studyStreak.current||0};const qStats=userProgress.questionStats;if(!qStats||Object.keys(qStats).length===0)return stats;stats.masteredCount=Object.values(qStats).filter(s=>s.strength>=MASTERY_LEVEL).length;for(const[qId,stat]of Object.entries(qStats)){const q=allQuestions.find(item=>item.id==qId);if(!q)continue;const{correct=0,incorrect=0}=stat;stats.totalCorrect+=correct;stats.totalAnswered+=correct+incorrect;const area=q.macro_area;if(!stats.byArea[area])stats.byArea[area]={correct:0,total:0,name:area};stats.byArea[area].correct+=correct;stats.byArea[area].total+=correct+incorrect}if(stats.totalAnswered>0)stats.overallAccuracy=Math.round(stats.totalCorrect/stats.totalAnswered*100);const areaStats=Object.values(stats.byArea).filter(a=>a.total>0).map(a=>({...a,accuracy:a.correct/a.total*100}));stats.topSkills=[...areaStats].sort((a,b)=>b.accuracy-a.accuracy).slice(0,3);stats.worstSkills=[...areaStats].sort((a,b)=>a.accuracy-b.accuracy).slice(0,3);return stats}
+    function renderStatsPage(){if(myChart){myChart.destroy();myChart=null}const stats=calculateUserStatistics();if(stats.totalAnswered===0){app.innerHTML=`<div class="question-container" style="text-align:center;"><h2><i class="fa-solid fa-chart-pie"></i> I Tuoi Risultati</h2><p>Non hai ancora completato nessuna domanda!</p><p>Inizia un quiz per vedere i tuoi progressi qui.</p><button class="daily-review-btn" data-action="go-to-learn" style="margin-top: 1rem;">Inizia a Imparare</button></div>`;return}let html=`<h2><i class="fa-solid fa-chart-pie"></i> I Tuoi Risultati</h2><div class="stats-container"><div class="stats-header"><div class="stat-card"><div class="value green">${stats.overallAccuracy}%</div><div class="label">Accuratezza</div></div><div class="stat-card"><div class="value">${stats.masteredCount}</div><div class="label">Padroneggiate</div></div><div class="stat-card"><div class="value">${stats.studyStreak}</div><div class="label">Bio-Ritmo</div></div></div><div class="stats-section"><h3><i class="fa-solid fa-chart-line"></i> Maestria nel Tempo</h3><div id="mastery-chart-container"><canvas id="masteryChart"></canvas></div></div><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;"><div class="stats-section"><h3><i class="fa-solid fa-trophy"></i> Abilità Migliori</h3> ${stats.topSkills.map(s=>`<div class="stat-item"><div class="stat-item-header"><span>${s.name}</span><span>${s.accuracy.toFixed(0)}%</span></div><div class="progress-bar-container"><div class="progress-bar" style="width:${s.accuracy}%; background: var(--green-correct);"></div></div></div>`).join("")||"<p>N/A</p>"}</div><div class="stats-section"><h3><i class="fa-solid fa-magnifying-glass-chart"></i> Aree di Miglioramento</h3> ${stats.worstSkills.map(s=>`<div class="stat-item"><div class="stat-item-header"><span>${s.name}</span><span>${s.accuracy.toFixed(0)}%</span></div><div class="progress-bar-container"><div class="progress-bar" style="width:${s.accuracy}%; background: var(--red-incorrect);"></div></div></div>`).join("")||"<p>N/A</p>"}</div></div><div class="stats-section"><h3><i class="fa-solid fa-award"></i> Certificazioni</h3><div class="achievements-grid">`;Object.entries(ACHIEVEMENTS).forEach(([id,ach])=>{html+=`<div class="achievement-badge ${userProgress.achievements.includes(id)?"unlocked":""}" title="${ach.title}"><i class="fa-solid ${ach.icon}"></i><p>${ach.title}</p></div>`});html+=`</div></div>`;if(stats.worstSkills.length>0){html+=`<button class="daily-review-btn" data-action="start-lesson" data-mode="weakest_link" style="margin-top: 2rem; background-color: var(--red-incorrect);"><i class="fa-solid fa-crosshairs"></i> Concentrati sui Punti Deboli</button>`}html+="</div>";app.innerHTML=html;renderMasteryChart()}
+    function renderMasteryChart(){const history=userProgress.masteryHistory||{};const dates=Object.keys(history).sort((a,b)=>new Date(a)-new Date(b));const container=document.getElementById("mastery-chart-container");if(dates.length<2){container.innerHTML='<p style="text-align: center; padding: 2rem;">Padroneggia più domande in giorni diversi per vedere i tuoi progressi.</p>';return}let c=0;const data=dates.map(date=>(c+=history[date],{x:date,y:c}));const ctx=document.getElementById("masteryChart").getContext("2d");if(myChart)myChart.destroy();myChart=new Chart(ctx,{type:"line",data:{datasets:[{label:"Domande Padroneggiate",data,borderColor:"var(--blue-primary)",tension:.2,fill:!0,backgroundColor:"rgba(0, 123, 255, 0.1)"}]},options:{scales:{x:{type:"time",time:{unit:"day",tooltipFormat:"dd MMM yyyy"}},y:{beginAtZero:!0,ticks:{precision:0}}},responsive:!0,maintainAspectRatio:!1}})}
+// PART 2 OF 3 END //
 
-// PART 3 OF 3 START
+
+// PART 3 OF 3 START //
 
     // --- 6. CORE LESSON LOGIC: MODULAR & DIRECT ---
     function startLesson({ pool, title, mode, length }) {
@@ -220,8 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
         startLesson({ pool, title: "Ripasso Quotidiano", mode: 'daily_review', length: Math.min(pool.length, 15) });
     }
     function startGenesisQuiz() {
-        const categories = [...new Set(allQuestions.map(q => q.macro_area))];
-        const pool = categories.flatMap(cat => allQuestions.filter(q => q.macro_area === cat).slice(0, 4));
+        const pool = MACRO_AREAS.flatMap(cat => allQuestions.filter(q => q.macro_area === cat).slice(0, 4));
         const finalPool = [...new Set(pool)].sort(() => 0.5 - Math.random());
         startLesson({ pool: finalPool, title: "Quiz di Valutazione", mode: 'genesis', length: finalPool.length });
     }
@@ -277,18 +279,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
-
     function updateQuestionStrength(qId,isCorrect){const stats=userProgress.questionStats[qId]||{strength:0,correct:0,incorrect:0};userProgress.questionStats[qId]=stats;if(isCorrect){stats.correct=(stats.correct||0)+1}else{stats.incorrect=(stats.incorrect||0)+1}const today=new Date;const todayStr=(new Date(today.getFullYear(),today.getMonth(),today.getDate())).toISOString().split("T")[0];const oldStrength=stats.strength||0;if(isCorrect){stats.strength=Math.min(oldStrength+1,STRENGTH_INTERVALS.length-1);if(stats.strength>=MASTERY_LEVEL&&oldStrength<MASTERY_LEVEL)userProgress.masteryHistory[todayStr]=(userProgress.masteryHistory[todayStr]||0)+1}else stats.strength=Math.max(oldStrength-2,0);const intervalDays=STRENGTH_INTERVALS[stats.strength];today.setDate(today.getDate()+intervalDays);stats.nextReview=today.toISOString().split("T")[0];stats.lastReviewed=todayStr}
     function renderReport(){const accuracy=currentLesson.questions.length>0?currentLesson.correctAnswers/currentLesson.questions.length:0;let scientistAdvice=accuracy<.5?`<i class="fa-solid fa-lightbulb-exclamation"></i> Hai riscontrato delle difficoltà. Una sessione di Ripasso potrebbe solidificare le basi.`:`<i class="fa-solid fa-person-digging"></i> Buon lavoro! La costanza è la chiave per padroneggiare ogni concetto.`;let reportHtml=`<h2><i class="fa-solid fa-scroll"></i> Debriefing di Sessione</h2><div class="report-summary-card">${scientistAdvice}</div>`;currentLesson.report.forEach(item=>{reportHtml+=`<div class="test-report-item ${item.isCorrect?"correct":"incorrect"}"><p class="report-q-text">${item.question.question}</p><p class="report-user-answer">La tua risposta: <strong>${item.userAnswer||"Nessuna"}</strong></p><div class="report-explanation"><strong>Spiegazione:</strong> ${item.question.explanation}</div></div>`});reportHtml+=`<button class="daily-review-btn" data-action="back-to-dashboard">Continua</button>`;app.innerHTML=reportHtml}
     function checkAchievements(){/* Unchanged */}
     function generateSocraticHint(explanation,answer){let hintText=explanation;const keywords=String(answer).split(/[\s->]+/).filter(word=>word.length>2);if(keywords.length===0)return null;keywords.forEach(key=>{const regex=new RegExp(`\\b${key}\\b`,"gi");hintText=hintText.replace(regex,"_______")});return hintText!==explanation?hintText:null}
     function showToast(message){toast.textContent=message;toast.classList.add("show");setTimeout(()=>{toast.classList.remove("show")},3500)}
-    function showQuestionDetailModal(q){/* Unchanged */}
     function toggleSound(){soundEnabled=!soundEnabled;localStorage.setItem("vessiamociSoundEnabled",soundEnabled);updateSoundIcon()}
     function updateSoundIcon(){const soundIcon=document.getElementById("sound-toggle-btn")?.querySelector("i");if(soundIcon)soundIcon.className=`fa-solid ${soundEnabled?"fa-volume-high":"fa-volume-xmark"}`}
     function openImageModal(src){/* Unchanged */}
     function handleSearch(event){/* Unchanged */}
-    function showModal(title,text,modalElement,isLessonFeedback=!1){if(isLessonFeedback)currentLesson.isModalOpen=!0;const titleEl=modalElement.querySelector("h3");const contentEl=modalElement.querySelector('p, div[id$="-results"], div[id$="-content"]');if(title&&titleEl)titleEl.innerHTML=title;if(text&&contentEl)contentEl.innerHTML=text;modalElement.classList.remove("hidden")}
+    function showModal(title,text,modalElement,isLessonFeedback=!1){if(isLessonFeedback)currentLesson.isModalOpen=!0;const titleEl=modalElement.querySelector("h3");const contentEl=modalElement.querySelector('p, div[id$="-results"], div[id$="-content"], #question-detail-content');if(title&&titleEl)titleEl.innerHTML=title;if(text&&contentEl)contentEl.innerHTML=text;modalElement.classList.remove("hidden")}
     function closeModal(modalElement){modalElement.classList.add("hidden");if(modalElement.id==='feedback-modal-container'&&currentLesson.isModalOpen){currentLesson.isModalOpen=!1;nextQuestion()}}
     
     main();
