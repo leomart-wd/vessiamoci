@@ -1,139 +1,160 @@
-/* --- Global Styles & Variables --- */
+/* --- Neuro-Aesthetics Design System v3.0 --- */
+/* --- Architected with Perfection by Gemini --- */
+
+/* 1. CORE VARIABLES & GLOBAL SETUP */
 :root {
-    --primary-color: #007bff;
-    --secondary-color: #6c757d;
-    --correct-color: #28a745;
-    --wrong-color: #dc3545;
-    --background-color: #f8f9fa;
-    --text-color: #212529;
-    --container-bg: #ffffff;
+    --blue-primary: #007BFF;
+    --green-correct: #28a745;
+    --red-incorrect: #dc3545;
+    --purple-special: #6f42c1;
+    --gold-mastery: #ffd700;
+    --gray-bg: #f8f9fa;
+    --gray-light: #e9ecef;
+    --gray-medium: #6c757d;
+    --gray-dark: #343a40;
+    --white: #ffffff;
+    --font-family: 'Nunito', sans-serif;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 20px rgba(0,0,0,0.1);
 }
-
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
+    font-family: var(--font-family);
+    background-color: var(--gray-bg);
+    color: var(--gray-dark);
+    margin: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    padding: 20px;
 }
-
-/* --- Container & Layout --- */
-.container {
-    background-color: var(--container-bg);
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+main#app {
     width: 100%;
-    max-width: 800px;
-    text-align: center;
+    max-width: 900px;
+    padding: 1.5rem;
+    box-sizing: border-box;
 }
 
-/* --- Homepage Styles --- */
-#home-container h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+/* 2. HEADER */
+header {
+    width: 100%;
+    background-color: var(--white);
+    box-shadow: var(--shadow-sm);
+    padding: .5rem 1rem;
+    border-bottom: 1px solid var(--gray-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
-
-.subtitle {
-    font-size: 1.2rem;
-    color: var(--secondary-color);
-    margin-bottom: 2rem;
-}
-
-
-/* --- Quiz Styles --- */
-#question-text {
-    margin-bottom: 2rem;
-    font-size: 1.5rem;
-}
-
-.btn-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    margin-bottom: 1.5rem;
-}
-
-/* --- Button Styles --- */
-.btn {
-    border: none;
-    border-radius: 8px;
-    padding: 15px 20px;
-    font-size: 1.1rem;
-    font-family: 'Montserrat', sans-serif;
+header h1 {
+    color: var(--blue-primary);
+    font-weight: 800;
     cursor: pointer;
-    transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+    font-size: 1.2rem;
+    margin: 0;
+}
+.header-stats {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--blue-primary);
+}
+.header-stats i { color: var(--gold-mastery); }
+.global-actions button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--gray-medium);
+    cursor: pointer;
+    margin-left: 0.5rem;
+    transition: color .2s, transform .2s;
+    padding: 0.5rem;
+}
+.global-actions button:hover {
+    color: var(--blue-primary);
+    transform: scale(1.1);
 }
 
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+/* 3. LEARNING HUB DASHBOARD & CATEGORY SELECTION */
+.skill-tree-container, .category-selection-container { padding: 1rem 0; }
+.page-title { text-align: center; margin-bottom: 2rem; color: var(--gray-dark); }
+.skill-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+.skill-node, .category-card {
+    text-align: center;
+    cursor: pointer;
+    transition: transform .2s ease;
+}
+.skill-node:hover, .category-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+.skill-node .skill-icon-container {
+    width: 100px; height: 100px; position: relative;
+    display: flex; align-items: center; justify-content: center; margin: 0 auto;
+}
+.skill-node svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.skill-node .progress-ring-bg { stroke: var(--gray-light); }
+.skill-node .progress-ring { stroke: var(--blue-primary); transition: stroke-dashoffset .5s ease, stroke .3s; }
+.skill-node .skill-icon { position: absolute; font-size: 2.5rem; color: var(--blue-primary); transition: color .3s; }
+.skill-node .skill-level {
+    position: absolute; bottom: -8px; right: -8px; background: var(--white);
+    border: 2px solid var(--blue-primary); border-radius: 50%;
+    width: 28px; height: 28px; display: flex; align-items: center;
+    justify-content: center; font-weight: 800; font-size: 0.9rem; transition: border-color .3s;
+}
+.skill-node h4 { margin-top: .75rem; font-weight: 700; font-size: 0.9rem; color: var(--gray-dark); }
+
+.category-card { background-color: var(--white); border: 1px solid var(--gray-light); border-radius: 1rem; padding: 2rem; }
+.category-card.all-categories { border: 2px solid var(--blue-primary); color: var(--blue-primary); font-weight: 800; }
+.daily-review-btn{display:block;width:100%;padding:1.25rem;margin-bottom:2rem;font-size:1.2rem;font-weight:800;text-align:center;color:var(--white);background-color:var(--green-correct);border:none;border-radius:1rem;cursor:pointer;box-shadow:0 4px 0 #1e7e34;transition:transform .1s,box-shadow .1s}.daily-review-btn:active{transform:translateY(2px);box-shadow:0 2px 0 #1e7e34}.daily-review-btn.disabled{background-color:var(--gray-medium);box-shadow:0 4px 0 var(--gray-dark);cursor:not-allowed}
+
+/* Livelli & Colori */
+.skill-node.level-0 .progress-ring, .skill-node.level-0 .skill-icon, .skill-node.level-0 .skill-level { color: #cccccc; border-color: #cccccc; stroke: #cccccc; }
+.skill-node.level-1 { --level-color: #cd7f32; } /* Bronze */
+.skill-node.level-2 { --level-color: #c0c0c0; } /* Silver */
+.skill-node.level-3 { --level-color: #ffd700; } /* Gold */
+.skill-node.level-4 { --level-color: #47d1a5; } /* Diamond */
+.skill-node.level-5 { --level-color: #b942f5; } /* Legendary */
+.skill-node[class*="level-"]:not(.level-0) .progress-ring,
+.skill-node[class*="level-"]:not(.level-0) .skill-icon,
+.skill-node[class*="level-"]:not(.level-0) .skill-level {
+    stroke: var(--level-color); color: var(--level-color); border-color: var(--level-color);
 }
 
-.btn-primary {
-    background-color: var(--primary-color);
-    color: white;
-}
+/* 4. LEZIONE & UI ELEMENTI */
+.lesson-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;font-size:1.2rem;font-weight:700;color:var(--gray-medium)}.progress-bar-container{flex-grow:1;height:15px;background-color:var(--gray-light);border-radius:10px;margin:0 1rem;overflow:hidden}.progress-bar{height:100%;width:0;background-color:var(--blue-primary);border-radius:10px;transition:width .3s ease}.question-container{background:var(--white);padding:2rem;border-radius:1rem;box-shadow:var(--shadow-md)}.question-image-container{margin-bottom:1.5rem;text-align:center}.question-image{max-width:80%;max-height:250px;border-radius:1rem;cursor:zoom-in;border:2px solid var(--gray-light)}.question-text{font-size:1.2rem;text-align:center;margin-bottom:2rem;line-height:1.5;}.answer-options button{display:block;width:100%;padding:1rem;margin-bottom:1rem;font-size:1.1rem;font-weight:700;border:2px solid var(--gray-light);border-radius:.75rem;background-color:var(--white);cursor:pointer;transition:background-color .2s,border-color .2s}.answer-options button:hover{border-color:var(--blue-primary)}.answer-options button.correct{background-color:#d4edda;border-color:var(--green-correct);color:#155724}.answer-options button.incorrect{background-color:#f8d7da;border-color:var(--red-incorrect);color:#721c24}.answer-options button.disabled{pointer-events:none}textarea#open-answer-input{width:100%;min-height:100px;font-size:1rem;padding:1rem;border-radius:.75rem;border:2px solid var(--gray-light);box-sizing:border-box;resize:vertical}.lesson-footer{margin-top:1.5rem;display:flex;justify-content:space-between;align-items:center}.hint-btn,#check-answer-btn,#next-question-btn{padding:.75rem 1.5rem;border:none;border-radius:.75rem;font-weight:700;cursor:pointer}.hint-btn{background-color:transparent;border:2px solid var(--blue-primary);color:var(--blue-primary)}#check-answer-btn,#next-question-btn{background-color:var(--blue-primary);color:var(--white);min-width:120px}.timer-bar-container{height:8px;width:100%;background-color:var(--gray-light);border-radius:4px;margin-top:1rem;overflow:hidden}.timer-bar{height:100%;width:100%;background-color:var(--green-correct)}
 
-.btn-secondary {
-    background-color: var(--secondary-color);
-    color: white;
-}
+/* 5. MODALI */
+.modal-container{position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,.6);display:flex;justify-content:center;align-items:center;z-index:1000;opacity:0;pointer-events:none;transition:opacity .3s ease}.modal-container:not(.hidden){opacity:1;pointer-events:auto}.modal-content{background:var(--white);padding:2rem;border-radius:1rem;max-width:500px;width:90%;position:relative;box-shadow:var(--shadow-lg);transform:scale(.9);transition:transform .3s ease}.modal-container:not(.hidden) .modal-content{transform:scale(1)}.modal-content.large{max-width:700px}.close-btn{position:absolute;top:.5rem;right:1rem;font-size:2.5rem;font-weight:700;color:var(--gray-medium);cursor:pointer;transition:transform .2s}.close-btn:hover{transform:scale(1.2)}
+#image-modal-container .close-btn{color:var(--white);top:1.5rem;right:2rem;font-size:3rem}#image-modal-content{max-width:90vw;max-height:90vh;object-fit:contain}
+#search-modal-input{width:100%;padding:1rem;font-size:1rem;border-radius:.5rem;border:2px solid var(--gray-light);box-sizing:border-box;margin-bottom:1rem}#search-modal-results{max-height:60vh;overflow-y:auto}
 
-#answer-buttons .btn {
-    background-color: #e9ecef;
-    color: var(--text-color);
-    border: 1px solid #ced4da;
-}
+/* 6. STATISTICHE AVANZATE */
+.stats-container{display:flex;flex-direction:column;gap:1.5rem}.stats-header{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem}.stat-card{background-color:var(--white);padding:1.5rem;border-radius:1rem;text-align:center;border:2px solid var(--gray-light)}.stat-card .value{font-size:2.5rem;font-weight:800;color:var(--blue-primary)}.stat-card .value.green{color:var(--green-correct)}.stat-card .value .unit{font-size:1.2rem;color:var(--gray-medium)}.stat-card .label{font-weight:700;color:var(--gray-dark)}
+.stats-section{background:var(--white);border-radius:1rem;padding:1.5rem;box-shadow:var(--shadow-sm)}.stats-section h3{text-align:center;font-size:1.5rem;margin-top:0;margin-bottom:1.5rem;color:var(--gray-dark)}.stat-item{margin-bottom:1rem}.stat-item-header{display:flex;justify-content:space-between;font-weight:700;margin-bottom:.5rem}
+.toughest-questions-list li{background-color:#f8d7da;border:1px solid #f5c6cb;border-radius:.5rem;padding:1rem;margin-bottom:.5rem;list-style-type:none;cursor:pointer;transition:background-color .2s, border-color .2s}.toughest-questions-list li:hover{background-color:#f1b0b7;border-color:#ee9a9a}
+.achievements-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(80px,1fr));gap:1rem}.achievement-badge{text-align:center}.achievement-badge i{font-size:3rem;color:var(--gray-light);transition:color .3s,transform .3s}.achievement-badge.unlocked i{color:var(--gold-mastery);transform:scale(1.1)}.achievement-badge p{font-size:.8rem;font-weight:700;color:var(--gray-medium);margin-top:.5rem}.achievement-badge.unlocked p{color:var(--gray-dark)}
 
-/* --- Feedback Styles --- */
-.btn.correct {
-    background-color: var(--correct-color);
-    color: white;
-    border-color: var(--correct-color);
-}
+/* 7. REPORT & UTILITY */
+.test-report-item{margin-bottom:1.5rem;padding:1rem;border-radius:.5rem}.test-report-item.correct{background-color:#f0fff0;border-left:5px solid var(--green-correct)}.test-report-item.incorrect{background-color:#fff8f8;border-left:5px solid var(--red-incorrect)}.report-q-text{font-weight:700}.report-user-answer{font-style:italic}.report-explanation{margin-top:.5rem;padding-top:.5rem;border-top:1px solid var(--gray-light);font-size:.9rem}
+.report-summary-card{background:#eef7ff;border-left:5px solid var(--blue-primary);padding:1rem 1.5rem;border-radius:.5rem;margin-bottom:2rem;font-weight:700}.report-summary-card i{margin-right:.5rem}
+#toast-notification{position:fixed;bottom:-100px;left:50%;transform:translateX(-50%);background-color:var(--gray-dark);color:var(--white);padding:1rem 2rem;border-radius:1rem;font-weight:700;z-index:2000;transition:bottom .5s ease-in-out;pointer-events:none;box-shadow:var(--shadow-lg)}#toast-notification.show{bottom:30px}
+.loader{border:8px solid var(--gray-light);border-top:8px solid var(--blue-primary);border-radius:50%;width:60px;height:60px;animation:spin 1s linear infinite;margin:4rem auto}@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+.visually-hidden{display:none!important}
 
-.btn.wrong {
-    background-color: var(--wrong-color);
-    color: white;
-    border-color: var(--wrong-color);
-}
-
-/* --- Utility Classes --- */
-.hidden {
-    display: none;
-}
-
-
-/* --- Responsive Design --- */
-@media (max-width: 600px) {
-    .container {
-        padding: 20px;
-    }
-
-    #home-container h1 {
-        font-size: 2rem;
-    }
-
-    .btn-grid {
-        grid-template-columns: 1fr; /* Stack buttons on smaller screens */
-    }
-
-    #question-text {
-        font-size: 1.3rem;
-    }
-
-    .btn {
-        padding: 12px 15px;
-        font-size: 1rem;
-    }
+/* 8. MOBILE & TABLET OPTIMIZATION */
+@media (max-width: 768px) {
+    main#app { padding: .5rem; }
+    header { padding: .5rem; }
+    header h1 { font-size: 1rem; }
+    .header-stats, .global-actions button { font-size: 1rem; }
+    .pathway-container { grid-template-columns: 1fr; gap: 1rem; }
+    .pathway-card { padding: 1.5rem; }
+    .skill-row { gap: .5rem; }
+    .skill-node .skill-icon-container { width: 90px; height: 90px; }
+    .skill-node .skill-icon { font-size: 2rem; }
+    .skill-node .skill-level { width: 24px; height: 24px; font-size: 0.8rem; bottom: -5px; right: -5px;}
+    .question-container { padding: 1.5rem; }
+    .question-text { font-size: 1.1rem; }
+    .modal-content.large { padding: 1rem; }
 }
