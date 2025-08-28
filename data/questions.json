@@ -1122,7 +1122,7 @@
 
   {
     "id": 136,
-    "macro_area": "Filosofia",
+    "macro_area": "Filosofia e Didattica VES",
     "type": "multiple_choice",
     "question": "Che cos'è il VES?",
     "options": ["Un metodo di canto", "Una metodologia didattica", "Un sistema", "Un istituto musicale"],
@@ -1139,7 +1139,7 @@
   },
   {
     "id": 137,
-    "macro_area": "Filosofia",
+    "macro_area": "Filosofia e Didattica VES",
     "type": "multiple_choice",
     "question": "Qual è la principale differenza tra metodo e metodologia?",
     "options": ["Il metodo è più ampio della metodologia", "La metodologia include uno o più metodi", "Il metodo si basa sui principi etici", "Non esiste differenza"],
@@ -1156,7 +1156,7 @@
   },
   {
     "id": 138,
-    "macro_area": "Filosofia",
+    "macro_area": "Filosofia e Didattica VES",
     "type": "multiple_choice",
     "question": "Secondo il codice etico VES, quale principio guida il lavoro?",
     "options": ["Il miglioramento estetico della voce", "L'adesione a principi etici e all'innovazione", "L'imitazione di modelli famosi", "La velocità nell'apprendimento"],
@@ -1230,7 +1230,7 @@
   },
   {
     "id": 142,
-    "macro_area": "Etica e Relazione",
+    "macro_area": "Filosofia e Didattica VES",
     "type": "multiple_choice",
     "question": "In caso di problematiche psico-fisiche degli allievi, cosa è raccomandato fare?",
     "options": [
@@ -1252,7 +1252,7 @@
   },
   {
     "id": 143,
-    "macro_area": "Filosofia",
+    "macro_area": "Filosofia e Didattica VES",
     "type": "multiple_choice",
     "question": "Come viene visto l'errore o il problema all'interno del gruppo VES?",
     "options": [
@@ -1335,22 +1335,22 @@
     "difficulty": "difficult"
   },
   {
-    "id": 147,
-    "macro_area": "Anatomia",
-    "type": "multiple_choice",
-    "question": "Cosa provoca la contrazione del muscolo cricotiroideo?",
-    "options": [
-      "Accorcia le corde vocali",
-      "Aumenta la distanza tra la cartilagine tiroidea e l'aritenoide",
-      "Abbassa la laringe",
-      "Solleva la laringe"
-    ],
-    "answer": "Aumenta la distanza tra la cartilagine tiroidea e l'aritenoide",
-    "explanation": "Domanda ripetuta: vedi domanda 146.",
-    "prompt_reflection": "Perché il cricotiroideo è così importante nei passaggi di registro?",
-    "domanda_richiamo_attivo": "Ripeti: qual è l'effetto della contrazione del cricotiroideo sulla voce?",
-    "difficulty": "difficult"
-  },
+  "id": 147,
+  "macro_area": "Anatomia",
+  "type": "multiple_choice",
+  "question": "Qual è la relazione tra il muscolo intraaritenoideo obliquo e il muscolo arieepiglottico?",
+  "options": [
+    "Il muscolo arieepiglottico è la continuazione dell'obliquo delle aritenoidi",
+    "Il muscolo arieepiglottico è antagonista dell'obliquo delle aritenoidi",
+    "Il muscolo arieepiglottico è innervato da un nervo diverso rispetto all'obliquo",
+    "Il muscolo arieepiglottico abbassa la laringe mentre l'obliquo la solleva"
+  ],
+  "answer": "Il muscolo arieepiglottico è la continuazione dell'obliquo delle aritenoidi",
+  "explanation": "Il muscolo intraaritenoideo obliquo unisce le cartilagini aritenoidi e si prolunga verso l’alto, continuandosi nel muscolo arieepiglottico. Quest’ultimo contribuisce alla chiusura dell’adito laringeo durante la deglutizione, lavorando in sinergia con l’obliquo.",
+  "prompt_reflection": "Perché la continuità tra obliquo delle aritenoidi e arieepiglottico è importante per la protezione delle vie respiratorie?",
+  "domanda_richiamo_attivo": "Quale muscolo è la diretta continuazione dell'obliquo delle aritenoidi?",
+  "difficulty": "advanced"
+},
   {
     "id": 148,
     "macro_area": "Anatomia",
@@ -1612,7 +1612,7 @@
   },
   {
     "id": 163,
-    "macro_area": "Anatomia funzionale",
+    "macro_area": "Anatomia",
     "type": "multiple_choice",
     "question": "Qual è l'effetto dell'elevazione laringea sulle corde vocali?",
     "options": [
@@ -1646,7 +1646,7 @@
   },
   {
     "id": 165,
-    "macro_area": "Fisiologia vocale",
+    "macro_area": "Fisiologia",
     "type": "multiple_choice",
     "question": "Qual è la funzione del muscolo costrittore superiore?",
     "options": [
@@ -2611,7 +2611,7 @@
   },
   {
     "id": 193,
-    "macro_area": "Applicazioni didattiche",
+    "macro_area": "Applicazioni Didattiche",
     "type": "multiple_choice",
     "question": "Qual è il principale problema nella valutazione percettiva della voce?",
     "options": [
@@ -2650,7 +2650,7 @@
   },
   {
     "id": 194,
-    "macro_area": "Applicazioni didattiche",
+    "macro_area": "Applicazioni Didattiche",
     "type": "multiple_choice",
     "question": "Cosa implica un test di \"affaticabilità\" della voce?",
     "options": [
@@ -2689,7 +2689,7 @@
   },
   {
     "id": 195,
-    "macro_area": "Applicazioni didattiche",
+    "macro_area": "Filosofia e Didattica VES",
     "type": "multiple_choice",
     "question": "Qual è una caratteristica della scala Girbas?",
     "options": [
@@ -2729,7 +2729,7 @@
 
     {
     "id": 196,
-    "macro_area": "Valutazione vocale e affaticabilità",
+    "macro_area": "Biomeccanica",
     "type": "multiple_choice",
     "question": "Cosa provoca il sovraccarico della 'muscolatura adduttoria' alla voce?",
     "options": [
@@ -2767,7 +2767,7 @@
   },
   {
     "id": 197,
-    "macro_area": "Analisi percettiva e biomeccanica della voce",
+    "macro_area": "Biomeccanica",
     "type": "multiple_choice",
     "question": "Quando si osserva una 'voce iperfunzionale tesa', quale potrebbe essere la causa principale?",
     "options": [
@@ -2805,7 +2805,7 @@
   },
   {
     "id": 198,
-    "macro_area": "Valutazione percettiva",
+    "macro_area": "Applicazioni Didattiche",
     "type": "multiple_choice",
     "question": "In quale situazione si richiede una 'valutazione percettiva contestualizzata' della voce?",
     "options": [
@@ -2843,7 +2843,7 @@
   },
   {
     "id": 199,
-    "macro_area": "Valutazione percettiva",
+    "macro_area": "Applicazioni Didattiche",
     "type": "multiple_choice",
     "question": "In quale situazione si richiede una 'valutazione percettiva contestualizzata' della voce?",
     "options": [
@@ -2881,7 +2881,7 @@
   },
   {
     "id": 200,
-    "macro_area": "Valutazione funzionale della voce",
+    "macro_area": "Applicazioni Didattiche",
     "type": "multiple_choice",
     "question": "Quale parametro è fondamentale per capire se una voce è affaticabile durante un test di sovraccarico?",
     "options": [
@@ -2922,7 +2922,7 @@
 
     {
     "id": 201,
-    "macro_area": "Valutazione vocale",
+    "macro_area": "Applicazioni Didattiche",
     "type": "multiple_choice",
     "question": "Qual è il principale strumento per analizzare la qualità della voce durante un'esame foniatrico?",
     "options": [
@@ -3058,7 +3058,7 @@
 
     {
     "id": 206,
-    "macro_area": "Valutazione vocale",
+    "macro_area": "Applicazioni Didattiche",
     "type": "multiple_choice",
     "question": "In un test vocale, se la fuga d'aria aumenta con l’aumento della frequenza, cosa potrebbe suggerire?",
     "options": [
@@ -3083,7 +3083,7 @@
   },
   {
     "id": 207,
-    "macro_area": "Valutazione percettiva",
+    "macro_area": "Applicazioni Didattiche",
     "type": "multiple_choice",
     "question": "In quale situazione si richiede una 'valutazione percettiva contestualizzata' della voce?",
     "options": [
@@ -3108,7 +3108,7 @@
   },
   {
     "id": 208,
-    "macro_area": "Valutazione funzionale",
+    "macro_area": "Applicazioni Didattiche",
     "type": "multiple_choice",
     "question": "Quale parametro è fondamentale per capire se una voce è affaticabile durante un test di sovraccarico?",
     "options": [
@@ -3133,7 +3133,7 @@
   },
   {
     "id": 209,
-    "macro_area": "Valutazione vocale",
+    "macro_area": "Applicazioni Didattiche",
     "type": "multiple_choice",
     "question": "Qual è il principale strumento per analizzare la qualità della voce durante un'esame foniatrico?",
     "options": [
@@ -3158,7 +3158,7 @@
   },
   {
     "id": 210,
-    "macro_area": "Anatomia funzionale",
+    "macro_area": "Anatomia",
     "type": "multiple_choice",
     "question": "In quale situazione l'interaritenoideo è particolarmente attivo?",
     "options": [
@@ -3184,7 +3184,7 @@
 
     {
     "id": 211,
-    "macro_area": "Fisiologia / Biomeccanica",
+    "macro_area": "Biomeccanica",
     "type": "multiple_choice",
     "question": "Cosa può causare un'interferenza nella rotazione dell'aritenoide?",
     "options": [
@@ -3208,7 +3208,7 @@
   },
   {
     "id": 212,
-    "macro_area": "Fisiologia vocale",
+    "macro_area": "Fisiologia",
     "type": "multiple_choice",
     "question": "Quando la voce si stabilizza riducendo l'intensità, cosa potrebbe indicare?",
     "options": [
@@ -3232,7 +3232,7 @@
   },
   {
     "id": 213,
-    "macro_area": "Fisiologia e clinica vocale",
+    "macro_area": "Biomeccanica",
     "type": "multiple_choice",
     "question": "Che cosa si osserva quando un soggetto ha un’ipotonia muscolare nelle corde vocali?",
     "options": [
@@ -3256,7 +3256,7 @@
   },
   {
     "id": 214,
-    "macro_area": "Diagnostica vocale",
+    "macro_area": "Biomeccanica",
     "type": "multiple_choice",
     "question": "In un test vocale, se la fuga d'aria aumenta con l’aumento della frequenza, cosa potrebbe suggerire?",
     "options": [
@@ -3280,7 +3280,7 @@
   },
   {
     "id": 215,
-    "macro_area": "Clinica vocale / patologie",
+    "macro_area": "Biomeccanica",
     "type": "multiple_choice",
     "question": "Qual è la principale causa della raucedine che non scompare quando si aumenta l'intensità della voce?",
     "options": [
@@ -3304,7 +3304,7 @@
   },
   {
     "id": 216,
-    "macro_area": "Clinica / Diagnosi differenziale",
+    "macro_area": "Biomeccanica",
     "type": "multiple_choice",
     "question": "Quando un soggetto presenta una fuga d'aria costante in forte e una raucedine nelle note acute, cosa potrebbe indicare?",
     "options": [
