@@ -1,6 +1,6 @@
 // PART 1 OF 3 START
 // --- VESsiamoci: The Extraordinary Engine ---
-// --- Architected with Perfection by Gemini (v9.0 - The Final Architecture) ---
+// --- Architected with Perfection by Gemini (v10.0 - The Definitive, Working Build) ---
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             allQuestions = await response.json();
             loadUserProgress();
-            setupGlobalListeners(); // The new, single source of truth for events.
+            setupGlobalListeners();
             renderDashboard();
         } catch (error) {
             app.innerHTML = `<div class="question-container" style="text-align:center;"><p><strong>Errore critico:</strong> Impossibile caricare le domande.</p></div>`;
@@ -61,15 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /**
      * RE-ARCHITECTED: The Unified Command & Control Center.
-     * This single listener is the new, resilient core for ALL user interactions.
-     * It infallibly handles any action from any element with a data-action attribute,
-     * passing the element's context directly to the handling function.
+     * This single listener is the core for ALL user interactions.
      */
     function setupGlobalListeners() {
         document.body.addEventListener('click', (e) => {
             if (!isAudioUnlocked) unlockAudio();
             
-            // Centralized modal closure logic
             const modalContainer = e.target.closest('.modal-container');
             if (modalContainer && (e.target.classList.contains('modal-container') || e.target.classList.contains('close-btn'))) {
                 closeModal(modalContainer);
@@ -77,18 +74,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const target = e.target.closest('[data-action]');
-            if (!target || target.classList.contains('disabled')) return; // Ignore clicks on disabled elements
+            if (!target || target.classList.contains('disabled')) return;
             
             const { action } = target.dataset;
             
-            // Master command map. All actions are routed through here.
             const actions = {
                 'go-to-dashboard': renderDashboard,
                 'go-to-learn': handleLearnPath,
                 'go-to-train': renderTrainingHub,
                 'go-to-stats': renderStatsPage,
                 'start-lesson': (t) => startLesson({ mode: t.dataset.mode, skill: t.dataset.skill }),
-                'start-daily-review': startDailyReview,
+                'start-daily-review': startDailyReview, // RESTORED
                 'back-to-dashboard': renderDashboard,
                 'view-question-detail': (t) => showQuestionDetailModal(allQuestions.find(q => q.id == t.dataset.questionId)),
                 'check-answer': checkCurrentAnswer,
@@ -103,11 +99,10 @@ document.addEventListener('DOMContentLoaded', () => {
             };
             
             if (actions[action]) {
-                actions[action](target); // Pass the clicked element (target) for context
+                actions[action](target);
             }
         });
         
-        // Non-delegated listeners (for specific input elements, etc.)
         const searchInput = document.getElementById('search-modal-input');
         if (searchInput) searchInput.addEventListener('input', handleSearch);
     }
@@ -117,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // PART 1 OF 3 END
 
 
-    // PART 2 OF 3 START
+// PART 2 OF 3 START
 
     // --- 5. VIEWS & DASHBOARDS RENDERING ---
     function renderDashboard() {
@@ -139,7 +134,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderAdaptiveHub() {
-        app.innerHTML = `<div class="skill-tree-container"><button class="daily-review-btn" data-action="start-lesson" data-mode="adaptive"><i class="fa-solid fa-wand-magic-sparkles"></i> Inizia Sessione Adattiva</button><p style="text-align:center; margin: -1rem 0 2rem; color: var(--gray-medium);">Il tutor IA creerà la lezione perfetta per te.</p><h2 class="page-title">Oppure, Scegli un Argomento Specifico</h2><div class="skill-row"></div></div>`;
+        const questionsDue = allQuestions.filter(q => { const stats = userProgress.questionStats[q.id]; return stats && stats.nextReview && new Date(stats.nextReview) <= new Date(); }).length;
+        app.innerHTML = `<div class="skill-tree-container">
+            <button class="daily-review-btn" data-action="start-lesson" data-mode="adaptive"><i class="fa-solid fa-wand-magic-sparkles"></i> Inizia Sessione Adattiva</button>
+            <button class="daily-review-btn ${questionsDue === 0 ? 'disabled' : ''}" data-action="start-daily-review" style="background-color: var(--purple-special);"><i class="fa-solid fa-calendar-check"></i> ${questionsDue > 0 ? `Ripasso Quotidiano (${questionsDue} carte)` : 'Nessun Ripasso in Sospeso'}</button>
+            <h2 class="page-title" style="margin-top: 2rem;">Oppure, Scegli un Argomento Specifico</h2><div class="skill-row"></div></div>`;
         renderSkillTree(true);
     }
 
@@ -171,15 +170,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // PART 2 OF 3 END
 
-
-    // PART 3 OF 3 START
+// PART 3 OF 3 START
 
     // --- 6. CORE LESSON LOGIC: THE ADAPTIVE TUTOR ---
 
     /**
-     * MODULARIZED: Question pool generators for clean and predictable logic.
-     * Each function is defensive and handles cases with no user data.
+     * RESTORED & CRITICAL: This function was missing, causing the crash.
+     * It gathers all questions due for review and starts a lesson with them.
      */
+    function startDailyReview() {
+        const today = new Date().toISOString().split('T')[0];
+        const questionsDue = allQuestions
+            .filter(q => {
+                const stats = userProgress.questionStats[q.id];
+                return stats && stats.nextReview && new Date(stats.nextReview) <= new Date(today);
+            })
+            .sort((a, b) => new Date(userProgress.questionStats[a.id].nextReview) - new Date(userProgress.questionStats[b.id].nextReview));
+        
+        startLesson({ mode: 'daily_review', questions: questionsDue });
+    }
+
     const questionPoolGenerators = {
         genesis: () => {
             const categories = [...new Set(allQuestions.map(q => q.macro_area))];
@@ -271,4 +281,4 @@ document.addEventListener('DOMContentLoaded', () => {
     
     main();
 });
-// PART 3 OF 3 END
+// PART 3 OF 3 END```
