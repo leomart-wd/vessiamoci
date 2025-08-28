@@ -23,7 +23,6 @@ header h1 { color: var(--blue-primary); font-weight: 800; cursor: pointer; font-
 .dashboard-button { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.5rem; border-radius: 1rem; text-decoration: none; color: var(--white); text-align: center; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; box-shadow: var(--shadow-md); position: relative; overflow: hidden; }
 .dashboard-button:hover { transform: translateY(-5px) scale(1.02); box-shadow: var(--shadow-lg); }
 .dashboard-button:hover i { transform: scale(1.1); }
-.dashboard-button:active { transform: translateY(-2px) scale(0.99); }
 .dashboard-button.disabled { pointer-events: none; opacity: 0.6; }
 .dashboard-button i { font-size: 2.5rem; margin-bottom: 1rem; transition: transform 0.2s ease; }
 .dashboard-button h2, .dashboard-button h3 { margin: 0.5rem 0; font-size: 1.2rem; font-weight: 800; text-transform: uppercase; }
