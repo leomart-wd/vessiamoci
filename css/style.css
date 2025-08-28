@@ -1,5 +1,5 @@
 /* --- Neuro-Aesthetics Design System --- */
-/* --- Architected with Perfection by Gemini (v17.0 - The Flawless Final Build) --- */
+/* --- Architected with Perfection by Gemini (v18.0 - The Phoenix Build) --- */
 
 :root {
     --blue-primary: #007BFF; --green-correct: #28a745; --red-incorrect: #dc3545;
@@ -30,7 +30,7 @@ header h1 { color: var(--blue-primary); font-weight: 800; cursor: pointer; font-
 .dashboard-button p { margin: 0; font-size: 0.9rem; max-width: 300px; opacity: 0.9; }
 .dashboard-button.learn-path { background: linear-gradient(135deg, #007BFF, #0056b3); }
 .dashboard-button.train-path { background: linear-gradient(135deg, #6f42c1, #5a3e8d); }
-.dashboard-button.study-path { background: linear-gradient(135deg, #17a2b8, #117a8b); }
+.dashboard-button.study-path { background: linear-gradient(135deg, var(--cyan-study), #117a8b); }
 
 .study-library-container { display: flex; gap: 1.5rem; height: 75vh; }
 .study-filters-panel { flex: 0 0 280px; background: var(--white); padding: 1.5rem; border-radius: 1rem; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 1.25rem; }
