@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <!-- Chart.js for the performance graph -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 </head>
@@ -20,7 +19,7 @@
         </div>
         <h1 data-action="go-to-dashboard">VESsiamoci</h1>
         <div class="global-actions">
-            <button id="sound-toggle-btn" title="Audio On/Off"><i class="fa-solid fa-volume-high"></i></button>
+            <button id="sound-toggle-btn" data-action="toggle-sound" title="Audio On/Off"><i class="fa-solid fa-volume-high"></i></button>
             <button data-action="go-to-train" title="Allenati"><i class="fa-solid fa-dumbbell"></i></button>
             <button data-action="go-to-stats" title="Visualizza Risultati"><i class="fa-solid fa-chart-pie"></i></button>
         </div>
@@ -30,22 +29,14 @@
         <div class="loader"></div>
     </main>
     
-    <!-- Toast Notification for Achievements -->
-    <div id="toast-notification" class="hidden"></div>
+    <div id="toast-notification"></div>
     
-    <!-- ========= MODALS ========= -->
-    <div id="feedback-modal-container" class="modal-container hidden">
-        <div class="modal-content"><span class="close-btn">×</span><h3 id="modal-title"></h3><p id="modal-text"></p></div>
-    </div>
-    <div id="search-modal-container" class="modal-container hidden">
-        <div class="modal-content large"><span class="close-btn">×</span><h3><i class="fa-solid fa-magnifying-glass"></i> Cerca un Argomento</h3><input type="text" id="search-modal-input" placeholder="Scrivi una parola chiave..."><div id="search-modal-results"></div></div>
-    </div>
-    <div id="question-detail-modal" class="modal-container hidden">
-        <div class="modal-content large"><span class="close-btn">×</span><div id="question-detail-content"></div></div>
-    </div>
-    <div id="image-modal-container" class="modal-container hidden">
-        <span class="close-btn">×</span>
-        <img id="image-modal-content" src="" alt="Immagine di approfondimento" />
+    <div id="feedback-modal-container" class="modal-container">
+        <div class="modal-content">
+            <span class="close-btn">×</span>
+            <h3 id="modal-title"></h3>
+            <div id="modal-text"></div>
+        </div>
     </div>
     
     <script src="js/main.js"></script>
