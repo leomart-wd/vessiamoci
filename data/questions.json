@@ -3325,7 +3325,187 @@
     "learning_outcome": "Riconoscere il profilo acustico tipico della cisti cordale.",
     "key_concepts": ["cisti", "fuga d’aria", "raucedine acuta"],
     "level": "avanzato"
-  }
+  },
+
+  {
+  "id": 217,
+  "macro_area": "Anatomia",
+  "type": "multiple_choice",
+  "question": "Qual è la funzione principale del muscolo digastrico, appartenente ai sopraioidei?",
+  "options": [
+    "Abbassare la mandibola",
+    "Sollevare la laringe",
+    "Abbassare la lingua",
+    "Abbassare l’osso ioide"
+  ],
+  "answer": "Abbassare la mandibola",
+  "explanation": "Il muscolo digastrico consente l’apertura della bocca abbassando la mandibola, soprattutto quando l’osso ioide è fissato.",
+  "distractor_explanations": {
+    "Sollevare la laringe": "Questa funzione è svolta da muscoli sopraioidei come il genioioideo.",
+    "Abbassare la lingua": "Coinvolge i muscoli linguali, non il digastrico.",
+    "Abbassare l’osso ioide": "È compito dei muscoli sottoioidei."
+  },
+  "reflection_prompt": "Come collaborano i muscoli sopraioidei nell’apertura della bocca?",
+  "active_recall_prompt": "Qual è il ruolo del digastrico nella deglutizione e nella fonazione?",
+  "learning_outcome": "Comprendere la funzione del digastrico nella dinamica mandibolare.",
+  "key_concepts": ["sopraioidei", "digastrico", "mandibola"],
+  "level": "intermedio"
+},
+
+  {
+  "id": 218,
+  "macro_area": "Anatomia",
+  "type": "multiple_choice",
+  "question": "Quale muscolo sopraioideo contribuisce a sollevare l’osso ioide durante la deglutizione?",
+  "options": [
+    "Genioioideo",
+    "Sternotiroideo",
+    "Omoioideo",
+    "Tiroioideo"
+  ],
+  "answer": "Genioioideo",
+  "explanation": "Il genioioideo solleva l’osso ioide e lo porta in avanti, favorendo il passaggio del bolo.",
+  "distractor_explanations": {
+    "Sternotiroideo": "È un sottoioideo che abbassa la laringe.",
+    "Omoioideo": "Stabilizza l’osso ioide ma non lo solleva.",
+    "Tiroioideo": "Può sollevare la laringe, non l’osso ioide in avanti."
+  },
+  "reflection_prompt": "Perché l’elevazione dell’osso ioide è cruciale nella deglutizione?",
+  "active_recall_prompt": "Quale muscolo sopraioideo porta l’osso ioide in avanti e in alto?",
+  "learning_outcome": "Riconoscere il ruolo del genioioideo nella deglutizione.",
+  "key_concepts": ["sopraioidei", "genioioideo", "osso ioide"],
+  "level": "base"
+}
+,
+
+  {
+  "id": 219,
+  "macro_area": "Anatomia",
+  "type": "multiple_choice",
+  "question": "Quale muscolo sopraioideo forma il pavimento della bocca?",
+  "options": [
+    "Miloioideo",
+    "Sternocleidoioideo",
+    "Tiroioideo",
+    "Cricoaritenoideo"
+  ],
+  "answer": "Miloioideo",
+  "explanation": "Il miloioideo forma il pavimento della cavità orale, sostiene la lingua e partecipa alla deglutizione.",
+  "distractor_explanations": {
+    "Sternocleidoioideo": "È un muscolo del collo, non del pavimento orale.",
+    "Tiroioideo": "Agisce sulla laringe e sull’osso ioide, non sulla cavità orale.",
+    "Cricoaritenoideo": "È un muscolo laringeo, non sopraioideo."
+  },
+  "reflection_prompt": "Qual è l’importanza del miloioideo nella coordinazione tra lingua e mandibola?",
+  "active_recall_prompt": "Quale muscolo sopraioideo sostiene la lingua formando il pavimento orale?",
+  "learning_outcome": "Individuare il ruolo del miloioideo nella funzione orale.",
+  "key_concepts": ["sopraioidei", "miloioideo", "pavimento orale"],
+  "level": "intermedio"
+}
+,
+
+  {
+  "id": 220,
+  "macro_area": "Anatomia",
+  "type": "multiple_choice",
+  "question": "Qual è la funzione principale del muscolo sternotiroideo, appartenente ai sottoioidei?",
+  "options": [
+    "Sollevare la laringe",
+    "Abbassare la laringe",
+    "Portare avanti la mandibola",
+    "Sostenere la lingua"
+  ],
+  "answer": "Abbassare la laringe",
+  "explanation": "Lo sternotiroideo abbassa la laringe opponendosi all’azione dei sopraioidei.",
+  "distractor_explanations": {
+    "Sollevare la laringe": "Compito del genioioideo e del tiroioideo.",
+    "Portare avanti la mandibola": "È funzione dei muscoli masticatori.",
+    "Sostenere la lingua": "È funzione dei muscoli sopraioidei come il miloioideo."
+  },
+  "reflection_prompt": "Perché è importante che la laringe possa abbassarsi dopo la deglutizione?",
+  "active_recall_prompt": "Quale muscolo sottoioideo contribuisce ad abbassare la laringe?",
+  "learning_outcome": "Conoscere il ruolo depressore della laringe da parte dei sottoioidei.",
+  "key_concepts": ["sottoioidei", "sternotiroideo", "laringea"],
+  "level": "base"
+}
+,
+
+{
+  "id": 221,
+  "macro_area": "Anatomia",
+  "type": "multiple_choice",
+  "question": "Quale muscolo sottoioideo tende l’osso ioide e la fascia cervicale media?",
+  "options": [
+    "Omoioideo",
+    "Genioioideo",
+    "Miloioideo",
+    "Sternotiroideo"
+  ],
+  "answer": "Omoioideo",
+  "explanation": "L’omoioideo tende l’osso ioide e la fascia cervicale media, favorendo la stabilità cervicale.",
+  "distractor_explanations": {
+    "Genioioideo": "È un muscolo sopraioideo, non sottoioideo.",
+    "Miloioideo": "Forma il pavimento della bocca, non agisce sulla fascia cervicale.",
+    "Sternotiroideo": "Agisce sulla laringe, non sulla fascia cervicale."
+  },
+  "reflection_prompt": "Che ruolo ha l’omoioideo nella stabilità della regione cervicale?",
+  "active_recall_prompt": "Quale muscolo sottoioideo ha due ventri collegati da un tendine intermedio?",
+  "learning_outcome": "Identificare la funzione dell’omoioideo nella biomeccanica cervicale.",
+  "key_concepts": ["sottoioidei", "omoioideo", "fascia cervicale"],
+  "level": "intermedio"
+}
+  ,
+
+ {
+  "id": 222,
+  "macro_area": "Anatomia",
+  "type": "multiple_choice",
+  "question": "Quale muscolo sottoioideo collega la cartilagine tiroidea all’osso ioide?",
+  "options": [
+    "Tiroioideo",
+    "Sternotiroideo",
+    "Omoioideo",
+    "Miloioideo"
+  ],
+  "answer": "Tiroioideo",
+  "explanation": "Il tiroioideo collega la cartilagine tiroidea all’osso ioide e, se l’osso ioide è fisso, può anche sollevare la laringe.",
+  "distractor_explanations": {
+    "Sternotiroideo": "Collega lo sterno alla cartilagine tiroidea, non all’osso ioide.",
+    "Omoioideo": "Si inserisce sull’osso ioide ma non sulla cartilagine tiroidea.",
+    "Miloioideo": "Forma il pavimento orale, non agisce su ioide e cartilagine tiroidea."
+  },
+  "reflection_prompt": "Perché il tiroioideo è considerato un muscolo particolare tra i sottoioidei?",
+  "active_recall_prompt": "Quale muscolo sottoioideo può anche sollevare la laringe in certe condizioni?",
+  "learning_outcome": "Capire la duplice funzione del tiroioideo nella dinamica laringea.",
+  "key_concepts": ["sottoioidei", "tiroioideo", "osso ioide"],
+  "level": "avanzato"
+}
+,
+
+  {
+  "id": 223,
+  "macro_area": "Anatomia",
+  "type": "multiple_choice",
+  "question": "Qual è la differenza funzionale principale tra i muscoli sopraioidei e i muscoli sottoioidei?",
+  "options": [
+    "I sopraioidei sollevano l’osso ioide e la laringe, i sottoioidei li abbassano",
+    "I sopraioidei abbassano la mandibola, i sottoioidei la protrudono",
+    "I sopraioidei controllano la lingua, i sottoioidei controllano la mandibola",
+    "I sopraioidei stabilizzano la faringe, i sottoioidei stabilizzano il palato"
+  ],
+  "answer": "I sopraioidei sollevano l’osso ioide e la laringe, i sottoioidei li abbassano",
+  "explanation": "La funzione principale dei sopraioidei è elevare l’osso ioide e la laringe, spesso favorendo anche l’apertura della mandibola. I sottoioidei, invece, hanno il ruolo opposto: abbassano l’osso ioide e la laringe, stabilizzando la regione cervicale.",
+  "distractor_explanations": {
+    "I sopraioidei abbassano la mandibola, i sottoioidei la protrudono": "Solo alcuni sopraioidei (come il digastrico) abbassano la mandibola, e i sottoioidei non protrudono la mandibola.",
+    "I sopraioidei controllano la lingua, i sottoioidei controllano la mandibola": "Il controllo diretto della lingua è affidato ai muscoli linguali, non ai sopraioidei o sottoioidei.",
+    "I sopraioidei stabilizzano la faringe, i sottoioidei stabilizzano il palato": "Queste funzioni sono più proprie dei muscoli faringei e palatini, non degli ioidei."
+  },
+  "reflection_prompt": "Perché è importante che sopraioidei e sottoioidei lavorino in sinergia durante la deglutizione?",
+  "active_recall_prompt": "Qual è la funzione opposta svolta da sopraioidei e sottoioidei?",
+  "learning_outcome": "Confrontare i ruoli opposti di sopraioidei e sottoioidei nella dinamica laringea.",
+  "key_concepts": ["sopraioidei", "sottoioidei", "osso ioide", "laringe"],
+  "level": "intermedio"
+}
 
 ]
 
