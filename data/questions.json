@@ -1117,5 +1117,2216 @@
     "options": ["Tiroioideo", "Digastrico", "Sternotiroideo"],
     "answer": "Sternotiroideo",
     "explanation": "Lo Sternotiroideo è un muscolo sottoioideo, la sua funzione è quella di abbassare la laringe."
+  },
+
+
+  {
+    "id": 136,
+    "macro_area": "Filosofia",
+    "type": "multiple_choice",
+    "question": "Che cos'è il VES?",
+    "options": ["Un metodo di canto", "Una metodologia didattica", "Un sistema", "Un istituto musicale"],
+    "answer": "Una metodologia didattica",
+    "explanation": "Il VES (Voice Evolution System) è una metodologia didattica integrata, non un semplice metodo. Include principi teorici, pratiche operative e una cornice etico-pedagogica ben definita.",
+    "motivazioni_risposte_errate": {
+      "Un metodo di canto": "Il VES non è un singolo metodo ma un insieme di pratiche inserite in un quadro metodologico.",
+      "Un sistema": "Il termine 'sistema' è generico e non riflette la natura didattica del VES.",
+      "Un istituto musicale": "Il VES non è un istituto, ma può essere insegnato in istituti musicali."
+    },
+    "prompt_reflection": "Qual è la differenza tra un metodo e una metodologia, e perché è importante comprenderla in ambito didattico?",
+    "domanda_richiamo_attivo": "Riesci a definire con parole tue cos’è il VES?",
+    "difficulty": "easy"
+  },
+  {
+    "id": 137,
+    "macro_area": "Filosofia",
+    "type": "multiple_choice",
+    "question": "Qual è la principale differenza tra metodo e metodologia?",
+    "options": ["Il metodo è più ampio della metodologia", "La metodologia include uno o più metodi", "Il metodo si basa sui principi etici", "Non esiste differenza"],
+    "answer": "La metodologia include uno o più metodi",
+    "explanation": "La metodologia è l’insieme dei metodi e dei criteri utilizzati in un processo didattico. Organizza e integra i metodi in una struttura coerente che risponde a un obiettivo formativo.",
+    "motivazioni_risposte_errate": {
+      "Il metodo è più ampio della metodologia": "È il contrario: è la metodologia a essere più ampia.",
+      "Il metodo si basa sui principi etici": "L’etica può far parte di una metodologia, ma non è ciò che distingue un metodo.",
+      "Non esiste differenza": "Esiste una chiara differenza teorica e applicativa tra metodo e metodologia."
+    },
+    "prompt_reflection": "Perché è utile in didattica distinguere tra metodo e metodologia?",
+    "domanda_richiamo_attivo": "Sai elencare almeno due metodi che possono rientrare in una metodologia?",
+    "difficulty": "medium"
+  },
+  {
+    "id": 138,
+    "macro_area": "Filosofia",
+    "type": "multiple_choice",
+    "question": "Secondo il codice etico VES, quale principio guida il lavoro?",
+    "options": ["Il miglioramento estetico della voce", "L'adesione a principi etici e all'innovazione", "L'imitazione di modelli famosi", "La velocità nell'apprendimento"],
+    "answer": "L'adesione a principi etici e all'innovazione",
+    "explanation": "Il codice etico VES valorizza il rispetto della persona, l’evidenza scientifica e l’innovazione metodologica. Non punta solo all’estetica vocale, ma allo sviluppo armonico dell’individuo.",
+    "motivazioni_risposte_errate": {
+      "Il miglioramento estetico della voce": "L’aspetto estetico è considerato, ma non è la finalità principale.",
+      "L'imitazione di modelli famosi": "Il VES promuove l’autenticità vocale, non l’imitazione.",
+      "La velocità nell'apprendimento": "La velocità non è un valore etico fondamentale."
+    },
+    "prompt_reflection": "Quali valori etici consideri importanti nell’insegnamento della voce?",
+    "domanda_richiamo_attivo": "Sai indicare un principio fondamentale del codice etico VES?",
+    "difficulty": "medium"
+  },
+  {
+    "id": 139,
+    "macro_area": "Applicazioni Didattiche",
+    "type": "multiple_choice",
+    "question": "Nell'insegnamento del canto, cosa viene incoraggiato rispetto allo sforzo vocale?",
+    "options": ["Il lavoro vocale in economia", "L'allenamento forzato", "L'estensione massima della voce", "Il sacrificio fisico"],
+    "answer": "Il lavoro vocale in economia",
+    "explanation": "Il VES incoraggia un uso vocale 'in economia', cioè con il minimo sforzo necessario per ottenere il massimo risultato. Questo approccio è sostenuto da fisiologia e neuroscienze.",
+    "motivazioni_risposte_errate": {
+      "L'allenamento forzato": "L’allenamento eccessivo può causare danni alla voce.",
+      "L'estensione massima della voce": "L’estensione vocale è secondaria rispetto a efficienza e salute.",
+      "Il sacrificio fisico": "Il sacrificio fisico non è un criterio didattico sostenibile."
+    },
+    "prompt_reflection": "Hai mai notato la differenza tra sforzo e risultato vocale?",
+    "domanda_richiamo_attivo": "Cosa significa usare la voce 'in economia'?",
+    "difficulty": "easy"
+  },
+  {
+    "id": 140,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Che tipo di approccio utilizza il VES per risolvere i problemi vocali?",
+    "options": ["Sintomatico", "Psicogeno", "Fisiologico basato sul funzionamento", "Magico-religioso"],
+    "answer": "Fisiologico basato sul funzionamento",
+    "explanation": "Il VES adotta un approccio fisiologico-funzionale: non si limita a correggere i sintomi ma indaga le cause biomeccaniche e neuromotorie, per ripristinare equilibrio ed efficienza.",
+    "motivazioni_risposte_errate": {
+      "Sintomatico": "L’approccio sintomatico non risolve le cause profonde.",
+      "Psicogeno": "Gli aspetti psicologici sono considerati ma non sono il fulcro.",
+      "Magico-religioso": "Il VES si fonda su evidenze scientifiche, non su credenze."
+    },
+    "prompt_reflection": "Quali vantaggi pensi offra un approccio basato sul funzionamento?",
+    "domanda_richiamo_attivo": "Sai spiegare cos’è un approccio fisiologico-funzionale alla voce?",
+    "difficulty": "difficult"
+  },
+
+   {
+    "id": 141,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Quando si studia la tecnica vocale, cosa NON può essere trascurato secondo il corso?",
+    "options": [
+      "L'estetica della voce",
+      "Le discipline musicali",
+      "L'anatomia esclusiva delle corde vocali",
+      "Il repertorio lirico"
+    ],
+    "answer": "L'anatomia esclusiva delle corde vocali",
+    "explanation": "Nel percorso VES viene sottolineato che non si può studiare la tecnica vocale trascurando la visione sistemica dell'anatomia e della fisiologia dell'apparato fonatorio, non solo limitandosi alle corde vocali.",
+    "motivazioni_risposte_errate": {
+      "L'estetica della voce": "L'estetica è importante, ma non è prioritaria rispetto alla comprensione funzionale del sistema vocale.",
+      "Le discipline musicali": "Le discipline musicali completano la formazione, ma sono integrate dopo la base fisiologica.",
+      "Il repertorio lirico": "Il repertorio lirico è parte dello sviluppo interpretativo, non tecnico-funzionale iniziale."
+    },
+    "prompt_reflection": "Hai mai dato per scontato che bastasse studiare le corde vocali per migliorare la voce?",
+    "domanda_richiamo_attivo": "Qual è la conseguenza di trascurare l’anatomia sistemica nella tecnica vocale?",
+    "difficulty": "medium"
+  },
+  {
+    "id": 142,
+    "macro_area": "Etica e Relazione",
+    "type": "multiple_choice",
+    "question": "In caso di problematiche psico-fisiche degli allievi, cosa è raccomandato fare?",
+    "options": [
+      "Ignorare i segnali",
+      "Rivolgersi a professionisti competenti",
+      "Somministrare farmaci consigliati dal docente",
+      "Sospendere subito l'allievo"
+    ],
+    "answer": "Rivolgersi a professionisti competenti",
+    "explanation": "Il codice etico VES prevede il rispetto e la tutela della salute dell’allievo. Di fronte a problematiche psico-fisiche è necessario rivolgersi a professionisti del settore sanitario o psicologico.",
+    "motivazioni_risposte_errate": {
+      "Ignorare i segnali": "Ignorare i segnali può portare a peggioramenti e viola il principio di cura.",
+      "Somministrare farmaci consigliati dal docente": "Solo personale medico può prescrivere farmaci.",
+      "Sospendere subito l'allievo": "La sospensione non è una soluzione educativa né terapeutica."
+    },
+    "prompt_reflection": "Cosa faresti se un tuo allievo manifestasse disagio corporeo o ansia ricorrente durante la lezione?",
+    "domanda_richiamo_attivo": "Quali figure sono coinvolgibili in caso di disagio psico-fisico dell’allievo?",
+    "difficulty": "medium"
+  },
+  {
+    "id": 143,
+    "macro_area": "Filosofia",
+    "type": "multiple_choice",
+    "question": "Come viene visto l'errore o il problema all'interno del gruppo VES?",
+    "options": [
+      "Come motivo di esclusione",
+      "Come un problema personale da nascondere",
+      "Come opportunità di crescita condivisa",
+      "Come un fallimento da correggere individualmente"
+    ],
+    "answer": "Come opportunità di crescita condivisa",
+    "explanation": "L’approccio VES promuove la valorizzazione dell’errore come elemento utile alla crescita del gruppo, creando un ambiente inclusivo e supportivo.",
+    "motivazioni_risposte_errate": {
+      "Come motivo di esclusione": "L'esclusione contraddice la filosofia VES.",
+      "Come un problema personale da nascondere": "Il nascondere gli errori ostacola l’apprendimento collettivo.",
+      "Come un fallimento da correggere individualmente": "Lavorare da soli sugli errori può isolare l’allievo, mentre il supporto del gruppo è fondamentale."
+    },
+    "prompt_reflection": "Hai mai vissuto un errore come occasione di crescita condivisa?",
+    "domanda_richiamo_attivo": "In che modo l’errore può diventare formativo in una lezione VES?",
+    "difficulty": "easy"
+  },
+  {
+    "id": 144,
+    "macro_area": "Anatomia",
+    "type": "multiple_choice",
+    "question": "Quale muscolo è adduttore puro delle corde vocali?",
+    "options": [
+      "Cricoaritenoideo posteriore",
+      "Cricoaritenoideo laterale",
+      "Tiroaritenoideo",
+      "Sternocleidomastoideo"
+    ],
+    "answer": "Cricoaritenoideo laterale",
+    "explanation": "Il cricoaritenoideo laterale è un muscolo laringeo intrinseco che ha il compito specifico di avvicinare le corde vocali, cioè di addurle, facilitando la fonazione.",
+    "motivazioni_risposte_errate": {
+      "Cricoaritenoideo posteriore": "È un muscolo abduttore: apre le corde vocali.",
+      "Tiroaritenoideo": "Agisce sulla tensione e spessore delle corde vocali, ma non è adduttore puro.",
+      "Sternocleidomastoideo": "È un muscolo cervicale e non ha funzione diretta sulle corde vocali."
+    },
+    "prompt_reflection": "Perché conoscere i muscoli adduttori è fondamentale per comprendere la fonazione?",
+    "domanda_richiamo_attivo": "Quali muscoli concorrono all’adduzione e quali all’abduzione delle corde vocali?",
+    "difficulty": "difficult"
+  },
+  {
+    "id": 145,
+    "macro_area": "Anatomia",
+    "type": "multiple_choice",
+    "question": "Quale muscolo contribuisce principalmente all'apertura delle corde vocali?",
+    "options": [
+      "Cricoaritenoideo posteriore",
+      "Cricoaritenoideo laterale",
+      "Tiroaritenoideo",
+      "Omoioideo"
+    ],
+    "answer": "Cricoaritenoideo posteriore",
+    "explanation": "Il cricoaritenoideo posteriore è l’unico muscolo abduttore delle corde vocali, cioè il responsabile dell’apertura della glottide durante la respirazione.",
+    "motivazioni_risposte_errate": {
+      "Cricoaritenoideo laterale": "È un adduttore, quindi ha funzione opposta.",
+      "Tiroaritenoideo": "Interviene nella tensione delle corde vocali, non nella loro apertura.",
+      "Omoioideo": "Non è un muscolo laringeo intrinseco, ma extrinseco."
+    },
+    "prompt_reflection": "Cosa accadrebbe alla respirazione se questo muscolo non funzionasse correttamente?",
+    "domanda_richiamo_attivo": "Perché è importante il cricoaritenoideo posteriore nel controllo respiratorio?",
+    "difficulty": "difficult"
+  },
+
+    {
+    "id": 146,
+    "macro_area": "Anatomia",
+    "type": "multiple_choice",
+    "question": "Cosa provoca la contrazione del muscolo cricotiroideo?",
+    "options": [
+      "Accorcia le corde vocali",
+      "Aumenta la distanza tra la cartilagine tiroidea e l'aritenoide",
+      "Abbassa la laringe",
+      "Solleva la laringe"
+    ],
+    "answer": "Aumenta la distanza tra la cartilagine tiroidea e l'aritenoide",
+    "explanation": "Il muscolo cricotiroideo, contraendosi, tende la corda vocale aumentando la distanza tra la cartilagine tiroidea e l'aritenoide. Questo porta a un allungamento e tensione delle corde vocali, con conseguente aumento della frequenza fondamentale della voce (voce più acuta).",
+    "prompt_reflection": "In che modo la tensione muscolare influisce sul timbro e la stabilità della voce nei registri acuti?",
+    "domanda_richiamo_attivo": "Qual è la funzione del cricotiroideo nella regolazione della F0?",
+    "difficulty": "difficult"
+  },
+  {
+    "id": 147,
+    "macro_area": "Anatomia",
+    "type": "multiple_choice",
+    "question": "Cosa provoca la contrazione del muscolo cricotiroideo?",
+    "options": [
+      "Accorcia le corde vocali",
+      "Aumenta la distanza tra la cartilagine tiroidea e l'aritenoide",
+      "Abbassa la laringe",
+      "Solleva la laringe"
+    ],
+    "answer": "Aumenta la distanza tra la cartilagine tiroidea e l'aritenoide",
+    "explanation": "Domanda ripetuta: vedi domanda 146.",
+    "prompt_reflection": "Perché il cricotiroideo è così importante nei passaggi di registro?",
+    "domanda_richiamo_attivo": "Ripeti: qual è l'effetto della contrazione del cricotiroideo sulla voce?",
+    "difficulty": "difficult"
+  },
+  {
+    "id": 148,
+    "macro_area": "Anatomia",
+    "type": "multiple_choice",
+    "question": "Quale struttura anatomica è coinvolta nel movimento delle aritenoidi?",
+    "options": [
+      "Articolazione crico-aritenoidea",
+      "Epiglottide",
+      "Legamento crico tracheale",
+      "Omoioideo"
+    ],
+    "answer": "Articolazione crico-aritenoidea",
+    "explanation": "L'articolazione crico-aritenoidea consente i movimenti rotatori, inclinatori e traslatori delle cartilagini aritenoidi, fondamentali per la regolazione della chiusura e apertura delle corde vocali.",
+    "prompt_reflection": "Cosa accade alla voce se la crico-aritenoidea perde mobilità?",
+    "domanda_richiamo_attivo": "Quale articolazione consente il movimento delle aritenoidi?",
+    "difficulty": "medium"
+  },
+  {
+    "id": 149,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Cosa avviene quando la membrana tiroidea si accorcia durante la fatica vocale?",
+    "options": [
+      "Aumenta la mobilità della laringe",
+      "Riduce la mobilità della tiroide",
+      "Abbassa la laringe",
+      "Aumenta la pressione sotto le corde vocali"
+    ],
+    "answer": "Riduce la mobilità della tiroide",
+    "explanation": "La fatica vocale può indurre tensione e retrazioni nei tessuti. Un accorciamento della membrana tiroidea comporta una rigidità della cartilagine tiroidea, limitandone la mobilità e interferendo con la regolazione fine della tensione cordale.",
+    "prompt_reflection": "Quali sono le strategie per ridurre la rigidità della membrana tiroidea?",
+    "domanda_richiamo_attivo": "Cosa accade alla cartilagine tiroidea in caso di tensione cronica?",
+    "difficulty": "difficult"
+  },
+  {
+    "id": 150,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Cosa comporta la contrazione del muscolo tiroaritenoideo nella produzione del suono?",
+    "options": [
+      "Assottiglia le corde",
+      "Ispessisce le corde vocali",
+      "Innalza la laringe",
+      "Stabilizza l'apertura delle corde vocali"
+    ],
+    "answer": "Ispessisce le corde vocali",
+    "explanation": "Il muscolo tiroaritenoideo accorcia e ispessisce le corde vocali, riducendone la tensione e abbassando la frequenza fondamentale. È attivo nei registri gravi e contribuisce alla produzione di un suono più ricco e pieno.",
+    "prompt_reflection": "Come si può sentire l’attivazione del TA nella voce quotidiana?",
+    "domanda_richiamo_attivo": "Quale muscolo rende le corde più spesse e abbassa la F0?",
+    "difficulty": "medium"
+  },
+
+
+{
+    "id": 151,
+    "macro_area": "Anatomia",
+    "type": "multiple_choice",
+    "question": "Il muscolo cricoaritenoideo posteriore agisce principalmente su quale struttura?",
+    "options": [
+      "Aritenoidi",
+      "Tiroide",
+      "Sterno",
+      "Epiglottide"
+    ],
+    "answer": "Aritenoidi",
+    "explanation": "Il muscolo cricoaritenoideo posteriore è l’unico muscolo abduttore delle corde vocali. La sua azione principale è sull’aritenoide, permettendo l’apertura della glottide per il passaggio dell’aria durante la respirazione. Agisce ruotando i processi vocali delle aritenoidi lateralmente.",
+    "prompt_reflection": "Perché credi sia così importante avere un muscolo dedicato solo all’abduzione?",
+    "domanda_richiamo_attivo": "Ricorda che l’aritenoide è il punto mobile per la regolazione glottica.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 152,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Quale muscolo è coinvolto nella regolazione fine del movimento delle corde vocali in fase acuta?",
+    "options": [
+      "Cricoaritenoideo posteriore",
+      "Tiroaritenoideo",
+      "Cricotiroideo",
+      "Muscolo digastrico"
+    ],
+    "answer": "Tiroaritenoideo",
+    "explanation": "Il muscolo tiroaritenoideo è coinvolto nella regolazione fine della tensione delle corde vocali, specialmente nei passaggi di registro e nell’articolazione acuta. Permette modulazioni di precisione del tono vocale grazie alla sua posizione interna alla corda vocale stessa.",
+    "prompt_reflection": "Hai mai notato come si modula la voce nei cambi rapidi di intonazione?",
+    "domanda_richiamo_attivo": "Il controllo preciso della frequenza si affida a questo muscolo.",
+    "difficulty": "difficult"
+  },
+  {
+    "id": 153,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Qual è la funzione principale della laringe?",
+    "options": [
+      "Digestione",
+      "Respirazione",
+      "Produzione vocale",
+      "Circolazione sanguigna"
+    ],
+    "answer": "Produzione vocale",
+    "explanation": "La funzione primaria della laringe è la fonazione, ovvero la produzione della voce. Tuttavia, ha anche un ruolo importante nella protezione delle vie aeree e nella regolazione del flusso d’aria nei processi respiratori.",
+    "prompt_reflection": "Quanto pensi che la fonazione influenzi le emozioni che comunichiamo?",
+    "domanda_richiamo_attivo": "La voce nasce dalla vibrazione delle corde vocali nella laringe.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 154,
+    "macro_area": "Anatomia",
+    "type": "multiple_choice",
+    "question": "Quale muscolo è coinvolto principalmente nel sollevamento della laringe?",
+    "options": [
+      "Cricotiroideo",
+      "Tiroaritenoideo",
+      "Sternotiroideo",
+      "Genioioideo"
+    ],
+    "answer": "Genioioideo",
+    "explanation": "Il muscolo genioioideo è uno dei muscoli sopraioidei che contribuiscono all’elevazione della laringe durante la deglutizione e la produzione di suoni acuti. Il suo ruolo è essenziale nel modificare la posizione della laringe per esigenze fonatorie o protettive.",
+    "prompt_reflection": "Come cambia la tua voce quando la laringe si alza?",
+    "domanda_richiamo_attivo": "I muscoli sopraioidei elevano la laringe, quelli sottoioidei la abbassano.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 155,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Che tipo di forza riporta le strutture faringee alla posizione originale dopo la fonazione?",
+    "options": [
+      "Forze attive",
+      "Forze passive",
+      "Forze aerodinamiche",
+      "Forze elettriche"
+    ],
+    "answer": "Forze passive",
+    "explanation": "Dopo la contrazione muscolare durante la fonazione, le strutture tornano alla posizione di riposo grazie a forze passive: elasticità tissutale, gravità e rilassamento muscolare. Non c’è un muscolo che 'riporta indietro' attivamente le strutture.",
+    "prompt_reflection": "Hai mai sentito fatica nel ritorno al riposo dopo aver cantato a lungo?",
+    "domanda_richiamo_attivo": "Il corpo recupera grazie all’elasticità naturale dei tessuti.",
+    "difficulty": "easy"
+  },
+
+    {
+    "id": 156,
+    "macro_area": "Anatomia",
+    "type": "multiple_choice",
+    "question": "Qual è il principale muscolo antagonista nel movimento verso l'alto della laringe?",
+    "options": [
+      "Sternotiroideo",
+      "Digastrico",
+      "Milioioideo",
+      "Cricotiroideo"
+    ],
+    "answer": "Sternotiroideo",
+    "explanation": "Il muscolo sternotiroideo è un muscolo infrahioideo che tira la laringe verso il basso, opponendosi quindi ai muscoli sopraioidei (come il digastrico e il miloioideo) che la sollevano. Per questo motivo, lo sternotiroideo è considerato il principale muscolo antagonista nel movimento verso l'alto della laringe.",
+    "prompt_reflection": "In che modo la posizione laringea influisce sulla qualità della voce cantata?",
+    "domanda_richiamo_attivo": "Ricorda che i muscoli infrahioidei tendono a deprimere la laringe!",
+    "difficulty": "medium"
+  },
+  {
+    "id": 157,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Come si comporta la glottide durante la respirazione normale?",
+    "options": [
+      "Rimane aperta in inspirazione e chiusa in espirazione",
+      "Si apre leggermente in inspirazione e si chiude leggermente in espirazione",
+      "Resta completamente chiusa",
+      "Si apre completamente in inspirazione ed espirazione"
+    ],
+    "answer": "Si apre leggermente in inspirazione e si chiude leggermente in espirazione",
+    "explanation": "Durante la respirazione normale (eupnoica), la glottide si apre lievemente durante l'inspirazione per permettere il passaggio dell'aria, e si richiude leggermente durante l'espirazione. Questo comportamento minimizza la dispersione d'aria e ottimizza il flusso respiratorio.",
+    "prompt_reflection": "Come si modifica l'apertura glottica durante il canto rispetto alla respirazione silenziosa?",
+    "domanda_richiamo_attivo": "Pensa al ruolo fine della glottide anche durante la fonazione!",
+    "difficulty": "medium"
+  },
+  {
+    "id": 158,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Cosa accade alla glottide durante uno sforzo fisico intenso?",
+    "options": [
+      "Il flusso d'aria rallenta",
+      "Il flusso d'aria aumenta",
+      "Il flusso d'aria diminuisce",
+      "La glottide si apre completamente"
+    ],
+    "answer": "La glottide si apre completamente",
+    "explanation": "Durante uno sforzo fisico intenso, la richiesta di ossigeno aumenta e la glottide si apre completamente per permettere un flusso d’aria massimale nei polmoni. Questo facilita sia l’inspirazione che l’espirazione, ottimizzando l’efficienza respiratoria.",
+    "prompt_reflection": "Perché la glottide tende a chiudersi sotto sforzo durante il sollevamento pesi?",
+    "domanda_richiamo_attivo": "Durante il canto, l'apertura glottica controlla intensità e qualità del suono!",
+    "difficulty": "easy"
+  },
+  {
+    "id": 159,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Quale muscolo è principalmente responsabile della compressione mediale delle corde vocali?",
+    "options": [
+      "Tiroaritenoideo laterale",
+      "Tiroaritenoideo centrale",
+      "Cricotiroideo",
+      "Cricoaritenoideo posteriore"
+    ],
+    "answer": "Tiroaritenoideo laterale",
+    "explanation": "Il muscolo tiroaritenoideo laterale (parte del complesso tiroaritenoideo) è particolarmente attivo nella compressione mediale delle corde vocali, che è essenziale per una fonazione intensa e stabile. Lavora insieme agli interaritenoidei per assicurare l'adduzione glottica.",
+    "prompt_reflection": "Come cambia la sensazione vocale quando aumenta la compressione mediale?",
+    "domanda_richiamo_attivo": "La compressione mediale è fondamentale per la proiezione vocale!",
+    "difficulty": "difficult"
+  },
+  {
+    "id": 160,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Cosa accade alla glottide durante uno sforzo fisico intenso?",
+    "options": [
+      "Il flusso d'aria rallenta",
+      "Il flusso d'aria aumenta",
+      "Il flusso d'aria diminuisce",
+      "La glottide si apre completamente"
+    ],
+    "answer": "La glottide si apre completamente",
+    "explanation": "Ripetendo quanto detto nella domanda 158, la glottide si apre completamente per permettere una maggiore ventilazione durante lo sforzo. Questa apertura massima facilita il passaggio rapido dell’aria, essenziale durante l’attività fisica intensa.",
+    "prompt_reflection": "Come si modifica l'uso della glottide nei diversi tipi di attività vocale e fisica?",
+    "domanda_richiamo_attivo": "Attento a non confondere l'apertura glottica da sforzo con quella per la fonazione!",
+    "difficulty": "easy"
   }
+,    
+    {
+    "id": 161,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Quale muscolo è principalmente responsabile della compressione mediale delle corde vocali?",
+    "options": [
+      "Tiroaritenoideo laterale",
+      "Tiroaritenoideo centrale",
+      "Cricoaritenoideo posteriore",
+      "Cricoaritenoideo laterale"
+    ],
+    "answer": "Cricoaritenoideo laterale",
+    "explanation": "Il muscolo cricoaritenoideo laterale è uno degli adduttori principali della glottide e ha un ruolo chiave nella compressione mediale delle corde vocali. Quando si contrae, tira i processi muscolari delle aritenoidi in avanti e lateralmente, causando l'avvicinamento delle corde vocali. Questo è fondamentale per la fonazione e per modulare l'intensità vocale.",
+    "prompt_reflection": "Come percepisci il cambiamento vocale quando aumenta la compressione tra le corde vocali?",
+    "domanda_richiamo_attivo": "Quali muscoli concorrono alla compressione glottica durante la fonazione intensa?",
+    "difficulty": "difficult"
+  },
+  {
+    "id": 162,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Cosa succede quando aumenta la pressione sottoglottica?",
+    "options": [
+      "L'intensità della voce diminuisce",
+      "La frequenza fondamentale aumenta",
+      "La resistenza glottica aumenta",
+      "Le corde vocali vibrano più lentamente"
+    ],
+    "answer": "La frequenza fondamentale aumenta",
+    "explanation": "Quando aumenta la pressione sottoglottica, cioè la pressione dell'aria sotto le corde vocali, la forza dell'aria esercita una maggiore spinta sulle corde vocali durante la fonazione. Questo comporta un aumento della frequenza fondamentale (F0), cioè un innalzamento del pitch vocale, ed è associato a un'intensità vocale maggiore.",
+    "prompt_reflection": "In quali situazioni vocali pensi aumenti naturalmente la pressione sottoglottica?",
+    "domanda_richiamo_attivo": "Come cambia la F0 quando modifichi l’emissione d’aria nella fonazione?",
+    "difficulty": "medium"
+  },
+  {
+    "id": 163,
+    "macro_area": "Anatomia funzionale",
+    "type": "multiple_choice",
+    "question": "Qual è l'effetto dell'elevazione laringea sulle corde vocali?",
+    "options": [
+      "Diminuisce la rigidità delle corde vocali",
+      "Aumenta la rigidità delle corde vocali",
+      "Riduce la frequenza di vibrazione delle corde vocali",
+      "Non ha alcun effetto sulle corde vocali"
+    ],
+    "answer": "Aumenta la rigidità delle corde vocali",
+    "explanation": "L’elevazione laringea comporta un aumento della tensione longitudinale delle corde vocali, rendendole più rigide. Questo ha un effetto sulla frequenza di vibrazione delle corde vocali, favorendo un suono più acuto. È una componente importante dell’adattamento meccanico della laringe per la produzione di suoni ad alta frequenza.",
+    "prompt_reflection": "Hai mai percepito una voce più 'acuta' quando la laringe si solleva naturalmente?",
+    "domanda_richiamo_attivo": "Quali muscoli contribuiscono all’elevazione della laringe durante la fonazione acuta?",
+    "difficulty": "medium"
+  },
+  {
+    "id": 164,
+    "macro_area": "Anatomia",
+    "type": "multiple_choice",
+    "question": "Qual è la funzione principale del muscolo elevatore del palato?",
+    "options": [
+      "Sollevare il palato molle lateralmente",
+      "Sollevare il palato molle verso l'alto e indietro",
+      "Dilatare la tuba uditiva",
+      "Chiudere l'ugola"
+    ],
+    "answer": "Sollevare il palato molle verso l'alto e indietro",
+    "explanation": "Il muscolo elevatore del palato ha la funzione di sollevare il palato molle verso l’alto e posteriormente durante la deglutizione e la fonazione, per separare la cavità nasale da quella orale. Questo è essenziale per prevenire il passaggio di cibo o liquidi nel naso e per una fonazione chiara e non nasale.",
+    "prompt_reflection": "Hai mai notato una voce più nasale quando il palato non si solleva bene?",
+    "domanda_richiamo_attivo": "Quale muscolo evita la comunicazione tra bocca e naso durante la fonazione?",
+    "difficulty": "medium"
+  },
+  {
+    "id": 165,
+    "macro_area": "Fisiologia vocale",
+    "type": "multiple_choice",
+    "question": "Qual è la funzione del muscolo costrittore superiore?",
+    "options": [
+      "Alzare il palato molle",
+      "Compensare la chiusura incompleta del palato molle",
+      "Deprimere la laringe",
+      "Protrudere la mandibola"
+    ],
+    "answer": "Compensare la chiusura incompleta del palato molle",
+    "explanation": "Il muscolo costrittore superiore della faringe aiuta a compensare la chiusura incompleta del palato molle, contribuendo alla chiusura velo-faringea. Questa funzione è importante nella produzione vocale e nella deglutizione, per evitare che il suono o il cibo si disperdano nella cavità nasale.",
+    "prompt_reflection": "Perché la chiusura velo-faringea è importante nella voce parlata e cantata?",
+    "domanda_richiamo_attivo": "Quale muscolo agisce in caso di palato molle ipomobile?",
+    "difficulty": "medium"
+  },
+
+    {
+    "id": 166,
+    "macro_area": "Anatomia",
+    "type": "multiple_choice",
+    "question": "Qual è la funzione del muscolo costrittore superiore?",
+    "options": [
+      "Alzare il palato molle",
+      "Compensare la chiusura incompleta del palato molle",
+      "Depressa la laringe",
+      "Protrudere la mandibola"
+    ],
+    "answer": "Compensare la chiusura incompleta del palato molle",
+    "explanation": "Il muscolo costrittore superiore della faringe collabora nella chiusura velo-faringea, compensando l’incompletezza del palato molle. È fondamentale per impedire la fuoriuscita di suoni e alimenti nella cavità nasale durante fonazione e deglutizione.",
+    "motivazioni_risposte_errate": {
+      "Alzare il palato molle": "Questa è la funzione dell’elevatore del velo palatino.",
+      "Depressa la laringe": "Il costrittore superiore non è coinvolto nei movimenti della laringe.",
+      "Protrudere la mandibola": "La mandibola è mobilizzata da muscoli masticatori, non faringei."
+    },
+    "prompt_reflection": "Quali strutture collaborano per impedire la fuga d’aria nel naso durante la fonazione?",
+    "domanda_richiamo_attivo": "Qual è il ruolo del muscolo costrittore superiore nella fonazione nasale?",
+    "difficulty": "medium"
+  },
+  {
+    "id": 167,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Durante la deglutizione, quali strutture si chiudono oltre al palato molle?",
+    "options": [
+      "L'epiglottide e le corde vocali vere e false",
+      "La lingua e l'ugola",
+      "Il muscolo cricofaringeo",
+      "Il naso, l'epiglottico"
+    ],
+    "answer": "L'epiglottide e le corde vocali vere e false",
+    "explanation": "Durante la deglutizione, la protezione delle vie respiratorie avviene grazie alla chiusura coordinata dell’epiglottide, delle corde vocali vere e false, impedendo al cibo di penetrare nella trachea.",
+    "motivazioni_risposte_errate": {
+      "La lingua e l'ugola": "La lingua partecipa alla fase orale ma non chiude le vie respiratorie.",
+      "Il muscolo cricofaringeo": "Si apre per far passare il bolo, non si chiude.",
+      "Il naso, l'epiglottico": "Il naso non si chiude attivamente e 'epiglottico' non è una struttura anatomica."
+    },
+    "prompt_reflection": "Perché è vitale che le vie aeree vengano chiuse durante la deglutizione?",
+    "domanda_richiamo_attivo": "Elenca tutte le strutture che si attivano per proteggere le vie respiratorie mentre si deglutisce.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 168,
+    "macro_area": "Anatomia",
+    "type": "multiple_choice",
+    "question": "Quale muscolo è principalmente responsabile per l’allargamento laterale del palato molle?",
+    "options": [
+      "Il costrittore faringeo inferiore",
+      "Il levatore del palato",
+      "Il tensore del palato",
+      "Il costrittore superiore"
+    ],
+    "answer": "Il tensore del palato",
+    "explanation": "Il muscolo tensore del palato tende lateralmente il palato molle, facilitandone il sollevamento e l’adesione alla parete faringea per una fonazione chiara e non nasale.",
+    "motivazioni_risposte_errate": {
+      "Il costrittore faringeo inferiore": "Agisce sulle pareti faringee, non sul palato molle.",
+      "Il levatore del palato": "Solleva il palato molle in senso verticale, non lo tende lateralmente.",
+      "Il costrittore superiore": "Contribuisce alla chiusura faringea, ma non tende lateralmente il palato molle."
+    },
+    "prompt_reflection": "Perché il movimento laterale del palato molle è importante nella fonazione?",
+    "domanda_richiamo_attivo": "Quali muscoli agiscono sul palato molle e in che direzione?",
+    "difficulty": "easy"
+  },
+  {
+    "id": 169,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Cosa succede se il palato molle non chiude correttamente durante la produzione del suono?",
+    "options": [
+      "Il suono diventa nasale",
+      "Il suono diventa aspro",
+      "Il suono si spegne completamente",
+      "Il suono diventa più acuto"
+    ],
+    "answer": "Il suono diventa nasale",
+    "explanation": "Una chiusura incompleta del palato molle provoca il passaggio d’aria nella cavità nasale, rendendo la voce nasale e meno proiettata.",
+    "motivazioni_risposte_errate": {
+      "Il suono diventa aspro": "La qualità asprigna è legata a tensioni glottiche, non velari.",
+      "Il suono si spegne completamente": "Il suono continua, ma cambia in timbro e risonanza.",
+      "Il suono diventa più acuto": "La frequenza non dipende dal palato molle, ma dalla tensione cordale."
+    },
+    "prompt_reflection": "Perché la corretta chiusura del palato molle è cruciale nella fonazione non nasale?",
+    "domanda_richiamo_attivo": "Descrivi come un difetto nel palato molle influenza la qualità vocale.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 170,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Cosa accade alla glottide durante uno sforzo fisico intenso?",
+    "options": [
+      "Il flusso d'aria rallenta",
+      "Il flusso d'aria aumenta",
+      "Il flusso d'aria diminuisce",
+      "La glottide si apre completamente"
+    ],
+    "answer": "La glottide si apre completamente",
+    "explanation": "Durante sforzi fisici intensi, la glottide si apre completamente per favorire il massimo passaggio d’aria necessario alla ventilazione polmonare.",
+    "motivazioni_risposte_errate": {
+      "Il flusso d'aria rallenta": "In realtà aumenta per soddisfare il fabbisogno di ossigeno.",
+      "Il flusso d'aria aumenta": "È una conseguenza dell’apertura glottica, non la causa primaria.",
+      "Il flusso d'aria diminuisce": "Errato: in fase di sforzo, il flusso aumenta."
+    },
+    "prompt_reflection": "Perché è necessario aumentare l’apertura glottica durante uno sforzo?",
+    "domanda_richiamo_attivo": "Cosa accade alla glottide nei diversi stati (riposo, fonazione, sforzo)?",
+    "difficulty": "easy"
+  },
+  {
+    "id": 171,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Quale muscolo è principalmente responsabile della compressione mediale delle corde vocali?",
+    "options": [
+      "Tiroaritenoideo laterale",
+      "Tiroaritenoideo centrale",
+      "Cricoaritenoideo posteriore",
+      "Cricoaritenoideo laterale"
+    ],
+    "answer": "Cricoaritenoideo laterale",
+    "explanation": "Il cricoaritenoideo laterale è il principale muscolo responsabile della chiusura mediale delle corde vocali, fondamentale per una fonazione efficiente e intensa.",
+    "motivazioni_risposte_errate": {
+      "Tiroaritenoideo laterale": "Interviene nella massa cordale, non nella chiusura mediale.",
+      "Tiroaritenoideo centrale": "Ha ruolo sulla qualità del bordo cordale, ma non sulla chiusura.",
+      "Cricoaritenoideo posteriore": "È un abduttore, favorisce l’apertura della glottide."
+    },
+    "prompt_reflection": "Come interagiscono i muscoli adduttori nella fonazione efficiente?",
+    "domanda_richiamo_attivo": "Qual è il ruolo del cricoaritenoideo laterale nella fonazione?",
+    "difficulty": "medium"
+  },
+
+  {
+    "id": 172,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Cosa succede quando aumenta la pressione sottoglottica?",
+    "options": [
+      "L'intensità della voce diminuisce",
+      "La frequenza fondamentale aumenta",
+      "La resistenza glottica aumenta",
+      "Le corde vocali vibrano più lentamente"
+    ],
+    "answer": "La frequenza fondamentale aumenta",
+    "explanation": {
+      "L'intensità della voce diminuisce": "Un aumento della pressione sottoglottica in realtà incrementa l'intensità.",
+      "La frequenza fondamentale aumenta": "Corretto. Una maggiore pressione causa una maggiore tensione e una vibrazione più veloce delle corde vocali.",
+      "La resistenza glottica aumenta": "La resistenza può variare, ma non è la conseguenza primaria della pressione.",
+      "Le corde vocali vibrano più lentamente": "È il contrario: la vibrazione accelera con l’aumento di pressione."
+    },
+    "reflection_prompt": "In che modo la pressione sottoglottica influenza il tono vocale?",
+    "active_recall_prompt": "Descrivi la relazione tra pressione sottoglottica e frequenza fondamentale.",
+    "key_concepts": [
+      "pressione sottoglottica",
+      "frequenza",
+      "intensità",
+      "fonazione"
+    ],
+    "didactic_note": "Domanda chiave per collegare biomeccanica respiratoria e fonazione.",
+    "learning_outcome": "Spiegare l’effetto della pressione sottoglottica sui parametri vocali.",
+    "level": "intermedio",
+    "related_lessons": [
+      "2. Anatomia e Anatomofisiologia"
+    ],
+    "tags": [
+      "pressione",
+      "voce",
+      "frequenza",
+      "fonazione"
+    ]
+  },
+  {
+    "id": 173,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Qual è l'effetto dell'elevazione laringea sulle corde vocali?",
+    "options": [
+      "Diminuisce la rigidità delle corde vocali",
+      "Aumenta la rigidità delle corde vocali",
+      "Riduce la frequenza di vibrazione delle corde vocali",
+      "Non ha alcun effetto sulle corde vocali"
+    ],
+    "answer": "Aumenta la rigidità delle corde vocali",
+    "explanation": {
+      "Diminuisce la rigidità delle corde vocali": "L'elevazione tende a tirare le strutture, non a rilassarle.",
+      "Aumenta la rigidità delle corde vocali": "Corretto. L’elevazione accorcia e tende le corde aumentando la loro tensione.",
+      "Riduce la frequenza di vibrazione delle corde vocali": "Con maggiore tensione, la frequenza aumenta.",
+      "Non ha alcun effetto sulle corde vocali": "La laringe è direttamente coinvolta nella fonazione, quindi l’elevazione ha effetto."
+    },
+    "reflection_prompt": "Quale relazione c'è tra posizione della laringe e tensione delle corde vocali?",
+    "active_recall_prompt": "Cosa accade alle corde vocali quando la laringe si eleva?",
+    "key_concepts": [
+      "laringe",
+      "tensione cordale",
+      "rigidità",
+      "altezza tonale"
+    ],
+    "didactic_note": "Focalizza sulla biomeccanica della laringe nel controllo tonale.",
+    "learning_outcome": "Descrivere l’influenza della posizione laringea sulla fonazione.",
+    "level": "intermedio",
+    "related_lessons": [
+      "2. Anatomia e Anatomofisiologia"
+    ],
+    "tags": [
+      "laringe",
+      "corde vocali",
+      "tensione",
+      "intonazione"
+    ]
+  },
+  {
+    "id": 174,
+    "macro_area": "Anatomia",
+    "type": "multiple_choice",
+    "question": "Qual è la funzione principale del muscolo elevatore del palato?",
+    "options": [
+      "Sollevare il palato molle lateralmente",
+      "Sollevare il palato molle verso l'alto e indietro",
+      "Dilatare la tuba uditiva",
+      "Chiudere l'ugola"
+    ],
+    "answer": "Sollevare il palato molle verso l'alto e indietro",
+    "explanation": {
+      "Sollevare il palato molle lateralmente": "Questa funzione è svolta dal tensore del palato.",
+      "Sollevare il palato molle verso l'alto e indietro": "Corretto. È la sua funzione principale per isolare naso e bocca.",
+      "Dilatare la tuba uditiva": "Compito del tensore del velo palatino.",
+      "Chiudere l'ugola": "Non è una funzione muscolare diretta del levatore del palato."
+    },
+    "reflection_prompt": "Perché è importante la direzione del movimento del palato molle?",
+    "active_recall_prompt": "Descrivi le funzioni principali del muscolo elevatore del palato.",
+    "key_concepts": [
+      "palato molle",
+      "velofaringeo",
+      "muscoli",
+      "elevazione"
+    ],
+    "didactic_note": "Aiuta a comprendere il ruolo nel controllo del passaggio nasale durante fonazione e deglutizione.",
+    "learning_outcome": "Identificare la funzione e la direzione del movimento del muscolo elevatore del palato.",
+    "level": "base",
+    "related_lessons": [
+      "2. Anatomia e Anatomofisiologia"
+    ],
+    "tags": [
+      "palato",
+      "muscoli",
+      "fonazione",
+      "anatomia"
+    ]
+  },
+  {
+    "id": 175,
+    "macro_area": "Anatomia",
+    "type": "multiple_choice",
+    "question": "Qual è la funzione del muscolo costrittore superiore?",
+    "options": [
+      "Alzare il palato molle",
+      "Compensare la chiusura incompleta del palato molle",
+      "Deprime la laringe",
+      "Protrudere la mandibola"
+    ],
+    "answer": "Compensare la chiusura incompleta del palato molle",
+    "explanation": {
+      "Alzare il palato molle": "Funzione del levatore del palato, non del costrittore.",
+      "Compensare la chiusura incompleta del palato molle": "Corretto. Aiuta a completare la chiusura velofaringea.",
+      "Deprime la laringe": "Coinvolge muscoli infrahioidei, non il costrittore superiore.",
+      "Protrudere la mandibola": "Coinvolge muscoli masticatori, non faringei."
+    },
+    "reflection_prompt": "In che modo i muscoli faringei supportano la fonazione e la deglutizione?",
+    "active_recall_prompt": "Che ruolo ha il costrittore superiore durante la produzione vocale?",
+    "key_concepts": [
+      "palato molle",
+      "velofaringeo",
+      "costrittore",
+      "compensazione"
+    ],
+    "didactic_note": "Domanda che collega biomeccanica muscolare e funzionalità della chiusura faringea.",
+    "learning_outcome": "Spiegare il ruolo compensatorio del costrittore superiore nella fonazione.",
+    "level": "intermedio",
+    "related_lessons": [
+      "2. Anatomia e Anatomofisiologia"
+    ],
+    "tags": [
+      "palato",
+      "muscoli",
+      "faringe",
+      "anatomia"
+    ]
+  },
+  {
+    "id": 176,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Durante la deglutizione, quali strutture si chiudono oltre al palato molle?",
+    "options": [
+      "L'epiglottide e le corde vocali vere e false",
+      "La lingua e l'ugola",
+      "Il muscolo cricofaringeo",
+      "Il naso, l'epiglottico"
+    ],
+    "answer": "L'epiglottide e le corde vocali vere e false",
+    "explanation": {
+      "L'epiglottide e le corde vocali vere e false": "Corretto. Si chiudono per proteggere le vie aeree dalla penetrazione del bolo.",
+      "La lingua e l'ugola": "Partecipano alla spinta del bolo ma non chiudono le vie aeree.",
+      "Il muscolo cricofaringeo": "Si apre per permettere il passaggio del bolo.",
+      "Il naso, l'epiglottico": "Termine anatomicamente errato e non riferibile a strutture di chiusura."
+    },
+    "reflection_prompt": "Quali sono i meccanismi di protezione delle vie respiratorie durante la deglutizione?",
+    "active_recall_prompt": "Elenca tutte le strutture coinvolte nella chiusura della via respiratoria durante la deglutizione.",
+    "key_concepts": [
+      "deglutizione",
+      "vie aeree",
+      "protezione",
+      "epiglottide"
+    ],
+    "didactic_note": "Rinforza l’importanza della sicurezza della deglutizione per la fonazione.",
+    "learning_outcome": "Descrivere i meccanismi protettivi durante la deglutizione.",
+    "level": "intermedio",
+    "related_lessons": [
+      "2. Anatomia e Anatomofisiologia"
+    ],
+    "tags": [
+      "deglutizione",
+      "corde vocali",
+      "protezione",
+      "fisiologia"
+    ]
+  },
+
+       {
+    "id": 177,
+    "macro_area": "Anatomia",
+    "type": "multiple_choice",
+    "question": "Quale muscolo è principalmente responsabile per l'allargamento laterale del palato molle?",
+    "options": [
+      "Il costrittore faringeo inferiore",
+      "Il levatore del palato",
+      "Il tensore del palato",
+      "Il costrittore superiore"
+    ],
+    "answer": "Il tensore del palato",
+    "explanation": {
+      "Il costrittore faringeo inferiore": "Coinvolto nella deglutizione, ma non agisce sul palato molle.",
+      "Il levatore del palato": "Solleva il palato, ma non lo tende lateralmente.",
+      "Il tensore del palato": "Corretto. Questo muscolo tende e allarga il palato molle lateralmente.",
+      "Il costrittore superiore": "Agisce nella faringe, non nella mobilità laterale del palato."
+    },
+    "reflection_prompt": "Come il movimento laterale del palato influisce sulla risonanza?",
+    "active_recall_prompt": "Quale muscolo contribuisce all'allargamento laterale del palato molle?",
+    "key_concepts": [
+      "palato molle",
+      "tensore",
+      "muscoli del velo",
+      "risonanza"
+    ],
+    "didactic_note": "Consolida l'anatomia funzionale del palato molle e il suo ruolo fonatorio.",
+    "learning_outcome": "Identificare il muscolo responsabile dell'espansione laterale del palato.",
+    "level": "base",
+    "related_lessons": [
+      "2. Anatomia e Anatomofisiologia"
+    ],
+    "tags": [
+      "palato",
+      "muscoli",
+      "anatomia",
+      "fonoarticolazione"
+    ]
+  },
+  {
+    "id": 178,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Cosa succede se il palato molle non chiude correttamente durante la produzione del suono?",
+    "options": [
+      "Il suono diventa nasale",
+      "Il suono diventa aspro",
+      "Il suono si spegne completamente",
+      "Il suono diventa più acuto"
+    ],
+    "answer": "Il suono diventa nasale",
+    "explanation": {
+      "Il suono diventa nasale": "Corretto. Una chiusura incompleta consente al suono di passare nella cavità nasale.",
+      "Il suono diventa aspro": "L’asprezza dipende da altri fattori come tensione o impostazione.",
+      "Il suono si spegne completamente": "Non si spegne, ma viene alterato nella qualità timbrica.",
+      "Il suono diventa più acuto": "La frequenza resta invariata; cambia solo la risonanza."
+    },
+    "reflection_prompt": "Perché la corretta chiusura del palato è essenziale nella fonazione non nasale?",
+    "active_recall_prompt": "Cosa accade al timbro se il palato molle resta aperto?",
+    "key_concepts": [
+      "risonanza",
+      "velo palatino",
+      "rinolalia",
+      "palato molle"
+    ],
+    "didactic_note": "Aiuta a identificare i problemi legati alla fonazione ipernasale.",
+    "learning_outcome": "Spiegare l’effetto della chiusura velare incompleta sul suono vocale.",
+    "level": "intermedio",
+    "related_lessons": [
+      "2. Anatomia e Anatomofisiologia"
+    ],
+    "tags": [
+      "risonanza",
+      "palato",
+      "voce",
+      "fonoarticolazione"
+    ]
+  },
+  {
+    "id": 179,
+    "macro_area": "Anatomia",
+    "type": "multiple_choice",
+    "question": "Qual è la principale caratteristica dell'articolazione temporo-mandibolare?",
+    "options": [
+      "È una articolazione condiloidea",
+      "È una articolazione ball-and-socket",
+      "È una articolazione sinoviale",
+      "È una articolazione fibrosa"
+    ],
+    "answer": "È una articolazione sinoviale",
+    "explanation": {
+      "È una articolazione condiloidea": "Possiede elementi condiloidei, ma la sua classificazione principale è sinoviale.",
+      "È una articolazione ball-and-socket": "Questa forma è tipica di spalla e anca, non della ATM.",
+      "È una articolazione sinoviale": "Corretto. Ha una capsula, disco articolare e liquido sinoviale.",
+      "È una articolazione fibrosa": "Le articolazioni fibrose non permettono movimento articolare attivo."
+    },
+    "reflection_prompt": "In che modo la struttura sinoviale dell’ATM supporta la fonazione?",
+    "active_recall_prompt": "Quali elementi rendono l’ATM un’articolazione sinoviale?",
+    "key_concepts": [
+      "ATM",
+      "sinoviale",
+      "anatomia articolare",
+      "movimento mandibolare"
+    ],
+    "didactic_note": "Domanda fondamentale per collegare articolazione e fonazione.",
+    "learning_outcome": "Descrivere la classificazione dell’ATM e le sue implicazioni funzionali.",
+    "level": "intermedio",
+    "related_lessons": [
+      "2. Anatomia e Anatomofisiologia"
+    ],
+    "tags": [
+      "ATM",
+      "anatomia",
+      "articolazioni",
+      "voce"
+    ]
+  },
+  {
+    "id": 180,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Quali muscoli contribuiscono alla posizione del palato molle in caso di rinolalia chiusa?",
+    "options": [
+      "Palatoglosso e palatofaringeo",
+      "Tensore del palato e costrittore superiore",
+      "Cricofaringeo e costrittore inferiore",
+      "Muscoli mimici e lingua"
+    ],
+    "answer": "Palatoglosso e palatofaringeo",
+    "explanation": {
+      "Palatoglosso e palatofaringeo": "Corretto. Questi muscoli regolano l’abbassamento e la flessibilità del velo palatino.",
+      "Tensore del palato e costrittore superiore": "Agiscono sulla tensione e sulla faringe, ma non controllano direttamente la posizione nel caso di rinolalia chiusa.",
+      "Cricofaringeo e costrittore inferiore": "Coinvolti nella deglutizione, non nella risonanza fonatoria.",
+      "Muscoli mimici e lingua": "Coinvolti nell’articolazione labiale e linguale, non nella chiusura velare."
+    },
+    "reflection_prompt": "Quali muscoli modulano la direzione e la chiusura del palato molle?",
+    "active_recall_prompt": "Chi sono i principali responsabili del controllo del palato molle?",
+    "key_concepts": [
+      "palato molle",
+      "rinolalia",
+      "palatoglosso",
+      "palatofaringeo"
+    ],
+    "didactic_note": "Domanda utile per comprendere la muscolatura della cavità orale in contesto patologico.",
+    "learning_outcome": "Identificare i muscoli coinvolti nella postura del palato in condizioni fonatorie alterate.",
+    "level": "intermedio",
+    "related_lessons": [
+      "2. Anatomia e Anatomofisiologia"
+    ],
+    "tags": [
+      "palato",
+      "muscoli",
+      "voce",
+      "rinolalia"
+    ]
+  },
+  {
+    "id": 181,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Quando si produce un suono nasale, cosa succede al palato molle?",
+    "options": [
+      "Il palato molle è completamente chiuso",
+      "Il palato molle è semi-aperto",
+      "Il palato molle è completamente aperto",
+      "Il palato molle è sollevato"
+    ],
+    "answer": "Il palato molle è completamente aperto",
+    "explanation": {
+      "Il palato molle è completamente chiuso": "Questo avviene nei suoni orali, non nasali.",
+      "Il palato molle è semi-aperto": "Questa condizione non consente un suono nasale ben formato.",
+      "Il palato molle è completamente aperto": "Corretto. Così il suono può risuonare nella cavità nasale.",
+      "Il palato molle è sollevato": "Sollevarlo chiuderebbe la comunicazione con le cavità nasali."
+    },
+    "reflection_prompt": "Come varia la posizione del palato molle tra suoni nasali e orali?",
+    "active_recall_prompt": "Qual è la posizione del velo palatino durante la produzione di suoni nasali?",
+    "key_concepts": [
+      "suono nasale",
+      "palato molle",
+      "risonanza",
+      "fonazione"
+    ],
+    "didactic_note": "Focalizza sulla meccanica fonatoria e le cavità di risonanza.",
+    "learning_outcome": "Descrivere la biomeccanica del palato molle nella produzione di suoni nasali.",
+    "level": "base",
+    "related_lessons": [
+      "2. Anatomia e Anatomofisiologia"
+    ],
+    "tags": [
+      "nasale",
+      "voce",
+      "palato",
+      "risonanza"
+    ]
+  },
+
+    {
+    "id": 182,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Quale muscolo è coinvolto nell'articolazione delle consonanti nasali come 'n' e 'm'?",
+    "options": [
+      "Il tensore del palato",
+      "Il muscolo cricofaringeo",
+      "Il muscolo costrittore superiore",
+      "Il palato molle"
+    ],
+    "answer": "Il palato molle",
+    "explanation": {
+      "Il tensore del palato": "Tende il palato molle ma non è direttamente responsabile dell’articolazione dei suoni nasali.",
+      "Il muscolo cricofaringeo": "È coinvolto nella deglutizione, non nella fonazione.",
+      "Il muscolo costrittore superiore": "Aiuta nella deglutizione e nel sostegno della faringe.",
+      "Il palato molle": "Corretto. La sua apertura permette al suono di risuonare nella cavità nasale, fondamentale per le consonanti nasali."
+    },
+    "reflection_prompt": "Cosa succede se il palato molle non funziona correttamente durante l’articolazione delle consonanti nasali?",
+    "active_recall_prompt": "Qual è il ruolo del palato molle nella fonazione nasale?",
+    "key_concepts": [
+      "fonazione",
+      "palato molle",
+      "consonanti nasali",
+      "anatomia vocale"
+    ],
+    "didactic_note": "Fondamentale per capire la distinzione tra fonazione nasale e orale.",
+    "learning_outcome": "Descrivere la funzione del palato molle nella produzione di consonanti nasali.",
+    "level": "intermedio",
+    "related_lessons": [
+      "2. Anatomia e Anatomofisiologia"
+    ],
+    "tags": [
+      "voce",
+      "fonazione",
+      "palato",
+      "consonanti"
+    ]
+  },
+  {
+    "id": 183,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Quale muscolo è primario nel controllo della frequenza fondamentale (F0)?",
+    "options": [
+      "Cricoaritenoideo posteriore",
+      "Cricotiroideo",
+      "Tiroioideo",
+      "Cricoaritenoideo laterale"
+    ],
+    "answer": "Cricotiroideo",
+    "explanation": {
+      "Cricoaritenoideo posteriore": "Agisce come abduttore delle corde vocali.",
+      "Cricotiroideo": "Corretto. Regola la tensione delle corde vocali aumentando F0.",
+      "Tiroioideo": "Ha un ruolo di stabilizzazione nella laringe ma non regola direttamente la F0.",
+      "Cricoaritenoideo laterale": "Adduttore, non responsabile del controllo della frequenza fondamentale."
+    },
+    "reflection_prompt": "Perché l’allungamento delle corde vocali modifica la frequenza del suono?",
+    "active_recall_prompt": "Quale muscolo modula la tensione delle corde vocali per aumentare la F0?",
+    "key_concepts": [
+      "frequenza fondamentale",
+      "muscoli laringei",
+      "tensione vocale"
+    ],
+    "didactic_note": "Aiuta a comprendere il controllo muscolare della tonalità vocale.",
+    "learning_outcome": "Identificare il muscolo principale responsabile della regolazione della F0.",
+    "level": "intermedio",
+    "related_lessons": [
+      "2. Anatomia e Anatomofisiologia"
+    ],
+    "tags": [
+      "muscoli",
+      "voce",
+      "frequenza",
+      "fonazione"
+    ]
+  },
+  {
+    "id": 184,
+    "macro_area": "Anatomia",
+    "type": "multiple_choice",
+    "question": "Quale dei seguenti assi attraversa il corpo dalla testa ai piedi?",
+    "options": [
+      "Asse longitudinale",
+      "Asse trasversale",
+      "Asse sagittale",
+      "Asse orizzontale"
+    ],
+    "answer": "Asse longitudinale",
+    "explanation": {
+      "Asse longitudinale": "Corretto. Va dalla testa ai piedi.",
+      "Asse trasversale": "Attraversa il corpo da destra a sinistra.",
+      "Asse sagittale": "Attraversa il corpo da anteriore a posteriore.",
+      "Asse orizzontale": "Sinonimo di trasversale, non verticale."
+    },
+    "reflection_prompt": "Qual è la relazione tra gli assi del corpo e i piani di movimento?",
+    "active_recall_prompt": "Quale asse percorre il corpo verticalmente?",
+    "key_concepts": [
+      "assi corporei",
+      "anatomia",
+      "movimento"
+    ],
+    "didactic_note": "Fondamentale per comprendere orientamento e movimenti del corpo.",
+    "learning_outcome": "Identificare l’asse longitudinale e distinguerlo dagli altri assi anatomici.",
+    "level": "base",
+    "related_lessons": [
+      "2. Anatomia e Anatomofisiologia"
+    ],
+    "tags": [
+      "assi",
+      "movimento",
+      "anatomia"
+    ]
+  },
+  {
+    "id": 185,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Qual è la principale funzione del cricoaritenoideo laterale durante la fonazione?",
+    "options": [
+      "Aumentare la frequenza fondamentale",
+      "Avvicinare le corde vocali alla linea mediana",
+      "Stabilizzare l'adduzione forzata sugli acuti"
+    ],
+    "answer": "Avvicinare le corde vocali alla linea mediana",
+    "explanation": {
+      "Aumentare la frequenza fondamentale": "È compito del cricotiroideo.",
+      "Avvicinare le corde vocali alla linea mediana": "Corretto. Questo muscolo è adduttore delle corde vocali.",
+      "Stabilizzare l'adduzione forzata sugli acuti": "Può coadiuvare, ma non è la sua funzione primaria."
+    },
+    "reflection_prompt": "Quali muscoli sono direttamente coinvolti nell’adduzione vocale?",
+    "active_recall_prompt": "Chi avvicina le corde vocali alla linea mediana durante la fonazione?",
+    "key_concepts": [
+      "muscoli laringei",
+      "fonazione",
+      "adduzione"
+    ],
+    "didactic_note": "Domanda chiave per capire la biomeccanica della fonazione.",
+    "learning_outcome": "Descrivere il ruolo del cricoaritenoideo laterale nell’adduzione glottica.",
+    "level": "intermedio",
+    "related_lessons": [
+      "2. Anatomia e Anatomofisiologia"
+    ],
+    "tags": [
+      "corde vocali",
+      "muscoli",
+      "voce",
+      "adduzione"
+    ]
+  },
+  {
+    "id": 186,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Cosa accade quando il flusso d'aria attraverso la glottide aumenta?",
+    "options": [
+      "La pressione sottoglottica aumenta",
+      "La pressione sottoglottica diminuisce",
+      "Il timbro della voce rimane invariato",
+      "La frequenza fondamentale diminuisce"
+    ],
+    "answer": "La pressione sottoglottica diminuisce",
+    "explanation": {
+      "La pressione sottoglottica aumenta": "Aumenta solo se il flusso è ostacolato, non se aumenta liberamente.",
+      "La pressione sottoglottica diminuisce": "Corretto. Un flusso d’aria maggiore tende ad abbassare la pressione sotto la glottide.",
+      "Il timbro della voce rimane invariato": "Il timbro può essere alterato dal flusso e dalla pressione.",
+      "La frequenza fondamentale diminuisce": "La F0 dipende da altri fattori, non direttamente dal flusso d’aria."
+    },
+    "reflection_prompt": "Qual è la relazione tra flusso, pressione e vibrazione cordale?",
+    "active_recall_prompt": "Cosa succede alla pressione sottoglottica se il flusso aumenta?",
+    "key_concepts": [
+      "flusso d’aria",
+      "pressione sottoglottica",
+      "glottide",
+      "fonazione"
+    ],
+    "didactic_note": "Fondamentale per comprendere la fisica della voce.",
+    "learning_outcome": "Descrivere l’effetto dell’aumento del flusso sulla pressione sottoglottica.",
+    "level": "intermedio",
+    "related_lessons": [
+      "2. Anatomia e Anatomofisiologia"
+    ],
+    "tags": [
+      "glottide",
+      "voce",
+      "aria",
+      "pressione"
+    ]
+  },
+
+{
+    "id": 187,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Qual è la relazione istintiva in un cantante inesperto tra la pressione sottoglottica e la frequenza fondamentale (F0)?",
+    "options": [
+      "Maggiore pressione aumenta la F0",
+      "Maggiore pressione diminuisce la F0",
+      "La pressione non ha effetto sulla F0",
+      "La pressione sottoglottica aumenta solo in frequenze basse"
+    ],
+    "answer": "Maggiore pressione aumenta la F0",
+    "explanation": {
+      "Maggiore pressione diminuisce la F0": "Un aumento della pressione tende ad aumentare, non diminuire, la frequenza percepita.",
+      "La pressione non ha effetto sulla F0": "La pressione sottoglottica influisce sulla vibrazione delle corde vocali e quindi sulla F0.",
+      "La pressione sottoglottica aumenta solo in frequenze basse": "Questa affermazione è imprecisa, l’aumento della pressione può avvenire su tutte le frequenze in modo non intenzionale.",
+      "Maggiore pressione aumenta la F0": "Corretto. Un cantante inesperto tende a spingere con più aria per raggiungere note acute, credendo istintivamente che un aumento della pressione porti a un aumento della frequenza."
+    },
+    "reflection_prompt": "Qual è il rischio biomeccanico associato all'aumento istintivo della pressione sottoglottica?",
+    "active_recall_prompt": "Qual è il comportamento istintivo errato rispetto a pressione e F0 nei cantanti inesperti?",
+    "learning_outcome": "Comprendere le reazioni istintive errate nella gestione vocale e il loro impatto sulla frequenza.",
+    "key_concepts": [
+      "pressione sottoglottica",
+      "frequenza fondamentale",
+      "comportamento istintivo"
+    ],
+    "didactic_note": "È utile far eseguire esperimenti di aumento della pressione con biofeedback per correggere questa reazione.",
+    "level": "intermedio",
+    "related_lessons": [
+      "2. Anatomia e Anatomofisiologia"
+    ],
+    "tags": [
+      "voce",
+      "pressione",
+      "frequenza",
+      "comportamento"
+    ]
+  },
+  {
+    "id": 188,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Quando si modifica la posizione delle labbra, quale effetto si ha sulla voce?",
+    "options": [
+      "Cambia solo la frequenza",
+      "Cambia la lunghezza delle corde vocali",
+      "Modifica la vibrazione e il timbro della voce",
+      "Non ha alcun effetto sulla voce"
+    ],
+    "answer": "Modifica la vibrazione e il timbro della voce",
+    "explanation": {
+      "Cambia solo la frequenza": "La posizione delle labbra non modifica direttamente la frequenza fondamentale.",
+      "Cambia la lunghezza delle corde vocali": "Le corde vocali non sono direttamente influenzate dalle labbra.",
+      "Non ha alcun effetto sulla voce": "Anche piccoli cambiamenti nella posizione delle labbra alterano significativamente il suono percepito.",
+      "Modifica la vibrazione e il timbro della voce": "Corretto. La posizione delle labbra influisce sulle risonanze del tratto vocale, modificando timbro e qualità del suono."
+    },
+    "reflection_prompt": "Come puoi usare la consapevolezza della posizione delle labbra per modificare intenzionalmente il timbro vocale?",
+    "active_recall_prompt": "Che ruolo hanno le labbra nella modulazione del timbro?",
+    "learning_outcome": "Comprendere l’importanza del tratto vocale nella modulazione vocale.",
+    "key_concepts": [
+      "tratto vocale",
+      "risonanza",
+      "timbro"
+    ],
+    "didactic_note": "Utilizzare esercizi specchio per evidenziare le variazioni timbriche legate alle modifiche delle labbra.",
+    "level": "base",
+    "related_lessons": [
+      "2. Anatomia e Anatomofisiologia"
+    ],
+    "tags": [
+      "labbra",
+      "risonanza",
+      "timbro",
+      "fonazione"
+    ]
+  },
+  {
+    "id": 189,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Cosa accade quando il muscolo cricotiroideo è attivato?",
+    "options": [
+      "La frequenza fondamentale aumenta",
+      "La frequenza fondamentale diminuisce",
+      "Le corde vocali si allungano e la voce diventa più grave",
+      "La pressione sottoglottica aumenta"
+    ],
+    "answer": "La frequenza fondamentale aumenta",
+    "explanation": {
+      "La frequenza fondamentale diminuisce": "L’aumento della tensione aumenta, non diminuisce, la frequenza.",
+      "Le corde vocali si allungano e la voce diventa più grave": "L’allungamento aumenta la frequenza, rendendo la voce più acuta.",
+      "La pressione sottoglottica aumenta": "Il cricotiroideo agisce meccanicamente sulle corde vocali, non sulla pressione.",
+      "La frequenza fondamentale aumenta": "Corretto. Il cricotiroideo allunga e tende le corde vocali, incrementando la tensione e quindi la frequenza fondamentale."
+    },
+    "reflection_prompt": "Quale sensazione fisica accompagna l’attivazione del cricotiroideo durante l’emissione degli acuti?",
+    "active_recall_prompt": "Quale muscolo è coinvolto nell’aumento della F0 durante la fonazione?",
+    "learning_outcome": "Identificare la funzione del cricotiroideo nella regolazione della frequenza.",
+    "key_concepts": [
+      "cricotiroideo",
+      "tensione cordale",
+      "frequenza"
+    ],
+    "didactic_note": "Può essere utile usare esercizi vocali mirati agli acuti per localizzare la sensazione di trazione.",
+    "level": "intermedio",
+    "related_lessons": [
+      "2. Anatomia e Anatomofisiologia"
+    ],
+    "tags": [
+      "corde vocali",
+      "muscoli",
+      "voce",
+      "frequenza"
+    ]
+  },
+  {
+    "id": 190,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Cosa accade quando il muscolo cricotiroideo è attivato?",
+    "options": [
+      "La frequenza fondamentale aumenta",
+      "La frequenza fondamentale diminuisce",
+      "Le corde vocali si allungano e la voce diventa più grave",
+      "La pressione sottoglottica aumenta"
+    ],
+    "answer": "La frequenza fondamentale aumenta",
+    "explanation": {
+      "La frequenza fondamentale diminuisce": "Maggiore tensione delle corde porta a vibrazione più veloce, non più lenta.",
+      "Le corde vocali si allungano e la voce diventa più grave": "L’allungamento aumenta la tensione e acuisce il suono, non lo rende più grave.",
+      "La pressione sottoglottica aumenta": "La tensione delle corde è indipendente dalla pressione sottoglottica.",
+      "La frequenza fondamentale aumenta": "Corretto. L'attivazione del cricotiroideo allunga e tende le corde vocali, aumentando la frequenza di vibrazione."
+    },
+    "reflection_prompt": "Come puoi distinguere in un’esecuzione vocale se è il cricotiroideo ad essere attivato o altri muscoli?",
+    "active_recall_prompt": "Quali sono gli effetti percettivi dell’attivazione del cricotiroideo?",
+    "learning_outcome": "Riconoscere i segnali percettivi dell’attivazione del cricotiroideo.",
+    "key_concepts": [
+      "tono",
+      "contrazione",
+      "muscolo laringeo"
+    ],
+    "didactic_note": "Utilizza immagini anatomiche per visualizzare l’effetto dell’allungamento cordale.",
+    "level": "intermedio",
+    "related_lessons": [
+      "2. Anatomia e Anatomofisiologia"
+    ],
+    "tags": [
+      "cricotiroideo",
+      "voce",
+      "tensione",
+      "frequenza"
+    ]
+  },
+  {
+    "id": 191,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Quale effetto ha l’attivazione simultanea di cricotiroideo e tiroaritenoideo?",
+    "options": [
+      "Provoca un abbassamento della frequenza fondamentale",
+      "Aumenta la tensione delle corde vocali",
+      "Impedisce la vibrazione delle corde vocali",
+      "Ha effetto solo sulla qualità timbricale"
+    ],
+    "answer": "Aumenta la tensione delle corde vocali",
+    "explanation": {
+      "Provoca un abbassamento della frequenza fondamentale": "L'effetto è opposto: aumenta la frequenza.",
+      "Impedisce la vibrazione delle corde vocali": "Nessuno dei due muscoli blocca la vibrazione; al contrario, la regola.",
+      "Ha effetto solo sulla qualità timbricale": "L’effetto primario è meccanico, non solo timbrico.",
+      "Aumenta la tensione delle corde vocali": "Corretto. Quando entrambi i muscoli si attivano, la tensione totale sulle corde vocali cresce, supportando le note acute."
+    },
+    "reflection_prompt": "Quale bilanciamento tra tensione e massa muscolare permette la vibrazione più efficiente delle corde vocali?",
+    "active_recall_prompt": "Qual è il risultato della co-attivazione di cricotiroideo e tiroaritenoideo?",
+    "learning_outcome": "Comprendere il ruolo sinergico di cricotiroideo e tiroaritenoideo nella fonazione.",
+    "key_concepts": [
+      "co-attivazione",
+      "tensione muscolare",
+      "voce"
+    ],
+    "didactic_note": "Utilizzare visualizzazioni dinamiche in video per mostrare l’attività muscolare combinata.",
+    "level": "avanzato",
+    "related_lessons": [
+      "2. Anatomia e Anatomofisiologia"
+    ],
+    "tags": [
+      "corde vocali",
+      "co-attivazione",
+      "muscoli",
+      "tensione"
+    ]
+  }
+,
+
+  {
+    "id": 192,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Cos'è la \"fuga d'aria\" nella voce?",
+    "options": [
+      "Una voce con tono molto acuto",
+      "Una voce che produce suoni sussurrati",
+      "La dispersione di flusso transglottico, che rende la voce ariosa",
+      "Un aumento di pressione sotto-glottica"
+    ],
+    "answer": "La dispersione di flusso transglottico, che rende la voce ariosa",
+    "explanation": {
+      "Una voce con tono molto acuto": "La frequenza non è legata alla fuga d’aria, ma al controllo della tensione delle corde vocali.",
+      "Una voce che produce suoni sussurrati": "Il sussurro è una modalità vocale voluta e non patologica, la fuga d’aria è spesso un segnale di inefficienza fonatoria.",
+      "Un aumento di pressione sotto-glottica": "Un aumento di pressione può esserci, ma non è la causa né la descrizione della fuga d’aria.",
+      "La dispersione di flusso transglottico, che rende la voce ariosa": "Corretto. La fuga d’aria è causata da una chiusura incompleta delle corde vocali, che permette al flusso d’aria di passare eccessivamente durante la fonazione, conferendo un timbro arioso."
+    },
+    "reflection_prompt": "Quali strategie si possono adottare per migliorare la chiusura glottica in un soggetto con voce ariosa?",
+    "active_recall_prompt": "Definisci la fuga d’aria e il suo effetto sul timbro vocale.",
+    "application_prompt": "Osserva un esempio vocale di fuga d’aria: come potresti guidare l’allievo verso una maggiore efficienza fonatoria?",
+    "learning_outcome": "Comprendere il concetto di fuga d’aria e la sua origine anatomico-funzionale.",
+    "key_concepts": [
+      "fuga d’aria",
+      "chiusura glottica",
+      "voce ariosa",
+      "efficienza fonatoria"
+    ],
+    "didactic_note": "Differenziare la voce ariosa da quella sussurrata attraverso esempi pratici.",
+    "level": "intermedio",
+    "related_lessons": [
+      "2. Anatomia e Anatomofisiologia"
+    ],
+    "tags": [
+      "voce",
+      "glottide",
+      "timbro",
+      "aria"
+    ]
+  },
+  {
+    "id": 193,
+    "macro_area": "Applicazioni didattiche",
+    "type": "multiple_choice",
+    "question": "Qual è il principale problema nella valutazione percettiva della voce?",
+    "options": [
+      "La difficoltà nel misurare l'intensità",
+      "La mancanza di strumenti adatti",
+      "La terminologia non univoca",
+      "La mancanza di tecniche di rilassamento vocale"
+    ],
+    "answer": "La terminologia non univoca",
+    "explanation": {
+      "La difficoltà nel misurare l'intensità": "L’intensità può essere misurata oggettivamente con strumenti acustici.",
+      "La mancanza di strumenti adatti": "Esistono strumenti, ma è la valutazione soggettiva e linguistica che crea problemi.",
+      "La mancanza di tecniche di rilassamento vocale": "Il rilassamento è importante per la pratica vocale ma non influisce direttamente sulla validità della valutazione percettiva.",
+      "La terminologia non univoca": "Corretto. La valutazione percettiva può risultare soggettiva e variabile perché mancano criteri condivisi e una terminologia univoca universalmente adottata."
+    },
+    "reflection_prompt": "Perché è fondamentale usare una terminologia condivisa tra insegnanti nella valutazione della voce?",
+    "active_recall_prompt": "Qual è il limite principale nella valutazione percettiva della voce?",
+    "application_prompt": "Prova a descrivere una voce con tre aggettivi: confrontali con un collega. Usate lo stesso vocabolario?",
+    "learning_outcome": "Sviluppare consapevolezza sull’uso del linguaggio tecnico nella didattica vocale.",
+    "key_concepts": [
+      "valutazione percettiva",
+      "terminologia",
+      "linguaggio condiviso"
+    ],
+    "didactic_note": "Utile in percorsi formativi per insegnanti di canto o logopedisti.",
+    "level": "base",
+    "related_lessons": [
+      "Valutazione vocale soggettiva"
+    ],
+    "tags": [
+      "percezione",
+      "valutazione",
+      "voce",
+      "didattica"
+    ]
+  },
+  {
+    "id": 194,
+    "macro_area": "Applicazioni didattiche",
+    "type": "multiple_choice",
+    "question": "Cosa implica un test di \"affaticabilità\" della voce?",
+    "options": [
+      "Verificare la durata della produzione vocale",
+      "Osservare come il muscolo si contrae durante l'esecuzione del suono",
+      "Determinare il volume massimo raggiungibile",
+      "Testare l'abilità di mantenere la voce in una tonalità acuta"
+    ],
+    "answer": "Verificare la durata della produzione vocale",
+    "explanation": {
+      "Osservare come il muscolo si contrae durante l'esecuzione del suono": "Questa è una valutazione elettromiografica, non di affaticabilità.",
+      "Determinare il volume massimo raggiungibile": "Questa è una valutazione di ampiezza o potenza, non di resistenza.",
+      "Testare l'abilità di mantenere la voce in una tonalità acuta": "Questo valuta l’estensione o l’agilità, non la resistenza vocale.",
+      "Verificare la durata della produzione vocale": "Corretto. Il test di affaticabilità valuta quanto a lungo un soggetto riesce a mantenere la voce efficiente sotto stress vocale continuativo."
+    },
+    "reflection_prompt": "In che modo la resistenza vocale può influenzare l’efficienza di un insegnante di canto?",
+    "active_recall_prompt": "Come si valuta la resistenza vocale in un allievo?",
+    "application_prompt": "Chiedi all’allievo di sostenere una vocale a volume medio per 30 secondi: cosa osservi nella qualità del suono?",
+    "learning_outcome": "Valutare le implicazioni funzionali della resistenza vocale nella pratica.",
+    "key_concepts": [
+      "affaticabilità",
+      "resistenza vocale",
+      "valutazione funzionale"
+    ],
+    "didactic_note": "Importante per valutare l’endurance vocale nei professionisti della voce.",
+    "level": "intermedio",
+    "related_lessons": [
+      "Tecniche di valutazione vocale"
+    ],
+    "tags": [
+      "voce",
+      "resistenza",
+      "affaticamento",
+      "valutazione"
+    ]
+  },
+  {
+    "id": 195,
+    "macro_area": "Applicazioni didattiche",
+    "type": "multiple_choice",
+    "question": "Qual è una caratteristica della scala Girbas?",
+    "options": [
+      "È una scala per la misurazione della velocità di produzione vocale",
+      "È una scala soggettiva per la disfonia",
+      "È una scala che misura l'intensità del suono",
+      "È una scala utilizzata solo per la voce parlata"
+    ],
+    "answer": "È una scala soggettiva per la disfonia",
+    "explanation": {
+      "È una scala per la misurazione della velocità di produzione vocale": "Non valuta la velocità ma la qualità vocale.",
+      "È una scala che misura l'intensità del suono": "Non è una scala acustica oggettiva.",
+      "È una scala utilizzata solo per la voce parlata": "Può essere usata anche per valutare la voce cantata, soprattutto in ambito clinico.",
+      "È una scala soggettiva per la disfonia": "Corretto. La scala GIRBAS valuta soggettivamente le caratteristiche della voce come G=grado, I=instabilità, R=raucedine, B=soffiato, A=astenia, S=spasmo."
+    },
+    "reflection_prompt": "Perché può essere utile una scala soggettiva come la GIRBAS anche nella didattica vocale?",
+    "active_recall_prompt": "Cosa significano le lettere dell’acronimo GIRBAS?",
+    "application_prompt": "Applica la scala GIRBAS per descrivere una voce che ascolti: quali lettere emergono di più?",
+    "learning_outcome": "Conoscere la scala GIRBAS e le sue applicazioni.",
+    "key_concepts": [
+      "scala GIRBAS",
+      "valutazione soggettiva",
+      "disfonia"
+    ],
+    "didactic_note": "Favorisce un linguaggio comune tra logopedisti e insegnanti di canto.",
+    "level": "base",
+    "related_lessons": [
+      "Valutazione soggettiva della voce"
+    ],
+    "tags": [
+      "disfonia",
+      "valutazione",
+      "scala",
+      "percezione"
+    ]
+  },
+
+    {
+    "id": 196,
+    "macro_area": "Valutazione vocale e affaticabilità",
+    "type": "multiple_choice",
+    "question": "Cosa provoca il sovraccarico della 'muscolatura adduttoria' alla voce?",
+    "options": [
+      "La voce diventa più acuta",
+      "La voce si affatica più velocemente",
+      "La voce diventa più profonda",
+      "La voce si stabilizza"
+    ],
+    "answer": "La voce si affatica più velocemente",
+    "explanation": "Il sovraccarico della muscolatura adduttoria, responsabile della chiusura delle corde vocali, comporta un’eccessiva contrazione che può portare ad affaticamento vocale precoce.",
+    "why_others_are_wrong": {
+      "La voce diventa più acuta": "L’acutizzazione è correlata alla tensione longitudinale, non al sovraccarico adduttorio.",
+      "La voce diventa più profonda": "Un sovraccarico non genera una voce più grave, ma potenzialmente forzata.",
+      "La voce si stabilizza": "Al contrario, un sovraccarico porta a instabilità vocale."
+    },
+    "reflection_prompt": "Hai mai sperimentato affaticamento vocale dopo uno sforzo eccessivo? Quali strategie potresti adottare per prevenirlo?",
+    "active_recall_prompt": "Ripeti quali muscoli sono coinvolti nell’adduzione vocale e come gestire l’economia muscolare.",
+    "learning_outcome": "Riconoscere gli effetti del sovraccarico muscolare vocale e sviluppare consapevolezza sulle strategie preventive.",
+    "key_concepts": [
+      "muscolatura adduttoria",
+      "affaticamento vocale",
+      "economia muscolare"
+    ],
+    "didactic_note": "Utilizzare simulazioni vocali per mostrare i limiti del carico muscolare.",
+    "level": "intermedio",
+    "related_lessons": [
+      "3. Fisiologia e affaticabilità vocale"
+    ],
+    "tags": [
+      "voce",
+      "fatica",
+      "muscoli",
+      "didattica"
+    ]
+  },
+  {
+    "id": 197,
+    "macro_area": "Analisi percettiva e biomeccanica della voce",
+    "type": "multiple_choice",
+    "question": "Quando si osserva una 'voce iperfunzionale tesa', quale potrebbe essere la causa principale?",
+    "options": [
+      "Un'eccessiva muscolatura del collo",
+      "Un aumento di tono pedieno",
+      "Un compenso per una laringe innalzata",
+      "Una disfunzione nella chiusura della bocca"
+    ],
+    "answer": "Un compenso per una laringe innalzata",
+    "explanation": "Una voce iperfunzionale tesa è spesso causata da un atteggiamento compensatorio a una laringe innalzata, che induce iperattività muscolare e sforzo vocale.",
+    "why_others_are_wrong": {
+      "Un'eccessiva muscolatura del collo": "Può essere un cofattore, ma non è la causa primaria.",
+      "Un aumento di tono pedieno": "Il tono pedieno non è un parametro anatomo-funzionale riconosciuto.",
+      "Una disfunzione nella chiusura della bocca": "La chiusura buccale ha scarsa relazione diretta con la tensione laringea."
+    },
+    "reflection_prompt": "Quali accorgimenti tecnici potrebbero aiutare a ridurre l’innalzamento laringeo durante la fonazione?",
+    "active_recall_prompt": "Elenca le cause biomeccaniche dell’iperfunzionalità vocale.",
+    "learning_outcome": "Comprendere la relazione tra posizione laringea e qualità vocale per prevenire l’iperfunzionalità.",
+    "key_concepts": [
+      "iperfunzionalità",
+      "laringofissazione",
+      "compenso vocale"
+    ],
+    "didactic_note": "Può essere utile confrontare esempi vocali iperfunzionali vs rilassati.",
+    "level": "avanzato",
+    "related_lessons": [
+      "5. Meccanismi compensatori e bilanciamento laringeo"
+    ],
+    "tags": [
+      "voce",
+      "iperfunzione",
+      "laringea",
+      "biomeccanica"
+    ]
+  },
+  {
+    "id": 198,
+    "macro_area": "Valutazione percettiva",
+    "type": "multiple_choice",
+    "question": "In quale situazione si richiede una 'valutazione percettiva contestualizzata' della voce?",
+    "options": [
+      "Quando si osserva una voce durante la registrazione",
+      "Quando la voce è analizzata in un laboratorio scientifico",
+      "Quando si eseguono esercizi vocali specifici di sovraccarico muscolare",
+      "Quando si eseguono test automatici su una voce registrata"
+    ],
+    "answer": "Quando si eseguono esercizi vocali specifici di sovraccarico muscolare",
+    "explanation": "La valutazione contestualizzata è utile durante situazioni funzionali dinamiche, dove la voce può esprimere alterazioni non visibili in condizioni statiche.",
+    "why_others_are_wrong": {
+      "Quando si osserva una voce durante la registrazione": "Non rappresenta l’uso attivo e dinamico della voce.",
+      "Quando la voce è analizzata in un laboratorio scientifico": "Il contesto reale d’uso viene meno.",
+      "Quando si eseguono test automatici su una voce registrata": "Manca la componente percettiva soggettiva e funzionale."
+    },
+    "reflection_prompt": "Perché è utile valutare la voce in condizioni reali di utilizzo, e non solo in laboratorio?",
+    "active_recall_prompt": "Fai un esempio di situazione in cui una valutazione contestualizzata ha più valore di una statica.",
+    "learning_outcome": "Sviluppare la capacità di valutare la voce nel contesto funzionale e non isolato.",
+    "key_concepts": [
+      "valutazione contestualizzata",
+      "uso vocale",
+      "contesto dinamico"
+    ],
+    "didactic_note": "Introdurre esercizi simulativi per la valutazione vocale reale.",
+    "level": "intermedio",
+    "related_lessons": [
+      "6. Valutazione funzionale e percettiva"
+    ],
+    "tags": [
+      "voce",
+      "valutazione",
+      "funzione",
+      "percezione"
+    ]
+  },
+  {
+    "id": 199,
+    "macro_area": "Valutazione percettiva",
+    "type": "multiple_choice",
+    "question": "In quale situazione si richiede una 'valutazione percettiva contestualizzata' della voce?",
+    "options": [
+      "Quando si osserva una voce durante la registrazione",
+      "Quando la voce è analizzata in un laboratorio scientifico",
+      "Quando si eseguono esercizi vocali specifici di sovraccarico muscolare",
+      "Quando si eseguono test automatici su una voce registrata"
+    ],
+    "answer": "Quando si eseguono esercizi vocali specifici di sovraccarico muscolare",
+    "explanation": "La valutazione dinamica osserva la voce in condizioni di stress o carico funzionale, fondamentali per rilevare difficoltà altrimenti mascherate.",
+    "why_others_are_wrong": {
+      "Quando si osserva una voce durante la registrazione": "Non consente l’interazione o l’osservazione diretta dello sforzo.",
+      "Quando la voce è analizzata in un laboratorio scientifico": "È un contesto artificiale e poco rappresentativo.",
+      "Quando si eseguono test automatici su una voce registrata": "Non rileva modificazioni legate allo sforzo vocale diretto."
+    },
+    "reflection_prompt": "Come cambia la percezione della voce in condizioni statiche rispetto a condizioni dinamiche o funzionali?",
+    "active_recall_prompt": "Quali sono i limiti di una valutazione percettiva non contestualizzata?",
+    "learning_outcome": "Comprendere l'importanza della contestualizzazione nella valutazione vocale.",
+    "key_concepts": [
+      "valutazione percettiva",
+      "contestualizzazione",
+      "stress vocale"
+    ],
+    "didactic_note": "Rinforzo intenzionale del concetto già introdotto nella domanda precedente.",
+    "level": "intermedio",
+    "related_lessons": [
+      "6. Valutazione funzionale e percettiva"
+    ],
+    "tags": [
+      "voce",
+      "valutazione",
+      "contesto",
+      "percezione"
+    ]
+  },
+  {
+    "id": 200,
+    "macro_area": "Valutazione funzionale della voce",
+    "type": "multiple_choice",
+    "question": "Quale parametro è fondamentale per capire se una voce è affaticabile durante un test di sovraccarico?",
+    "options": [
+      "La lunghezza della nota",
+      "La capacità di mantenere l'inclinazione nel tempo",
+      "La velocità della produzione vocale",
+      "La velocità del recupero vocale"
+    ],
+    "answer": "La capacità di mantenere l'inclinazione nel tempo",
+    "explanation": "Durante un test sotto carico, la capacità di mantenere coerenza, stabilità e inclinazione è l'indicatore primario dell’affaticabilità.",
+    "why_others_are_wrong": {
+      "La lunghezza della nota": "Non riflette direttamente la fatica, solo la durata.",
+      "La velocità della produzione vocale": "Indica agilità, non resistenza.",
+      "La velocità del recupero vocale": "È utile, ma si misura dopo l'affaticamento, non durante."
+    },
+    "reflection_prompt": "Perché è importante valutare la capacità di mantenere lo stesso livello vocale durante il carico?",
+    "active_recall_prompt": "Quali segnali vocali ti aiutano a riconoscere una voce affaticabile?",
+    "learning_outcome": "Riconoscere i segnali di affaticabilità vocale durante la performance.",
+    "key_concepts": [
+      "affaticamento",
+      "test vocale",
+      "inclinazione",
+      "stabilità vocale"
+    ],
+    "didactic_note": "Eseguire il test vocalico sostenuto con variazioni di carico e misurare la coerenza.",
+    "level": "intermedio",
+    "related_lessons": [
+      "7. Prove di resistenza vocale"
+    ],
+    "tags": [
+      "voce",
+      "valutazione",
+      "sforzo",
+      "carico"
+    ]
+  },
+
+
+    {
+    "id": 201,
+    "macro_area": "Valutazione vocale",
+    "type": "multiple_choice",
+    "question": "Qual è il principale strumento per analizzare la qualità della voce durante un'esame foniatrico?",
+    "options": [
+      "La laringoscopia",
+      "La spettrografia",
+      "Il test di risonanza magnetica",
+      "La stroboscopia laringea"
+    ],
+    "answer": "La stroboscopia laringea",
+    "explanation": "La stroboscopia laringea consente di visualizzare in modo rallentato il movimento delle corde vocali, rendendo possibile la valutazione di simmetria, chiusura glottica e regolarità vibratoria.",
+    "distractor_explanations": {
+      "La laringoscopia": "Mostra la laringe, ma non consente l’osservazione delle vibrazioni in tempo reale o rallentato.",
+      "La spettrografia": "Fornisce dati acustici, non visivi, sul funzionamento delle corde vocali.",
+      "Il test di risonanza magnetica": "Non è uno strumento funzionale per l’analisi dinamica della voce."
+    },
+    "reflection_prompt": "In che modo la valutazione dinamica delle corde vocali influenza la diagnosi vocale?",
+    "active_recall_prompt": "Qual è lo strumento che permette di osservare la vibrazione delle corde vocali in tempo rallentato?",
+    "learning_outcome": "Conoscere gli strumenti più efficaci per la valutazione strumentale della qualità vocale.",
+    "key_concepts": ["stroboscopia", "valutazione vocale", "vibrazione cordale"],
+    "didactic_note": "Integra esempi video di stroboscopia per rendere visivo l’apprendimento.",
+    "level": "intermedio",
+    "related_lessons": ["7. Tecniche di valutazione vocale"],
+    "tags": ["valutazione", "strumentazione", "diagnosi"]
+  },
+  {
+    "id": 202,
+    "macro_area": "Anatomia",
+    "type": "multiple_choice",
+    "question": "In quale situazione l'interaritenoideo è particolarmente attivo?",
+    "options": [
+      "Quando la laringe è sollevata",
+      "Nei toni acuti per stabilizzare l'adduzione",
+      "Quando la voce è molto grave",
+      "Quando si cerca di aumentare la risonanza"
+    ],
+    "answer": "Nei toni acuti per stabilizzare l'adduzione",
+    "explanation": "L’interaritenoideo è un muscolo adduttore che unisce le aritenoidi e rafforza la chiusura glottica, specialmente durante l'emissione dei suoni acuti.",
+    "distractor_explanations": {
+      "Quando la laringe è sollevata": "Questo movimento coinvolge altri gruppi muscolari, come gli elevatori laringei.",
+      "Quando la voce è molto grave": "Il tiroaritenoideo è più coinvolto nei registri bassi.",
+      "Quando si cerca di aumentare la risonanza": "La risonanza dipende più dalla modulazione del tratto vocale."
+    },
+    "reflection_prompt": "Perché serve maggiore adduzione nei toni acuti?",
+    "active_recall_prompt": "Quale muscolo si attiva per unire le aritenoidi nella fonazione acuta?",
+    "learning_outcome": "Comprendere il ruolo dell’interaritenoideo nella stabilizzazione glottica.",
+    "key_concepts": ["adduzione", "aritenoidi", "muscoli laringei"],
+    "didactic_note": "Utilizzare disegni animati per mostrare la funzione degli interaritenoidei.",
+    "level": "intermedio",
+    "related_lessons": ["2. Anatomia e Anatomofisiologia"],
+    "tags": ["muscoli", "laringe", "fonazione"]
+  },
+  {
+    "id": 203,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Cosa può causare un'interferenza nella rotazione dell'aritenoide?",
+    "options": [
+      "Una paralisi delle corde vocali",
+      "Un edema della commissura posteriore",
+      "Un'infiammazione acuta",
+      "Tutte"
+    ],
+    "answer": "Tutte",
+    "explanation": "La rotazione aritenoidea può essere compromessa da fattori meccanici (paralisi), infiammatori (edema) o patologici (infiammazione acuta), alterando la fonazione.",
+    "distractor_explanations": {
+      "Una paralisi delle corde vocali": "È una causa importante, ma non l’unica.",
+      "Un edema della commissura posteriore": "Può limitare lo spazio articolare delle aritenoidi.",
+      "Un'infiammazione acuta": "Può provocare rigidità e dolore, limitando i movimenti."
+    },
+    "reflection_prompt": "Perché la mobilità aritenoidea è così importante nella fonazione?",
+    "active_recall_prompt": "Quali condizioni possono compromettere il movimento delle aritenoidi?",
+    "learning_outcome": "Identificare le principali cause biomeccaniche che ostacolano la rotazione delle aritenoidi.",
+    "key_concepts": ["aritenoidi", "rotazione", "patologia laringea"],
+    "didactic_note": "Associare esempi clinici e immagini endoscopiche di aritenoidi immobili.",
+    "level": "intermedio",
+    "related_lessons": ["5. Dinamiche articolari laringee"],
+    "tags": ["rotazione", "corde vocali", "patologie"]
+  },
+  {
+    "id": 204,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Quando la voce si stabilizza riducendo l'intensità, cosa potrebbe indicare?",
+    "options": [
+      "Un miglioramento della tensione longitudinale cordale",
+      "L'uso di un altro meccanismo di chiusura",
+      "Un cambiamento nel flusso sottoglottico d'aria",
+      "Un aumento della risonanza nasale"
+    ],
+    "answer": "L'uso di un altro meccanismo di chiusura",
+    "explanation": "Una riduzione dell’intensità può riflettere il passaggio a una modalità più efficiente di adduzione vocale, anche con minore sforzo muscolare.",
+    "distractor_explanations": {
+      "Un miglioramento della tensione longitudinale cordale": "Questa tensione agisce sulla frequenza, non sull’intensità.",
+      "Un cambiamento nel flusso sottoglottico d'aria": "Il flusso è solo un elemento parziale nel controllo dell’intensità.",
+      "Un aumento della risonanza nasale": "Modifica il timbro, ma non stabilizza la voce."
+    },
+    "reflection_prompt": "Quali strategie il corpo potrebbe attivare per stabilizzare la fonazione?",
+    "active_recall_prompt": "Cosa può segnalare una stabilizzazione vocale con minore intensità?",
+    "learning_outcome": "Capire come cambiamenti nella meccanica di chiusura influenzano la resa vocale.",
+    "key_concepts": ["chiusura glottica", "intensità", "efficienza fonatoria"],
+    "didactic_note": "Utilizzare esempi vocali per evidenziare la differenza tra forzatura e chiusura efficiente.",
+    "level": "avanzato",
+    "related_lessons": ["4. Meccanismi di regolazione vocale"],
+    "tags": ["intensità", "voce", "meccanismo"]
+  },
+  {
+    "id": 205,
+    "macro_area": "Fisiologia",
+    "type": "multiple_choice",
+    "question": "Che cosa si osserva quando un soggetto ha un’ipotonia muscolare nelle corde vocali?",
+    "options": [
+      "Una voce più forte e stabile",
+      "Una difficoltà a chiudere completamente le corde vocali",
+      "Un'intensità vocale che rimane invariata",
+      "Un miglioramento nella qualità della voce acuta"
+    ],
+    "answer": "Una difficoltà a chiudere completamente le corde vocali",
+    "explanation": "L’ipotonia riduce la capacità delle corde vocali di chiudersi completamente, causando inefficienza, voce soffiata e talvolta instabilità timbrica.",
+    "distractor_explanations": {
+      "Una voce più forte e stabile": "È l’opposto: l’ipotonia porta a debolezza e instabilità.",
+      "Un'intensità vocale che rimane invariata": "L’intensità tende a diminuire con muscoli meno tonici.",
+      "Un miglioramento nella qualità della voce acuta": "Il controllo degli acuti richiede tensione precisa, compromessa nell’ipotonia."
+    },
+    "reflection_prompt": "In che modo la forza muscolare influisce sulla qualità vocale?",
+    "active_recall_prompt": "Qual è una conseguenza vocale frequente dell’ipotonia delle corde vocali?",
+    "learning_outcome": "Riconoscere gli effetti vocali della riduzione di tono muscolare laringeo.",
+    "key_concepts": ["ipotonia", "voce soffiata", "instabilità vocale"],
+    "didactic_note": "Utilizzare esercizi di rinforzo tonico per dimostrare l’effetto sul suono vocale.",
+    "level": "intermedio",
+    "related_lessons": ["3. Controllo muscolare vocale"],
+    "tags": ["ipotonia", "voce", "muscoli", "efficienza"]
+  },
+
+    {
+    "id": 206,
+    "macro_area": "Valutazione vocale",
+    "type": "multiple_choice",
+    "question": "In un test vocale, se la fuga d'aria aumenta con l’aumento della frequenza, cosa potrebbe suggerire?",
+    "options": [
+      "Un problema al margine nelle corde vocali",
+      "Un cambiamento nel flusso d'aria",
+      "Un'infiammazione cronica della laringe",
+      "Un miglioramento nella resistenza glottica"
+    ],
+    "answer": "Un problema al margine nelle corde vocali",
+    "explanation": "Un aumento della fuga d’aria alle alte frequenze suggerisce che le corde vocali non si chiudano completamente. Questo è spesso dovuto a imperfezioni del margine cordale, che diventano più evidenti sotto tensione.",
+    "distractor_explanations": {
+      "Un cambiamento nel flusso d'aria": "Il flusso d’aria può variare, ma non è direttamente indicativo di un problema di chiusura glottica.",
+      "Un'infiammazione cronica della laringe": "Può influenzare la voce, ma non causa tipicamente una fuga d’aria che aumenta con la frequenza.",
+      "Un miglioramento nella resistenza glottica": "Una maggiore resistenza glottica dovrebbe ridurre, non aumentare, la fuga d’aria."
+    },
+    "reflection_prompt": "Hai mai notato che alcune voci diventano più ariose salendo di tono? Quali fattori fisiologici potrebbero spiegarlo?",
+    "active_recall_prompt": "Quali strutture devono essere integre per garantire una buona tenuta glottica durante i suoni acuti?",
+    "learning_outcome": "Riconoscere segnali di inefficienza glottica legati alla tensione vocale.",
+    "key_concepts": ["fuga d’aria", "chiusura glottica", "frequenza vocale"],
+    "didactic_note": "Utilizzare analisi spettrografiche per mostrare l’effetto della fuga d’aria sul suono.",
+    "level": "avanzato"
+  },
+  {
+    "id": 207,
+    "macro_area": "Valutazione percettiva",
+    "type": "multiple_choice",
+    "question": "In quale situazione si richiede una 'valutazione percettiva contestualizzata' della voce?",
+    "options": [
+      "Quando si osserva una voce durante la registrazione",
+      "Quando la voce è analizzata in un laboratorio scientifico",
+      "Quando si eseguono esercizi vocali specifici di sovraccarico muscolare",
+      "Quando si eseguono test automatici su una voce registrata"
+    ],
+    "answer": "Quando si eseguono esercizi vocali specifici di sovraccarico muscolare",
+    "explanation": "Una valutazione percettiva contestualizzata serve a osservare la voce in condizioni di utilizzo reale o di carico funzionale, dove emergono problematiche non visibili in stato di riposo.",
+    "distractor_explanations": {
+      "Quando si osserva una voce durante la registrazione": "La registrazione non mostra la reattività vocale sotto sforzo.",
+      "Quando la voce è analizzata in un laboratorio scientifico": "Il contesto sperimentale è utile ma spesso decontestualizzato.",
+      "Quando si eseguono test automatici su una voce registrata": "I test automatici mancano della componente percettiva umana e del contesto d’uso."
+    },
+    "reflection_prompt": "Perché è importante osservare la voce mentre è usata realmente, e non solo in condizioni ideali?",
+    "active_recall_prompt": "Quali aspetti della voce possono variare tra condizione statica e dinamica?",
+    "learning_outcome": "Comprendere l’importanza della valutazione in condizioni vocali reali.",
+    "key_concepts": ["valutazione contestualizzata", "sovraccarico", "dinamica vocale"],
+    "didactic_note": "Far eseguire esercizi vocali osservando la qualità vocale prima, durante e dopo l’attività.",
+    "level": "intermedio"
+  },
+  {
+    "id": 208,
+    "macro_area": "Valutazione funzionale",
+    "type": "multiple_choice",
+    "question": "Quale parametro è fondamentale per capire se una voce è affaticabile durante un test di sovraccarico?",
+    "options": [
+      "La lunghezza della nota",
+      "La capacità di mantenere l'inclinazione nel tempo",
+      "La velocità della produzione vocale",
+      "La velocità del recupero vocale"
+    ],
+    "answer": "La capacità di mantenere l'inclinazione nel tempo",
+    "explanation": "Mantenere l'inclinazione delle corde vocali (tipica degli acuti) indica che il muscolo cricotiroideo e gli altri muscoli coinvolti riescono a sostenere lo sforzo. Il cedimento precoce è segnale di affaticamento.",
+    "distractor_explanations": {
+      "La lunghezza della nota": "Non è un indicatore sufficiente di tenuta muscolare specifica.",
+      "La velocità della produzione vocale": "Valuta l’agilità, non la resistenza.",
+      "La velocità del recupero vocale": "Riguarda la fase post-esercizio, non il carico diretto."
+    },
+    "reflection_prompt": "Perché la tenuta vocale in acuto è un buon indicatore di affaticamento muscolare?",
+    "active_recall_prompt": "Quali muscoli intervengono nel mantenimento della tensione cordale acuta?",
+    "learning_outcome": "Valutare la tenuta e la resistenza muscolare nella fonazione acuta.",
+    "key_concepts": ["sovraccarico", "inclinazione cordale", "resistenza vocale"],
+    "didactic_note": "Utilizza vocalizzi crescenti e sostenuti per evidenziare la tenuta vocale.",
+    "level": "intermedio"
+  },
+  {
+    "id": 209,
+    "macro_area": "Valutazione vocale",
+    "type": "multiple_choice",
+    "question": "Qual è il principale strumento per analizzare la qualità della voce durante un'esame foniatrico?",
+    "options": [
+      "La laringoscopia",
+      "La spettrografia",
+      "Il test di risonanza magnetica",
+      "La stroboscopia laringea"
+    ],
+    "answer": "La stroboscopia laringea",
+    "explanation": "La stroboscopia utilizza una luce pulsata sincronizzata con la vibrazione vocale per osservare i movimenti delle corde vocali come se fossero al rallentatore, rivelando la qualità della loro vibrazione.",
+    "distractor_explanations": {
+      "La laringoscopia": "Mostra la morfologia ma non la vibrazione in tempo dinamico.",
+      "La spettrografia": "Fornisce un’analisi acustica, non visuale.",
+      "Il test di risonanza magnetica": "Non è adatto alla valutazione in fonazione."
+    },
+    "reflection_prompt": "Cosa permette di osservare la stroboscopia che altri esami non mostrano?",
+    "active_recall_prompt": "Quali sono i principali indicatori di buona vibrazione cordale osservabili alla stroboscopia?",
+    "learning_outcome": "Comprendere lo scopo e i vantaggi diagnostici della stroboscopia laringea.",
+    "key_concepts": ["vibrazione", "corde vocali", "strumentazione vocale"],
+    "didactic_note": "Mostrare video comparativi tra laringoscopia e stroboscopia.",
+    "level": "intermedio"
+  },
+  {
+    "id": 210,
+    "macro_area": "Anatomia funzionale",
+    "type": "multiple_choice",
+    "question": "In quale situazione l'interaritenoideo è particolarmente attivo?",
+    "options": [
+      "Quando la laringe è sollevata",
+      "Nei toni acuti per stabilizzare l'adduzione",
+      "Quando la voce è molto grave",
+      "Quando si cerca di aumentare la risonanza"
+    ],
+    "answer": "Nei toni acuti per stabilizzare l'adduzione",
+    "explanation": "L’interaritenoideo è responsabile della chiusura posteriore delle aritenoidi e lavora intensamente nei toni acuti per assicurare un’adduzione completa, essenziale per sostenere la pressione e la vibrazione.",
+    "distractor_explanations": {
+      "Quando la laringe è sollevata": "Questo movimento dipende da muscoli extralaringei.",
+      "Quando la voce è molto grave": "Richiede meno tensione e adduzione.",
+      "Quando si cerca di aumentare la risonanza": "La risonanza è gestita dal tratto vocale, non da muscoli laringei adduttori."
+    },
+    "reflection_prompt": "Perché nei suoni acuti serve una chiusura glottica più efficace?",
+    "active_recall_prompt": "Quali muscoli lavorano insieme all’interaritenoideo per l’adduzione?",
+    "learning_outcome": "Conoscere il ruolo dell’interaritenoideo nella fonazione acuta.",
+    "key_concepts": ["interaritenoideo", "adduzione", "toni acuti"],
+    "didactic_note": "Evidenziare il contributo dei muscoli adduttori su video endoscopici nei registri acuti.",
+    "level": "intermedio"
+  },
+
+    {
+    "id": 211,
+    "macro_area": "Fisiologia / Biomeccanica",
+    "type": "multiple_choice",
+    "question": "Cosa può causare un'interferenza nella rotazione dell'aritenoide?",
+    "options": [
+      "Una paralisi delle corde vocali",
+      "Un edema della commissura posteriore",
+      "Un'infiammazione acuta",
+      "Tutte"
+    ],
+    "answer": "Tutte",
+    "explanation": "La rotazione dell'aritenoide è essenziale per l'adduzione e abduzione delle corde vocali. Paralisi, edema o infiammazione possono comprometterla attraverso meccanismi diversi: muscolari, meccanici o infiammatori.",
+    "distractor_explanations": {
+      "Una paralisi delle corde vocali": "Causa un blocco motorio, ma non è l’unica causa.",
+      "Un edema della commissura posteriore": "Può ridurre lo spazio articolare, ostacolando la rotazione.",
+      "Un'infiammazione acuta": "Può alterare temporaneamente la biomeccanica, ma da sola non spiega tutte le situazioni."
+    },
+    "reflection_prompt": "Quali altri segnali clinici potresti osservare in caso di disfunzione delle aritenoidi?",
+    "active_recall_prompt": "Quali sono le funzioni dell'aritenoide nella fonazione? E quali muscoli ne regolano il movimento?",
+    "learning_outcome": "Comprendere le cause multifattoriali della compromissione articolare aritenoidea.",
+    "key_concepts": ["rotazione aritenoidea", "commissura posteriore", "disfunzioni glottiche"],
+    "level": "avanzato"
+  },
+  {
+    "id": 212,
+    "macro_area": "Fisiologia vocale",
+    "type": "multiple_choice",
+    "question": "Quando la voce si stabilizza riducendo l'intensità, cosa potrebbe indicare?",
+    "options": [
+      "Un miglioramento della tensione longitudinale cordale",
+      "L'uso di un altro meccanismo di chiusura",
+      "Un cambiamento nel flusso sottoglottico d'aria",
+      "Un aumento della risonanza nasale"
+    ],
+    "answer": "L'uso di un altro meccanismo di chiusura",
+    "explanation": "La voce può stabilizzarsi a intensità più bassa grazie a un meccanismo glottico più economico, meno forzato e più efficiente nella chiusura.",
+    "distractor_explanations": {
+      "Un miglioramento della tensione longitudinale cordale": "Questo influisce sulla frequenza, non direttamente sulla stabilità con volume ridotto.",
+      "Un cambiamento nel flusso sottoglottico d'aria": "È una possibile conseguenza, non la causa primaria.",
+      "Un aumento della risonanza nasale": "Riguarda la qualità timbrica, non la stabilizzazione della fonazione."
+    },
+    "reflection_prompt": "Quali strategie può usare un insegnante per identificare i meccanismi di compenso?",
+    "active_recall_prompt": "Cosa si intende per meccanismo di chiusura glottica alternativo?",
+    "learning_outcome": "Individuare segnali di adattamento fonatorio e strategie compensatorie.",
+    "key_concepts": ["compensazione vocale", "intensità", "meccanismi glottici"],
+    "level": "intermedio"
+  },
+  {
+    "id": 213,
+    "macro_area": "Fisiologia e clinica vocale",
+    "type": "multiple_choice",
+    "question": "Che cosa si osserva quando un soggetto ha un’ipotonia muscolare nelle corde vocali?",
+    "options": [
+      "Una voce più forte e stabile",
+      "Una difficoltà a chiudere completamente le corde vocali",
+      "Un'intensità vocale che rimane invariata",
+      "Un miglioramento nella qualità della voce acuta"
+    ],
+    "answer": "Una difficoltà a chiudere completamente le corde vocali",
+    "explanation": "L’ipotonia riduce la forza contrattile necessaria per l’adduzione glottica, causando fuga d’aria, perdita di intensità e instabilità timbrica.",
+    "distractor_explanations": {
+      "Una voce più forte e stabile": "È l’opposto: la voce appare debole e incerta.",
+      "Un'intensità vocale che rimane invariata": "L’intensità cala per inefficienza glottica.",
+      "Un miglioramento nella qualità della voce acuta": "Le note acute richiedono controllo fine, difficile da ottenere con ipotonia."
+    },
+    "reflection_prompt": "Quali esercizi possono aiutare un soggetto con ipotonia vocale?",
+    "active_recall_prompt": "Quali muscoli contribuiscono all’adduzione vocale efficace?",
+    "learning_outcome": "Identificare i segnali percettivi dell’ipotonia vocale e i possibili interventi.",
+    "key_concepts": ["ipotonia", "adduzione", "fuga d’aria"],
+    "level": "intermedio"
+  },
+  {
+    "id": 214,
+    "macro_area": "Diagnostica vocale",
+    "type": "multiple_choice",
+    "question": "In un test vocale, se la fuga d'aria aumenta con l’aumento della frequenza, cosa potrebbe suggerire?",
+    "options": [
+      "Un problema al margine nelle corde vocali",
+      "Un cambiamento nel flusso d'aria",
+      "Un'infiammazione cronica della laringe",
+      "Un miglioramento nella resistenza glottica"
+    ],
+    "answer": "Un problema al margine nelle corde vocali",
+    "explanation": "Con l’aumento della tensione alle alte frequenze, i difetti morfologici o funzionali dei margini cordali si amplificano, causando maggiore fuga.",
+    "distractor_explanations": {
+      "Un cambiamento nel flusso d'aria": "Non è di per sé sufficiente a spiegare la perdita d’aria.",
+      "Un'infiammazione cronica della laringe": "Può incidere, ma in modo più diffuso e meno selettivo.",
+      "Un miglioramento nella resistenza glottica": "Ridurrebbe la fuga, non l’aumenterebbe."
+    },
+    "reflection_prompt": "Come si differenzia una fuga fisiologica da una patologica?",
+    "active_recall_prompt": "Cosa osservi nei margini cordali in caso di disfunzione?",
+    "learning_outcome": "Riconoscere la relazione tra tensione vocale e tenuta glottica.",
+    "key_concepts": ["fuga d’aria", "tensione vocale", "margini cordali"],
+    "level": "avanzato"
+  },
+  {
+    "id": 215,
+    "macro_area": "Clinica vocale / patologie",
+    "type": "multiple_choice",
+    "question": "Qual è la principale causa della raucedine che non scompare quando si aumenta l'intensità della voce?",
+    "options": [
+      "Un edema muscolare",
+      "Una cicatrice nelle corde vocali",
+      "Un abbassamento della laringe",
+      "Una disfunzione dell'articolazione cricotiroidea"
+    ],
+    "answer": "Una cicatrice nelle corde vocali",
+    "explanation": "Le cicatrici alterano la vibrazione, rendendola disorganizzata e irregolare. Anche aumentando l’intensità, il suono resta distorto.",
+    "distractor_explanations": {
+      "Un edema muscolare": "Può migliorare con l’aumento della pressione subglottica.",
+      "Un abbassamento della laringe": "Influenza il timbro, ma non causa raucedine persistente.",
+      "Una disfunzione dell'articolazione cricotiroidea": "Influisce sulla modulazione tonale, non sulla vibrazione cordale."
+    },
+    "reflection_prompt": "Quali sono le implicazioni didattiche di una cicatrice vocale?",
+    "active_recall_prompt": "Quali tecniche possono aiutare una voce con cicatrice a migliorare la resa timbrica?",
+    "learning_outcome": "Distinguere i sintomi della disfonia cicatriziale da quelli funzionali.",
+    "key_concepts": ["raucedine", "cicatrice cordale", "vibrazione"],
+    "level": "avanzato"
+  },
+  {
+    "id": 216,
+    "macro_area": "Clinica / Diagnosi differenziale",
+    "type": "multiple_choice",
+    "question": "Quando un soggetto presenta una fuga d'aria costante in forte e una raucedine nelle note acute, cosa potrebbe indicare?",
+    "options": [
+      "Una cisti sulla corda vocale",
+      "Un'ipotonia muscolare",
+      "Una difficoltà nella gestione del flusso d'aria",
+      "Una fibrosi delle corde vocali"
+    ],
+    "answer": "Una cisti sulla corda vocale",
+    "explanation": "La cisti impedisce una chiusura uniforme e altera la vibrazione. Questo si traduce in perdita d’aria nelle dinamiche forti e raucedine selettiva nei registri acuti.",
+    "distractor_explanations": {
+      "Un'ipotonia muscolare": "Provoca debolezza diffusa, non selettiva.",
+      "Una difficoltà nella gestione del flusso d'aria": "Non spiega completamente la raucedine specifica negli acuti.",
+      "Una fibrosi delle corde vocali": "Produce rigidità, ma il quadro è diverso dalla descrizione clinica proposta."
+    },
+    "reflection_prompt": "Come si distinguono acusticamente i problemi di chiusura da quelli strutturali?",
+    "active_recall_prompt": "Qual è il comportamento tipico della voce in presenza di lesioni cordali benigne?",
+    "learning_outcome": "Riconoscere il profilo acustico tipico della cisti cordale.",
+    "key_concepts": ["cisti", "fuga d’aria", "raucedine acuta"],
+    "level": "avanzato"
+  }
+
+]
+    
 ]
