@@ -1,6 +1,6 @@
-// PART 1 OF 4 START
+// PART 1 OF 3 START
 // --- VESsiamoci: The Extraordinary Engine ---
-// --- Architected with Perfection by Gemini ---
+// --- Architected with Perfection by Gemini (v1.1) ---
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -133,8 +133,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (action === 'show-answer') showModal('Risposta Corretta', Array.isArray(currentLesson.questions[currentLesson.currentIndex].answer) ? currentLesson.questions[currentLesson.currentIndex].answer.join(', ') : currentLesson.questions[currentLesson.currentIndex].answer, feedbackModal);
             if (action === 'open-image') openImageModal(e.target.src);
             if (action === 'choose-option') {
-                 app.querySelectorAll('.option-btn').forEach(b => b.style.borderColor = '');
-                 target.style.borderColor = 'var(--blue-primary)';
+                // FIXED: Use a class for selection instead of inline styles for cleaner logic
+                 app.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+                 target.classList.add('selected');
             }
         });
 
@@ -153,27 +154,28 @@ document.addEventListener('DOMContentLoaded', () => {
         pcCounter.innerHTML = `<i class="fa-solid fa-star"></i> ${userProgress.xp || 0}`;
     }
 
-// PART 1 OF 4 END
+// PART 1 OF 3 END   //
 
-// PART 2 OF 4 START
+// PART 2 OF 3 START
 
     // --- 5. VIEWS & DASHBOARDS RENDERING ---
     function renderDashboard() {
         if (currentLesson.timerId) clearInterval(currentLesson.timerId);
         if (myChart) { myChart.destroy(); myChart = null; }
 
+        // FIXED: Replaced generic divs with styled <a> tags to act as prominent buttons.
         app.innerHTML = `
-            <div class="pathway-container">
-                <div class="pathway-card learn-path" data-action="go-to-learn">
-                    <i class="fa-solid fa-lightbulb-on"></i>
+            <div class="dashboard-container">
+                <a class="dashboard-button learn-path" data-action="go-to-learn">
+                    <i class="fa-solid fa-lightbulb"></i>
                     <h2>IMPARA</h2>
                     <p>Costruisci la tua conoscenza, un'abilità alla volta.</p>
-                </div>
-                <div class="pathway-card train-path" data-action="go-to-train">
+                </a>
+                <a class="dashboard-button train-path" data-action="go-to-train">
                     <i class="fa-solid fa-dumbbell"></i>
                     <h2>ALLENATI</h2>
                     <p>Metti alla prova la tua memoria e i tuoi riflessi.</p>
-                </div>
+                </a>
             </div>`;
     }
 
@@ -243,9 +245,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let html = `<h2 class="page-title">${title}</h2><div class="skill-row">`;
         
         if (availableAreas.length > 0) {
-            html += `<div class="category-card all-categories" data-skill="all">Tutte le Categorie</div>`;
+            html += `<div class="category-card all-categories" data-action="start-lesson-mode" data-skill="all" data-mode="${mode}">Tutte le Categorie</div>`;
             availableAreas.forEach(area => {
-                html += `<div class="category-card" data-skill="${area}">${area}</div>`;
+                html += `<div class="category-card" data-action="start-lesson-mode" data-skill="${area}" data-mode="${mode}">${area}</div>`;
             });
         } else {
              html += `<div class="question-container" style="text-align:center;"><p>Nessun errore da ripassare. Ottimo lavoro!</p></div>`;
@@ -348,14 +350,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (myChart) myChart.destroy();
         myChart = new Chart(ctx, {
             type: 'line',
-            data: { datasets: [{ label: 'Domande Padroneggiate', data: data, borderColor: 'var(--blue-primary)', tension: 0.1, fill: true, backgroundColor: 'rgba(28, 176, 246, 0.1)' }] },
+            data: { datasets: [{ label: 'Domande Padroneggiate', data: data, borderColor: 'var(--blue-primary)', tension: 0.1, fill: true, backgroundColor: 'rgba(0, 123, 255, 0.1)' }] },
             options: { scales: { x: { type: 'time', time: { unit: 'day', tooltipFormat: 'dd MMM yyyy' } }, y: { beginAtZero: true, ticks: { precision: 0 } } } }
         });
     }
 
-// PART 2 OF 4 END
+// PART 2 OF 3 END // 
 
-// PART 3 OF 4 START
+// PART 3 OF 3 START
 
     // --- 6. CORE LESSON LOGIC & SPACED REPETITION ---
     function startLesson({ skill, mode, questions = null }) {
@@ -363,7 +365,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!questionPool) {
             if (mode === 'standard') {
                 const level = userProgress.skillLevels[skill] || 0;
-                // Genius Logic: Select questions the user hasn't mastered yet, prioritizing those at their current level or below.
                 questionPool = allQuestions.filter(q => {
                     const strength = userProgress.questionStats[q.id]?.strength || 0;
                     return q.macro_area === skill && strength < MASTERY_LEVEL && strength <= level;
@@ -404,7 +405,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateQuestionStrength(questionId, isCorrect) {
-        const stats = userProgress.questionStats[questionId] || { strength: 0, correct: 0, incorrect: 0 };
+        const stats = userProgress.questionStats[questionId] || { strength: 0, correct: 0, incorrect: 0, totalTime: 0 };
         const today = new Date();
         const todayStr = new Date(today.getFullYear(), today.getMonth(), today.getDate()).toISOString().split('T')[0];
 
@@ -440,10 +441,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const imageHtml = q.image ? `<div class="question-image-container"><img src="${q.image}" alt="Immagine per la domanda" class="question-image" data-action="open-image"></div>` : '';
 
         if (questionType === 'multiple_choice' && q.options) {
-            q.options.forEach(opt => { optionsHtml += `<button class="option-btn" data-action="choose-option" data-answer="${opt}">${opt}</button>`; });
+            const shuffledOptions = [...q.options].sort(() => Math.random() - 0.5);
+            shuffledOptions.forEach(opt => { optionsHtml += `<button class="option-btn" data-action="choose-option" data-answer="${opt}">${opt}</button>`; });
         } else if (questionType === 'true_false') {
-            optionsHtml += `<button class="option-btn" data-action="choose-option" data-answer="true">Vero</button>`;
-            optionsHtml += `<button class="option-btn" data-action="choose-option" data-answer="false">Falso</button>`;
+            optionsHtml += `<button class="option-btn" data-action="choose-option" data-answer="Vero">Vero</button>`;
+            optionsHtml += `<button class="option-btn" data-action="choose-option" data-answer="Falso">Falso</button>`;
         } else { // open_ended
             optionsHtml += `<textarea id="open-answer-input" placeholder="Scrivi qui la tua risposta..."></textarea>`;
         }
@@ -482,16 +484,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (timerDisplay) timerDisplay.textContent = timeLeft;
             if (timeLeft <= 0) {
                 clearInterval(currentLesson.timerId);
-                checkCurrentAnswer(null, true);
+                checkCurrentAnswer(true); // isTimeout = true
             }
         }, 1000);
     }
 
-// PART 3 OF 4 END
-
-// PART 4 OF 4 START
-
-    function checkCurrentAnswer(clickedButton = null, isTimeout = false) {
+    function checkCurrentAnswer(isTimeout = false) {
         if (currentLesson.timerId) clearInterval(currentLesson.timerId);
         
         const timeToAnswer = (Date.now() - currentLesson.startTime) / 1000;
@@ -499,15 +497,30 @@ document.addEventListener('DOMContentLoaded', () => {
         let userAnswer;
         let isCorrect = false;
 
-        app.querySelector('.answer-options').classList.add('disabled');
-
+        const answerOptionsContainer = app.querySelector('.answer-options');
+        answerOptionsContainer.classList.add('disabled');
+        const selectedButton = answerOptionsContainer.querySelector('.option-btn.selected');
+        
         if(isTimeout) {
             userAnswer = "Tempo scaduto";
             isCorrect = false;
         } else {
-            const userAnswerRaw = clickedButton ? clickedButton.dataset.answer : (document.getElementById('open-answer-input')?.value || null);
+            // FIXED: Reliably get the user's answer from the selected button or the text input
+            const openAnswerInput = document.getElementById('open-answer-input');
+            let userAnswerRaw = null;
+
+            if (selectedButton) {
+                userAnswerRaw = selectedButton.dataset.answer;
+            } else if (openAnswerInput) {
+                userAnswerRaw = openAnswerInput.value;
+            }
+            
             userAnswer = userAnswerRaw;
-            if (userAnswer === null) { isCorrect = false; }
+            
+            if (userAnswer === null || userAnswer.trim() === "") { 
+                isCorrect = false; 
+                userAnswer = "Nessuna risposta";
+            }
             else if (q.type === 'open_ended') {
                 const userWords = (userAnswer.toLowerCase().match(/\b(\w+)\b/g) || []).filter(w => w.length > 2);
                 const answerText = q.answer.toString().toLowerCase();
@@ -519,11 +532,20 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         
-        if (clickedButton) clickedButton.classList.add(isCorrect ? 'correct' : 'incorrect');
+        if (selectedButton) { 
+            selectedButton.classList.add(isCorrect ? 'correct' : 'incorrect');
+        } else if (!isCorrect && !isTimeout && q.type !== 'open_ended') {
+            const correctBtn = answerOptionsContainer.querySelector(`[data-answer="${q.answer}"]`);
+            if (correctBtn) correctBtn.classList.add('correct');
+        }
 
+
+        if (!userProgress.questionStats[q.id]) {
+            userProgress.questionStats[q.id] = { strength: 0, correct: 0, incorrect: 0, totalTime: 0 };
+        }
         updateQuestionStrength(q.id, isCorrect);
         
-        userProgress.questionStats[q.id].totalTime = (userProgress.questionStats[q.id].totalTime || 0) + timeToAnswer;
+        userProgress.questionStats[q.id].totalTime += timeToAnswer;
         isCorrect ? userProgress.questionStats[q.id].correct++ : userProgress.questionStats[q.id].incorrect++;
         
         if(isCorrect) {
@@ -539,15 +561,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showFeedback(isCorrect, message = null) {
-        if (soundEnabled) { isCorrect ? sounds.correct.play() : sounds.incorrect.play(); }
+        // FIXED: Robust sound playing with error handling.
+        if (soundEnabled) {
+            const soundToPlay = isCorrect ? sounds.correct : sounds.incorrect;
+            soundToPlay.currentTime = 0; // Rewind to start, allows re-playing quickly
+            soundToPlay.play().catch(error => console.error(`Audio playback failed:`, error));
+        }
         
         const q = currentLesson.questions[currentLesson.currentIndex];
         
-        if (currentLesson.mode === 'timed') {
-            if(!isCorrect) {
-                 const correctBtn = app.querySelector(`[data-answer="${q.answer}"]`);
-                 if(correctBtn) correctBtn.classList.add('correct');
-            }
+        if(!isCorrect) {
+             const correctBtn = app.querySelector(`[data-answer="${q.answer}"]`);
+             if(correctBtn) correctBtn.classList.add('correct');
         }
         
         const explanation = q.explanation;
@@ -705,9 +730,20 @@ document.addEventListener('DOMContentLoaded', () => {
     function handleSearch(event) {
         const query = event.target.value.toLowerCase();
         const resultsEl = searchModal.querySelector('#search-modal-results');
-        resultsEl.innerHTML = query.length < 3 ? '' : allQuestions.filter(q => q.question.toLowerCase().includes(query) || q.answer.toString().toLowerCase().includes(query)).slice(0, 10).map(q => `
-            <div class="search-result-item">
-                <p class="question">${q.question}</p><p class="answer"><strong>Risposta:</strong> ${Array.isArray(q.answer) ? q.answer.join(', ') : q.answer}</p><p class="explanation"><strong>Spiegazione:</strong> ${q.explanation}</p>
+        if (query.length < 3) {
+            resultsEl.innerHTML = '';
+            return;
+        }
+        const filteredQuestions = allQuestions.filter(q => 
+            q.question.toLowerCase().includes(query) || 
+            q.answer.toString().toLowerCase().includes(query) ||
+            q.explanation.toLowerCase().includes(query)
+        ).slice(0, 10);
+
+        resultsEl.innerHTML = filteredQuestions.map(q => `
+            <div class="test-report-item" data-action="view-question-detail" data-question-id="${q.id}" style="cursor: pointer;">
+                 <p class="report-q-text">${q.question}</p>
+                 <div class="report-explanation"><strong>Risposta:</strong> ${Array.isArray(q.answer) ? q.answer.join(', ') : q.answer}</div>
             </div>`).join('');
     }
 
@@ -732,5 +768,4 @@ document.addEventListener('DOMContentLoaded', () => {
     main();
 });
 
-// PART 4 OF 4 END // 
-
+// PART 3 OF 3 END
