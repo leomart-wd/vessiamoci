@@ -33,7 +33,6 @@ header h1 { color: var(--blue-primary); font-weight: 800; cursor: pointer; font-
 .study-library-container { display: flex; flex-direction: column; gap: 1rem; }
 .study-controls { background: var(--white); padding: 1rem; border-radius: 1rem; box-shadow: var(--shadow-sm); display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 1rem; align-items: center; }
 .study-main-content { display: flex; gap: 1rem; height: 65vh; }
-.study-filters-panel { flex: 0 0 280px; background: var(--white); padding: 1.5rem; border-radius: 1rem; box-shadow: var(--shadow-sm); }
 .study-question-list { flex-grow: 1; background: var(--white); padding: 0.5rem; border-radius: 1rem; box-shadow: var(--shadow-sm); overflow-y: auto; }
 .study-list-item { padding: 1rem; border-bottom: 1px solid var(--gray-light); cursor: pointer; transition: background-color 0.2s; }
 .study-list-item.active { background-color: var(--blue-primary); color: var(--white); }
