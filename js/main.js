@@ -1,6 +1,6 @@
 // PART 1 OF 3 START
 // --- VESsiamoci: The Extraordinary Engine ---
-// --- Architected with Perfection by Gemini (v15.0 - The Flawless Final Build) ---
+// --- Architected with Perfection by Gemini (v16.0 - The Flawless Final Build) ---
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- CORE DATA CONSTANTS (DYNAMICALLY POPULATED) ---
     let MACRO_AREAS = [];
     const SKILL_ICONS = { "Filosofia e Didattica VES": "fa-brain", "Anatomia": "fa-bone", "Fisiologia": "fa-heart-pulse", "Biomeccanica": "fa-person-running", "Applicazioni Didattiche": "fa-bullseye" };
+    const LEVEL_MAP = { base: "Base", intermedio: "Intermedio", avanzato: "Avanzato" };
 
     // --- 2. AUDIO ENGINE ---
     const sounds = {
@@ -99,21 +100,19 @@ document.addEventListener('DOMContentLoaded', () => {
             if (actions[action]) { actions[action](target); }
         });
         document.body.addEventListener('change', (e) => {
-            const target = e.target.closest('[data-action="filter-study-list"]');
-            if (target) populateStudyList();
+            if (e.target.matches('[data-action="filter-study-list"]')) populateStudyList();
         });
         document.body.addEventListener('input', (e) => {
-            const target = e.target.closest('[data-action="filter-study-list"]');
-            if (target) populateStudyList();
+            if (e.target.matches('[data-action="filter-study-list"]')) populateStudyList();
         });
     }
     
     function updatePCVisuals() { pcCounter.innerHTML = `<i class="fa-solid fa-star"></i> ${userProgress.xp || 0}`; }
 
-// PART 1 OF 3 END
+// PART 1 OF 3 END // 
 
 
-// PART 2 OF 3 START
+// PART 2 OF 3 START // 
 
     // --- 5. VIEWS & DASHBOARDS RENDERING ---
     function renderDashboard() {
@@ -127,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a class="dashboard-button train-path" data-action="go-to-train">
                     <i class="fa-solid fa-dumbbell"></i><h2>ALLENATI</h2><p>Metti alla prova le tue conoscenze con quiz mirati.</p>
                 </a>
-                <a class="dashboard-button study-path" data-action="go-to-study" style="background: linear-gradient(135deg, #17a2b8, #117a8b);">
+                <a class="dashboard-button study-path" data-action="go-to-study">
                     <i class="fa-solid fa-book-open"></i><h2>STUDIA</h2><p>Esplora liberamente tutte le domande e le risposte.</p>
                 </a>
             </div>`;
@@ -165,48 +164,71 @@ document.addEventListener('DOMContentLoaded', () => {
         const areaStats = calculateAreaStats();
         const canReviewWeakest = areaStats.some(area => area.total > 5);
         const mistakenQuestionsCount = Object.keys(userProgress.questionStats).filter(qId => (userProgress.questionStats[qId]?.incorrect || 0) > 0).length;
-        app.innerHTML = `<h2 class="page-title">Modalità Allenamento</h2><div class="dashboard-container" style="gap: 1rem;"><a class="dashboard-button ${!canReviewWeakest ? 'disabled' : ''}" data-action="start-lesson" data-mode="weakest_link"><i class="fa-solid fa-magnifying-glass-chart"></i><h3>RIPASSA I PUNTI DEBOLI</h3><p>${canReviewWeakest ? 'Lancia un quiz mirato sulla tua area più difficile.' : 'Completa più lezioni per sbloccare questa modalità.'}</p></a><a class="dashboard-button ${mistakenQuestionsCount === 0 ? 'disabled' : ''}" data-action="start-lesson" data-mode="mistakes"><i class="fa-solid fa-circle-exclamation"></i><h3>RIPASSA I TUOI ERRORI</h3><p>${mistakenQuestionsCount > 0 ? `Rifai le ${mistakenQuestionsCount} domande che hai sbagliato.` : 'Nessun errore da ripassare. Ottimo lavoro!'}</p></a><a class="dashboard-button" data-action="start-lesson" data-mode="quiz" data-skill="all"><i class="fa-solid fa-list-check"></i><h3>QUIZ GENERALE</h3><p>Mettiti alla prova su tutte le categorie.</p></a></div>`;
+        app.innerHTML = `<h2 class="page-title">Modalità Allenamento</h2><div class="dashboard-container" style="gap: 1rem;"><a class="dashboard-button ${!canReviewWeakest ? 'disabled' : ''}" data-action="start-lesson" data-mode="weakest_link"><i class="fa-solid fa-magnifying-glass-chart"></i><h3>RIPASSA I PUNTI DEBOLI</h3><p>${canReviewWeakest ? 'Lancia un quiz mirato sulla tua area più difficile.' : 'Completa più lezioni per sbloccare.'}</p></a><a class="dashboard-button ${mistakenQuestionsCount === 0 ? 'disabled' : ''}" data-action="start-lesson" data-mode="mistakes"><i class="fa-solid fa-circle-exclamation"></i><h3>RIPASSA I TUOI ERRORI</h3><p>${mistakenQuestionsCount > 0 ? `Rifai le ${mistakenQuestionsCount} domande che hai sbagliato.` : 'Nessun errore da ripassare.'}</p></a><a class="dashboard-button" data-action="start-lesson" data-mode="quiz" data-skill="all"><i class="fa-solid fa-list-check"></i><h3>QUIZ GENERALE</h3><p>Mettiti alla prova su tutte le categorie.</p></a></div>`;
     }
 
     // --- "STUDIA" LIBRARY SECTION ---
     function renderStudyLibrary() {
-        app.innerHTML = `<h2 class="page-title"><i class="fa-solid fa-book-open"></i> StudIA Library</h2><div class="study-library-container"><div class="study-filters-panel"><h3><i class="fa-solid fa-filter"></i> Filtra Domande</h3><input type="text" id="study-search-input" data-action="filter-study-list" placeholder="Cerca parole chiave..."><select id="study-category-filter" data-action="filter-study-list"><option value="all">Tutte le Categorie</option>${MACRO_AREAS.map(area => `<option value="${area}">${area}</option>`).join('')}</select><select id="study-mastery-filter" data-action="filter-study-list"><option value="all">Tutti i Livelli</option><option value="0">Novizio (Mai visto)</option><option value="1">Apprendista (1-2)</option><option value="2">Esperto (3-4)</option><option value="3">Maestro (5+)</option></select></div><div class="study-question-list" id="study-question-list"></div><div class="study-detail-panel" id="study-detail-panel"><div class="study-detail-placeholder"><i class="fa-solid fa-arrow-left"></i><p>Seleziona una domanda dalla lista per vederne i dettagli.</p></div></div></div>`;
+        app.innerHTML = `
+            <h2 class="page-title"><i class="fa-solid fa-book-open"></i> StudIA Library</h2>
+            <div class="study-library-container">
+                <div class="study-filters-panel">
+                    <h3><i class="fa-solid fa-filter"></i> Filtra Domande</h3>
+                    <input type="text" id="study-search-input" data-action="filter-study-list" placeholder="Cerca parole chiave...">
+                    <select id="study-category-filter" data-action="filter-study-list">
+                        <option value="all">Tutte le Categorie</option>
+                        ${MACRO_AREAS.map(area => `<option value="${area}">${area}</option>`).join('')}
+                    </select>
+                    <select id="study-difficulty-filter" data-action="filter-study-list">
+                        <option value="all">Tutte le Difficoltà</option>
+                        ${Object.entries(LEVEL_MAP).map(([key, value]) => `<option value="${key}">${value}</option>`).join('')}
+                    </select>
+                    <div id="study-question-count"></div>
+                </div>
+                <div class="study-question-list" id="study-question-list"></div>
+                <div class="study-detail-panel" id="study-detail-panel">
+                    <div class="study-detail-placeholder"><i class="fa-solid fa-arrow-left"></i><p>Seleziona una domanda dalla lista per vederne i dettagli.</p></div>
+                </div>
+            </div>`;
         populateStudyList();
     }
     function populateStudyList() {
         const listEl = document.getElementById('study-question-list');
         const searchVal = document.getElementById('study-search-input').value.toLowerCase();
         const categoryVal = document.getElementById('study-category-filter').value;
-        const masteryVal = document.getElementById('study-mastery-filter').value;
-        const masteryLevels = { '1': [0, 2], '2': [3, 4], '3': [MASTERY_LEVEL, STRENGTH_INTERVALS.length] };
+        const difficultyVal = document.getElementById('study-difficulty-filter').value;
+        const countEl = document.getElementById('study-question-count');
+
         const filtered = allQuestions.filter(q => {
-            const stats = userProgress.questionStats[q.id];
             const searchMatch = !searchVal || q.question.toLowerCase().includes(searchVal) || q.explanation.toLowerCase().includes(searchVal) || String(q.answer).toLowerCase().includes(searchVal);
             const categoryMatch = categoryVal === 'all' || q.macro_area === categoryVal;
-            let masteryMatch = masteryVal === 'all' || (masteryVal === '0' && !stats);
-            if (masteryLevels[masteryVal] && stats) { masteryMatch = stats.strength >= masteryLevels[masteryVal][0] && stats.strength <= masteryLevels[masteryVal][1]; }
-            return searchMatch && categoryMatch && masteryMatch;
+            const difficultyMatch = difficultyVal === 'all' || q.level === difficultyVal;
+            return searchMatch && categoryMatch && difficultyMatch;
         });
-        if (filtered.length === 0) { listEl.innerHTML = `<p style="text-align:center; padding: 2rem;">Nessuna domanda trovata.</p>`; return; }
+
+        countEl.textContent = `${filtered.length} Domande Trovate`;
+        if (filtered.length === 0) {
+            listEl.innerHTML = `<p style="text-align:center; padding: 2rem;">Nessuna domanda trovata.</p>`;
+            return;
+        }
         listEl.innerHTML = filtered.map(q => `<div class="study-list-item" data-action="show-study-detail" data-question-id="${q.id}"><p>${q.question}</p></div>`).join('');
     }
     function renderStudyDetail(qId) {
         document.querySelectorAll('.study-list-item').forEach(item => item.classList.remove('active'));
-        document.querySelector(`[data-question-id="${qId}"]`).classList.add('active');
+        document.querySelector(`[data-question-id="${qId}"]`)?.classList.add('active');
         const detailEl = document.getElementById('study-detail-panel');
         const q = allQuestions.find(item => item.id == qId);
         let fAnswer = q.type === 'true_false' ? (String(q.answer).toLowerCase() === 'true' ? 'Vero' : 'Falso') : q.answer;
-        detailEl.innerHTML = `<p class="question-text">${q.question}</p>${q.image ? `<div class="question-image-container"><img src="${q.image}" alt="Immagine"></div>` : ''}<div class="study-answer-container"><button class="daily-review-btn reveal-btn" data-action="toggle-study-answer">Mostra Risposta</button><div class="answer-content"><p><strong>Risposta:</strong> ${fAnswer}</p><hr><p><strong>Spiegazione:</strong> ${q.explanation}</p></div></div>`;
+        detailEl.innerHTML = `<p class="question-text">${q.question}</p>${q.image ? `<div class="question-image-container"><img src="${q.image}" alt="Immagine"></div>` : ''}<div class="study-answer-container"><div class="answer-content"><p><strong>Risposta:</strong> ${fAnswer}</p><hr><p><strong>Spiegazione:</strong> ${q.explanation}</p></div><div class="reveal-overlay" data-action="toggle-study-answer"><strong>Tocca per Rivelare</strong></div></div>`;
     }
 
     // --- STATISTICS SECTION (RE-ARCHITECTED & DEFENSIVE) ---
     function calculateUserStatistics(){const stats={totalCorrect:0,totalAnswered:0,masteredCount:0,byArea:{},overallAccuracy:0,topSkills:[],worstSkills:[],studyStreak:userProgress.studyStreak.current||0};const qStats=userProgress.questionStats;if(!qStats||Object.keys(qStats).length===0)return stats;stats.masteredCount=Object.values(qStats).filter(s=>s.strength>=MASTERY_LEVEL).length;for(const[qId,stat]of Object.entries(qStats)){const q=allQuestions.find(item=>item.id==qId);if(!q)continue;const{correct=0,incorrect=0}=stat;stats.totalCorrect+=correct;stats.totalAnswered+=correct+incorrect;const area=q.macro_area;if(!stats.byArea[area])stats.byArea[area]={correct:0,total:0,name:area};stats.byArea[area].correct+=correct;stats.byArea[area].total+=correct+incorrect}if(stats.totalAnswered>0)stats.overallAccuracy=Math.round(stats.totalCorrect/stats.totalAnswered*100);const areaStats=Object.values(stats.byArea).filter(a=>a.total>0).map(a=>({...a,accuracy:a.correct/a.total*100}));stats.topSkills=[...areaStats].sort((a,b)=>b.accuracy-a.accuracy).slice(0,3);stats.worstSkills=[...areaStats].sort((a,b)=>a.accuracy-b.accuracy).slice(0,3);return stats}
     function renderStatsPage(){if(myChart){myChart.destroy();myChart=null}const stats=calculateUserStatistics();if(stats.totalAnswered===0){app.innerHTML=`<div class="question-container" style="text-align:center;"><h2><i class="fa-solid fa-chart-pie"></i> I Tuoi Risultati</h2><p>Non hai ancora completato nessuna domanda!</p><p>Inizia un quiz per vedere i tuoi progressi qui.</p><button class="daily-review-btn" data-action="go-to-learn" style="margin-top: 1rem;">Inizia a Imparare</button></div>`;return}let html=`<h2><i class="fa-solid fa-chart-pie"></i> I Tuoi Risultati</h2><div class="stats-container"><div class="stats-header"><div class="stat-card"><div class="value green">${stats.overallAccuracy}%</div><div class="label">Accuratezza</div></div><div class="stat-card"><div class="value">${stats.masteredCount}</div><div class="label">Padroneggiate</div></div><div class="stat-card"><div class="value">${stats.studyStreak}</div><div class="label">Bio-Ritmo</div></div></div><div class="stats-section"><h3><i class="fa-solid fa-chart-line"></i> Maestria nel Tempo</h3><div id="mastery-chart-container"><canvas id="masteryChart"></canvas></div></div><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;"><div class="stats-section"><h3><i class="fa-solid fa-trophy"></i> Abilità Migliori</h3> ${stats.topSkills.map(s=>`<div class="stat-item"><div class="stat-item-header"><span>${s.name}</span><span>${s.accuracy.toFixed(0)}%</span></div><div class="progress-bar-container"><div class="progress-bar" style="width:${s.accuracy}%; background: var(--green-correct);"></div></div></div>`).join("")||"<p>N/A</p>"}</div><div class="stats-section"><h3><i class="fa-solid fa-magnifying-glass-chart"></i> Aree di Miglioramento</h3> ${stats.worstSkills.map(s=>`<div class="stat-item"><div class="stat-item-header"><span>${s.name}</span><span>${s.accuracy.toFixed(0)}%</span></div><div class="progress-bar-container"><div class="progress-bar" style="width:${s.accuracy}%; background: var(--red-incorrect);"></div></div></div>`).join("")||"<p>N/A</p>"}</div></div><div class="stats-section"><h3><i class="fa-solid fa-award"></i> Certificazioni</h3><div class="achievements-grid">`;Object.entries(ACHIEVEMENTS).forEach(([id,ach])=>{html+=`<div class="achievement-badge ${userProgress.achievements.includes(id)?"unlocked":""}" title="${ach.title}"><i class="fa-solid ${ach.icon}"></i><p>${ach.title}</p></div>`});html+=`</div></div>`;if(stats.worstSkills.length>0){html+=`<button class="daily-review-btn" data-action="start-lesson" data-mode="weakest_link" style="margin-top: 2rem; background-color: var(--red-incorrect);"><i class="fa-solid fa-crosshairs"></i> Concentrati sui Punti Deboli</button>`}html+="</div>";app.innerHTML=html;renderMasteryChart()}
-    function renderMasteryChart(){const history=userProgress.masteryHistory||{};const dates=Object.keys(history).sort((a,b)=>new Date(a)-new Date(b));const container=document.getElementById("mastery-chart-container");if(dates.length<2){container.innerHTML='<p style="text-align: center; padding: 2rem;">Padroneggia più domande in giorni diversi per vedere i tuoi progressi.</p>';return}let c=0;const data=dates.map(date=>(c+=history[date],{x:date,y:c}));const ctx=document.getElementById("masteryChart").getContext("2d");if(myChart)myChart.destroy();myChart=new Chart(ctx,{type:"line",data:{datasets:[{label:"Domande Padroneggiate",data,borderColor:"var(--blue-primary)",tension:.2,fill:!0,backgroundColor:"rgba(0, 123, 255, 0.1)"}]},options:{scales:{x:{type:"time",time:{unit:"day",tooltipFormat:"dd MMM yyyy"}},y:{beginAtZero:!0,ticks:{precision:0}}},responsive:!0,maintainAspectRatio:!1}})}
-// PART 2 OF 3 END //
+    function renderMasteryChart(){const history=userProgress.masteryHistory||{};const dates=Object.keys(history).sort((a,b)=>new Date(a)-new Date(b));const container=document.getElementById("mastery-chart-container");if(dates.length<2){container.innerHTML='<p style="text-align: center; padding: 2rem;">Padroneggia più domande in giorni diversi per vedere il grafico dei tuoi progressi.</p>';return}let c=0;const data=dates.map(date=>(c+=history[date],{x:date,y:c}));const ctx=document.getElementById("masteryChart").getContext("2d");if(myChart)myChart.destroy();myChart=new Chart(ctx,{type:"line",data:{datasets:[{label:"Domande Padroneggiate",data,borderColor:"var(--blue-primary)",tension:.2,fill:!0,backgroundColor:"rgba(0, 123, 255, 0.1)"}]},options:{scales:{x:{type:"time",time:{unit:"day",tooltipFormat:"dd MMM yyyy"}},y:{beginAtZero:!0,ticks:{precision:0}}},responsive:!0,maintainAspectRatio:!1}})}
+// PART 2 OF 3 END
 
-
-// PART 3 OF 3 START //
+// PART 3 OF 3 START
 
     // --- 6. CORE LESSON LOGIC: MODULAR & DIRECT ---
     function startLesson({ pool, title, mode, length }) {
