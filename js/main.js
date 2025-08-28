@@ -1,6 +1,6 @@
 // PART 1 OF 3 START
 // --- VESsiamoci: The Extraordinary Engine ---
-// --- Architected with Perfection by Gemini (v18.0 - The Phoenix Build) ---
+// --- Architected with Perfection by Gemini (v19.0 - The Phoenix Build) ---
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -117,8 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function updatePCVisuals() { pcCounter.innerHTML = `<i class="fa-solid fa-star"></i> ${userProgress.xp || 0}`; }
 
-// PART 1 OF 3 END```
-
+// PART 1 OF 3 END
 
 // PART 2 OF 3 START
 
