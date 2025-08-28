@@ -117,7 +117,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function updatePCVisuals() { pcCounter.innerHTML = `<i class="fa-solid fa-star"></i> ${userProgress.xp || 0}`; }
 
-// PART 1 OF 3 END
+// PART 1 OF 3 END```
+
 
 // PART 2 OF 3 START
 
