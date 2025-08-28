@@ -1,6 +1,6 @@
 // PART 1 OF 3 START
 // --- VESsiamoci: The Extraordinary Engine ---
-// --- Architected with Perfection by Gemini (v16.0 - The Flawless Final Build) ---
+// --- Architected with Perfection by Gemini (v17.0 - The Flawless Final Build) ---
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -83,7 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 'go-to-stats': renderStatsPage,
                 'go-to-study': renderStudyLibrary,
                 'start-lesson': (t) => {
-                    // This now calls the correct, specific function based on the button's mode
                     const mode = t.dataset.mode;
                     const skill = t.dataset.skill;
                     if (mode === 'genesis') startGenesisQuiz();
@@ -232,7 +231,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- STATISTICS SECTION (RE-ARCHITECTED & DEFENSIVE) ---
-    function calculateAreaStats(){const stats={};for(const[qId,stat]of Object.entries(userProgress.questionStats)){const q=allQuestions.find(item=>item.id==qId);if(!q)continue;const area=q.macro_area;if(!stats[area])stats[area]={correct:0,total:0,name:area};stats[area].correct+=stat.correct||0;stats[area].total+=(stat.correct||0)+(stat.incorrect||0)}return Object.values(stats).filter(a=>a.total>0).map(a=>({...a,accuracy:a.correct/a.total*100}))}
     function calculateUserStatistics(){const stats={totalCorrect:0,totalAnswered:0,masteredCount:0,byArea:{},overallAccuracy:0,topSkills:[],worstSkills:[],studyStreak:userProgress.studyStreak.current||0};const qStats=userProgress.questionStats;if(!qStats||Object.keys(qStats).length===0)return stats;stats.masteredCount=Object.values(qStats).filter(s=>s.strength>=MASTERY_LEVEL).length;for(const[qId,stat]of Object.entries(qStats)){const q=allQuestions.find(item=>item.id==qId);if(!q)continue;const{correct=0,incorrect=0}=stat;stats.totalCorrect+=correct;stats.totalAnswered+=correct+incorrect;const area=q.macro_area;if(!stats.byArea[area])stats.byArea[area]={correct:0,total:0,name:area};stats.byArea[area].correct+=correct;stats.byArea[area].total+=correct+incorrect}if(stats.totalAnswered>0)stats.overallAccuracy=Math.round(stats.totalCorrect/stats.totalAnswered*100);const areaStats=Object.values(stats.byArea).filter(a=>a.total>0).map(a=>({...a,accuracy:a.correct/a.total*100}));stats.topSkills=[...areaStats].sort((a,b)=>b.accuracy-a.accuracy).slice(0,3);stats.worstSkills=[...areaStats].sort((a,b)=>a.accuracy-b.accuracy).slice(0,3);return stats}
     function renderStatsPage(){if(myChart){myChart.destroy();myChart=null}const stats=calculateUserStatistics();if(stats.totalAnswered===0){app.innerHTML=`<div class="question-container" style="text-align:center;"><h2><i class="fa-solid fa-chart-pie"></i> I Tuoi Risultati</h2><p>Non hai ancora completato nessuna domanda!</p><p>Inizia un quiz per vedere i tuoi progressi qui.</p><button class="daily-review-btn" data-action="go-to-learn" style="margin-top: 1rem;">Inizia a Imparare</button></div>`;return}let html=`<h2><i class="fa-solid fa-chart-pie"></i> I Tuoi Risultati</h2><div class="stats-container"><div class="stats-header"><div class="stat-card"><div class="value green">${stats.overallAccuracy}%</div><div class="label">Accuratezza</div></div><div class="stat-card"><div class="value">${stats.masteredCount}</div><div class="label">Padroneggiate</div></div><div class="stat-card"><div class="value">${stats.studyStreak}</div><div class="label">Bio-Ritmo</div></div></div><div class="stats-section"><h3><i class="fa-solid fa-chart-line"></i> Maestria nel Tempo</h3><div id="mastery-chart-container"><canvas id="masteryChart"></canvas></div></div><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;"><div class="stats-section"><h3><i class="fa-solid fa-trophy"></i> Abilità Migliori</h3> ${stats.topSkills.map(s=>`<div class="stat-item"><div class="stat-item-header"><span>${s.name}</span><span>${s.accuracy.toFixed(0)}%</span></div><div class="progress-bar-container"><div class="progress-bar" style="width:${s.accuracy}%; background: var(--green-correct);"></div></div></div>`).join("")||"<p>N/A</p>"}</div><div class="stats-section"><h3><i class="fa-solid fa-magnifying-glass-chart"></i> Aree di Miglioramento</h3> ${stats.worstSkills.map(s=>`<div class="stat-item"><div class="stat-item-header"><span>${s.name}</span><span>${s.accuracy.toFixed(0)}%</span></div><div class="progress-bar-container"><div class="progress-bar" style="width:${s.accuracy}%; background: var(--red-incorrect);"></div></div></div>`).join("")||"<p>N/A</p>"}</div></div><div class="stats-section"><h3><i class="fa-solid fa-award"></i> Certificazioni</h3><div class="achievements-grid">`;Object.entries(ACHIEVEMENTS).forEach(([id,ach])=>{html+=`<div class="achievement-badge ${userProgress.achievements.includes(id)?"unlocked":""}" title="${ach.title}"><i class="fa-solid ${ach.icon}"></i><p>${ach.title}</p></div>`});html+=`</div></div>`;if(stats.worstSkills.length>0){html+=`<button class="daily-review-btn" data-action="start-lesson" data-mode="weakest_link" style="margin-top: 2rem; background-color: var(--red-incorrect);"><i class="fa-solid fa-crosshairs"></i> Concentrati sui Punti Deboli</button>`}html+="</div>";app.innerHTML=html;renderMasteryChart()}
     function renderMasteryChart(){const history=userProgress.masteryHistory||{};const dates=Object.keys(history).sort((a,b)=>new Date(a)-new Date(b));const container=document.getElementById("mastery-chart-container");if(dates.length<2){container.innerHTML='<p style="text-align: center; padding: 2rem;">Padroneggia più domande in giorni diversi per vedere il grafico dei tuoi progressi.</p>';return}let c=0;const data=dates.map(date=>(c+=history[date],{x:date,y:c}));const ctx=document.getElementById("masteryChart").getContext("2d");if(myChart)myChart.destroy();myChart=new Chart(ctx,{type:"line",data:{datasets:[{label:"Domande Padroneggiate",data,borderColor:"var(--blue-primary)",tension:.2,fill:!0,backgroundColor:"rgba(0, 123, 255, 0.1)"}]},options:{scales:{x:{type:"time",time:{unit:"day",tooltipFormat:"dd MMM yyyy"}},y:{beginAtZero:!0,ticks:{precision:0}}},responsive:!0,maintainAspectRatio:!1}})}
@@ -241,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // PART 3 OF 3 START
 
     // --- 6. CORE LESSON LOGIC: MODULAR & DIRECT ---
-    function startLesson({ pool, title, mode, length }) {
+    function _initiateLesson({ pool, title, mode, length }) {
         currentLesson = { questions: [...new Set(pool)].slice(0, length), currentIndex: 0, mode, lessonTitle: title, correctAnswers: 0, report: [] };
         if (currentLesson.questions.length === 0) {
             showModal("Nessuna Domanda", "Non ci sono domande disponibili per questa selezione. Prova una categoria diversa o completa più lezioni!", feedbackModal);
@@ -249,16 +247,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         renderQuestion();
     }
-    // --- Lesson Type Functions (called by the event listener) ---
     function startDailyReview() {
         const today = new Date();
         const pool = allQuestions.filter(q => { const stats = userProgress.questionStats[q.id]; return stats && stats.nextReview && new Date(stats.nextReview) <= today && stats.strength < MASTERY_LEVEL; }).sort((a, b) => new Date(userProgress.questionStats[a.id].nextReview) - new Date(userProgress.questionStats[b.id].nextReview));
-        startLesson({ pool, title: "Ripasso Quotidiano", mode: 'daily_review', length: Math.min(pool.length, 15) });
+        _initiateLesson({ pool, title: "Ripasso Quotidiano", mode: 'daily_review', length: Math.min(pool.length, 15) });
     }
     function startGenesisQuiz() {
         const pool = MACRO_AREAS.flatMap(cat => allQuestions.filter(q => q.macro_area === cat).slice(0, 4));
         const finalPool = [...new Set(pool)].sort(() => 0.5 - Math.random());
-        startLesson({ pool: finalPool, title: "Quiz di Valutazione", mode: 'genesis', length: finalPool.length });
+        _initiateLesson({ pool: finalPool, title: "Quiz di Valutazione", mode: 'genesis', length: finalPool.length });
     }
     function startAdaptiveSession() {
         const stats = calculateAreaStats();
@@ -266,29 +263,28 @@ document.addEventListener('DOMContentLoaded', () => {
         const newQs = allQuestions.filter(q => !userProgress.questionStats[q.id]).slice(0, 4);
         const weakQs = weakest ? allQuestions.filter(q => q.macro_area === weakest.name && (userProgress.questionStats[q.id]?.strength || 0) < MASTERY_LEVEL).slice(0, 6) : [];
         const pool = [...newQs, ...weakQs].length > 0 ? [...newQs, ...weakQs] : allQuestions.slice(0, 10);
-        startLesson({ pool: [...new Set(pool)].sort(() => 0.5 - Math.random()), title: "Sessione Adattiva", mode: 'adaptive', length: 10 });
+        _initiateLesson({ pool: [...new Set(pool)].sort(() => 0.5 - Math.random()), title: "Sessione Adattiva", mode: 'adaptive', length: 10 });
     }
     function startWeakestLinkSession() {
         const weakest = calculateAreaStats().sort((a, b) => a.accuracy - b.accuracy)[0];
         const pool = weakest ? allQuestions.filter(q => q.macro_area === weakest.name) : [];
-        startLesson({ pool: pool.sort(() => 0.5 - Math.random()), title: `Focus: ${weakest?.name || 'Punti Deboli'}`, mode: 'weakest_link', length: 15 });
+        _initiateLesson({ pool: pool.sort(() => 0.5 - Math.random()), title: `Focus: ${weakest?.name || 'Punti Deboli'}`, mode: 'weakest_link', length: 15 });
     }
     function startQuizLesson(skill) {
         const pool = skill === 'all' ? allQuestions : allQuestions.filter(q => q.macro_area === skill);
-        startLesson({ pool: [...pool].sort(() => 0.5 - Math.random()), title: skill === 'all' ? 'Quiz Generale' : `Quiz: ${skill}`, mode: 'quiz', length: 20 });
+        _initiateLesson({ pool: [...pool].sort(() => 0.5 - Math.random()), title: skill === 'all' ? 'Quiz Generale' : `Quiz: ${skill}`, mode: 'quiz', length: 20 });
     }
     function startMistakesReview() {
         const mistakenIds = Object.keys(userProgress.questionStats).filter(qId => userProgress.questionStats[qId]?.incorrect > 0);
         const pool = allQuestions.filter(q => mistakenIds.includes(q.id.toString()));
-        startLesson({ pool, title: "Revisione Errori", mode: 'mistakes', length: Math.min(pool.length, 15) });
+        _initiateLesson({ pool, title: "Revisione Errori", mode: 'mistakes', length: Math.min(pool.length, 15) });
     }
     function startStandardLesson(skill) {
-        // CRITICAL FIX: The logic must include questions the user has NEVER seen before, OR questions they have not yet mastered.
         const pool = allQuestions.filter(q => {
             const stats = userProgress.questionStats[q.id];
             return q.macro_area === skill && (!stats || stats.strength < MASTERY_LEVEL);
         });
-        startLesson({ pool: pool.sort(() => 0.5 - Math.random()), title: skill, mode: 'standard', length: 10 });
+        _initiateLesson({ pool: pool.sort(() => 0.5 - Math.random()), title: skill, mode: 'standard', length: 10 });
     }
     
     // --- 7. QUESTION RENDERING & VALIDATION ---
