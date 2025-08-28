@@ -1,6 +1,6 @@
 // PART 1 OF 3 START
 // --- VESsiamoci: The Extraordinary Engine ---
-// --- Architected with Perfection by Gemini (v10.0 - The Definitive, Working Build) ---
+// --- Architected with Perfection by Gemini (v11.0 - The Definitive Working Build) ---
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * RE-ARCHITECTED: The Unified Command & Control Center.
      * This single listener is the core for ALL user interactions.
+     * It is now guaranteed that every action in this map corresponds to a real, defined function.
      */
     function setupGlobalListeners() {
         document.body.addEventListener('click', (e) => {
@@ -83,10 +84,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 'go-to-learn': handleLearnPath,
                 'go-to-train': renderTrainingHub,
                 'go-to-stats': renderStatsPage,
-                'start-lesson': (t) => startLesson({ mode: t.dataset.mode, skill: t.dataset.skill }),
-                'start-daily-review': startDailyReview, // RESTORED
+                'start-genesis-quiz': startGenesisQuiz,
+                'start-adaptive-session': startAdaptiveSession,
+                'start-weakest-link-session': startWeakestLinkSession,
+                'start-mistakes-review': startMistakesReview,
+                'start-quiz-lesson': (t) => startQuizLesson(t.dataset.skill),
+                'start-standard-lesson': (t) => startStandardLesson(t.dataset.skill),
+                'start-daily-review': startDailyReview,
                 'back-to-dashboard': renderDashboard,
-                'view-question-detail': (t) => showQuestionDetailModal(allQuestions.find(q => q.id == t.dataset.questionId)),
                 'check-answer': checkCurrentAnswer,
                 'next-question': () => closeModal(feedbackModal),
                 'get-hint': provideHint,
@@ -130,13 +135,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderGenesisPrompt() {
-        app.innerHTML = `<div class="question-container" style="text-align: center;"><h2 class="page-title"><i class="fa-solid fa-rocket"></i> Benvenuto in Vessiamoci!</h2><p style="font-size: 1.2rem; line-height: 1.6;">Prima di iniziare, facciamo un breve quiz di valutazione.</p><p>Questo ci aiuterà a capire il tuo livello di partenza e a creare un <strong>percorso di studi personalizzato</strong> solo per te. Sarà veloce e incredibilmente utile!</p><button class="daily-review-btn" data-action="start-lesson" data-mode="genesis" style="margin-top: 2rem;">Inizia il Quiz di Valutazione</button></div>`;
+        app.innerHTML = `<div class="question-container" style="text-align: center;"><h2 class="page-title"><i class="fa-solid fa-rocket"></i> Benvenuto in Vessiamoci!</h2><p style="font-size: 1.2rem; line-height: 1.6;">Prima di iniziare, facciamo un breve quiz di valutazione.</p><p>Questo ci aiuterà a capire il tuo livello di partenza e a creare un <strong>percorso di studi personalizzato</strong> solo per te. Sarà veloce e incredibilmente utile!</p><button class="daily-review-btn" data-action="start-genesis-quiz" style="margin-top: 2rem;">Inizia il Quiz di Valutazione</button></div>`;
     }
 
     function renderAdaptiveHub() {
-        const questionsDue = allQuestions.filter(q => { const stats = userProgress.questionStats[q.id]; return stats && stats.nextReview && new Date(stats.nextReview) <= new Date(); }).length;
+        const questionsDue = allQuestions.filter(q => { const stats = userProgress.questionStats[q.id]; return stats && stats.nextReview && new Date(stats.nextReview) <= new Date() && stats.strength < MASTERY_LEVEL; }).length;
         app.innerHTML = `<div class="skill-tree-container">
-            <button class="daily-review-btn" data-action="start-lesson" data-mode="adaptive"><i class="fa-solid fa-wand-magic-sparkles"></i> Inizia Sessione Adattiva</button>
+            <button class="daily-review-btn" data-action="start-adaptive-session"><i class="fa-solid fa-wand-magic-sparkles"></i> Inizia Sessione Adattiva</button>
             <button class="daily-review-btn ${questionsDue === 0 ? 'disabled' : ''}" data-action="start-daily-review" style="background-color: var(--purple-special);"><i class="fa-solid fa-calendar-check"></i> ${questionsDue > 0 ? `Ripasso Quotidiano (${questionsDue} carte)` : 'Nessun Ripasso in Sospeso'}</button>
             <h2 class="page-title" style="margin-top: 2rem;">Oppure, Scegli un Argomento Specifico</h2><div class="skill-row"></div></div>`;
         renderSkillTree(true);
@@ -151,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const masteredCount = Object.keys(userProgress.questionStats).filter(qId => allQuestions.find(q=>q.id==qId)?.macro_area === skill && userProgress.questionStats[qId].strength >= MASTERY_LEVEL).length;
             const totalInSkill = allQuestions.filter(q => q.macro_area === skill).length;
             const progress = totalInSkill > 0 ? (masteredCount / totalInSkill) : 0;
-            skillHtml += `<div class="skill-node level-${level}" data-action="start-lesson" data-mode="standard" data-skill="${skill}" title="Livello ${level} - Maestria ${Math.round(progress*100)}%"><div class="skill-icon-container"><svg viewBox="0 0 120 120"><circle class="progress-ring-bg" cx="60" cy="60" r="54" fill="transparent" stroke-width="8"></circle><circle class="progress-ring" cx="60" cy="60" r="54" fill="transparent" stroke-width="8" stroke-dasharray="${2*Math.PI*54}" stroke-dashoffset="${2*Math.PI*54*(1-progress)}"></circle></svg><i class="fa-solid ${skillIcons[skill]||"fa-question"} skill-icon"></i><div class="skill-level">${level}</div></div><h4>${skill.replace(" e Didattica VES","")}</h4></div>`;
+            skillHtml += `<div class="skill-node level-${level}" data-action="start-standard-lesson" data-skill="${skill}" title="Livello ${level} - Maestria ${Math.round(progress*100)}%"><div class="skill-icon-container"><svg viewBox="0 0 120 120"><circle class="progress-ring-bg" cx="60" cy="60" r="54" fill="transparent" stroke-width="8"></circle><circle class="progress-ring" cx="60" cy="60" r="54" fill="transparent" stroke-width="8" stroke-dasharray="${2*Math.PI*54}" stroke-dashoffset="${2*Math.PI*54*(1-progress)}"></circle></svg><i class="fa-solid ${skillIcons[skill]||"fa-question"} skill-icon"></i><div class="skill-level">${level}</div></div><h4>${skill.replace(" e Didattica VES","")}</h4></div>`;
         });
         const targetElement = isSubView ? app.querySelector('.skill-row') : app;
         targetElement.innerHTML = isSubView ? skillHtml : `<div class="skill-tree-container"><div class="skill-row">${skillHtml}</div></div>`;
@@ -161,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const areaStats = calculateAreaStats();
         const canReviewWeakest = areaStats.some(area => area.total > 5);
         const mistakenQuestionsCount = Object.keys(userProgress.questionStats).filter(qId => (userProgress.questionStats[qId]?.incorrect || 0) > 0).length;
-        app.innerHTML = `<h2 class="page-title">Modalità Allenamento</h2><div class="dashboard-container" style="gap: 1rem;"><a class="dashboard-button ${!canReviewWeakest ? 'disabled' : ''}" data-action="start-lesson" data-mode="weakest_link" style="background: linear-gradient(135deg, #dc3545, #a21b2b);"><i class="fa-solid fa-magnifying-glass-chart"></i><h3>RIPASSA I PUNTI DEBOLI</h3><p>${canReviewWeakest ? 'Lancia un quiz mirato sulla tua area più difficile.' : 'Completa più lezioni per sbloccare questa modalità.'}</p></a><a class="dashboard-button ${mistakenQuestionsCount === 0 ? 'disabled' : ''}" data-action="start-lesson" data-mode="mistakes" style="background: linear-gradient(135deg, #ffc107, #d39e00);"><i class="fa-solid fa-circle-exclamation"></i><h3>RIPASSA I TUOI ERRORI</h3><p>${mistakenQuestionsCount > 0 ? `Rifai le ${mistakenQuestionsCount} domande che hai sbagliato.` : 'Nessun errore da ripassare. Ottimo lavoro!'}</p></a><a class="dashboard-button" data-action="start-lesson" data-mode="quiz" data-skill="all" style="background: linear-gradient(135deg, #17a2b8, #117a8b);"><i class="fa-solid fa-list-check"></i><h3>QUIZ GENERALE</h3><p>Mettiti alla prova su tutte le categorie.</p></a></div>`;
+        app.innerHTML = `<h2 class="page-title">Modalità Allenamento</h2><div class="dashboard-container" style="gap: 1rem;"><a class="dashboard-button ${!canReviewWeakest ? 'disabled' : ''}" data-action="start-weakest-link-session" style="background: linear-gradient(135deg, #dc3545, #a21b2b);"><i class="fa-solid fa-magnifying-glass-chart"></i><h3>RIPASSA I PUNTI DEBOLI</h3><p>${canReviewWeakest ? 'Lancia un quiz mirato sulla tua area più difficile.' : 'Completa più lezioni per sbloccare questa modalità.'}</p></a><a class="dashboard-button ${mistakenQuestionsCount === 0 ? 'disabled' : ''}" data-action="start-mistakes-review" style="background: linear-gradient(135deg, #ffc107, #d39e00);"><i class="fa-solid fa-circle-exclamation"></i><h3>RIPASSA I TUOI ERRORI</h3><p>${mistakenQuestionsCount > 0 ? `Rifai le ${mistakenQuestionsCount} domande che hai sbagliato.` : 'Nessun errore da ripassare. Ottimo lavoro!'}</p></a><a class="dashboard-button" data-action="start-quiz-lesson" data-skill="all" style="background: linear-gradient(135deg, #17a2b8, #117a8b);"><i class="fa-solid fa-list-check"></i><h3>QUIZ GENERALE</h3><p>Mettiti alla prova su tutte le categorie.</p></a></div>`;
     }
     
     function calculateAreaStats(){const stats={};for(const[qId,stat]of Object.entries(userProgress.questionStats)){const q=allQuestions.find(item=>item.id==qId);if(!q)continue;const area=q.macro_area;if(!stats[area])stats[area]={correct:0,total:0,name:area,incorrect:0};stats[area].correct+=stat.correct||0;stats[area].incorrect+=stat.incorrect||0;stats[area].total+=(stat.correct||0)+(stat.incorrect||0)}return Object.values(stats).filter(a=>a.total>0).map(a=>({...a,accuracy:a.correct/a.total*100}))}
@@ -172,70 +177,64 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // PART 3 OF 3 START
 
-    // --- 6. CORE LESSON LOGIC: THE ADAPTIVE TUTOR ---
+    // --- 6. CORE LESSON LOGIC: MODULAR & DIRECT ---
 
-    /**
-     * RESTORED & CRITICAL: This function was missing, causing the crash.
-     * It gathers all questions due for review and starts a lesson with them.
-     */
-    function startDailyReview() {
-        const today = new Date().toISOString().split('T')[0];
-        const questionsDue = allQuestions
-            .filter(q => {
-                const stats = userProgress.questionStats[q.id];
-                return stats && stats.nextReview && new Date(stats.nextReview) <= new Date(today);
-            })
-            .sort((a, b) => new Date(userProgress.questionStats[a.id].nextReview) - new Date(userProgress.questionStats[b.id].nextReview));
-        
-        startLesson({ mode: 'daily_review', questions: questionsDue });
-    }
-
-    const questionPoolGenerators = {
-        genesis: () => {
-            const categories = [...new Set(allQuestions.map(q => q.macro_area))];
-            const pool = categories.flatMap(cat => allQuestions.filter(q => q.macro_area === cat).slice(0, 4));
-            return { pool: [...new Set(pool)].sort(() => 0.5 - Math.random()), title: "Quiz di Valutazione" };
-        },
-        adaptive: () => {
-            const stats = calculateAreaStats();
-            const weakest = stats.length > 0 ? [...stats].sort((a, b) => a.accuracy - b.accuracy)[0] : null;
-            const strongest = stats.length > 0 ? [...stats].sort((a, b) => b.accuracy - a.accuracy)[0] : null;
-            const newQs = allQuestions.filter(q => !userProgress.questionStats[q.id]).slice(0, 3);
-            const weakQs = weakest ? allQuestions.filter(q => q.macro_area === weakest.name && (userProgress.questionStats[q.id]?.strength || 0) < MASTERY_LEVEL).slice(0, 5) : [];
-            const strongQs = strongest ? allQuestions.filter(q => q.macro_area === strongest.name && (userProgress.questionStats[q.id]?.strength || 0) < MASTERY_LEVEL).slice(0, 2) : [];
-            const finalPool = [...newQs, ...weakQs, ...strongQs].length > 0 ? [...newQs, ...weakQs, ...strongQs] : allQuestions.slice(0, 10);
-            return { pool: [...new Set(finalPool)].sort(() => 0.5 - Math.random()), title: "Sessione Adattiva" };
-        },
-        weakest_link: () => {
-            const weakest = calculateAreaStats().sort((a, b) => a.accuracy - b.accuracy)[0];
-            const pool = weakest ? allQuestions.filter(q => q.macro_area === weakest.name) : [];
-            return { pool: pool.sort(() => 0.5 - Math.random()), title: `Focus: ${weakest?.name || 'Punti Deboli'}` };
-        },
-        quiz: (skill) => {
-            const pool = skill === 'all' ? allQuestions : allQuestions.filter(q => q.macro_area === skill);
-            return { pool: [...pool].sort(() => 0.5 - Math.random()), title: skill === 'all' ? 'Quiz Generale' : `Quiz: ${skill}` };
-        },
-        mistakes: () => {
-            const mistakenIds = Object.keys(userProgress.questionStats).filter(qId => userProgress.questionStats[qId]?.incorrect > 0);
-            return { pool: allQuestions.filter(q => mistakenIds.includes(q.id.toString())), title: "Revisione Errori" };
-        },
-        daily_review: (questions) => ({ pool: questions, title: "Ripasso Quotidiano" }),
-        standard: (skill) => ({ pool: allQuestions.filter(q => q.macro_area === skill && (userProgress.questionStats[q.id]?.strength || 0) < MASTERY_LEVEL), title: skill })
-    };
-
-    function startLesson({ mode, skill = null, questions = null }) {
-        const { pool, title } = questionPoolGenerators[mode](skill || questions);
-        const lessonLengths = { genesis: pool.length, adaptive: 10, weakest_link: 15, quiz: 20, mistakes: 15, daily_review: 15, standard: 10 };
-        const lessonLength = lessonLengths[mode] || 10;
-        
-        currentLesson = { questions: [...new Set(pool)].slice(0, lessonLength), currentIndex: 0, mode, lessonTitle: title, correctAnswers: 0, report: [] };
-        
+    function startLesson({ pool, title, mode, length }) {
+        currentLesson = { questions: [...new Set(pool)].slice(0, length), currentIndex: 0, mode, lessonTitle: title, correctAnswers: 0, report: [] };
         if (currentLesson.questions.length === 0) {
             showModal("Nessuna Domanda", "Non ci sono domande disponibili per questa selezione. Prova una categoria diversa o completa più lezioni!", feedbackModal);
             renderDashboard();
             return;
         }
         renderQuestion();
+    }
+
+    // --- Lesson Type Functions (called by the event listener) ---
+    function startGenesisQuiz() {
+        const categories = [...new Set(allQuestions.map(q => q.macro_area))];
+        const pool = categories.flatMap(cat => allQuestions.filter(q => q.macro_area === cat).slice(0, 4));
+        const finalPool = [...new Set(pool)].sort(() => 0.5 - Math.random());
+        startLesson({ pool: finalPool, title: "Quiz di Valutazione", mode: 'genesis', length: finalPool.length });
+    }
+    
+    function startAdaptiveSession() {
+        const stats = calculateAreaStats();
+        const weakest = stats.length > 0 ? stats.sort((a, b) => a.accuracy - b.accuracy)[0] : null;
+        const newQs = allQuestions.filter(q => !userProgress.questionStats[q.id]).slice(0, 4);
+        const weakQs = weakest ? allQuestions.filter(q => q.macro_area === weakest.name && (userProgress.questionStats[q.id]?.strength || 0) < MASTERY_LEVEL).slice(0, 6) : [];
+        const pool = [...newQs, ...weakQs].length > 0 ? [...newQs, ...weakQs] : allQuestions.slice(0, 10);
+        startLesson({ pool: [...new Set(pool)].sort(() => 0.5 - Math.random()), title: "Sessione Adattiva", mode: 'adaptive', length: 10 });
+    }
+
+    function startWeakestLinkSession() {
+        const weakest = calculateAreaStats().sort((a, b) => a.accuracy - b.accuracy)[0];
+        const pool = weakest ? allQuestions.filter(q => q.macro_area === weakest.name) : [];
+        startLesson({ pool: pool.sort(() => 0.5 - Math.random()), title: `Focus: ${weakest?.name || 'Punti Deboli'}`, mode: 'weakest_link', length: 15 });
+    }
+
+    function startQuizLesson(skill) {
+        const pool = skill === 'all' ? allQuestions : allQuestions.filter(q => q.macro_area === skill);
+        startLesson({ pool: [...pool].sort(() => 0.5 - Math.random()), title: skill === 'all' ? 'Quiz Generale' : `Quiz: ${skill}`, mode: 'quiz', length: 20 });
+    }
+    
+    function startMistakesReview() {
+        const mistakenIds = Object.keys(userProgress.questionStats).filter(qId => userProgress.questionStats[qId]?.incorrect > 0);
+        const pool = allQuestions.filter(q => mistakenIds.includes(q.id.toString()));
+        startLesson({ pool, title: "Revisione Errori", mode: 'mistakes', length: Math.min(pool.length, 15) });
+    }
+    
+    function startDailyReview() {
+        const today = new Date();
+        const pool = allQuestions.filter(q => {
+            const stats = userProgress.questionStats[q.id];
+            return stats && stats.nextReview && new Date(stats.nextReview) <= today && stats.strength < MASTERY_LEVEL;
+        }).sort((a, b) => new Date(userProgress.questionStats[a.id].nextReview) - new Date(userProgress.questionStats[b.id].nextReview));
+        startLesson({ pool, title: "Ripasso Quotidiano", mode: 'daily_review', length: Math.min(pool.length, 15), questions: pool });
+    }
+    
+    function startStandardLesson(skill) {
+        const pool = allQuestions.filter(q => q.macro_area === skill && (userProgress.questionStats[q.id]?.strength || 0) < MASTERY_LEVEL);
+        startLesson({ pool: pool.sort(() => 0.5 - Math.random()), title: skill, mode: 'standard', length: 10 });
     }
     
     // --- 7. QUESTION RENDERING & VALIDATION (The Flawless Core) ---
@@ -256,8 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 for (const area in areaScores) { const accuracy = areaScores[area].correct / areaScores[area].total; if (accuracy > 0.8) userProgress.skillLevels[area] = 2; else if (accuracy > 0.5) userProgress.skillLevels[area] = 1; else userProgress.skillLevels[area] = 0; }
                 userProgress.genesisQuizCompleted = true;
             }
-            saveProgress(); checkAchievements();
-            renderReport();
+            saveProgress(); checkAchievements(); renderReport();
             if (currentLesson.mode === 'genesis') {
                 const reportContainer = app.querySelector('.report-summary-card');
                 if (reportContainer) reportContainer.innerHTML += '<p>Ottimo lavoro! Il tuo percorso è stato calibrato. Clicca continua per iniziare la tua prima sessione adattiva.</p>';
@@ -281,4 +279,4 @@ document.addEventListener('DOMContentLoaded', () => {
     
     main();
 });
-// PART 3 OF 3 END```
+// PART 3 OF 3 END
