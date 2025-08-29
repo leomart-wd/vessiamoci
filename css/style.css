@@ -1,5 +1,5 @@
 /* --- Neuro-Aesthetics Design System --- */
-/* --- Architected with Perfection by Gemini (v20.0 - The Maestro Build) --- */
+/* --- Architected with Perfection by Gemini (v19.0 - The Phoenix Build) --- */
 
 :root {
     --blue-primary: #1cb0f6; --blue-dark: #1899d6;
@@ -52,6 +52,8 @@ header h1 { color: var(--blue-primary); font-weight: 800; cursor: pointer; font-
 .answer-options.disabled button:not(.selected) { opacity: 0.5; }
 .answer-options.correct .selected { border-color: var(--green-dark); background-color: var(--green-correct); color: var(--white); }
 .answer-options.incorrect .selected { border-color: var(--red-dark); background-color: var(--red-incorrect); color: var(--white); }
+textarea#open-answer-input { width: 100%; min-height: 120px; padding: 1rem; font-size: 1.1rem; font-family: var(--font-family); border: 2px solid var(--gray-light); border-bottom-width: 4px; border-radius: 1rem; box-sizing: border-box; resize: vertical; transition: border-color 0.2s; }
+textarea#open-answer-input:focus { border-color: var(--blue-primary); outline: none; }
 .lesson-footer{ margin-top: 2rem; display: flex; align-items: stretch; gap: 1rem; }
 #check-answer-btn { flex-grow: 1; background-color: var(--green-correct); color: var(--white); border: none; font-size: 1.2rem; font-weight: 800; border-radius: 1rem; cursor: pointer; border-bottom: 4px solid var(--green-dark); transition: all .15s ease; text-transform: uppercase; }
 #check-answer-btn:hover { filter: brightness(1.05); }
