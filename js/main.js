@@ -236,6 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderMasteryChart(){const history=userProgress.masteryHistory||{};const dates=Object.keys(history).sort((a,b)=>new Date(a)-new Date(b));const container=document.getElementById("mastery-chart-container");if(dates.length<2){container.innerHTML='<p style="text-align: center; padding: 2rem;">Padroneggia più domande in giorni diversi per vedere il grafico dei tuoi progressi.</p>';return}let c=0;const data=dates.map(date=>(c+=history[date],{x:date,y:c}));const ctx=document.getElementById("masteryChart").getContext("2d");if(myChart)myChart.destroy();myChart=new Chart(ctx,{type:"line",data:{datasets:[{label:"Domande Padroneggiate",data,borderColor:"var(--blue-primary)",tension:.2,fill:!0,backgroundColor:"rgba(0, 123, 255, 0.1)"}]},options:{scales:{x:{type:"time",time:{unit:"day",tooltipFormat:"dd MMM yyyy"}},y:{beginAtZero:!0,ticks:{precision:0}}},responsive:!0,maintainAspectRatio:!1}})}
 // PART 2 OF 3 END
 
+
 // PART 3 OF 3 START
 
     // --- 6. CORE LESSON LOGIC: MODULAR & DIRECT ---
