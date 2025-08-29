@@ -119,7 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // PART 1 OF 3 END
 
-
 // PART 2 OF 3 START
 
     // --- 5. VIEWS & DASHBOARDS RENDERING ---
